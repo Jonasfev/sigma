@@ -13,7 +13,7 @@
             <img src="../img/cadastro.png" alt="Cadastrar Recurso" width="100vw" class="mt-3">
             <p class="my-3">CADASTRAR RECURSO</p>
         </a>
-        <a href="editar.html" class="act d-flex m-4 p-3 flex-column align-items-center">
+        <a href="" class="act d-flex m-4 p-3 flex-column align-items-center">
             <img src="../img/editar.png" alt="Editar Recurso" width="100vw" class="mt-3">
             <p class="my-3">RECURSOS</p>
         </a>
@@ -21,7 +21,7 @@
             <img src="../img/gerenciamento.png" alt="Criar Horário" width="100vw" class="mt-3">
             <p class="my-3">CRIAR HORÁRIO</p>
         </a>
-        <a href="importar_exportar.html" class="act d-flex m-4 p-3 flex-column align-items-center">
+    <a href="{{Route('csv.admin')}}" class="act d-flex m-4 p-3 flex-column align-items-center">
             <img src="../img/transferencia-de-arquivo.png" alt="Importar e Exportar" width="100vw" class="mt-3">
             <p class="my-3">IMPORTAR / EXPORTAR</p>
         </a>

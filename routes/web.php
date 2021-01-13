@@ -31,3 +31,8 @@ Route::get('/turma', function() {
     return view('admin.recursos.turma');
 })->name('turma.admin');//->middleware('auth');
 
+Route::get('/csv', function() {
+    return view('admin.recursos.csv');
+})->name('csv.admin');//->middleware('auth');
+
+
