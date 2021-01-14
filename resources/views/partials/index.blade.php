@@ -9,14 +9,16 @@
 @section('content')
     <div class="pg-ctn bg-light d-flex flex-column align-items-center justify-content-around">
         <h1>Horário</h1>
-        <form action="#" class="w-25 d-flex align-items-center justify-content-center">
-            <input type="text" class="form-control">
-            <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
-                <img src="img/search.png" alt="pesquisar">
-            </button>
-        </form>
+        <div class="w-50">
+            <form action="#" class="d-flex align-items-center justify-content-center">
+                <input type="text" class="form-control">
+                <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+                    <img src="img/search.png" alt="pesquisar">
+                </button>
+            </form>
+        </div>
         <div class="class-ctn w-50 h-50 overflow-auto d-flex flex-column align-items-center">
-            <div class="class h-25 bg-light d-flex">
+            <div class="class row col-auto w-75 h-25 bg-light d-flex ">
                 <div class="class-code w-25 h-100 bg-secondary text-center fw-bold d-flex align-items-center justify-content-center">
                     3DTA
                 </div>
@@ -24,7 +26,7 @@
                     Técnico em desenvolvimento de sistemas
                 </div>
             </div>
-            <div class="class h-25 bg-light d-flex">
+            <div class="class row col-auto w-75 h-25 bg-light d-flex ">
                 <div class="class-code w-25 h-100 bg-secondary text-center fw-bold d-flex align-items-center justify-content-center">
                     3DTA
                 </div>
@@ -32,7 +34,7 @@
                     Técnico em desenvolvimento de sistemas
                 </div>
             </div>
-            <div class="class h-25 bg-light d-flex">
+            <div class="class row col-auto w-75 h-25 bg-light d-flex ">
                 <div class="class-code w-25 h-100 bg-secondary text-center fw-bold d-flex align-items-center justify-content-center">
                     3DTA
                 </div>
@@ -40,15 +42,7 @@
                     Técnico em desenvolvimento de sistemas
                 </div>
             </div>
-            <div class="class h-25 bg-light d-flex">
-                <div class="class-code w-25 h-100 bg-secondary text-center fw-bold d-flex align-items-center justify-content-center">
-                    3DTA
-                </div>
-                <div class="class-info h-100 d-flex align-items-center justify-content-center fw-bold">
-                    Técnico em desenvolvimento de sistemas
-                </div>
-            </div>
-            <div class="class h-25 bg-light d-flex">
+            <div class="class row col-auto w-75 h-25 bg-light d-flex ">
                 <div class="class-code w-25 h-100 bg-secondary text-center fw-bold d-flex align-items-center justify-content-center">
                     3DTA
                 </div>
