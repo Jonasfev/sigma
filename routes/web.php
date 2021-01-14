@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function() {
-    return view('login');
+    return view('partials.index');
 })->name('index');
 
 Route::get('/home', function() {
