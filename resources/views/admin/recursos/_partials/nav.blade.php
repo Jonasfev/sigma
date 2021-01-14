@@ -17,7 +17,7 @@
 <body class="d-flex flex-column">
     <nav class="navbar navbar-dark bg-dark d-flex">
     <a href="{{Route('home.admin')}}">
-        <img src="" alt="Logo do senai">
+        <img src="/img/logo-senai.png" alt="Logo do senai">
         </a>
         @yield('button')
     </nav>
