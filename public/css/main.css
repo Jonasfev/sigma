@@ -62,36 +62,24 @@ body {
     margin-top: 1.75rem;
 }
 
-.pg-ctn div .side-ctn div {
+.pg-ctn div .days .day .docente {
+    border-radius: .5rem;
+    border: 1px solid gray;
+}
+
+.side-ctn {
+    height: 25%;
+}
+
+.pg-ctn div .side div {
     border-radius: .25rem;
     background-color: rgb(220, 220, 220);
 }
 
-.pg-ctn div .side-ctn div .side-item {
+.pg-ctn div .side div .side-item {
     margin: .5rem;
     border-radius: .5rem;
     border: 1px solid gray;
-}
-
-.pg-ctn div .config-ctn .days .day .day-doc, .day-amb {
-    margin-top: 10px;
-    height: 1.75rem;
-    width: 47.5%;
-    border-radius: .5rem;
-    border: 1px solid gray;
-}
-
-.pg-ctn div .config-ctn .days .day div .turma-a {
-    border-radius: .5rem 0 0 .5rem;
-}
-
-.pg-ctn div .config-ctn .days .day div .turma-b {
-    border-radius: 0 .5rem .5rem 0;
-}
-
-.pg-ctn div .config-ctn .days .day div .turma-a, .turma-b {
-    border: 1px solid gray;
-    background-color: rgb(220, 220, 220);
 }
 
 .modal-content {
