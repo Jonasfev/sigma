@@ -62,10 +62,6 @@ body {
     margin-top: 1.75rem;
 }
 
-.pg-ctn div .side-ctn {
-    width: 13%;
-}
-
 .pg-ctn div .side-ctn div {
     border-radius: .25rem;
     background-color: rgb(220, 220, 220);
@@ -85,15 +81,15 @@ body {
     border: 1px solid gray;
 }
 
-.pg-ctn div .config-ctn .days .day .turma-a {
+.pg-ctn div .config-ctn .days .day div .turma-a {
     border-radius: .5rem 0 0 .5rem;
 }
 
-.pg-ctn div .config-ctn .days .day .turma-b {
+.pg-ctn div .config-ctn .days .day div .turma-b {
     border-radius: 0 .5rem .5rem 0;
 }
 
-.pg-ctn div .config-ctn .days .day .turma-a, .turma-b {
+.pg-ctn div .config-ctn .days .day div .turma-a, .turma-b {
     border: 1px solid gray;
     background-color: rgb(220, 220, 220);
 }

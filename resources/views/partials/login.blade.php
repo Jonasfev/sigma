@@ -56,7 +56,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form action= {{ Route('home.admin') }} class="d-flex flex-column justify-content-center">
+                    <form action= {{ Route('admin.home') }} class="d-flex flex-column justify-content-center">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Usuário</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="12345-6">
