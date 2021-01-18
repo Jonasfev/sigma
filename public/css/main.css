@@ -81,6 +81,15 @@ body {
     border: 1px solid gray;
 }
 
+
+.pg-ctn div .side div {
+    border: 1px solid gray;
+}
+.side-item {
+    border-radius: .5rem;
+    border: 1px solid gray;
+}
+
 .modal-content {
     margin: 0 auto;
     width: fit-content;

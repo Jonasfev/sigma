@@ -49,10 +49,10 @@
                 <div class="day w-18 d-flex flex-column">
                     <h4 class="text-center">Segunda</h4>
                     <div class="w-100 h-75 d-flex">
-                        <div class="w-50 h-100 turma-a"></div>
-                        <div class="w-50 h-100 turma-b"></div>
+                        <div class="w-50 h-100 turma-a d-flex flex-column align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                        <div class="w-50 h-100 turma-b d-flex flex-column align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
                     </div>
-                    <div class="w-100 p-2 d-flex align-items-center justify-content-around flex-fill">
+                    <div class="w-100 p-2 d-flex align-items-center justify-content-around flex-fill" >
                         <div class="col-5 bg-light docente text-center">Kge</div>
                         <div class="col-5 bg-light docente text-center">Kge</div>
                     </div>
@@ -64,8 +64,8 @@
                 <div class="day w-18 d-flex flex-column">
                     <h4 class="text-center">Terça</h4>
                     <div class="w-100 h-75 d-flex">
-                        <div class="w-50 h-100 turma-a"></div>
-                        <div class="w-50 h-100 turma-b"></div>
+                        <div class="w-50 h-100 turma-a d-flex flex-column align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                        <div class="w-50 h-100 turma-b d-flex flex-column align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
                     </div>
                     <div class="w-100 p-2 d-flex align-items-center justify-content-around flex-fill">
                         <div class="col-5 bg-light docente text-center">Kge</div>
@@ -79,8 +79,8 @@
                 <div class="day w-18 d-flex flex-column">
                     <h4 class="text-center">Quarta</h4>
                     <div class="w-100 h-75 d-flex">
-                        <div class="w-50 h-100 turma-a"></div>
-                        <div class="w-50 h-100 turma-b"></div>
+                        <div class="w-50 h-100 turma-a d-flex flex-column align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                        <div class="w-50 h-100 turma-b d-flex flex-column align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
                     </div>
                     <div class="w-100 p-2 d-flex align-items-center justify-content-around flex-fill">
                         <div class="col-5 bg-light docente text-center">Kge</div>
@@ -94,8 +94,8 @@
                 <div class="day w-18 d-flex flex-column">
                     <h4 class="text-center">Quinta</h4>
                     <div class="w-100 h-75 d-flex">
-                        <div class="w-50 h-100 turma-a"></div>
-                        <div class="w-50 h-100 turma-b"></div>
+                        <div class="w-50 h-100 turma-a d-flex flex-column align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                        <div class="w-50 h-100 turma-b d-flex flex-column align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
                     </div>
                     <div class="w-100 p-2 d-flex align-items-center justify-content-around flex-fill">
                         <div class="col-5 bg-light docente text-center">Kge</div>
@@ -109,8 +109,8 @@
                 <div class="day w-18 d-flex flex-column">
                     <h4 class="text-center">Sexta</h4>
                     <div class="w-100 h-75 d-flex">
-                        <div class="w-50 h-100 turma-a"></div>
-                        <div class="w-50 h-100 turma-b"></div>
+                        <div class="w-50 h-100 turma-a d-flex flex-column align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                        <div class="w-50 h-100 turma-b d-flex flex-column align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
                     </div>
                     <div class="w-100 p-2 d-flex align-items-center justify-content-around flex-fill">
                         <div class="col-5 bg-light docente text-center">Kge</div>
@@ -126,18 +126,18 @@
         <div class="side-ctn w-100 d-flex align-items-center justify-content-lg-around">
             <div class="side h-100 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">Docentes</h4>
-                <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-auto">
-                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay rounded-left rounded-lg">
+                        <div class="w-65 mt-2 side-item bg-white text-center" draggable="true" id='Doc-KGE' ondragstart="drag(event);">Kge</div>
+                        <div class="w-65 mt-2 side-item bg-white text-center" draggable="true" id='test1' ondragstart="drag(event); " data-toggle="tooltip" data-placement="bottom" title="Welligton Joffrey">Big Welder</div>
+                        <div class="w-65 mt-2 side-item bg-white text-center" draggable="true" id='test2' ondragstart="drag(event);">Marcio</div>
+                        <div class="w-65 mt-2 side-item bg-white text-center" draggable="true" id='test3' ondragstart="drag(event);">Tia da cantina</div>
+                        <div class="w-65 mt-2 side-item bg-white text-center" draggable="true" id='test4' ondragstart="drag(event);">Baratão do Paulo</div>
+                        <div class="w-65 mt-2 side-item bg-white text-center" draggable="true" id='test5' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="Gay">Breno</div>
+                    </div>
                 </div>
-            </div>
             <div class="side h-100 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">Ambientes</h4>
-                <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-auto">
+                <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                     <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
                     <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
                     <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
@@ -148,7 +148,7 @@
             </div>
             <div class="side h-100 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">Equipamentos</h4>
-                <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-auto">
+                <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                     <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
                     <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
                     <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
@@ -159,13 +159,13 @@
             </div>
             <div class="side h-100 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">UC's</h4>
-                <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-auto">
-                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true" id='uc'ondragstart="drag(event); " data-toggle="tooltip" data-placement="bottom" title="Fundamentos de Programação Orientada a Objetos">FPOO</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true" id='uc1'ondragstart="drag(event);">BDO</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true" id='uc2'ondragstart="drag(event);">PWBE</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true" id='uc3'ondragstart="drag(event);">INDMO</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true" id='uc4'ondragstart="drag(event);">FRESA</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true" id='uc5' ondragstart="drag(event);">BASQUETE</div>
                 </div>
             </div>
         </div>
