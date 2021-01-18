@@ -52,7 +52,11 @@
                         <div class="w-50 h-100 turma-a"></div>
                         <div class="w-50 h-100 turma-b"></div>
                     </div>
-                    <div class="w-100 d-flex align-items-center justify-content-around flex-fill">
+                    <div class="w-100 p-2 d-flex align-items-center justify-content-around flex-fill">
+                        <div class="col-5 bg-light docente text-center">Kge</div>
+                        <div class="col-5 bg-light docente text-center">Kge</div>
+                    </div>
+                    <div class="w-100 px-2 d-flex align-items-center justify-content-around flex-fill">
                         <div class="col-5 bg-light docente text-center">Kge</div>
                         <div class="col-5 bg-light docente text-center">Kge</div>
                     </div>
@@ -63,7 +67,11 @@
                         <div class="w-50 h-100 turma-a"></div>
                         <div class="w-50 h-100 turma-b"></div>
                     </div>
-                    <div class="w-100 d-flex align-items-center justify-content-around flex-fill">
+                    <div class="w-100 p-2 d-flex align-items-center justify-content-around flex-fill">
+                        <div class="col-5 bg-light docente text-center">Kge</div>
+                        <div class="col-5 bg-light docente text-center">Kge</div>
+                    </div>
+                    <div class="w-100 px-2 d-flex align-items-center justify-content-around flex-fill">
                         <div class="col-5 bg-light docente text-center">Kge</div>
                         <div class="col-5 bg-light docente text-center">Kge</div>
                     </div>
@@ -74,7 +82,11 @@
                         <div class="w-50 h-100 turma-a"></div>
                         <div class="w-50 h-100 turma-b"></div>
                     </div>
-                    <div class="w-100 d-flex align-items-center justify-content-around flex-fill">
+                    <div class="w-100 p-2 d-flex align-items-center justify-content-around flex-fill">
+                        <div class="col-5 bg-light docente text-center">Kge</div>
+                        <div class="col-5 bg-light docente text-center">Kge</div>
+                    </div>
+                    <div class="w-100 px-2 d-flex align-items-center justify-content-around flex-fill">
                         <div class="col-5 bg-light docente text-center">Kge</div>
                         <div class="col-5 bg-light docente text-center">Kge</div>
                     </div>
@@ -85,7 +97,11 @@
                         <div class="w-50 h-100 turma-a"></div>
                         <div class="w-50 h-100 turma-b"></div>
                     </div>
-                    <div class="w-100 d-flex align-items-center justify-content-around flex-fill">
+                    <div class="w-100 p-2 d-flex align-items-center justify-content-around flex-fill">
+                        <div class="col-5 bg-light docente text-center">Kge</div>
+                        <div class="col-5 bg-light docente text-center">Kge</div>
+                    </div>
+                    <div class="w-100 px-2 d-flex align-items-center justify-content-around flex-fill">
                         <div class="col-5 bg-light docente text-center">Kge</div>
                         <div class="col-5 bg-light docente text-center">Kge</div>
                     </div>
@@ -96,7 +112,11 @@
                         <div class="w-50 h-100 turma-a"></div>
                         <div class="w-50 h-100 turma-b"></div>
                     </div>
-                    <div class="w-100 d-flex align-items-center justify-content-around flex-fill">
+                    <div class="w-100 p-2 d-flex align-items-center justify-content-around flex-fill">
+                        <div class="col-5 bg-light docente text-center">Kge</div>
+                        <div class="col-5 bg-light docente text-center">Kge</div>
+                    </div>
+                    <div class="w-100 px-2 d-flex align-items-center justify-content-around flex-fill">
                         <div class="col-5 bg-light docente text-center">Kge</div>
                         <div class="col-5 bg-light docente text-center">Kge</div>
                     </div>
@@ -106,46 +126,46 @@
         <div class="side-ctn w-100 d-flex align-items-center justify-content-lg-around">
             <div class="side h-100 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">Docentes</h4>
-                <div class="w-100 h-75 d-flex flex-column align-items-center overflow-auto">
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
+                <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-auto">
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
                 </div>
             </div>
             <div class="side h-100 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">Ambientes</h4>
-                <div class="w-100 h-75 d-flex flex-column align-items-center overflow-auto">
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
+                <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-auto">
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
                 </div>
             </div>
             <div class="side h-100 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">Equipamentos</h4>
-                <div class="w-100 h-75 d-flex flex-column align-items-center overflow-auto">
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
+                <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-auto">
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
                 </div>
             </div>
             <div class="side h-100 w-18 d-flex flex-column align-items-center justify-content-center">
-                <h4 class="text-center">Uc's</h4>
-                <div class="w-100 h-75 d-flex flex-column align-items-center overflow-auto">
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
-                    <div class="w-45 side-item bg-white text-center" draggable="true">Kge</div>
+                <h4 class="text-center">UC's</h4>
+                <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-auto">
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
+                    <div class="w-65 mt-2 side-item bg-white text-center" draggable="true">Kge</div>
                 </div>
             </div>
         </div>
