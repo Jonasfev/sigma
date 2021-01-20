@@ -75,6 +75,47 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);" onclick="exclude(this);"></div>
+                            </div>
+                            <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
+                                <div class="dropup">
+                                    <div class="h-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="h-100 pb-2 ml-1 mt-1 d-flex flex-column align-items-center justify-content-around">
+                                            <img class="opacity-20" src="../img/docente.png" alt="">
+                                            <img class="opacity-20" src="../img/ambiente.png" alt="">
+                                            <img class="opacity-20" src="../img/equipamento.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-menu border border-secondary p-2 mb-1">
+                                        <div class="d-flex w-100">
+                                            <div class="flex-fill align-items-center">
+                                                <img class="mr-1" src="../img/docente.png" alt="docente">
+                                                Kleber Gelli
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <img src="../img/x.png" alt="" height="16px">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex w-100">
+                                            <div class="flex-fill align-items-center">
+                                                <img class="mr-1" src="../img/ambiente.png" alt="ambiente">
+                                                Lab-64
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <img src="../img/x.png" alt="" height="16px">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex w-100">
+                                            <div class="flex-fill align-items-center">
+                                                <img class="mr-1" src="../img/equipamento.png" alt="equipamento">
+                                                Datashow
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <img src="../img/x.png" alt="" height="16px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
@@ -116,48 +157,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            </div>
-                            <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
-                                <div class="dropup">
-                                    <div class="h-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <div class="h-100 pb-2 ml-1 mt-1 d-flex flex-column align-items-center justify-content-around">
-                                            <img class="opacity-20" src="../img/docente.png" alt="">
-                                            <img class="opacity-20" src="../img/ambiente.png" alt="">
-                                            <img class="opacity-20" src="../img/equipamento.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-menu border border-secondary p-2 mb-1">
-                                        <div class="d-flex w-100">
-                                            <div class="flex-fill align-items-center">
-                                                <img class="mr-1" src="../img/docente.png" alt="docente">
-                                                Kleber Gelli
-                                            </div>
-                                            <div class="d-flex align-items-center">
-                                                <img src="../img/x.png" alt="" height="16px">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex w-100">
-                                            <div class="flex-fill align-items-center">
-                                                <img class="mr-1" src="../img/ambiente.png" alt="ambiente">
-                                                Lab-64
-                                            </div>
-                                            <div class="d-flex align-items-center">
-                                                <img src="../img/x.png" alt="" height="16px">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex w-100">
-                                            <div class="flex-fill align-items-center">
-                                                <img class="mr-1" src="../img/equipamento.png" alt="equipamento">
-                                                Datashow
-                                            </div>
-                                            <div class="d-flex align-items-center">
-                                                <img src="../img/x.png" alt="" height="16px">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -198,7 +198,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                         </div>
                         <div class="turma-b w-50 h-100">
@@ -241,7 +241,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -282,7 +282,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -323,7 +323,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -364,7 +364,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                         </div>
                     </div>
@@ -412,7 +412,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -453,7 +453,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -494,7 +494,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -535,7 +535,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                         </div>
                         <div class="turma-b w-50 h-100">
@@ -578,7 +578,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -619,7 +619,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -660,7 +660,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -701,7 +701,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                         </div>
                     </div>
@@ -749,7 +749,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -790,7 +790,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -831,7 +831,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -872,7 +872,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                         </div>
                         <div class="turma-b w-50 h-100">
@@ -915,7 +915,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -956,7 +956,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -997,7 +997,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -1038,7 +1038,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                         </div>
                     </div>
@@ -1086,7 +1086,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -1127,7 +1127,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -1168,7 +1168,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -1209,7 +1209,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                         </div>
                         <div class="turma-b w-50 h-100">
@@ -1252,7 +1252,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -1293,7 +1293,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -1334,7 +1334,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -1375,7 +1375,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                         </div>
                     </div>
@@ -1423,7 +1423,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -1464,7 +1464,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -1505,7 +1505,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -1546,7 +1546,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                         </div>
                         <div class="turma-b w-50 h-100">
@@ -1589,7 +1589,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -1630,7 +1630,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-bottom border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -1671,7 +1671,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                             <div class="w-100 h-25 border-secondary d-flex justify-content-center">
                                 <div class="dropup">
@@ -1712,7 +1712,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                                <div class="h-100 flex-fill d-flex align-items-center justify-content-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                             </div>
                         </div>
                     </div>
@@ -1721,16 +1721,16 @@
                     <h4 class="text-center">Segunda</h4>
                     <div class="w-100 cont d-flex">
                         <div class="w-50 h-100 turma-a d-flex flex-column align-items-center">
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                         </div>
                         <div class="w-50 h-100 turma-b d-flex flex-column align-items-center">
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                         </div>
                     </div>
                     <div class="w-100 p-2 d-flex align-items-center justify-content-around">
@@ -1746,16 +1746,16 @@
                     <h4 class="text-center">Terça</h4>
                     <div class="w-100 cont d-flex">
                         <div class="w-50 h-100 turma-a d-flex flex-column align-items-center">
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                         </div>
                         <div class="w-50 h-100 turma-b d-flex flex-column align-items-center">
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                         </div>
                     </div>
                     <div class="w-100 p-2 d-flex align-items-center justify-content-around">
@@ -1771,16 +1771,16 @@
                     <h4 class="text-center">Quarta</h4>
                     <div class="w-100 cont d-flex">
                         <div class="w-50 h-100 turma-a d-flex flex-column align-items-center">
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                         </div>
                         <div class="w-50 h-100 turma-b d-flex flex-column align-items-center">
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                         </div>
                     </div>
                     <div class="w-100 p-2 d-flex align-items-center justify-content-around">
@@ -1796,16 +1796,16 @@
                     <h4 class="text-center">Quinta</h4>
                     <div class="w-100 cont d-flex">
                         <div class="w-50 h-100 turma-a d-flex flex-column align-items-center">
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                         </div>
                         <div class="w-50 h-100 turma-b d-flex flex-column align-items-center">
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                         </div>
                     </div>
                     <div class="w-100 p-2 d-flex align-items-center justify-content-around">
@@ -1821,16 +1821,16 @@
                     <h4 class="text-center">Sexta</h4>
                     <div class="w-100 cont d-flex">
                         <div class="w-50 h-100 turma-a d-flex flex-column align-items-center">
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                         </div>
                         <div class="w-50 h-100 turma-b d-flex flex-column align-items-center">
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
-                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
+                            <div class="bg-white w-100 h-25 my-1 border border-dark text-center align-items-center" ondragover="letsDrop(event);" ondrop="drop(event, this);" onclick="exclude(this);"></div>
                         </div>
                     </div>
                     <div class="w-100 p-2 d-flex align-items-center justify-content-around">
