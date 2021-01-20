@@ -22,14 +22,22 @@ Route::middleware([/*'auth'*/])->group(function() {
             return view('partials.cadastrar');
         })->name('cadastrar');
         
-        Route::get('/turma', function() {
-            return view('partials.turma');
-        })->name('turma');
+        Route::get('/turmaTec', function() {
+            return view('partials.turmaTec');
+        })->name('turmaTec');
+
+        Route::get('/turmaCai', function() {
+            return view('partials.turmaCai');
+        })->name('turmaCai');
         
         Route::get('/csv', function() {
             return view('partials.csv');
         })->name('csv');
     
+        Route::get('/opcaoHorario', function() {
+            return view('partials.opcaoHorario');
+        })->name('opcaoHorario');
+        
     });
 
 });

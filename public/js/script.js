@@ -1,31 +1,26 @@
 function drag(ev){
     ev.dataTransfer.setData('srcID', ev.target.id);
-    ev.dropEffect = "move";
 
 }
 
 function letsDrop(ev){
     ev.preventDefault();
-    ev.dataTransfer.dropEffect = "move";
 }
 
 function drop(ev, el){
     
-    if(ev.target.children.length < 4){
+    if(ev.target.children.length < 1){
         ev.preventDefault();
         var data = ev.dataTransfer.getData('srcID');
         var nodeCopy = document.getElementById(data).cloneNode(true);
-        nodeCopy.id = "newId";  
-        nodeCopy.setAttribute('onClick', 'exclude(this)');
+        nodeCopy.id = "newId";
         nodeCopy.removeAttribute('draggable');
-        el.appendChild(nodeCopy);
-    } else {
-        alert ("Limite alcançado, Breno Gay ");
+        el.innerHTML = nodeCopy.innerHTML;
     }
 }
 
 function exclude(el){
-    el.remove();
+    el.innerHTML = "";
 }
 
 $(function () {

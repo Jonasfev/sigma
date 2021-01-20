@@ -2,6 +2,10 @@ $theme-colors: (
     'primary': #F00
 );
 
+.w-15 {
+    width: 15%;
+}
+
 .w-18 {
     width: 18%
 }
@@ -18,12 +22,24 @@ $theme-colors: (
     width: 65%;
 }
 
+.h-20 {
+    height: 20%;
+}
+
 .h-30 {
     height: 30%;
 }
 
 .h-80 {
     height: 80%;
+}
+
+.day .container {
+    background-color: rgb(220, 220, 220);
+}
+
+.opacity-20 {
+    opacity: .2;
 }
 
 .overflow-overlay{

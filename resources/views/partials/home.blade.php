@@ -17,7 +17,7 @@
                 <img src="../img/editar.png" alt="Editar Recurso" width="100vw" class="mt-3">
                 <p class="my-3">RECURSOS</p>
             </a>
-            <a href="{{Route('admin.turma')}}" class="act d-flex m-4 p-3 flex-column align-items-center">
+            <a href="{{Route('admin.opcaoHorario')}}" class="act d-flex m-4 p-3 flex-column align-items-center">
                 <img src="../img/gerenciamento.png" alt="Criar Horário" width="100vw" class="mt-3">
                 <p class="my-3">CRIAR HORÁRIO</p>
             </a>

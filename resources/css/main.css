@@ -67,6 +67,27 @@ body {
     border: 1px solid gray;
 }
 
+.pg-ctn div .days .day .cont{
+    min-height: 20vh;
+    height: fit-content;
+}
+
+.pg-ctn div .days .day .cont .turma-a div .side-item{
+    border: #495057;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.pg-ctn div .days .day .cont .turma-b div .side-item{
+    border: #495057;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .side-ctn {
     height: 25%;
 }
@@ -79,6 +100,8 @@ body {
 .pg-ctn div .side div .side-item {
     border-radius: .5rem;
     border: 1px solid gray;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
 }
 
 

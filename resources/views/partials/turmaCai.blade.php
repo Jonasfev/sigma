@@ -10,21 +10,7 @@
 
     <div class="pg-ctn bg-light d-flex flex-column">
         <div class="config-ctn w-100 h-75 d-flex flex-lg-column align-items-center justify-content-around">
-            <h1 class="text-center m-2">Turmas</h1>
-            <form class="w-18 d-flex justify-content-around m-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            CAI
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            TEC
-                        </label>
-                    </div>
-            </form>
+            <h1 class="text-center m-2">Turma CAI</h1>
             <form class="w-25 d-flex justify-content-around m-2">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
@@ -170,7 +156,7 @@
             </div>
         </div>
         <div class="w-50 d-flex align-items-center justify-content-around mx-auto m-5">
-            <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.home')}}">VOLTAR</a>
+            <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.opcaoHorario')}}">VOLTAR</a>
             <button class="btn btn-primary col-5">SALVAR</button>
         </div>
     </div>
