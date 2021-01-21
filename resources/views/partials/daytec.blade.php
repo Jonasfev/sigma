@@ -1,96 +1,83 @@
 @extends('partials.turma')
+
+@section('cai/tec')
+    <h1 class="text-center m-2">Turma TEC</h1>
+@endsection
+
 @section('day')
         <div class="container w-100 d-flex flex-fill p-0 border border-secondary rounded-lg">
             <div class="turma-a border-right border-secondary w-50 h-100">
-                @for ($i = 0; $i < 4; $i++)
-                <div class="aula-{{$i+1}} w-100 h-25 @if($i < 3) border-bottom @endif border-secondary d-flex justify-content-center" ondrop="drop(ev, this);" ondragover="letsDrop(ev);">
+                @for ($i = 0; $i < 5; $i++)
+                <div class="aula-{{$i+1}} w-100 h-20 @if($i < 4) border-bottom @endif border-secondary d-flex justify-content-center" ondrop="drop(event, this);" ondragover="letsDrop(event);">
                     <div class="dropup">
-                        <div class="h-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="h-100 pb-2 ml-1 mt-1 d-flex flex-column align-items-center justify-content-around">
-                                <img class="opacity-20" src="img/docente.png" alt="">
-                                <img class="opacity-20" src="img/ambiente.png" alt="">
-                                <img class="opacity-20" src="img/equipamento.png" alt="">
+                        <div class="drop-ctn h-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="icons h-100 pb-2 ml-1 mt-1 d-flex flex-column align-items-center justify-content-around">
+                                <img class="icon doc opacity-20" src="img/docente.png" alt="" ondblclick="exclude(this);">
+                                <img class="icon amb opacity-20" src="img/ambiente.png" alt=""ondblclick="exclude(this);">
+                                <img class="icon eqp opacity-20" src="img/equipamento.png" alt=""ondblclick="exclude(this);">
                             </div>
                         </div>
                         <div class="dropdown-menu border border-secondary p-2 mb-1">
-                            <div class="d-flex w-100">
-                                <div class="flex-fill align-items-center">
+                            <div class="linha d-flex w-100">
+                                <div class="recurso doc d-flex flex-fill align-items-center">
                                     <img class="mr-1" src="img/docente.png" alt="docente">
-                                    Kleber Gelli
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <img src="img/x.png" alt="" height="16px">
+                                    <p class="m-0"></p>
                                 </div>
                             </div>
-                            <div class="d-flex w-100">
-                                <div class="flex-fill align-items-center">
+                            <div class="linha d-flex w-100">
+                                <div class="recurso amb d-flex flex-fill align-items-center">
                                     <img class="mr-1" src="img/ambiente.png" alt="ambiente">
-                                    Lab-64
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <img src="img/x.png" alt="" height="16px">
+                                    <p class="m-0"></p>
                                 </div>
                             </div>
-                            <div class="d-flex w-100">
-                                <div class="flex-fill align-items-center">
+                            <div class="linha eqp d-flex w-100">
+                                <div class="recurso eqp d-flex flex-fill align-items-center">
                                     <img class="mr-1" src="img/equipamento.png" alt="equipamento">
-                                    Datashow
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <img src="img/x.png" alt="" height="16px">
+                                    <p class="m-0"></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center my-auto flex-fill">
-                        UC
+                    <div class="uc h-100 d-flex align-items-center justify-content-center flex-fill text-center" ondblclick="exclude(this);">
+                        
                     </div>
                 </div>
                 @endfor
             </div>
-            <div class="turma-b w-50 h-100">
-                @for ($i = 0; $i < 4; $i++)
-                <div class="aula-{{$i+1}} w-100 h-25 @if($i < 3) border-bottom @endif border-secondary d-flex justify-content-center" ondrop="drop(ev, this);" ondragover="letsDrop(ev);">
+            <div class="turma-b border-secondary w-50 h-100">
+                @for ($i = 0; $i < 5; $i++)
+                <div class="aula-{{$i+1}} w-100 h-20 @if($i < 4) border-bottom @endif border-secondary d-flex justify-content-center" ondrop="drop(event, this);" ondragover="letsDrop(event);">
                     <div class="dropup">
-                        <div class="h-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="h-100 pb-2 ml-1 mt-1 d-flex flex-column align-items-center justify-content-around">
-                                <img class="opacity-20" src="img/docente.png" alt="">
-                                <img class="opacity-20" src="img/ambiente.png" alt="">
-                                <img class="opacity-20" src="img/equipamento.png" alt="">
+                        <div class="drop-ctn h-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="icons h-100 pb-2 ml-1 mt-1 d-flex flex-column align-items-center justify-content-around">
+                                <img class="icon doc opacity-20" src="img/docente.png" alt="" ondblclick="exclude(this);">
+                                <img class="icon amb opacity-20" src="img/ambiente.png" alt=""ondblclick="exclude(this);">
+                                <img class="icon eqp opacity-20" src="img/equipamento.png" alt=""ondblclick="exclude(this);">
                             </div>
                         </div>
                         <div class="dropdown-menu border border-secondary p-2 mb-1">
-                            <div class="d-flex w-100">
-                                <div class="flex-fill align-items-center">
+                            <div class="linha d-flex w-100">
+                                <div class="recurso doc d-flex flex-fill align-items-center">
                                     <img class="mr-1" src="img/docente.png" alt="docente">
-                                    Kleber Gelli
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <img src="img/x.png" alt="" height="16px">
+                                    <p class="m-0"></p>
                                 </div>
                             </div>
-                            <div class="d-flex w-100">
-                                <div class="flex-fill align-items-center">
+                            <div class="linha d-flex w-100">
+                                <div class="recurso amb d-flex flex-fill align-items-center">
                                     <img class="mr-1" src="img/ambiente.png" alt="ambiente">
-                                    Lab-64
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <img src="img/x.png" alt="" height="16px">
+                                    <p class="m-0"></p>
                                 </div>
                             </div>
-                            <div class="d-flex w-100">
-                                <div class="flex-fill align-items-center">
+                            <div class="linha eqp d-flex w-100">
+                                <div class="recurso eqp d-flex flex-fill align-items-center">
                                     <img class="mr-1" src="img/equipamento.png" alt="equipamento">
-                                    Datashow
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <img src="img/x.png" alt="" height="16px">
+                                    <p class="m-0"></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center my-auto flex-fill">
-                        UC
+                    <div class="uc h-100 d-flex align-items-center justify-content-center flex-fill text-center" ondblclick="exclude(this);">
+                        
                     </div>
                 </div>
                 @endfor
