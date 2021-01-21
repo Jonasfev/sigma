@@ -23,11 +23,11 @@ Route::middleware([/*'auth'*/])->group(function() {
         })->name('cadastrar');
         
         Route::get('/turmaTec', function() {
-            return view('partials.turmaTec');
+            return view('partials.daytec');
         })->name('turmaTec');
 
         Route::get('/turmaCai', function() {
-            return view('partials.turmaCai');
+            return view('partials.daycai');
         })->name('turmaCai');
         
         Route::get('/csv', function() {
