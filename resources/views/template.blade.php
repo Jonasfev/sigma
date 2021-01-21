@@ -14,7 +14,7 @@
     <title>SIGMA</title>
 </head>
 <body class="d-flex flex-column">
-    <nav class="navbar navbar-dark bg-dark d-flex">
+    <nav class="navbar navbar-dark bg-dark d-flex px-5">
     <a href="{{Route('admin.home')}}">
         <img src="/img/logo-senai.png" alt="Logo do senai" data-toggle="tooltip" data-placement="bottom" title="Home">
         </a>
