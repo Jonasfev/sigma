@@ -6,7 +6,10 @@ function letsDrop(ev){
     ev.preventDefault();
 }
 
+var node;
+
 function drop(ev, el){
+    var array = [];
     
     if(ev.target.children.length < 1){
         ev.preventDefault();
@@ -26,6 +29,10 @@ function drop(ev, el){
             $(el).children('.dropup').children('.drop-ctn').children('.icons').children('img.eqp').removeClass('opacity-20');
             $(el).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text(nodeCopy.innerHTML);
         }
+    }
+
+    if($(nodeCopy).hasClass('uc')){
+        console.log($(el).children('.uc').value());
     }
 }
 

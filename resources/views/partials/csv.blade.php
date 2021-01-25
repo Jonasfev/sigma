@@ -18,6 +18,8 @@
                 <p class="my-3">EXPORTAR</p>
             </a>
         </div>
-        <a type="button" class="btn btn-secondary m-lg-4" href="{{Route('admin.home')}}">VOLTAR</a>
+        <div class="w-50 d-flex align-items-center justify-content-around mx-auto m-5">
+            <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.home')}}">VOLTAR</a>
+        </div>
     </div>
 @endsection

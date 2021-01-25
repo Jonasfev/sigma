@@ -7,7 +7,13 @@
 
 @section('content')
 
-    <div class="pg-ctn h-75 bg-light d-flex flex-column">
+    <div class="pg-ctn h-100 bg-light d-flex flex-column">
+        {{-- <div class="bg bg-danger arrumado m-auto rounded d-flex justify-content-around">
+            <div class="w-100 ml-2">Errado</div>
+            <div type="button" class="close mr-2" aria-label="Close" onclick="close(this)">
+                <span aria-hidden="false">&times;</span>
+            </div>
+        </div> --}}
         <div class="config-ctn w-100 h-75 d-flex flex-lg-column align-items-center justify-content-around">
             @yield('cai/tec')
             <form class="w-25 d-flex justify-content-around m-2">
@@ -36,7 +42,7 @@
                         @case(0)
                             @php
                                 $day = "Seg";
-                             @endphp
+                            @endphp
                         @break
                         @case(1)
                             @php
