@@ -67,4 +67,14 @@ $theme-colors: (
     border-radius: 0 .25rem .25rem 0;
 }
 
+.msg-error{
+    height: fit-content;
+    width: 95vw;
+    position: absolute;
+    z-index: 1;
+    margin-left: 2%;
+    margin-right: 2%;
+    opacity: 0.9;
+}
+
 @import '~bootstrap/scss/bootstrap';
