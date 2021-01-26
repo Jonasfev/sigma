@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('button')
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login">
         LOGIN
     </button>
 @endsection
@@ -18,43 +18,28 @@
             </form>
         </div>
         <div class="class-ctn w-50 h-50 overflow-auto d-flex flex-column align-items-center">
-            <div class="class row col-auto w-75 h-25 bg-light d-flex ">
-                <div class="class-code w-25 h-100 bg-secondary text-center fw-bold d-flex align-items-center justify-content-center">
-                    3DTA
+            @php
+                $salas = ['1DTA#Desenvolvimento de sistemas', '2DTA#Desenvolvimento de sistemas', '3DTA#Desenvolvimento de sistemas', '4DTA#Desenvolvimento de sistemas', '5DTA#Desenvolvimento de sistemas'];
+            @endphp
+            @foreach ($salas as $sala)
+                <div class="class row col-auto w-75 h-25 bg-light d-flex"  data-bs-toggle="modal" data-bs-target="#horario">
+                    <div class="class-code w-25 h-100 bg-secondary text-center fw-bold d-flex align-items-center justify-content-center">
+                        @php
+                            $sala = explode('#', $sala);
+                        @endphp
+                        {{$sala[0]}}
+                    </div>
+                    <div class="class-info h-100 d-flex align-items-center justify-content-center fw-bold">
+                        {{$sala[1]}}
+                    </div>
                 </div>
-                <div class="class-info h-100 d-flex align-items-center justify-content-center fw-bold">
-                    Técnico em desenvolvimento de sistemas
-                </div>
-            </div>
-            <div class="class row col-auto w-75 h-25 bg-light d-flex ">
-                <div class="class-code w-25 h-100 bg-secondary text-center fw-bold d-flex align-items-center justify-content-center">
-                    3DTA
-                </div>
-                <div class="class-info h-100 d-flex align-items-center justify-content-center fw-bold">
-                    Técnico em desenvolvimento de sistemas
-                </div>
-            </div>
-            <div class="class row col-auto w-75 h-25 bg-light d-flex ">
-                <div class="class-code w-25 h-100 bg-secondary text-center fw-bold d-flex align-items-center justify-content-center">
-                    3DTA
-                </div>
-                <div class="class-info h-100 d-flex align-items-center justify-content-center fw-bold">
-                    Técnico em desenvolvimento de sistemas
-                </div>
-            </div>
-            <div class="class row col-auto w-75 h-25 bg-light d-flex ">
-                <div class="class-code w-25 h-100 bg-secondary text-center fw-bold d-flex align-items-center justify-content-center">
-                    3DTA
-                </div>
-                <div class="class-info h-100 d-flex align-items-center justify-content-center fw-bold">
-                    Técnico em desenvolvimento de sistemas
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content w-50">
                 <div class="modal-body">
                     <form action= {{ Route('admin.home') }} class="d-flex flex-column justify-content-center">
                         <div class="mb-3">
@@ -67,6 +52,15 @@
                         </div>
                         <button type="submit" class="btn btn-primary">LOGIN</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="horario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    Horário
                 </div>
             </div>
         </div>

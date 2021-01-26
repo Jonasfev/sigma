@@ -8,12 +8,11 @@
 @section('content')
     <div class="pg-ctn h-75 bg-light flex-column">
         <div class="bg-warning msg-error rounded justify-content-around" id = 'msg-btn-close' style="display: none">
-             <div type="button" class="close mr-2" aria-label="Close" onclick="errorMsg(1);">
+            <div type="button" class="close" aria-label="Close" onclick="errorMsg(1);">
                 <span aria-hidden="false">&times;</span>
             </div>
-            <div id="lista-error" class="px-2"></div>
-        </div>
-        
+            <div id="lista-error"></div>
+        </div>        
         <div class="config-ctn w-100 h-75 d-flex flex-lg-column align-items-center justify-content-around">
             @yield('cai/tec')
             <form class="w-25 d-flex justify-content-around m-2">
