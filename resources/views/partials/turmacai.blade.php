@@ -6,30 +6,23 @@
 @endsection
 
 @section('content')
-    <div class="pg-ctn h-75 bg-light flex-column">
-        <div class="bg-warning msg-error rounded justify-content-around" id = 'msg-btn-close' style="display: none">
-            <div type="button" class="close" aria-label="Close" onclick="errorMsg(1);">
-                <span aria-hidden="false">&times;</span>
-            </div>
-            <div id="lista-error"></div>
-        </div>        
+    <div class="pg-ctn h-75 bg-light flex-column">        
         <div class="config-ctn w-100 h-60 d-flex flex-lg-column align-items-center justify-content-around">
             <div class="w-100 d-flex justify-content-around align-items-center my-3">
                 <form class="d-flex justify-content-around ml-2">
-                    <select name="periodo" id="periodo" class="form-control" onchange="horario(this.value);">
+                    <select name="periodo" id="periodo" class="form-control" onchange="horario(this.value, 'cai');">
                         <option value="manha">Manhã</option>
                         <option value="tarde">Tarde</option>
-                        <option value="noite">Noite</option>
                     </select>
                 </form>
             </div>
-            @include('week')
+            @include('partials.weekcai')
         </div>
         <div class="side-ctn w-100 d-flex align-items-center justify-content-lg-around my-1">
             <div class="side h-80 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">Docentes</h4>
                     <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
-                        <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-1' ondragstart="drag(event);">Docente 1 alocado</div>
+                        <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-1' ondragstart="drag(event);">Docente 1</div>
                         <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-2' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom">Docente 2</div>
                         <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-3' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom">Docente 3</div>
                         <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-4' ondragstart="drag(event);">Docente 4</div>
@@ -76,5 +69,5 @@
             <button class="btn btn-primary col-5">SALVAR</button>
         </div>
     </div>
-    <script>horario('manha');</script>
+    <script>horario('manha', 'cai');</script>
 @endsection

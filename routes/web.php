@@ -27,7 +27,7 @@ Route::middleware([/*'auth'*/])->group(function() {
         })->name('turmaTec');
 
         Route::get('/turmaCai', function() {
-            return view('partials.daycai');
+            return view('partials.turmacai');
         })->name('turmaCai');
         
         Route::get('/csv', function() {
