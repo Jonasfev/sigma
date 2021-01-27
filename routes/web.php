@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CsvController;
+use App\Models\csv;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function() {
@@ -30,13 +32,18 @@ Route::middleware([/*'auth'*/])->group(function() {
             return view('partials.daycai');
         })->name('turmaCai');
         
-        Route::get('/csv', function() {
-            return view('partials.csv');
-        })->name('csv');
+        // Route::get('/csv', function() {
+        //     return view('partials.csv');
+        // })->name('csv');
     
         Route::get('/opcaoHorario', function() {
             return view('partials.opcaoHorario');
         })->name('opcaoHorario');
+        
+        Route::get('/csv', [CsvController::class, 'create'])->name('csv');
+        Route::post('/csv', [CsvController::class, 'store'])->name('csv.create');
+
+        Route::get('csv/export', [CsvController::class, 'export'])->name('csv.export');
         
     });
 

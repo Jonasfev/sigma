@@ -13,7 +13,12 @@
                 <img src="../img/importar.png" alt="Cadastrar Recurso" width="100vw" class="mt-3">
                 <p class="my-3">IMPORTAR</p>
             </a>
-            <a href="#" class="act d-flex w-25 flex-column align-items-center">
+            <form action="{{route('admin.csv.create')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <input type="file" name="csv" id ="file">
+                <button type="submit">Enviar</button>
+            </form>
+        <a href="{{route('admin.csv.export')}}" class="act d-flex w-25 flex-column align-items-center">
                 <img src="../img/exportar.png" alt="Editar Recurso" width="100vw" class="mt-3">
                 <p class="my-3">EXPORTAR</p>
             </a>
