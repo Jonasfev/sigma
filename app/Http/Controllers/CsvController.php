@@ -41,7 +41,7 @@ class CsvController extends Controller
 
             $file = file($request->file('csv')->getRealPath());
 
-            $data = array_slice($file, 1);
+            $data = array_slice($file, 0);
 
             $parts = (array_chunk($data, 5000));
 
@@ -63,7 +63,9 @@ class CsvController extends Controller
 
     public function export() 
     {
+
         return Excel::download(new CSVExport, 'brenoGay.csv');
+        
     }
 
     /**

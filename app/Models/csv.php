@@ -20,7 +20,6 @@ class csv extends Model
             
             $data = array_map('str_getcsv', file($file));
             
-
             foreach ($data as $str) {
                 $row = explode(";", $str[0]);
                 self::updateOrCreate([
