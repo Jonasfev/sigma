@@ -16,6 +16,7 @@ class Curso extends Migration
         Schema::create('Curso', function (Blueprint $table) {
             $table->id();
             $table->string('tipoCurso', 3);
+            $table->string('siglaCurso');
             $table->integer('aulasDia');
             $table->date('dataInicioCurso');
             $table->date('dataFimCurso');
@@ -31,6 +32,6 @@ class Curso extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('Curso');
     }
 }

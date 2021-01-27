@@ -31,6 +31,6 @@ class Turma extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('Turma');
     }
 }

@@ -29,6 +29,6 @@ class Equipamentos extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('equipamentos');
     }
 }

@@ -15,14 +15,27 @@ class Reserva extends Migration
     {
         Schema::create('Reserva', function (Blueprint $table) {
             $table->id();
-            $table->string('turmaSigla', 3);
-            $table->string('diaSemana', 3);
+
+            $table->string('turmaSigla');
+            $table->string('diaSemana', 10);
+
+            $table->string('periodo');
 
             $table->dateTime('horaInicio');
             $table->dateTime('horaFim');
 
-            $table->unsignedBigInteger('idRecurso');
-            $table->foreign('idRecurso')->references('id')->on('recurso');
+            $table->integer('aula');
+
+            $table->char('turma');
+
+            $table->unsignedBigInteger('idDocente');
+            $table->foreign('idDocente')->references('id')->on('docente');
+
+            $table->unsignedBigInteger('idAmbiente');
+            $table->foreign('idAmbiente')->references('id')->on('ambiente');
+
+            $table->unsignedBigInteger('idUc');
+            $table->foreign('idUc')->references('id')->on('unidadecurricular');
 
             $table->timestamps();
         });
@@ -35,6 +48,6 @@ class Reserva extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('Reserva');
     }
 }

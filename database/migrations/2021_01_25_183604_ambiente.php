@@ -30,6 +30,6 @@ class Ambiente extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('ambiente');
     }
 }

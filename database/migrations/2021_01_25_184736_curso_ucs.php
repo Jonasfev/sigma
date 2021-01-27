@@ -34,6 +34,6 @@ class CursoUcs extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('cursoUcs');
     }
 }

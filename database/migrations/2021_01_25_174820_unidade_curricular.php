@@ -13,7 +13,7 @@ class UnidadeCurricular extends Migration
      */
     public function up()
     {
-        Schema::create('UnidadeCurricular', function (Blueprint $table) {
+        Schema::create('unidadecurricular', function (Blueprint $table) {
             $table->id();
             $table->string('siglaUC', 5);
             $table->string('nomeUC', 120);
@@ -30,6 +30,6 @@ class UnidadeCurricular extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('unidadecurricular');
     }
 }
