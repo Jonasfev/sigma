@@ -1,14 +1,49 @@
-@extends('partials.turma')
-
-@section('cai/tec')
-    <h1 class="text-center m-2">Turma TEC</h1>
-@endsection
-
-@section('day')
+<div class="days h-100 w-100 d-flex justify-content-around">
+    <div class="h-ctn w-8 h-100 d-flex flex-column ml-1">
+        <h2 class="w-100 text-center">Aulas</h2>
+        <form class="aulas d-flex flex-column w-100 flex-fill">
+            @for ($i = 0; $i < 5; $i++)
+            <div id="ha-{{$i+1}}" class="h-20 w-100 d-flex flex-column align-items-center justify-content-center">
+                <div class="border border-secondary rounded-lg inicio text-center w-100">0</div>
+                <div class="border border-secondary rounded-lg fim text-center w-100 mt-1">0</div>
+            </div>
+            @endfor
+        </form>
+    </div>
+    @for ($j = 0; $j < 5; $j++)
+        @switch($j)
+            @case(0)
+                @php
+                    $day = "Seg";
+                 @endphp
+            @break
+            @case(1)
+                @php
+                $day = "Ter";
+                @endphp
+                @break
+            @case(2)
+                @php
+                    $day = "Qua";
+                @endphp
+                @break
+            @case(3)
+                @php
+                    $day = "Qui";
+                @endphp
+                @break
+            @case(4)
+                @php
+                    $day = "Sex";
+                @endphp
+                @break                            
+        @endswitch
+    <div class="day w-17 h-100 mx-auto d-flex flex-column" id="{{$day}}">
+        <h2 class="w-100 text-center">{{$day}}</h2>
         <div class="container w-100 d-flex flex-fill p-0 border border-secondary rounded-lg">
             <div class="turma-a border-right border-secondary w-50 h-100">
                 @for ($i = 0; $i < 5; $i++)
-                <div class="aula-{{$i+1}} w-100 h-20 @if($i < 4) border-bottom @endif border-secondary d-flex justify-content-center" ondrop="drop(event, this);" ondragover="letsDrop(event);">
+                <div id="aula-{{$j*10+$i+1}}" class="aula w-100 h-20 @if($i < 4) border-bottom @endif border-secondary d-flex justify-content-center" draggable="true" ondragstart="drag(event);" ondrop="drop(event, this);" ondragover="letsDrop(event);">
                     <div class="dropup">
                         <div class="drop-ctn h-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="icons h-100 pb-2 ml-1 mt-1 d-flex flex-column align-items-center justify-content-around">
@@ -46,7 +81,7 @@
             </div>
             <div class="turma-b border-secondary w-50 h-100">
                 @for ($i = 0; $i < 5; $i++)
-                <div class="aula-{{$i+1}} w-100 h-20 @if($i < 4) border-bottom @endif border-secondary d-flex justify-content-center" ondrop="drop(event, this);" ondragover="letsDrop(event);">
+                <div id="aula-{{$j*10+$i+6}}" class="aula w-100 h-20 @if($i < 4) border-bottom @endif border-secondary d-flex justify-content-center" draggable="true" ondragstart="drag(event);" ondrop="drop(event, this);" ondragover="letsDrop(event);">
                     <div class="dropup">
                         <div class="drop-ctn h-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="icons h-100 pb-2 ml-1 mt-1 d-flex flex-column align-items-center justify-content-around">
@@ -83,4 +118,6 @@
                 @endfor
             </div>
         </div>
-@endsection
+    </div>
+    @endfor
+</div>

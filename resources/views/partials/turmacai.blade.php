@@ -13,67 +13,20 @@
             </div>
             <div id="lista-error"></div>
         </div>        
-        <div class="config-ctn w-100 h-75 d-flex flex-lg-column align-items-center justify-content-around">
-            @yield('cai/tec')
-            <form class="w-25 d-flex justify-content-around m-2">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                        Manhã
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                        Tarde
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                        Noite
-                    </label>
-                </div>
-            </form>
-            
-            <div class="days h-65 w-100 d-flex justify-content-around">
-                @for ($i = 0; $i < 5; $i++)
-                    @switch($i)
-                        @case(0)
-                            @php
-                                $day = "Seg";
-                             @endphp
-                        @break
-                        @case(1)
-                            @php
-                            $day = "Ter";
-                            @endphp
-                            @break
-                        @case(2)
-                            @php
-                                $day = "Qua";
-                            @endphp
-                            @break
-                        @case(3)
-                            @php
-                                $day = "Qui";
-                            @endphp
-                            @break
-                        @case(4)
-                            @php
-                                $day = "Sex";
-                            @endphp
-                            @break                            
-                    @endswitch
-                <div class="day w-15 h-100 mx-auto d-flex flex-column" id="{{$day}}">
-                    <h2 class="w-100 text-center">{{$day}}</h2>
-                    @yield('day')
-                </div>
-                @endfor
+        <div class="config-ctn w-100 h-60 d-flex flex-lg-column align-items-center justify-content-around">
+            <div class="w-100 d-flex justify-content-around align-items-center my-3">
+                <form class="d-flex justify-content-around ml-2">
+                    <select name="periodo" id="periodo" class="form-control" onchange="horario(this.value);">
+                        <option value="manha">Manhã</option>
+                        <option value="tarde">Tarde</option>
+                        <option value="noite">Noite</option>
+                    </select>
+                </form>
             </div>
+            @include('week')
         </div>
-        <div class="side-ctn w-100 d-flex align-items-center justify-content-lg-around my-3">
-            <div class="side h-100 w-18 d-flex flex-column align-items-center justify-content-center">
+        <div class="side-ctn w-100 d-flex align-items-center justify-content-lg-around my-1">
+            <div class="side h-80 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">Docentes</h4>
                     <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                         <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-1' ondragstart="drag(event);">Docente 1 alocado</div>
@@ -84,7 +37,7 @@
                         <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-6' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom">Docente 6</div>
                     </div>
                 </div>
-            <div class="side h-100 w-18 d-flex flex-column align-items-center justify-content-center">
+            <div class="side h-80 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">Ambientes</h4>
                 <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                     <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-1' ondragstart="drag(event);">Ambiente 1</div>
@@ -95,7 +48,7 @@
                     <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-6' ondragstart="drag(event);">Ambiente 6</div>
                 </div>
             </div>
-            <div class="side h-100 w-18 d-flex flex-column align-items-center justify-content-center">
+            <div class="side h-80 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">Equipamentos</h4>
                 <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                     <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-1' ondragstart="drag(event);">Equipamento 1</div>
@@ -106,7 +59,7 @@
                     <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-6' ondragstart="drag(event);">Equipamento 6</div>
                 </div>
             </div>
-            <div class="side h-100 w-18 d-flex flex-column align-items-center justify-content-center">
+            <div class="side h-80 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">UC's</h4>
                 <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                     <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-1'ondragstart="drag(event); " data-toggle="tooltip" data-placement="bottom" title="Fundamentos de Programação Orientada a Objetos">UC 1</div>
@@ -123,4 +76,5 @@
             <button class="btn btn-primary col-5">SALVAR</button>
         </div>
     </div>
+    <script>horario('manha');</script>
 @endsection

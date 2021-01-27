@@ -23,7 +23,7 @@ Route::middleware([/*'auth'*/])->group(function() {
         })->name('cadastrar');
         
         Route::get('/turmaTec', function() {
-            return view('partials.daytec');
+            return view('partials.turmatec');
         })->name('turmaTec');
 
         Route::get('/turmaCai', function() {
