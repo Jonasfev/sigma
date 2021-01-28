@@ -22,45 +22,41 @@
             <div class="side h-80 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">Docentes</h4>
                     <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
-                        <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-1' ondragstart="drag(event);">Docente 1</div>
-                        <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-2' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom">Docente 2</div>
-                        <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-3' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom">Docente 3</div>
-                        <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-4' ondragstart="drag(event);">Docente 4</div>
-                        <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-5' ondragstart="drag(event);">Docente 5</div>
-                        <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-6' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom">Docente 6</div>
+                        <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-1' ondragstart="drag(event);">Kleber</div>
+                        <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-2' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom">Wellington</div>
+                        <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-3' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom">Paulo</div>
+                        <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-4' ondragstart="drag(event);">Airton</div>
+                        <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-5' ondragstart="drag(event);">Rogério</div>
                     </div>
                 </div>
             <div class="side h-80 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">Ambientes</h4>
                 <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
-                    <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-1' ondragstart="drag(event);">Ambiente 1</div>
-                    <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-2' ondragstart="drag(event);">Ambiente 2</div>
-                    <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-3' ondragstart="drag(event);">Ambiente 3</div>
-                    <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-4' ondragstart="drag(event);">Ambiente 4</div>
-                    <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-5' ondragstart="drag(event);">Ambiente 5</div>
-                    <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-6' ondragstart="drag(event);">Ambiente 6</div>
+                    <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-1' ondragstart="drag(event);">Lab 61</div>
+                    <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-2' ondragstart="drag(event);">Lab 62</div>
+                    <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-3' ondragstart="drag(event);">Lab 63</div>
+                    <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-4' ondragstart="drag(event);">Lab 64</div>
+                    <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-5' ondragstart="drag(event);">Lab 65</div>
                 </div>
             </div>
             <div class="side h-80 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">Equipamentos</h4>
                 <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
-                    <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-1' ondragstart="drag(event);">Equipamento 1</div>
-                    <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-2' ondragstart="drag(event);">Equipamento 2</div>
-                    <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-3' ondragstart="drag(event);">Equipamento 3</div>
-                    <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-4' ondragstart="drag(event);">Equipamento 4</div>
-                    <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-5' ondragstart="drag(event);">Equipamento 5</div>
-                    <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-6' ondragstart="drag(event);">Equipamento 6</div>
+                    <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-1' ondragstart="drag(event);">Projetor</div>
+                    <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-2' ondragstart="drag(event);">Extensão</div>
+                    <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-3' ondragstart="drag(event);">Furadeira</div>
+                    <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-4' ondragstart="drag(event);">Macaco</div>
+                    <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-5' ondragstart="drag(event);">Castanha</div>
                 </div>
             </div>
             <div class="side h-80 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">UC's</h4>
                 <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
-                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-1'ondragstart="drag(event); " data-toggle="tooltip" data-placement="bottom" title="Fundamentos de Programação Orientada a Objetos">UC 1</div>
-                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-2'ondragstart="drag(event);">UC 2</div>
-                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-3'ondragstart="drag(event);">UC 3</div>
-                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-4'ondragstart="drag(event);">UC 4</div>
-                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-5'ondragstart="drag(event);">UC 5</div>
-                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-6' ondragstart="drag(event);">UC 6</div>
+                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-1'ondragstart="drag(event); " data-toggle="tooltip" data-placement="bottom" title="Fundamentos de Programação Orientada a Objetos">FPOO</div>
+                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-2'ondragstart="drag(event);">INDMO</div>
+                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-3'ondragstart="drag(event);">PWFE</div>
+                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-4'ondragstart="drag(event);">PWBE</div>
+                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-5'ondragstart="drag(event);">BCD</div>
                 </div>
             </div>
         </div>

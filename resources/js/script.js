@@ -3,63 +3,63 @@ function horario(el, tipo) {
     if(tipo == 'tec') {
         switch (el) {
             case "manha":
-                $(horarios).children('#ha-1').children('.inicio').text('7:30h');
-                $(horarios).children('#ha-1').children('.fim').text('8:15h');
-                $(horarios).children('#ha-2').children('.inicio').text('8:15h');
-                $(horarios).children('#ha-2').children('.fim').text('9:00h');
-                $(horarios).children('#ha-3').children('.inicio').text('9:15h');
-                $(horarios).children('#ha-3').children('.fim').text('10:00h');
-                $(horarios).children('#ha-4').children('.inicio').text('10:00h');
-                $(horarios).children('#ha-4').children('.fim').text('10:45h');
-                $(horarios).children('#ha-5').children('.inicio').text('10:45h');
-                $(horarios).children('#ha-5').children('.fim').text('11:30h');
+                $(horarios).children('#ha-1').children('.inicio').attr('value', '07:30');
+                $(horarios).children('#ha-1').children('.fim').attr('value', '08:15');
+                $(horarios).children('#ha-2').children('.inicio').attr('value', '08:15');
+                $(horarios).children('#ha-2').children('.fim').attr('value', '09:00');
+                $(horarios).children('#ha-3').children('.inicio').attr('value', '09:15');
+                $(horarios).children('#ha-3').children('.fim').attr('value', '10:00');
+                $(horarios).children('#ha-4').children('.inicio').attr('value', '10:00');
+                $(horarios).children('#ha-4').children('.fim').attr('value', '10:45');
+                $(horarios).children('#ha-5').children('.inicio').attr('value', '10:45');
+                $(horarios).children('#ha-5').children('.fim').attr('value', '11:30');
                 break;
             case "tarde":
-                $(horarios).children('#ha-1').children('.inicio').text('13:30h');
-                $(horarios).children('#ha-1').children('.fim').text('14:15h');
-                $(horarios).children('#ha-2').children('.inicio').text('14:15');
-                $(horarios).children('#ha-2').children('.fim').text('15:00h');
-                $(horarios).children('#ha-3').children('.inicio').text('15:15h');
-                $(horarios).children('#ha-3').children('.fim').text('16:00h');
-                $(horarios).children('#ha-4').children('.inicio').text('16:00h');
-                $(horarios).children('#ha-4').children('.fim').text('16:45h');
-                $(horarios).children('#ha-5').children('.inicio').text('16:45h');
-                $(horarios).children('#ha-5').children('.fim').text('17:30h');
+                $(horarios).children('#ha-1').children('.inicio').attr('value', '13:30');
+                $(horarios).children('#ha-1').children('.fim').attr('value', '14:15');
+                $(horarios).children('#ha-2').children('.inicio').attr('value', '14:15');
+                $(horarios).children('#ha-2').children('.fim').attr('value', '15:00');
+                $(horarios).children('#ha-3').children('.inicio').attr('value', '15:15');
+                $(horarios).children('#ha-3').children('.fim').attr('value', '16:00');
+                $(horarios).children('#ha-4').children('.inicio').attr('value', '16:00');
+                $(horarios).children('#ha-4').children('.fim').attr('value', '16:45');
+                $(horarios).children('#ha-5').children('.inicio').attr('value', '16:45');
+                $(horarios).children('#ha-5').children('.fim').attr('value', '17:30');
                 break;
             case "noite":
-                $(horarios).children('#ha-1').children('.inicio').text('18:45h');
-                $(horarios).children('#ha-1').children('.fim').text('19:30h');
-                $(horarios).children('#ha-2').children('.inicio').text('19:30h');
-                $(horarios).children('#ha-2').children('.fim').text('20:15h');
-                $(horarios).children('#ha-3').children('.inicio').text('20:30h');
-                $(horarios).children('#ha-3').children('.fim').text('21:15h');
-                $(horarios).children('#ha-4').children('.inicio').text('21:15h');
-                $(horarios).children('#ha-4').children('.fim').text('22:00h');
-                $(horarios).children('#ha-5').children('.inicio').text('22:00h');
-                $(horarios).children('#ha-5').children('.fim').text('22:45h');
+                $(horarios).children('#ha-1').children('.inicio').attr('value', '18:45');
+                $(horarios).children('#ha-1').children('.fim').attr('value', '19:30');
+                $(horarios).children('#ha-2').children('.inicio').attr('value', '19:30');
+                $(horarios).children('#ha-2').children('.fim').attr('value', '20:15');
+                $(horarios).children('#ha-3').children('.inicio').attr('value', '20:30');
+                $(horarios).children('#ha-3').children('.fim').attr('value', '21:15');
+                $(horarios).children('#ha-4').children('.inicio').attr('value', '21:15');
+                $(horarios).children('#ha-4').children('.fim').attr('value', '22:00');
+                $(horarios).children('#ha-5').children('.inicio').attr('value', '22:00');
+                $(horarios).children('#ha-5').children('.fim').attr('value', '22:45');
                 break;
         }
     } else if (tipo = 'cai') {
         switch (el) {
             case "manha":
-                $(horarios).children('#ha-1').children('.inicio').text('7:30h');
-                $(horarios).children('#ha-1').children('.fim').text('8:25h');
-                $(horarios).children('#ha-2').children('.inicio').text('8:25h');
-                $(horarios).children('#ha-2').children('.fim').text('9:20h');
-                $(horarios).children('#ha-3').children('.inicio').text('9:40h');
-                $(horarios).children('#ha-3').children('.fim').text('10:35h');
-                $(horarios).children('#ha-4').children('.inicio').text('10:35h');
-                $(horarios).children('#ha-4').children('.fim').text('11:30h');
+                $(horarios).children('#ha-1').children('.inicio').attr('value', '07:30');
+                $(horarios).children('#ha-1').children('.fim').attr('value', '08:25');
+                $(horarios).children('#ha-2').children('.inicio').attr('value', '08:25');
+                $(horarios).children('#ha-2').children('.fim').attr('value', '09:20');
+                $(horarios).children('#ha-3').children('.inicio').attr('value', '09:40');
+                $(horarios).children('#ha-3').children('.fim').attr('value', '10:35');
+                $(horarios).children('#ha-4').children('.inicio').attr('value', '10:35');
+                $(horarios).children('#ha-4').children('.fim').attr('value', '11:30');
                 break;
             case "tarde":
-                $(horarios).children('#ha-1').children('.inicio').text('13:30h');
-                $(horarios).children('#ha-1').children('.fim').text('14:25h');
-                $(horarios).children('#ha-2').children('.inicio').text('14:25');
-                $(horarios).children('#ha-2').children('.fim').text('15:20h');
-                $(horarios).children('#ha-3').children('.inicio').text('15:40h');
-                $(horarios).children('#ha-3').children('.fim').text('16:35h');
-                $(horarios).children('#ha-4').children('.inicio').text('16:35h');
-                $(horarios).children('#ha-4').children('.fim').text('17:30h');
+                $(horarios).children('#ha-1').children('.inicio').attr('value', '13:30');
+                $(horarios).children('#ha-1').children('.fim').attr('value', '14:25');
+                $(horarios).children('#ha-2').children('.inicio').attr('value', '14:25');
+                $(horarios).children('#ha-2').children('.fim').attr('value', '15:20');
+                $(horarios).children('#ha-3').children('.inicio').attr('value', '15:40');
+                $(horarios).children('#ha-3').children('.fim').attr('value', '16:35');
+                $(horarios).children('#ha-4').children('.inicio').attr('value', '16:35');
+                $(horarios).children('#ha-4').children('.fim').attr('value', '17:30');
                 break;
         }
     }
@@ -81,15 +81,13 @@ function drop(ev, el){
     nodeCopy.id = "newId";
     nodeCopy.removeAttribute('draggable');
     if($(nodeCopy).hasClass('uc')) {
-        $(el).children('.uc').text(nodeCopy.innerHTML);
+        $(el).children('.uc').html(nodeCopy.innerHTML);
     } else if($(nodeCopy).hasClass('docente')) {
-        $(el).children('.dropup').children('.drop-ctn').children('.icons').children('img.doc').removeClass('opacity-20');
-        $(el).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.doc').children('p').text(nodeCopy.innerHTML);
+        $(el).children('.doc').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");    
     } else if($(nodeCopy).hasClass('ambiente')) {
-        $(el).children('.dropup').children('.drop-ctn').children('.icons').children('img.amb').removeClass('opacity-20');
-        $(el).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.amb').children('p').text(nodeCopy.innerHTML);
+        $(el).children('.dropup').children('.icon.amb').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");
     } else if($(nodeCopy).hasClass('equipamento')) {
-        $(el).children('.dropup').children('.drop-ctn').children('.icons').children('img.eqp').removeClass('opacity-20');
+        $(el).children('.dropup').children('.drop-ctn').children('.icon.eqp').children('img').removeClass('opacity-20');
         $(el).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text(nodeCopy.innerHTML);
     } else if($(nodeCopy).hasClass('aula')) {
         $(el).html($(nodeCopy).html());
@@ -99,16 +97,17 @@ function drop(ev, el){
 
 function exclude(el){
     if($(el).hasClass('icon')) {
-        $(el).addClass('opacity-20');
         if($(el).hasClass('doc')) {
-            el = $(el).parent().parent().next('.dropdown-menu').children('.linha').children('.recurso.doc').children('p');
+            $(el).html("<img class='p-1 opacity-20' src='img/docente.png' alt=''>");
         } else if($(el).hasClass('amb')) {
-            el = $(el).parent().parent().next('.dropdown-menu').children('.linha').children('.recurso.amb').children('p');
+            $(el).html("<img class='m-0 opacity-20' src='img/ambiente.png'>");
         } else if($(el).hasClass('eqp')) {
-            el = $(el).parent().parent().next('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p');
+            $(el).children('img').addClass('opacity-20');
+            $(el).parent().parent().children('.dropdown-menu').children('.linha').children('.recurso').children('p').text("");
+        } else if($(el).hasClass('uc')) {
+            $(el).html("<img src='img/uc.png' class='p-1 opacity-20'></img>");
         }
     }
-    $(el).html("");
 }
 
 $(function () {
