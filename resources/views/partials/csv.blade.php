@@ -18,6 +18,17 @@
                 <input type="file" name="csv" id ="file">
                 <button type="submit">Enviar</button>
             </form>
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                            
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         <a href="{{route('admin.csv.export')}}" class="act d-flex w-25 flex-column align-items-center">
                 <img src="../img/exportar.png" alt="Editar Recurso" width="100vw" class="mt-3">
                 <p class="my-3">EXPORTAR</p>

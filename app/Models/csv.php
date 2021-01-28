@@ -5,11 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use function GuzzleHttp\Promise\all;
+
 class csv extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
+
 
     public function importToDb(){
         $path = resource_path('arquivos_pendentes/*.csv');
@@ -19,9 +22,11 @@ class csv extends Model
         foreach (array_slice($g, 0, 1) as $file) {
             
             $data = array_map('str_getcsv', file($file));
+            self::truncate()->delete();
             
             foreach ($data as $str) {
                 $row = explode(";", $str[0]);
+                
                 self::updateOrCreate([
                     'curso'=>$row[0],
                     'periodo'=>$row[1],
