@@ -19,6 +19,10 @@ Route::middleware([/*'auth'*/])->group(function() {
         Route::get('/recursos', function() {
             return view('partials.recursos');
         })->name('recursos');
+
+        Route::get('/editar', function() {
+            return view('partials.editar');
+        })->name('editar');
         
         Route::get('/cadastro', function() {
             return view('partials.cadastrar');

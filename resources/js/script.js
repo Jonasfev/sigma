@@ -73,6 +73,8 @@ function letsDrop(ev){
     ev.preventDefault();
 }
 
+var node;
+
 function drop(ev, el){
    
     ev.preventDefault();
