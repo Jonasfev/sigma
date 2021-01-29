@@ -25,11 +25,11 @@ Route::middleware([/*'auth'*/])->group(function() {
         })->name('cadastrar');
         
         Route::get('/turmaTec', function() {
-            return view('partials.daytec');
+            return view('partials.turmatec');
         })->name('turmaTec');
 
         Route::get('/turmaCai', function() {
-            return view('partials.daycai');
+            return view('partials.turmacai');
         })->name('turmaCai');
         
         // Route::get('/csv', function() {
