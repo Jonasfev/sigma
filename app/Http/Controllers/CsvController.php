@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Exports\CSVExport;
+use App\Http\Requests\StoreCsvRequest;
 use App\Models\csv;
-use Illuminate\Auth\Events\Validated;
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator as FacadesValidator;
-use Illuminate\Validation\Validator as ValidationValidator;
+
 use Maatwebsite\Excel\Facades\Excel;
 
 class CsvController extends Controller
@@ -41,26 +39,31 @@ class CsvController extends Controller
      * @return \Illuminate\Http\Response
      * 
      */
-    public function store(Request $request){
+    public function store(StoreCsvRequest $request){
 
-        $request->validate([
-            'csv' => 'mimes:csv,txt',
-            'csv' => 'required'
-        ]);
+        $validated = $request->validated();
 
+        dd($validated);
 
         $file = file($request->file('csv')->getRealPath());
 
-        foreach ($file as $linhas){
+
+        if(strcmp($file[0], "sep=;".PHP_EOL)){
+            $data = array_slice($file, 1);
+        }
+        else{
+            $data = array_slice($file, 0);
+        }
+
+        foreach ($data as $linhas){
             $teste = explode(';', $linhas);
 
             if(sizeof($teste) != 8 ){
                 return redirect()->route('admin.csv')->withErrors('Error de arquivo!');
-                
             }
         }
 
-        $data = array_slice($file, 1);
+        
 
         $parts = (array_chunk($data, 5000));
 
@@ -80,12 +83,14 @@ class CsvController extends Controller
           
     }
 
-    public function export() 
+    public function export(Request $request) 
     {
+        $nomeArquivo = $request->input('fileName');
 
-        return Excel::download(new CSVExport, 'brenoGay.csv');
+        return Excel::download(new CSVExport, $nomeArquivo.".csv");
         
     }
+
 
     /**
      * Display the specified resource.

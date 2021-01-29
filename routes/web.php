@@ -43,7 +43,7 @@ Route::middleware([/*'auth'*/])->group(function() {
         Route::get('/csv', [CsvController::class, 'create'])->name('csv');
         Route::post('/csv', [CsvController::class, 'store'])->name('csv.create');
 
-        Route::get('csv/export', [CsvController::class, 'export'])->name('csv.export');
+        Route::post('csv/export', [CsvController::class, 'export'])->name('csv.export');
         
     });
 

@@ -65,6 +65,15 @@ function exclude(el){
     $(el).html("");
 }
 
+let input = document.querySelector('input');
+
+input.oninput = fileNameWrite;
+
+function fileNameWrite(){
+    document.getElementById('fileName').innerHTML = document.querySelector('input[type=file]').files[0].name;
+}
+
+
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
