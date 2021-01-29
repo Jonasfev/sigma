@@ -73,7 +73,7 @@
             </div>
             <div class="turma-b border-secondary w-50 h-100">
                 @for ($i = 0; $i < 4; $i++)
-                <div id="aula-{{$j*10+$i+1}}" class="aula w-100 h-25 @if($i < 3) border-bottom @endif border-secondary d-flex flex-column justify-content-center" draggable="true" ondragstart="drag(event);" ondrop="drop(event, this);" ondragover="letsDrop(event);">
+                <div id="aula-{{$j*10+$i+6}}" class="aula w-100 h-25 @if($i < 3) border-bottom @endif border-secondary d-flex flex-column justify-content-center" draggable="true" ondragstart="drag(event);" ondrop="drop(event, this);" ondragover="letsDrop(event);">
                     <div class="dropup w-100 px-1 d-flex justify-content-between align-items-center">
                         <div class="drop-ctn d-flex align-items-center justify-content-between" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="icon eqp" ondblclick="exclude(this);">
