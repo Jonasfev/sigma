@@ -18,6 +18,8 @@ Route::middleware([/*'auth'*/])->group(function() {
         })->name('home');
 
         Route::get('/recursos', [RecursoController::class, 'index'])->name('recursos');
+        
+        Route::get('/editar/deletar/{tipo?}/{id?}', [RecursoController::class, 'destroy'])->name('deletar');
 
         Route::get('/editar/{tipo?}/{id?}', [RecursoController::class, 'edit'])->name('editar');
 

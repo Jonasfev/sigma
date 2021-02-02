@@ -83,4 +83,39 @@ class RecursoController extends Controller
         return redirect()->Route('admin.recursos');
         
     }
+
+    public function destroy($tipo, $id){
+
+        
+        if($tipo == "docente"){
+
+            if(!$recurso = Docente::find($id)){
+                return redirect()->back();
+            }
+            
+
+        } else if ($tipo == "equipamento"){
+
+            
+            if(!$recurso = Equipamento::find($id)){
+              
+                return redirect()->back();
+            }
+                
+
+        } else if ($tipo == "ambiente"){
+
+            if(!$recurso = Ambiente::find($id)){
+                return redirect()->back();
+            }
+           
+        }
+
+       
+
+        $recurso->delete();
+
+        return redirect()->Route('admin.recursos');
+
+    }
 }

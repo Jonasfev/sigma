@@ -29,7 +29,7 @@
                                 <a href="{{route('admin.editar', ['tipo' => "docente",'id' => $docente->id])}}">
                                     <img src="../img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
-                                <a href="" data-bs-toggle="modal" data-bs-target="#exclude">
+                                <a href="{{route('admin.deletar', ['tipo' => "docente",'id' => $docente->id])}}">
                                     <img src="../img/excluir.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                             </div>
@@ -49,7 +49,7 @@
                             <a href="{{route('admin.editar', ['tipo' => "ambiente",'id' => $ambiente->id])}}">
                                 <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                             </a>
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exclude">
+                            <a href="{{route('admin.deletar', ['tipo' => "ambiente",'id' => $ambiente->id])}}" >
                                 <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
                             </a>
                         </div>
@@ -67,7 +67,7 @@
                                 <a href="{{route('admin.editar', ['tipo' => "equipamento",'id' => $item->id])}}">
                                     <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
-                                <a href="" data-bs-toggle="modal" data-bs-target="#exclude">
+                                <a href="{{route('admin.deletar', ['tipo' => "equipamento",'id' => $item->id])}}">
                                     <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                             </div>
