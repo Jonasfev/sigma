@@ -43,18 +43,19 @@ class CsvController extends Controller
 
         $validated = $request->validated();
 
-        dd($validated);
-
         $file = file($request->file('csv')->getRealPath());
-
 
         if(strcmp($file[0], "sep=;".PHP_EOL)){
             $data = array_slice($file, 1);
+
         }
         else{
             $data = array_slice($file, 0);
         }
 
+        if ($data == []){
+            return redirect()->route('admin.csv')->withErrors(["Arquivo CSV vazio! :´("]);  
+        }
         foreach ($data as $linhas){
             $teste = explode(';', $linhas);
 
@@ -76,6 +77,7 @@ class CsvController extends Controller
         session()->flash('status', 'queued for importing');
 
         (new csv())->importToDb();
+        
 
         Storage::delete($filename);
 

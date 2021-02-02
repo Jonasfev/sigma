@@ -114,7 +114,6 @@ function exclude(el){
 
 let input = document.querySelector('input');
 
-input.oninput = fileNameWrite;
 
 function fileNameWrite(){
     document.getElementById('fileName').innerHTML = document.querySelector('input[type=file]').files[0].name;
