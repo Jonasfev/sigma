@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CsvController;
+use App\Http\Controllers\RecursoController;
 use App\Models\csv;
 use Illuminate\Support\Facades\Route;
 
@@ -16,14 +17,12 @@ Route::middleware([/*'auth'*/])->group(function() {
             return view('partials.home');
         })->name('home');
 
-        Route::get('/recursos', function() {
-            return view('partials.recursos');
-        })->name('recursos');
+        Route::get('/recursos', [RecursoController::class, 'index'])->name('recursos');
 
-        Route::get('/editar', function() {
-            return view('partials.editar');
-        })->name('editar');
-        
+        Route::get('/editar/{tipo?}/{id?}', [RecursoController::class, 'edit'])->name('editar');
+
+        Route::put('/editar/{id?}', [RecursoController::class, 'update'])->name('update');
+       
         Route::get('/cadastro', function() {
             return view('partials.cadastrar');
         })->name('cadastrar');

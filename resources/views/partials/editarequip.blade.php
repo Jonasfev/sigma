@@ -13,28 +13,20 @@
         <div class="w-50 h-75 m-auto">
             <div class="tab-content overflow-auto" id="nav-tabContent">
               <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                <form action="{{Route('admin.update', ['id' => $recurso->id])}}" class="w-100 h-100 d-flex flex-column  justify-content-around" id = "formu" method="POST">
-                  @csrf
-                  @method("PUT")
+                <form action="{{Route('admin.update', ['id' => $recurso->id])}}" id="formu" class="w-100 h-100 d-flex flex-column  justify-content-around" method="POST">
+                    @csrf
+                    @method("PUT")
                   <div class="mb-3 mt-0">
                     <label for="" class="form-label text-uppercase">{{$tipo}}</label>
-                    <input type="text" value="{{$tipo}}" name="tipo" id="tipo" hidden>
+                    <input type="text" value="{{$tipo}}" id="tipo" name="tipo" hidden>
                   </div>
                   <div class="mb-3 mt-0">
-                  <label for="nome" class="form-label">Nome</label>
-                  <input type="text" class="form-control mt-0" name="nome" id="nome" value="{{$recurso->Nome}}">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control mt-0" id="nome" name= "Nome" value="{{$recurso->Nome}}">
                   </div>
                   <div class="mb-3 mt-0">
-                    <label for="Sobrenome" class="form-label">Sobrenome</label>
-                    <input type="text" class="form-control mt-0" name = "sobrenome" id="sobrenome" value="{{$recurso->Sobrenome}}">
-                  </div>
-                  <div class="mb-3 mt-0">
-                    <label for="Hmax" class="form-label">Horas Maximas</label>
-                    <input type="number" class="form-control mt-0 w-15" name="Hmax" id="Hmax" value="{{$recurso->hMax}}">
-                  </div>
-                  <div class="mb-3 mt-0">
-                    <label for="Hmin" class="form-label">Horas Minimas</label>
-                    <input type="number" class="form-control mt-0 w-15" id="Hmin" name="Hmin"value="{{$recurso->hMin}}">
+                    <label for="numPatrimonio" class="form-label">Numero do patrimonio</label>
+                    <input type="number" class="form-control mt-0" id="numPatrimonio" name="numPatrimonio" value="{{$recurso->numPatrimonio}}">
                   </div>
                   
                 </form>

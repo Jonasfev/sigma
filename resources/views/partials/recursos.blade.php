@@ -18,239 +18,76 @@
                 </div>
             </nav>
             <div class="h-75 tab-content overflow-auto" id="nav-tabContent">
-                <div class="tab-pane h-100 fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Kleber</h4>
-                            <p class="m-0">Kleber Gelli</p>
+                <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    @foreach ($docentes as $docente)
+                        <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
+                            <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                                <h4 class="m-0">{{$docente->Nome}} </h4>
+                            <p class="m-0">{{$docente->Nome}} {{$docente->Sobrenome}}</p>
+                            </div>
+                            <div class="d-flex fit align-items-center justify-content-around">
+                                <a href="{{route('admin.editar', ['tipo' => "docente",'id' => $docente->id])}}">
+                                    <img src="../img/editar.png" alt="editar" width="32px" class="mx-2">
+                                </a>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#exclude">
+                                    <img src="../img/excluir.png" alt="editar" width="32px" class="mx-2">
+                                </a>
+                            </div>
                         </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="{{Route('admin.editar')}}">
-                                <img src="../img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="{{Route('admin.editar')}}">
-                                <img src="../img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Kleber</h4>
-                            <p class="m-0">Kleber Gelli</p>
-                        </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="">
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Kleber</h4>
-                            <p class="m-0">Kleber Gelli</p>
-                        </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="">
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Kleber</h4>
-                            <p class="m-0">Kleber Gelli</p>
-                        </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="">
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Kleber</h4>
-                            <p class="m-0">Kleber Gelli</p>
-                        </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="">
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="tab-pane h-100 fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    @foreach ($ambientes as $ambiente)
+                        
                     <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                         <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Lab-64</h4>
-                            <p class="m-0">Laboratório de informática</p>
+                            <h4 class="m-0">Ambiente Nº {{$ambiente->numAmbiente}}</h4>
+                            <p class="m-0">{{$ambiente->Tipo}}</p>
                         </div>
                         <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
+                            <a href="{{route('admin.editar', ['tipo' => "ambiente",'id' => $ambiente->id])}}">
                                 <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                             </a>
-                            <a href="">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exclude">
                                 <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
                             </a>
                         </div>
                     </div>
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Lab-64</h4>
-                            <p class="m-0">Laboratório de informática</p>
-                        </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="">
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Lab-64</h4>
-                            <p class="m-0">Laboratório de informática</p>
-                        </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="">
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Lab-64</h4>
-                            <p class="m-0">Laboratório de informática</p>
-                        </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="">
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Lab-64</h4>
-                            <p class="m-0">Laboratório de informática</p>
-                        </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="">
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="tab-pane h-100 fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Cabeçote</h4>
-                            <p class="m-0">1321321321321</p>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    @foreach ($equip as $item)          
+                        <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
+                            <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                            <h4 class="m-0">{{$item->Nome}}</h4>
+                                <p class="m-0">{{$item->numPatrimonio}}</p>
+                            </div>
+                            <div class="d-flex fit align-items-center justify-content-around">
+                                <a href="{{route('admin.editar', ['tipo' => "equipamento",'id' => $item->id])}}">
+                                    <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
+                                </a>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#exclude">
+                                    <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
+                                </a>
+                            </div>
                         </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="">
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Cabeçote</h4>
-                            <p class="m-0">1321321321321</p>
-                        </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="">
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Cabeçote</h4>
-                            <p class="m-0">1321321321321</p>
-                        </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="">
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Cabeçote</h4>
-                            <p class="m-0">1321321321321</p>
-                        </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="">
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Cabeçote</h4>
-                            <p class="m-0">1321321321321</p>
-                        </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="">
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">Cabeçote</h4>
-                            <p class="m-0">1321321321321</p>
-                        </div>
-                        <div class="d-flex fit align-items-center justify-content-around">
-                            <a href="">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                            <a href="">
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="w-50 d-flex align-items-center justify-content-around mx-auto mt-5">
                 <a type="button" class="btn btn-secondary col-6" href="{{Route('admin.home')}}">VOLTAR</a>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exclude" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content w-50">
+                <div class="modal-body">
+                    <P>Realmente deseja excluir o recurso  xxxxx</P>
+                    <a href = "" type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" >Com certeza</a>
+                    <a type="submit" class="btn btn-secondary">Obviamente não</a>
+                </div>
             </div>
         </div>
     </div>
