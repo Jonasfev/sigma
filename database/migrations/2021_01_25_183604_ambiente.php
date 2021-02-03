@@ -13,7 +13,7 @@ class Ambiente extends Migration
      */
     public function up()
     {
-        Schema::create('ambiente', function (Blueprint $table) {
+        Schema::create('ambientes', function (Blueprint $table) {
             $table->id();
             $table->string('Tipo');
             $table->integer('numAmbiente');
