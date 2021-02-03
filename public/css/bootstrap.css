@@ -1,5 +1,17 @@
 @charset "UTF-8";
 
+.w-6 {
+  width: 6%;
+}
+
+.w-15 {
+  width: 15%;
+}
+
+.w-17 {
+  width: 17%;
+}
+
 .w-18 {
   width: 18%;
 }
@@ -8,30 +20,68 @@
   width: 45%;
 }
 
+.w-59 {
+  width: 59%;
+}
+
 .w-65 {
   width: 65%;
+}
+
+.h-20 {
+  height: 20%;
 }
 
 .h-30 {
   height: 30%;
 }
 
+.h-60 {
+  height: 60%;
+}
+
 .h-80 {
   height: 80%;
 }
 
-.turma-a,
-.turma-b {
-  border: 1px solid gray;
+.h-85 {
+  height: 80%;
+}
+
+.h-95 {
+  height: 95%;
+}
+
+.day .container {
   background-color: gainsboro;
 }
 
-.turma-a {
-  border-radius: 0.25rem 0 0 0.25rem;
+.opacity-20 {
+  opacity: 0.2;
 }
 
-.turma-b {
-  border-radius: 0 0.25rem 0.25rem 0;
+.overflow-overlay {
+  overflow: overlay !important;
+}
+
+.turma-a .side-item {
+  width: 82%;
+}
+
+.turma-b .side-item {
+  width: 82%;
+}
+
+.msg-error {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 95vw;
+  position: absolute;
+  z-index: 1;
+  margin-left: 2%;
+  margin-right: 2%;
+  opacity: 0.9;
 }
 
 /*!
