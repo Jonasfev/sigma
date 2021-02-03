@@ -84,6 +84,10 @@ class RecursoController extends Controller
         
     }
 
+    public function show($tipo, $id){
+        return "Tipo: {$tipo}, id: {$id}";
+    }
+
     public function destroy($tipo, $id){
 
         
