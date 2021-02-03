@@ -58,9 +58,7 @@ body {
     padding: 1.75rem 1.75rem;
 } 
 
-.pg-ctn div.tab-pane form * + * {
-    margin-top: 1.75rem;
-}
+
 
 .pg-ctn div .days .day .docente {
     border-radius: .5rem;

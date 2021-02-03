@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
 .w-6 {
-  width: 6%;
+  width: 6% !important;
 }
 
 .w-15 {
-  width: 15%;
+  width: 15% !important;
 }
 
 .w-17 {

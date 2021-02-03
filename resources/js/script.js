@@ -73,6 +73,8 @@ function letsDrop(ev){
     ev.preventDefault();
 }
 
+var node;
+
 function drop(ev, el){
    
     ev.preventDefault();
@@ -109,6 +111,14 @@ function exclude(el){
         }
     }
 }
+
+let input = document.querySelector('input');
+
+
+function fileNameWrite(){
+    document.getElementById('fileName').innerHTML = document.querySelector('input[type=file]').files[0].name;
+}
+
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()

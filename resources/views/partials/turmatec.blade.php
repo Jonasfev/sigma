@@ -53,11 +53,11 @@
             <div class="side h-80 w-18 d-flex flex-column align-items-center justify-content-center">
                 <h4 class="text-center">UC's</h4>
                 <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
-                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-1'ondragstart="drag(event); " data-toggle="tooltip" data-placement="bottom" title="Fundamentos de Programação Orientada a Objetos">FPOO</div>
-                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-2'ondragstart="drag(event);">INDMO</div>
-                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-3'ondragstart="drag(event);">PWFE</div>
-                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-4'ondragstart="drag(event);">PWBE</div>
-                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-5'ondragstart="drag(event);">BCD</div>
+                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-1'ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="Fundamentos de Programação Orientada a Objetos">FPOO</div>
+                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-2'ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="Interface de Dispositivos Mobile">INDMO</div>
+                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-3'ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="Programação Web Front-End">PWFE</div>
+                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-4'ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="Programação Web Back-End">PWBE</div>
+                    <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-5'ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="Banco de Dados">BCD</div>
                 </div>
             </div>
         </div>

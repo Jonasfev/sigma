@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CsvController;
+use App\Http\Controllers\RecursoController;
+use App\Models\csv;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function() {
@@ -14,10 +17,14 @@ Route::middleware([/*'auth'*/])->group(function() {
             return view('partials.home');
         })->name('home');
 
-        Route::get('/recursos', function() {
-            return view('partials.recursos');
-        })->name('recursos');
+        Route::get('/recursos', [RecursoController::class, 'index'])->name('recursos');
         
+        Route::get('/editar/deletar/{tipo?}/{id?}', [RecursoController::class, 'destroy'])->name('deletar');
+
+        Route::get('/editar/{tipo?}/{id?}', [RecursoController::class, 'edit'])->name('editar');
+
+        Route::put('/editar/{id?}', [RecursoController::class, 'update'])->name('update');
+       
         Route::get('/cadastro', function() {
             return view('partials.cadastrar');
         })->name('cadastrar');
@@ -30,13 +37,18 @@ Route::middleware([/*'auth'*/])->group(function() {
             return view('partials.turmacai');
         })->name('turmaCai');
         
-        Route::get('/csv', function() {
-            return view('partials.csv');
-        })->name('csv');
+        // Route::get('/csv', function() {
+        //     return view('partials.csv');
+        // })->name('csv');
     
         Route::get('/opcaoHorario', function() {
             return view('partials.opcaoHorario');
         })->name('opcaoHorario');
+        
+        Route::get('/csv', [CsvController::class, 'create'])->name('csv');
+        Route::post('/csv', [CsvController::class, 'store'])->name('csv.create');
+
+        Route::post('csv/export', [CsvController::class, 'export'])->name('csv.export');
         
     });
 
