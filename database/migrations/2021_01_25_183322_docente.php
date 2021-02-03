@@ -31,6 +31,6 @@ class Docente extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Docente');
+        Schema::dropIfExists('Docentes');
     }
 }

@@ -29,10 +29,10 @@ class Reserva extends Migration
             $table->char('turma');
 
             $table->unsignedBigInteger('idDocente');
-            $table->foreign('idDocente')->references('id')->on('docente');
+            $table->foreign('idDocente')->references('id')->on('docentes');
 
             $table->unsignedBigInteger('idAmbiente');
-            $table->foreign('idAmbiente')->references('id')->on('ambiente');
+            $table->foreign('idAmbiente')->references('id')->on('ambientes');
 
             $table->unsignedBigInteger('idUc');
             $table->foreign('idUc')->references('id')->on('unidadecurricular');

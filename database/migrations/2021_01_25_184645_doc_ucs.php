@@ -17,7 +17,7 @@ class DocUcs extends Migration
             $table->id();
 
             $table->unsignedBigInteger('docente');
-            $table->foreign('docente')->references('id')->on('docente');
+            $table->foreign('docente')->references('id')->on('docentes');
             
             
             $table->unsignedBigInteger('ucComportada');
