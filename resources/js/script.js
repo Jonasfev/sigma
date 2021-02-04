@@ -123,3 +123,25 @@ function fileNameWrite(){
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
+
+
+function modalExclude(recursoId, recursoNome, recursoSobrenome, recursoTipo){
+
+    if(recursoTipo == "docente"){
+        document.getElementById("msgExcludeDoc").innerHTML = " Tem certeza que deseja excluir o docente <strong>"+ recursoNome+ " " + recursoSobrenome +"</strong>?";
+
+        $("#btnExcludeDoc").attr("href","http://app-laravel.test/editar/deletar/"+recursoTipo+"/"+recursoId);
+
+    } else if(recursoTipo == "ambiente"){
+        document.getElementById("msgExcludeAmb").innerHTML = 
+        "Tem certeza que deseja excluir o ambiente <strong>"+ recursoNome + "-" + recursoSobrenome + "</strong>?";
+        $("#btnExcludeAmb").attr("href","http://app-laravel.test/editar/deletar/"+recursoTipo+"/"+recursoId);
+        
+    } else if(recursoTipo == "equip"){
+        document.getElementById("msgExcludeEqp").innerHTML = 
+        "Tem certeza que deseja excluir o equipamento <strong>" + recursoNome + " - " + recursoSobrenome +"</strong>?";
+        $("#btnExcludeEqp").attr("href","http://app-laravel.test/editar/deletar/"+recursoTipo+"/"+recursoId);
+
+    }
+
+}

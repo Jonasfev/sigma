@@ -29,7 +29,7 @@
                                 <a href="{{route('admin.editar', ['tipo' => "docente",'id' => $docente->id])}}">
                                     <img src="../img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#excludeDoc">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#excludeDoc" onclick="modalExclude({{$docente->id}}, '{{$docente->Nome}}', '{{$docente->Sobrenome}}', 'docente');">
                                     <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
                                 </a>
                             </div>
@@ -50,7 +50,7 @@
                             <a href="{{route('admin.editar', ['tipo' => "ambiente",'id' => $ambiente->id])}}">
                                 <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                             </a>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#excludeAmb">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#excludeAmb"  onclick="modalExclude({{$ambiente->id}}, '{{$ambiente->Tipo}}', '{{$ambiente->numAmbiente}}', 'ambiente')";>
                                 <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
                             </a>
                         </div>
@@ -68,7 +68,7 @@
                                 <a href="{{route('admin.editar', ['tipo' => "equipamento",'id' => $item->id])}}">
                                     <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#excludeEqui">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#excludeEqui"  onclick="modalExclude({{$item->id}}, '{{$item->Nome}}', '{{$item->numPatrimonio}}', 'equip');"> 
                                     <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
                                 </a>
                             </div>
@@ -88,16 +88,17 @@
                 <div class="modal-header text-uppercase">
                     Excluir
                 </div>
-                <div class="modal-body text-center">
-                    Tem certeza que deseja excluir o docente <strong>{{$docente->Nome}} {{$docente->Sobrenome}}</strong>?
+                <div class="modal-body text-center" id="msgExcludeDoc">
+                    
                 </div>
                 <div class="d-flex justify-content-center">
                     <button type="button" class="btn btn-secondary mx-auto mb-2 col-4" data-bs-dismiss="modal">Não</button>
-                    <a type="button" class="btn btn-primary mx-auto mb-2 col-4" href="{{route('admin.deletar', ['tipo' => "docente",'id' => $docente->id])}}">Sim</a>
+                    <a type="button" id="btnExcludeDoc" class="btn btn-primary mx-auto mb-2 col-4">Sim</a>
                 </div>
             </div>
         </div>
     </div>
+
 
     <div class="modal fade" id="excludeAmb" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -105,12 +106,12 @@
                 <div class="modal-header text-uppercase">
                     Excluir
                 </div>
-                <div class="modal-body text-center">
-                    Tem certeza que deseja excluir o ambiente <strong>{{$ambiente->Tipo}} - {{$ambiente->numAmbiente}}</strong>?
+                <div class="modal-body text-center" id="msgExcludeAmb">
+                   
                 </div>
                 <div class="d-flex justify-content-center">
                     <button type="button" class="btn btn-secondary mx-auto mb-2 col-4" data-bs-dismiss="modal">Não</button>
-                    <a type="button" class="btn btn-primary mx-auto mb-2 col-4" href="{{route('admin.deletar', ['tipo' => "ambiente",'id' => $ambiente->id])}}">Sim</a>
+                    <a type="button" id="btnExcludeAmb" class="btn btn-primary mx-auto mb-2 col-4" >Sim</a>
                 </div>
             </div>
         </div>
@@ -122,12 +123,12 @@
                 <div class="modal-header text-uppercase">
                     Excluir
                 </div>
-                <div class="modal-body text-center">
-                    Tem certeza que deseja excluir o equipamento <strong>{{$item->Nome}} - {{$item->numPatrimonio}}</strong>?
+                <div class="modal-body text-center" id="msgExcludeEqp">
+                    
                 </div>
                 <div class="d-flex justify-content-center">
                     <button type="button" class="btn btn-secondary mx-auto mb-2 col-4" data-bs-dismiss="modal">Não</button>
-                    <a type="button" class="btn btn-primary mx-auto mb-2 col-4" href="{{route('admin.deletar', ['tipo' => "equipamento",'id' => $item->id])}}">Sim</a>
+                    <a type="button" id="btnExcludeEquip" class="btn btn-primary mx-auto mb-2 col-4">Sim</a>
                 </div>
             </div>
         </div>
