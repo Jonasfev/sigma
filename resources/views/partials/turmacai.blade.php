@@ -8,14 +8,6 @@
 @section('content')
     <div class="pg-ctn h-75 bg-light flex-column">        
         <div class="config-ctn w-100 h-60 d-flex flex-lg-column align-items-center justify-content-around">
-            <div class="w-100 d-flex justify-content-around align-items-center my-3">
-                <form class="d-flex justify-content-around ml-2">
-                    <select name="periodo" id="periodo" class="form-control" onchange="horario(this.value, 'cai');">
-                        <option value="manha">Manhã</option>
-                        <option value="tarde">Tarde</option>
-                    </select>
-                </form>
-            </div>
             @include('partials.weekcai')
         </div>
         <div class="side-ctn w-100 d-flex align-items-center justify-content-lg-around my-1">
