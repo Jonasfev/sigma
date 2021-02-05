@@ -16,7 +16,7 @@ class CSVExport implements FromCollection, WithHeadings, WithMapping, ShouldAuto
     
     */
     public function headings(): array{
-        return ['curso','periodo','diaSemana', 'aula', 'turma', 'uc', 'docente', 'ambiente'];
+        return ['versao', 'curso','periodo','diaSemana', 'aula', 'turma', 'uc', 'docente', 'ambiente'];
     }
 
 
@@ -29,6 +29,7 @@ class CSVExport implements FromCollection, WithHeadings, WithMapping, ShouldAuto
     public function map($csv): array
     {
         return [
+            $csv->versao,
             $csv->curso,
             $csv->periodo,
             $csv->diaSemana,
