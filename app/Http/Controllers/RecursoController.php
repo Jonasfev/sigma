@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCsvRequest;
 use App\Models\Ambiente;
+use App\Models\Curso;
 use App\Models\Docente;
 use App\Models\Equipamento;
+use App\Models\Turma;
+use App\Models\Uc;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 
@@ -20,7 +23,39 @@ class RecursoController extends Controller
 
         $ambientes = Ambiente::get();
 
-        return view('partials.recursos', compact(['docentes', 'equip', 'ambientes']));
+        $ucs = Uc::get();
+
+        $cursos = Curso::get();
+
+        $turmas = Turma::get();
+
+        return view('partials.recursos', compact(['docentes', 'equip', 'ambientes', 'ucs', 'cursos', 'turmas']));
+    }
+
+    public function tecindex(){
+
+        $docentes = Docente::get();
+
+        $equips = Equipamento::get();
+
+        $ambientes = Ambiente::get();
+
+        $ucs = Uc::get();
+
+        return view('partials.turmatec', compact(['docentes', 'equips', 'ambientes', 'ucs']));
+    }
+
+    public function caiindex(){
+
+        $docentes = Docente::get();
+
+        $equips = Equipamento::get();
+
+        $ambientes = Ambiente::get();
+
+        $ucs = Uc::get();
+
+        return view('partials.turmacai', compact(['docentes', 'equips', 'ambientes', 'ucs']));
     }
 
     public function edit($tipo, $id){

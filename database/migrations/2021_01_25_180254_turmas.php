@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Turma extends Migration
+class Turmas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class Turma extends Migration
      */
     public function up()
     {
-        Schema::create('Turma', function (Blueprint $table) {
+        Schema::create('turmas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('idCurso');
+            $table->foreign('idCurso')->references('id')->on('cursos');
             $table->string('siglaTurma', 5);
             $table->string('periodo', 5);
             $table->dateTime('horaEntrada');
@@ -31,6 +33,6 @@ class Turma extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Turma');
+        Schema::dropIfExists('turmas');
     }
 }

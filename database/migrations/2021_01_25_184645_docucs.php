@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Ambiente extends Migration
+class Docucs extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class Ambiente extends Migration
      */
     public function up()
     {
-        Schema::create('ambiente', function (Blueprint $table) {
+        Schema::create('docucs', function (Blueprint $table) {
             $table->id();
-            $table->string('Tipo');
-            $table->integer('numAmbiente');
-            $table->integer('alunosComportados');
- 
+
+            $table->unsignedBigInteger('docente');
+            $table->foreign('docente')->references('id')->on('docentes');
+            
+            
+            $table->unsignedBigInteger('ucComportada');
+            $table->foreign('ucComportada')->references('id')->on('ucs');
+
             $table->timestamps();
         });
     }
@@ -30,6 +34,6 @@ class Ambiente extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ambiente');
+        Schema::dropIfExists('docucs');
     }
 }
