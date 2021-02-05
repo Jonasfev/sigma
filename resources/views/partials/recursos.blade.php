@@ -12,13 +12,16 @@
         <div class="bd-example bd-example-tabs w-50 h-45 flex-fill mt-5">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active show" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Docentes</a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Ambientes</a>
-                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Equipamentos</a>
+                <a class="nav-item nav-link active show" id="nav-doc-tab" data-toggle="tab" href="#nav-doc" role="tab" aria-controls="nav-doc" aria-selected="true">Docentes</a>
+                <a class="nav-item nav-link" id="nav-amb-tab" data-toggle="tab" href="#nav-amb" role="tab" aria-controls="nav-amb" aria-selected="false">Ambientes</a>
+                <a class="nav-item nav-link" id="nav-eqp-tab" data-toggle="tab" href="#nav-eqp" role="tab" aria-controls="nav-eqp" aria-selected="false">Equipamentos</a>
+                <a class="nav-item nav-link" id="nav-uc-tab" data-toggle="tab" href="#nav-uc" role="tab" aria-controls="nav-uc" aria-selected="false">UC</a>
+                <a class="nav-item nav-link" id="nav-curso-tab" data-toggle="tab" href="#nav-curso" role="tab" aria-controls="nav-curso" aria-selected="false">Curso</a>
+                <a class="nav-item nav-link" id="nav-turma-tab" data-toggle="tab" href="#nav-turma" role="tab" aria-controls="nav-turma" aria-selected="false">Turma</a>
                 </div>
             </nav>
             <div class="h-75 tab-content overflow-auto" id="nav-tabContent">
-                <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="tab-pane fade active show" id="nav-doc" role="tabpanel" aria-labelledby="nav-doc-tab">
                     @foreach ($docentes as $docente)
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill">
@@ -37,7 +40,7 @@
                     @endforeach
                 </div>
                 
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="tab-pane fade" id="nav-amb" role="tabpanel" aria-labelledby="nav-amb-tab">
                     @foreach ($ambientes as $ambiente)
                         
                     <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
@@ -56,7 +59,7 @@
                     </div>
                     @endforeach
                 </div>
-                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="tab-pane fade" id="nav-eqp" role="tabpanel" aria-labelledby="nav-eqp-tab">
                     @foreach ($equip as $item)          
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill">
@@ -68,6 +71,60 @@
                                     <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                                 <a href="{{route('admin.deletar', ['tipo' => "equipamento",'id' => $item->id])}}">
+                                    <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="tab-pane fade" id="nav-uc" role="tabpanel" aria-labelledby="nav-uc-tab">
+                    @foreach ($ucs as $uc)          
+                        <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
+                            <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                            <h4 class="m-0">{{$uc->siglaUC}}</h4>
+                                <p class="m-0">{{$uc->nomeUC}}</p>
+                            </div>
+                            <div class="d-flex fit align-items-center justify-content-around">
+                                <a href="{{route('admin.editar', ['tipo' => "uc",'id' => $uc->id])}}">
+                                    <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
+                                </a>
+                                <a href="{{route('admin.deletar', ['tipo' => "uc",'id' => $uc->id])}}">
+                                    <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="tab-pane fade" id="nav-curso" role="tabpanel" aria-labelledby="nav-curso-tab">
+                    @foreach ($cursos as $curso)          
+                        <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
+                            <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                            <h4 class="m-0">{{$curso->siglaCurso}}</h4>
+                                <p class="m-0">{{$curso->nomeCurso}}</p>
+                            </div>
+                            <div class="d-flex fit align-items-center justify-content-around">
+                                <a href="{{route('admin.editar', ['tipo' => "curso",'id' => $curso->id])}}">
+                                    <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
+                                </a>
+                                <a href="{{route('admin.deletar', ['tipo' => "curso",'id' => $curso->id])}}">
+                                    <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="tab-pane fade" id="nav-turma" role="tabpanel" aria-labelledby="nav-turma-tab">
+                    @foreach ($turmas as $turma)          
+                        <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
+                            <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                            <h4 class="m-0">{{$turma->siglaTurma}}</h4>
+                                <p class="m-0">curso da turma</p>
+                            </div>
+                            <div class="d-flex fit align-items-center justify-content-around">
+                                <a href="{{route('admin.editar', ['tipo' => "turma",'id' => $turma->id])}}">
+                                    <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
+                                </a>
+                                <a href="{{route('admin.deletar', ['tipo' => "turma",'id' => $turma->id])}}">
                                     <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                             </div>

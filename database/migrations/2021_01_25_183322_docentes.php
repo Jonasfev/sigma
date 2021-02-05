@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Ambiente extends Migration
+class Docentes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class Ambiente extends Migration
      */
     public function up()
     {
-        Schema::create('ambientes', function (Blueprint $table) {
+        Schema::create('docentes', function (Blueprint $table) {
             $table->id();
-            $table->string('Tipo');
-            $table->integer('numAmbiente');
-            $table->integer('alunosComportados');
+            $table->string('Nome', 100);
+            $table->string('Sobrenome', 50);
+            $table->double('hMax', 7, 2);
+            $table->double('hMin', 7, 2);
  
             $table->timestamps();
         });
@@ -30,6 +31,6 @@ class Ambiente extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ambiente');
+        Schema::dropIfExists('docentes');
     }
 }

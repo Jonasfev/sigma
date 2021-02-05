@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CsvController;
 use App\Http\Controllers\RecursoController;
+use App\Http\Controllers\CadastroController;
 use App\Models\csv;
 use Illuminate\Support\Facades\Route;
 
@@ -24,22 +25,12 @@ Route::middleware([/*'auth'*/])->group(function() {
         Route::get('/editar/{tipo?}/{id?}', [RecursoController::class, 'edit'])->name('editar');
 
         Route::put('/editar/{id?}', [RecursoController::class, 'update'])->name('update');
-       
-        Route::get('/cadastro', function() {
-            return view('partials.cadastrar');
-        })->name('cadastrar');
-        
-        Route::get('/turmaTec', function() {
-            return view('partials.turmatec');
-        })->name('turmaTec');
 
-        Route::get('/turmaCai', function() {
-            return view('partials.turmacai');
-        })->name('turmaCai');
+        Route::get('/cadastro', [CadastroController::class, 'index'])->name('cadastrar');
         
-        // Route::get('/csv', function() {
-        //     return view('partials.csv');
-        // })->name('csv');
+        Route::get('/turmaTec', [RecursoController::class, 'tecindex'])->name('turmaTec');
+
+        Route::get('/turmaCai', [RecursoController::class, 'caiindex'])->name('turmaCai');
     
         Route::get('/opcaoHorario', function() {
             return view('partials.opcaoHorario');
