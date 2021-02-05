@@ -26,7 +26,7 @@ Route::middleware([/*'auth'*/])->group(function() {
 
         Route::put('/editar/{id?}', [RecursoController::class, 'update'])->name('update');
 
-        Route::get('/cadastro', [CadastroController::class, 'index'])->name('cadastrar');
+        Route::get('/cadastrar/{tipo}', [RecursoController::class, 'create'])->name('cadastrar');   
         
         Route::get('/turmaTec', [RecursoController::class, 'tecindex'])->name('turmaTec');
 

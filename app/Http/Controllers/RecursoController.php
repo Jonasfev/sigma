@@ -58,6 +58,48 @@ class RecursoController extends Controller
         return view('partials.turmacai', compact(['docentes', 'equips', 'ambientes', 'ucs']));
     }
 
+    public function create($tipo) {
+        
+        $ucs = Uc::get();
+        $cursos = Curso::get();
+
+        switch($tipo) {
+            case 'docente':
+                $v = 'partials.cadastrardocente';
+                $params = 'ucs';
+                break;
+            case 'ambiente':
+                $v = 'partials.cadastrarambiente';
+                $params = 'ucs';
+                break;
+            case 'equipamento':
+                $v = 'partials.cadastrarequipamento';
+                $params = '';
+                break;
+            case 'uc':
+                $v = 'partials.cadastraruc';
+                $params = '';
+                break;
+            case 'curso':
+                $v = 'partials.cadastrarcurso';
+                $params = 'ucs';
+                break;
+            case 'turma':
+                $v = 'partials.cadastrarturma';
+                $params = 'cursos';
+                break;
+        }
+
+        if($params == '') {
+            $r = view($v);
+        } else {
+            $r = view($v, compact([$params]));
+        }
+
+        return $r;
+
+    }
+
     public function edit($tipo, $id){
 
         if($tipo == "docente"){

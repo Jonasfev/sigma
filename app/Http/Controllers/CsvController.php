@@ -42,7 +42,6 @@ class CsvController extends Controller
     public function store(StoreCsvRequest $request){
 
         $validated = $request->validated();
-
         $file = file($request->file('csv')->getRealPath());
 
         if(strcmp($file[0], "sep=;".PHP_EOL)){

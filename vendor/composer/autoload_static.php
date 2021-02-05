@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit06d22f9a86de21ddaaf8fac36b6c07fe
+class ComposerStaticInitbbbe716a245549430f477164d437ab61
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -611,6 +611,7 @@ class ComposerStaticInit06d22f9a86de21ddaaf8fac36b6c07fe
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Exports\\CSVExport' => __DIR__ . '/../..' . '/app/Exports/CSVExport.php',
+        'App\\Http\\Controllers\\CadastroController' => __DIR__ . '/../..' . '/app/Http/Controllers/CadastroController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CsvController' => __DIR__ . '/../..' . '/app/Http/Controllers/CsvController.php',
         'App\\Http\\Controllers\\RecursoController' => __DIR__ . '/../..' . '/app/Http/Controllers/RecursoController.php',
@@ -625,9 +626,12 @@ class ComposerStaticInit06d22f9a86de21ddaaf8fac36b6c07fe
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\StoreCsvRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreCsvRequest.php',
         'App\\Models\\Ambiente' => __DIR__ . '/../..' . '/app/Models/Ambiente.php',
+        'App\\Models\\Curso' => __DIR__ . '/../..' . '/app/Models/Curso.php',
         'App\\Models\\Docente' => __DIR__ . '/../..' . '/app/Models/Docente.php',
         'App\\Models\\Equipamento' => __DIR__ . '/../..' . '/app/Models/Equipamento.php',
         'App\\Models\\Recurso' => __DIR__ . '/../..' . '/app/Models/Recurso.php',
+        'App\\Models\\Turma' => __DIR__ . '/../..' . '/app/Models/Turma.php',
+        'App\\Models\\Uc' => __DIR__ . '/../..' . '/app/Models/Uc.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\csv' => __DIR__ . '/../..' . '/app/Models/csv.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -5885,10 +5889,10 @@ class ComposerStaticInit06d22f9a86de21ddaaf8fac36b6c07fe
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit06d22f9a86de21ddaaf8fac36b6c07fe::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit06d22f9a86de21ddaaf8fac36b6c07fe::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit06d22f9a86de21ddaaf8fac36b6c07fe::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit06d22f9a86de21ddaaf8fac36b6c07fe::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitbbbe716a245549430f477164d437ab61::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitbbbe716a245549430f477164d437ab61::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitbbbe716a245549430f477164d437ab61::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitbbbe716a245549430f477164d437ab61::$classMap;
 
         }, null, ClassLoader::class);
     }
