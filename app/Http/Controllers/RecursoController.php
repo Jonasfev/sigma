@@ -101,8 +101,7 @@ class RecursoController extends Controller
         } else if ($tipo == "equipamento"){
 
             
-            if(!$recurso = Equipamento::find($id)){
-              
+            if(!$recurso = Equipamento::find($id)){          
                 return redirect()->back();
             }
                 
@@ -115,11 +114,8 @@ class RecursoController extends Controller
            
         }
 
-       
-
         $recurso->delete();
 
         return redirect()->Route('admin.recursos');
-
     }
 }

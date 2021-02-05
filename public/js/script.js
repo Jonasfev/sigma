@@ -128,22 +128,15 @@ $(function () {
 function modalExclude(recursoId, recursoNome, recursoSobrenome, recursoTipo){
 
     if(recursoTipo == "docente"){
-        document.getElementById("msgExcludeDoc").innerHTML = " Tem certeza que deseja excluir o docente <strong>"+ recursoNome+ " " + recursoSobrenome +"</strong>?";
-
-        $("#btnExcludeDoc").attr("href","http://app-laravel.test/editar/deletar/"+recursoTipo+"/"+recursoId);
+        document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir o docente <strong>" + recursoNome+ " " + recursoSobrenome +"</strong>?";
+        $("#btnExclude").attr("href","http://sigma.test/editar/deletar/"+recursoTipo+"/"+recursoId);
 
     } else if(recursoTipo == "ambiente"){
-        document.getElementById("msgExcludeAmb").innerHTML = 
-        "Tem certeza que deseja excluir o ambiente <strong>"+ recursoNome + "-" + recursoSobrenome + "</strong>?";
-        $("#btnExcludeAmb").attr("href","http://app-laravel.test/editar/deletar/"+recursoTipo+"/"+recursoId);
+        document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir o ambiente <strong>" + recursoNome + " - " + recursoSobrenome + "</strong>?";
+        $("#btnExclude").attr("href","http://sigma.test/editar/deletar/"+recursoTipo+"/"+recursoId);
         
-    } else if(recursoTipo == "equip"){
-        document.getElementById("msgExcludeEqp").innerHTML = 
-        "Tem certeza que deseja excluir o equipamento <strong>" + recursoNome + " - " + recursoSobrenome +"</strong>?";
-        $("#btnExcludeEqp").attr("href","http://app-laravel.test/editar/deletar/"+recursoTipo+"/"+recursoId);
-
+    } else if(recursoTipo == "equipamento"){
+        document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir o equipamento <strong>" + recursoNome + " - " + recursoSobrenome +"</strong>?";
+        $("#btnExclude").attr("href","http://sigma.test/editar/deletar/"+recursoTipo+"/"+recursoId);
     }
-
-    
-  
 }
