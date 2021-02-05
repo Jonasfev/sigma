@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Reserva extends Migration
+class Reservas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Reserva extends Migration
      */
     public function up()
     {
-        Schema::create('Reserva', function (Blueprint $table) {
+        Schema::create('reservas', function (Blueprint $table) {
             $table->id();
 
             $table->string('turmaSigla');
@@ -35,7 +35,7 @@ class Reserva extends Migration
             $table->foreign('idAmbiente')->references('id')->on('ambientes');
 
             $table->unsignedBigInteger('idUc');
-            $table->foreign('idUc')->references('id')->on('unidadecurricular');
+            $table->foreign('idUc')->references('id')->on('ucs');
 
             $table->timestamps();
         });
@@ -48,6 +48,6 @@ class Reserva extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Reserva');
+        Schema::dropIfExists('reservas');
     }
 }

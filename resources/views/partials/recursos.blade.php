@@ -85,10 +85,10 @@
                                 <p class="m-0">{{$uc->nomeUC}}</p>
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
-                                <a href="{{route('admin.editar', ['tipo' => "equipamento",'id' => $item->id])}}">
+                                <a href="{{route('admin.editar', ['tipo' => "uc",'id' => $uc->id])}}">
                                     <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
-                                <a href="{{route('admin.deletar', ['tipo' => "equipamento",'id' => $item->id])}}">
+                                <a href="{{route('admin.deletar', ['tipo' => "uc",'id' => $uc->id])}}">
                                     <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                             </div>
@@ -103,10 +103,10 @@
                                 <p class="m-0">{{$curso->nomeCurso}}</p>
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
-                                <a href="{{route('admin.editar', ['tipo' => "equipamento",'id' => $item->id])}}">
+                                <a href="{{route('admin.editar', ['tipo' => "curso",'id' => $curso->id])}}">
                                     <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
-                                <a href="{{route('admin.deletar', ['tipo' => "equipamento",'id' => $item->id])}}">
+                                <a href="{{route('admin.deletar', ['tipo' => "curso",'id' => $curso->id])}}">
                                     <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                             </div>
@@ -121,10 +121,10 @@
                                 <p class="m-0">curso da turma</p>
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
-                                <a href="{{route('admin.editar', ['tipo' => "equipamento",'id' => $item->id])}}">
+                                <a href="{{route('admin.editar', ['tipo' => "turma",'id' => $turma->id])}}">
                                     <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
-                                <a href="{{route('admin.deletar', ['tipo' => "equipamento",'id' => $item->id])}}">
+                                <a href="{{route('admin.deletar', ['tipo' => "turma",'id' => $turma->id])}}">
                                     <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                             </div>

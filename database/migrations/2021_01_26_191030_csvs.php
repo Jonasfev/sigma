@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCsvsTable extends Migration
+class Csvs extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class CreateCsvsTable extends Migration
     {
         Schema::create('csvs', function (Blueprint $table) {
             $table->id();
-
+            $table->string('versao');
             $table->string('curso');
             $table->string('periodo');
             $table->string('diaSemana');
