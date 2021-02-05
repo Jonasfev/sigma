@@ -87,11 +87,15 @@
                     Excluir
                 </div>
                 <div class="modal-body text-center" id="msgExclude">
-                    
                 </div>
+                <form action="{{route('admin.deletar')}}" id="formExclude">
+                    @csrf
+                    <input type="text" name="tipo" id="tipoRecurso" hidden>
+                    <input type="text" name="id" id="idRecurso" hidden>
+                </form>
                 <div class="d-flex justify-content-center">
                     <button type="button" class="btn btn-secondary mx-auto mb-2 col-4" data-bs-dismiss="modal">Não</button>
-                    <a type="button" id="btnExclude" class="btn btn-primary mx-auto mb-2 col-4">Sim</a>
+                    <button type="submit" form="formExclude" id="btnExclude" class="btn btn-primary mx-auto mb-2 col-4">Sim</button>
                 </div>
             </div>
         </div>

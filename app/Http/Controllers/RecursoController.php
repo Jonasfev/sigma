@@ -88,9 +88,10 @@ class RecursoController extends Controller
         return "Tipo: {$tipo}, id: {$id}";
     }
 
-    public function destroy($tipo, $id){
+    public function destroy(Request $request){
+        $tipo = $request->tipo;
+        $id = $request->id;
 
-        
         if($tipo == "docente"){
 
             if(!$recurso = Docente::find($id)){
