@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCsvRequest;
 use App\Models\Ambiente;
+use App\Models\ambienteuc;
 use App\Models\Curso;
 use App\Models\Docente;
 use App\Models\Docuc;
@@ -101,18 +102,19 @@ class RecursoController extends Controller
 
     }
 
-    public function store(Request $request, $tipo) {
-
-        $req = $request->except('_token', 'Nome', 'Sobrenome', 'hmin', 'hmax');
+    public function store(Request $request, $tipo) {    
 
         switch($tipo) {
             case 'docente':
+                $req = $request->except('_token', 'Nome', 'Sobrenome', 'hmin', 'hmax');
+
                 Docente::create([
                     'Nome' => $request->Nome,
                     'Sobrenome' => $request->Sobrenome,
                     'hmin' => $request->hmin,
                     'hmax' => $request->hmax
                 ]);
+
                 $doc_id = Docente::where('Nome', $request->Nome)->where('Sobrenome', $request->Sobrenome)->first()->id;
                 foreach($req as $uc){
                     Docuc::create([
@@ -122,24 +124,59 @@ class RecursoController extends Controller
                 }
                 break;
             case 'ambiente':
-                $v = 'partials.cadastrarambiente';
-                $params = 'ucs';
+
+                $req = $request->except('_token', 'tipo', 'numAmbiente', 'alunosComportados');
+                Ambiente::create([
+                    'Tipo' => $request->tipo,
+                    'numAmbiente' => $request->numAmbiente,
+                    'alunosComportados' => $request->alunosComportados,
+                ]);
+
+                $amb_id = Ambiente::where('Tipo', $request->tipo)->where('numAmbiente', $request->numAmbiente)->first()->id;
+
+                foreach($req as $uc){
+                    ambienteuc::create([
+                        'idAmbiente' => $amb_id,
+                        'ucComportada' => $uc
+                    ]);
+                }
                 break;
+
             case 'equipamento':
-                $v = 'partials.cadastrarequipamento';
-                $params = '';
+                Equipamento::create([
+                    'Nome' => $request->Nome,
+                    'numPatrimonio' => $request->numPatrimonio
+                ]);
                 break;
+
             case 'uc':
-                $v = 'partials.cadastraruc';
-                $params = '';
+                Uc::create([
+                    'siglaUc' => $request->siglaUC,
+                    'nomeUc' => $request->nomeUC,
+                    'cargaSemanal' => 5,
+                    'aulasSemanais' => $request->aulasSemanais,
+                ]);
                 break;
             case 'curso':
-                $v = 'partials.cadastrarcurso';
-                $params = 'ucs';
+                Curso::create([
+                    'tipoCurso' => $request->tipoCurso,
+                    'siglaCurso' => $request->siglaCurso,
+                    'nomeCurso' => $request->nomeCurso,
+                    'dataInicioCurso' => $request->dataInicioCurso,
+                    'dataFimCurso' => $request->dataFimCurso,
+                    'cargaTotalHoras' => $request->cargaTotalHoras,
+
+                ]);
                 break;
             case 'turma':
-                $v = 'partials.cadastrarturma';
-                $params = 'cursos';
+                Turma::create([
+                    'idCurso' => $request->idCurso,
+                    'siglaTurma' => $request->siglaTurma,
+                    'periodo' => $request->periodo,
+                    'numAlunos' => $request->numAlunos,
+                    'horaEntrada' => $request->horaEntrada,
+                    'horaSaida' => $request->horaSaida,
+                ]);
                 break;
         }
 
@@ -255,8 +292,6 @@ class RecursoController extends Controller
             }
            
         }
-
-       
 
         $recurso->delete();
 

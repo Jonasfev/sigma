@@ -10,15 +10,16 @@
     <div class="pg-ctn bg-light d-flex flex-column align-items-center justify-content-around">
         <h1>Nova Turma</h1>
         <div class="bd-example bd-example-tabs w-50 h-75">
-            <form id="cadastrar-turma" action="">
-                <label class="mt-1 form-label" for="nomeCurso">Curso</label>
-                <select class="form-control" name="nomeCurso">
+            <form id="cadastrar-turma" action="{{route('admin.store', ['tipo' => 'turma'])}}" method="POST">
+                @csrf
+                <label class="mt-1 form-label" for="idCurso">Curso</label>
+                <select class="form-control" name="idCurso">
                     @foreach ($cursos as $curso)
                         <option value="{{$curso->id}}">{{$curso->nomeCurso}}</option>
                     @endforeach
                 </select>
                 <label class="mt-1 form-label" for="siglaTurma">Sigla</label>
-                <input class="form-control" type="text" name="SiglaTurma">
+                <input class="form-control" type="text" name="siglaTurma">
                 <label class="mt-1 form-label" for="periodo">Período</label>
                 <select class="form-control" name="periodo">
                     <option value="manha">Manhã</option>
@@ -29,12 +30,12 @@
                 <input class="form-control" type="number" name="numAlunos">
                 <label class="mt-1 form-label" for="horaEntrada">Hora de entrada</label>
                 <input class="form-control" type="time" name="horaEntrada">
-                <label class="mt-1 form-label" for="horaSaída">Hora de Saída</label>
-                <input class="form-control" type="time" name="horaSaída">
+                <label class="mt-1 form-label" for="horaSaida">Hora de Saída</label>
+                <input class="form-control" type="time" name="horaSaida">
             </form>        
             <div class="col-12 d-flex align-items-center justify-content-around mt-3">
                 <a type="button" class="btn btn-secondary col-5" href="{{ Route('admin.recursos') }}">VOLTAR</a>
-                <button class="btn btn-primary col-5">SALVAR</button>
+                <button form="cadastrar-turma" class="btn btn-primary col-5">SALVAR</button>
             </div>
         </div>
     </div>

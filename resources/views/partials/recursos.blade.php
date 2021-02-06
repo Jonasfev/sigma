@@ -143,7 +143,6 @@
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill">
                             <h4 class="m-0">{{$turma->siglaTurma}}</h4>
-                                <p class="m-0">curso da turma</p>
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
                                 <a href="{{route('admin.editar', ['tipo' => "turma",'id' => $turma->id])}}">
