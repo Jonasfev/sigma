@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCsvRequest;
 use App\Models\Ambiente;
 use App\Models\Curso;
 use App\Models\Docente;
+use App\Models\Docuc;
 use App\Models\Equipamento;
 use App\Models\Turma;
 use App\Models\Uc;
@@ -100,64 +101,131 @@ class RecursoController extends Controller
 
     }
 
+    public function store(Request $request, $tipo) {
+
+        $req = $request->except('_token', 'Nome', 'Sobrenome', 'hmin', 'hmax');
+
+        switch($tipo) {
+            case 'docente':
+                Docente::create([
+                    'Nome' => $request->Nome,
+                    'Sobrenome' => $request->Sobrenome,
+                    'hmin' => $request->hmin,
+                    'hmax' => $request->hmax
+                ]);
+                $doc_id = Docente::where('Nome', $request->Nome)->where('Sobrenome', $request->Sobrenome)->first()->id;
+                foreach($req as $uc){
+                    Docuc::create([
+                        'docente' => $doc_id,
+                        'ucComportada' => $uc
+                    ]);
+                }
+                break;
+            case 'ambiente':
+                $v = 'partials.cadastrarambiente';
+                $params = 'ucs';
+                break;
+            case 'equipamento':
+                $v = 'partials.cadastrarequipamento';
+                $params = '';
+                break;
+            case 'uc':
+                $v = 'partials.cadastraruc';
+                $params = '';
+                break;
+            case 'curso':
+                $v = 'partials.cadastrarcurso';
+                $params = 'ucs';
+                break;
+            case 'turma':
+                $v = 'partials.cadastrarturma';
+                $params = 'cursos';
+                break;
+        }
+
+        return redirect()->route('admin.recursos');
+
+    }
+
     public function edit($tipo, $id){
 
-        if($tipo == "docente"){
+        $ucs = Uc::get();
+        $cursos = Curso::get();
 
-            if(!$recurso = Docente::find($id)){
-                return redirect()->back();
-            }
-            return view('partials.editar', compact('recurso', 'tipo'));
+        switch($tipo) {
+            case 'docente':
+                $recurso = Docente::find($id);
+                $v = 'partials.editardocente';
+                $params = ['recurso', 'tipo', 'ucs'];
+                break;
+            case 'ambiente':
+                $recurso = Ambiente::find($id);
+                $v = 'partials.editarambiente';
+                $params = ['recurso', 'tipo', 'ucs'];
+                break;
+            case 'equipamento':
+                $recurso = Equipamento::find($id);
+                $v = 'partials.editarequipamento';
+                $params = ['recurso', 'tipo'];
+                break;
+            case 'uc':
+                $recurso = Uc::find($id);
+                $v = 'partials.editaruc';
+                $params = ['recurso', 'tipo'];
+                break;
+            case 'curso':
+                $recurso = Curso::find($id);
+                $v = 'partials.editarcurso';
+                $params = ['recurso', 'tipo', 'ucs'];
+                break;
+            case 'turma':
+                $recurso = Turma::find($id);
+                $v = 'partials.editarturma';
+                $params = ['recurso', 'tipo', 'cursos'];
+                break;
+        }
 
-        } else if ($tipo == "equipamento"){
+        if(!$recurso) {
+            $r = redirect()->back();
+        } else {
+            $r = view($v, compact($params));
+        }
 
-            if(!$recurso = Equipamento::find($id)){
-                return redirect()->back();
-            }
-
-            return view('partials.editarequip', compact('recurso', 'tipo'));
-                
-
-        } else if ($tipo == "ambiente"){
-
-            if(!$recurso = Ambiente::find($id)){
-                return redirect()->back();
-            }
-
-            return view('partials.editaramb', compact('recurso', 'tipo'));
-                
-        }  
+        return $r; 
 
     } 
 
     public function update (Request $request, $id){
         $tipo = $request->tipo;
-
-        if($tipo == "docente"){
-
-            if(!$recurso = Docente::find($id)){
-                return redirect()->back();
-            }
-            
-
-        } else if ($tipo == "equipamento"){
-
-            if(!$recurso = Equipamento::find($id)){
-                return redirect()->back();
-            }
-                
-
-        } else if ($tipo == "ambiente"){
-
-            if(!$recurso = Ambiente::find($id)){
-                return redirect()->back();
-            }
-           
+        switch($tipo) {
+            case 'docente':
+                $recurso = Docente::find($id);
+                break;
+            case 'ambiente':
+                $recurso = Ambiente::find($id);
+                break;
+            case 'equipamento':
+                $recurso = Equipamento::find($id);
+                break;
+            case 'uc':
+                $recurso = Uc::find($id);
+                break;
+            case 'curso':
+                $recurso = Curso::find($id);
+                break;
+            case 'turma':
+                $recurso = Turma::find($id);
+                break;
         }
 
-        $recurso->update($request->except('tipo'));
+        if(!$recurso) {
+            $r = redirect()->back();
+        } else {
+            $recurso->update($request->except('tipo'));
+            $r = redirect()->Route('admin.recursos');
+        }
 
-        return redirect()->Route('admin.recursos');
+        return $r;
         
     }
 

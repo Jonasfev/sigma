@@ -21,19 +21,22 @@
                     <input type="text" value="{{$tipo}}" id="tipo" name="tipo" hidden>
                   </div>
                   <div class="mb-3 mt-0">
-                    <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control mt-0" id="nome" name= "Nome" value="{{$recurso->Nome}}">
+                    <label for="siglaUC" class="form-label">Sigla da uc</label>
+                    <input type="text" class="form-control mt-0" name= "siglaUC" value="{{$recurso->siglaUC}}">
                   </div>
                   <div class="mb-3 mt-0">
-                    <label for="numPatrimonio" class="form-label">Numero do patrimonio</label>
-                    <input type="number" class="form-control mt-0" id="numPatrimonio" name="numPatrimonio" value="{{$recurso->numPatrimonio}}">
+                    <label for="nomeUC" class="form-label">Nome da uc</label>
+                    <input type="text" class="form-control mt-0" name= "nomeUC" value="{{$recurso->nomeUC}}">
                   </div>
-                  
+                  <div class="mb-3 mt-0">
+                    <label for="aulasSemanais" class="form-label">Nº de aulas semanais</label>
+                    <input type="number" class="form-control mt-0" name="aulasSemanais" value="{{$recurso->aulasSemanais}}">
+                  </div>
                 </form>
               </div>
               <div class="col-12 d-flex align-items-center justify-content-around">
                 <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos')}}">VOLTAR</a>
-                <input type="submit" form="formu" class="btn btn-primary col-5 text-uppercase">
+                <button type="submit" form="formu" class="btn btn-primary col-5 text-uppercase">ENVIAR</button>
               </div>
             </div>
         </div>

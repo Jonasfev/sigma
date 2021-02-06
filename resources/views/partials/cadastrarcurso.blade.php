@@ -13,9 +13,9 @@
             <form id="cadastrar-curso" action="">
                 <label class="mt-1 form-label" for="tipoCurso">Tipo</label>
                 <select class="form-control" name="tipoCurso">
-                    <option value="Cai">CAI</option>
-                    <option value="Tec">TEC</option>
-                    <option value="Fic">FIC</option>
+                    <option value="CAI">CAI</option>
+                    <option value="TEC">TEC</option>
+                    <option value="FIC">FIC</option>
                 </select>
                 <label class="mt-1 form-label" for="siglaCurso">Sigla</label>
                 <input class="form-control" type="text" name="siglaCurso">

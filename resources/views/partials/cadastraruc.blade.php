@@ -11,6 +11,8 @@
         <h1>Nova UC</h1>
         <div class="bd-example bd-example-tabs w-50 h-75">
             <form id="cadastrar-uc" action="">
+                <label class="mt-1 form-label" for="siglaUC">Sigla da UC</label>
+                <input class="form-control" type="text" name="siglaUC">
                 <label class="mt-1 form-label" for="nomeUC">Nome da UC</label>
                 <input class="form-control" type="text" name="nomeUC">
                 <label class="mt-1 form-label" for="aulasSemanais">Nº de aulas semanais</label>
