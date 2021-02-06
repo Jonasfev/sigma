@@ -13,35 +13,32 @@
         <div class="w-50 h-75 m-auto">
             <div class="tab-content overflow-auto" id="nav-tabContent">
               <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                <form action="{{Route('admin.update', ['id' => $recurso->id])}}" class="w-100 h-100 d-flex flex-column  justify-content-around" id = "formu" method="POST">
+                <form action="{{Route('admin.update', ['id' => $recurso->id])}}" class="w-100 h-100 d-flex flex-column  justify-content-around" id="formu" method="POST">
                   @csrf
                   @method("PUT")
                   <div class="mb-3 mt-0">
                     <label for="" class="form-label text-uppercase">{{$tipo}}</label>
-                    <input type="text" value="{{$tipo}}" name="tipo" id="tipo" hidden>
+                    <input type="text" value="{{$tipo}}" id="tipo" name="tipo" hidden>
                   </div>
                   <div class="mb-3 mt-0">
-                  <label for="nome" class="form-label">Nome</label>
-                  <input type="text" class="form-control mt-0" name="nome" id="nome" value="{{$recurso->Nome}}">
+                  <label for="Tipo" class="form-label">Tipo</label>
+                  <input type="text" class="form-control mt-0" id="Tipo" name="Tipo" value="{{$recurso->Tipo}}">
                   </div>
                   <div class="mb-3 mt-0">
-                    <label for="Sobrenome" class="form-label">Sobrenome</label>
-                    <input type="text" class="form-control mt-0" name = "sobrenome" id="sobrenome" value="{{$recurso->Sobrenome}}">
+                    <label for="numAmbiente" class="form-label">Numero do Ambiente</label>
+                    <input type="number" class="form-control mt-0 w-15" id="numAmbiente" name="numAmbiente" value="{{$recurso->numAmbiente}}">
                   </div>
                   <div class="mb-3 mt-0">
-                    <label for="Hmax" class="form-label">Horas Maximas</label>
-                    <input type="number" class="form-control mt-0 w-15" name="Hmax" id="Hmax" value="{{$recurso->hMax}}">
+                    <label for="Hmax" class="form-label">Alunos Comportados</label>
+                    <input type="number" class="form-control mt-0 w-15" id="Hmax" name="alunosComportados" value="{{$recurso->alunosComportados}}">
                   </div>
-                  <div class="mb-3 mt-0">
-                    <label for="Hmin" class="form-label">Horas Minimas</label>
-                    <input type="number" class="form-control mt-0 w-15" id="Hmin" name="Hmin"value="{{$recurso->hMin}}">
-                  </div>
-                  
+
+                
                 </form>
               </div>
               <div class="col-12 d-flex align-items-center justify-content-around">
                 <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos')}}">VOLTAR</a>
-                <input type="submit" form="formu" class="btn btn-primary col-5 text-uppercase">
+                <button type="submit" form="formu" class="btn btn-primary col-5 text-uppercase">ENVIAR</button>
               </div>
             </div>
         </div>

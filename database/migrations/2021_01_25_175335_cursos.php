@@ -17,6 +17,7 @@ class Cursos extends Migration
             $table->id();
             $table->string('tipoCurso', 3);
             $table->string('siglaCurso');
+            $table->string('nomeCurso');
             $table->integer('aulasDia');
             $table->date('dataInicioCurso');
             $table->date('dataFimCurso');

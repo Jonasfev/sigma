@@ -42,7 +42,6 @@ class CsvController extends Controller
     public function store(StoreCsvRequest $request){
 
         $validated = $request->validated();
-
         $file = file($request->file('csv')->getRealPath());
 
         if(strcmp($file[0], "sep=;".PHP_EOL)){
@@ -56,15 +55,14 @@ class CsvController extends Controller
         if ($data == []){
             return redirect()->route('admin.csv')->withErrors(["Arquivo CSV vazio! :´("]);  
         }
+
         foreach ($data as $linhas){
             $teste = explode(';', $linhas);
 
-            if(sizeof($teste) != 8 ){
+            if(sizeof($teste) != 9 ){
                 return redirect()->route('admin.csv')->withErrors('Error de arquivo!');
             }
         }
-
-        
 
         $parts = (array_chunk($data, 5000));
 
@@ -78,7 +76,6 @@ class CsvController extends Controller
 
         (new csv())->importToDb();
         
-
         Storage::delete($filename);
 
         return redirect()->route('admin.csv');  

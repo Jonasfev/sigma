@@ -7,9 +7,9 @@
 @endsection
 
 @section('content')
-    <div class="pg-ctn bg-light d-flex flex-column align-items-center justify-content-around">
+    <div class="pg-ctn bg-light d-flex h-80 flex-column align-items-center justify-content-start">
         <h1 class="mt-3">Recursos</h1>
-        <div class="bd-example bd-example-tabs w-50 h-45 flex-fill mt-5">
+        <div class="bd-example bd-example-tabs w-50 h-50 mt-5">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active show" id="nav-doc-tab" data-toggle="tab" href="#nav-doc" role="tab" aria-controls="nav-doc" aria-selected="true">Docentes</a>
@@ -20,8 +20,12 @@
                 <a class="nav-item nav-link" id="nav-turma-tab" data-toggle="tab" href="#nav-turma" role="tab" aria-controls="nav-turma" aria-selected="false">Turma</a>
                 </div>
             </nav>
-            <div class="h-75 tab-content overflow-auto" id="nav-tabContent">
+            <div class="tab-content overflow-auto h-100" id="nav-tabContent">
                 <div class="tab-pane fade active show" id="nav-doc" role="tabpanel" aria-labelledby="nav-doc-tab">
+                    <a href="{{route('admin.cadastrar', ['tipo'=>"docente"])}}" class="d-flex align-items-center justify-content-center mt-3">
+                        <img src="img/add.png" class="mr-2">
+                        Adicionar docente
+                    </a>
                     @foreach ($docentes as $docente)
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill">
@@ -41,11 +45,16 @@
                 </div>
                 
                 <div class="tab-pane fade" id="nav-amb" role="tabpanel" aria-labelledby="nav-amb-tab">
+                    
+                    <a href="{{route('admin.cadastrar', ['tipo'=>"ambiente"])}}" class="d-flex align-items-center justify-content-center mt-3">
+                        <img src="img/add.png" class="mr-2">
+                        Adicionar ambiente
+                    </a>
                     @foreach ($ambientes as $ambiente)
                     <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                         <div class="p-2 d-flex flex-column justify-content-around flex-fill">
                             <h4 class="m-0">Ambiente Nº {{$ambiente->numAmbiente}}</h4>
-                            <p class="m-0">{{$ambiente->Tipo}}</p>
+                            <p class="m-0">{{$ambiente->Tipo}} - {{$ambiente->numAmbiente}}</p>
                         </div>
                         <div class="d-flex fit align-items-center justify-content-around">
                             <a href="{{route('admin.editar', ['tipo' => "ambiente",'id' => $ambiente->id])}}">
@@ -59,6 +68,10 @@
                     @endforeach
                 </div>
                 <div class="tab-pane fade" id="nav-eqp" role="tabpanel" aria-labelledby="nav-eqp-tab">
+                    <a href="{{route('admin.cadastrar', ['tipo'=>"equipamento"])}}" class="d-flex align-items-center justify-content-center mt-3">
+                        <img src="img/add.png" class="mr-2">
+                        Adicionar equipamento
+                    </a>
                     @foreach ($equip as $item)          
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill">
@@ -77,6 +90,10 @@
                     @endforeach
                 </div>
                 <div class="tab-pane fade" id="nav-uc" role="tabpanel" aria-labelledby="nav-uc-tab">
+                    <a href="{{route('admin.cadastrar', ['tipo'=>"uc"])}}" class="d-flex align-items-center justify-content-center mt-3">
+                        <img src="img/add.png" class="mr-2">
+                        Adicionar uc
+                    </a>
                     @foreach ($ucs as $uc)          
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill">
@@ -95,6 +112,10 @@
                     @endforeach
                 </div>
                 <div class="tab-pane fade" id="nav-curso" role="tabpanel" aria-labelledby="nav-curso-tab">
+                    <a href="{{route('admin.cadastrar', ['tipo'=>"curso"])}}" class="d-flex align-items-center justify-content-center mt-3">
+                        <img src="img/add.png" class="mr-2">
+                        Adicionar curso
+                    </a>
                     @foreach ($cursos as $curso)          
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill">
@@ -113,6 +134,10 @@
                     @endforeach
                 </div>
                 <div class="tab-pane fade" id="nav-turma" role="tabpanel" aria-labelledby="nav-turma-tab">
+                    <a href="{{route('admin.cadastrar', ['tipo'=>"turma"])}}" class="d-flex align-items-center justify-content-center mt-3">
+                        <img src="img/add.png" class="mr-2">
+                        Adicionar turma
+                    </a>
                     @foreach ($turmas as $turma)          
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill">

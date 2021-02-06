@@ -19,8 +19,8 @@ class Turmas extends Migration
             $table->foreign('idCurso')->references('id')->on('cursos');
             $table->string('siglaTurma', 5);
             $table->string('periodo', 5);
-            $table->dateTime('horaEntrada');
-            $table->dateTime('horaSaida');
+            $table->time('horaEntrada');
+            $table->time('horaSaida');
             $table->integer('numAlunos');
             $table->timestamps();
         });
