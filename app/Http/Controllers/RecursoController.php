@@ -266,9 +266,14 @@ class RecursoController extends Controller
         
     }
 
-    public function destroy($tipo, $id){
+    public function show($tipo, $id){
+        return "Tipo: {$tipo}, id: {$id}";
+    }
 
-        
+    public function destroy(Request $request){
+        $tipo = $request->tipo;
+        $id = $request->id;
+
         if($tipo == "docente"){
 
             if(!$recurso = Docente::find($id)){
@@ -279,8 +284,7 @@ class RecursoController extends Controller
         } else if ($tipo == "equipamento"){
 
             
-            if(!$recurso = Equipamento::find($id)){
-              
+            if(!$recurso = Equipamento::find($id)){          
                 return redirect()->back();
             }
                 
@@ -296,6 +300,5 @@ class RecursoController extends Controller
         $recurso->delete();
 
         return redirect()->Route('admin.recursos');
-
     }
 }

@@ -9,7 +9,7 @@
 @section('content')
     <div class="pg-ctn w-100 d-flex flex-column align-items-center justify-content-center">
         <div class="ctn-act w-75 h-50 d-flex align-items-center justify-content-around">
-            <form class="act d-flex w-25 flex-column align-items-center" action="{{route('admin.csv.create')}}" method="post" id="test" enctype="multipart/form-data">
+            <form class="act d-flex w-25 flex-column align-items-center" action="{{route('admin.csv.create')}}" method="post" id="csvCreate" enctype="multipart/form-data">
                 @csrf
                 {{-- <img src="../img/importar.png" alt="Cadastrar Recurso" width="100vw" class="mt-3"> --}}
                 <label for="file" class="w-100 h-100 text-center" style="cursor: pointer" >
@@ -54,7 +54,7 @@
         
         <div class="w-50 d-flex align-items-center justify-content-around mx-auto m-5">
             <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.home')}}">VOLTAR</a>
-            <input type="submit" form="test" class="btn btn-primary col-5 text-uppercase">
+            <input type="submit" form="csvCreate" class="btn btn-primary col-5 text-uppercase">
         </div>
     </div>
 @endsection

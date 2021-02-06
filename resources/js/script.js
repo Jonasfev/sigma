@@ -123,3 +123,20 @@ function fileNameWrite(){
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
+
+
+function modalExclude(recursoId, recursoNome, recursoSobrenome, recursoTipo){
+
+    if(recursoTipo == "docente"){
+        document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir o docente <strong>" + recursoNome+ " " + recursoSobrenome +"</strong>?";
+
+    } else if(recursoTipo == "ambiente"){
+        document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir o ambiente <strong>" + recursoNome + " - " + recursoSobrenome + "</strong>?";
+        
+    } else if(recursoTipo == "equipamento"){
+        document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir o equipamento <strong>" + recursoNome + " - " + recursoSobrenome +"</strong>?";
+    }
+    
+    $("input#tipoRecurso").attr("value", recursoTipo);
+    $("input#idRecurso").attr("value", recursoId);
+}

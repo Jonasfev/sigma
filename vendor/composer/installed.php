@@ -454,7 +454,9 @@
       'aliases' => 
       array (
       ),
+
       'reference' => '3e663aaa89e7d00d06330033b29ba9d8b76857aa',
+
     ),
     'laravel/sail' => 
     array (

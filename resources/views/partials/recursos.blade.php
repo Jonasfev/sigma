@@ -29,15 +29,15 @@
                     @foreach ($docentes as $docente)
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                                <h4 class="m-0">{{$docente->Nome}} </h4>
+                                <h4 class="m-0">{{$docente->Nome}}</h4>
                             <p class="m-0">{{$docente->Nome}} {{$docente->Sobrenome}}</p>
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
                                 <a href="{{route('admin.editar', ['tipo' => "docente",'id' => $docente->id])}}">
                                     <img src="../img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
-                                <a href="{{route('admin.deletar', ['tipo' => "docente",'id' => $docente->id])}}">
-                                    <img src="../img/excluir.png" alt="editar" width="32px" class="mx-2">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exclude" onclick="modalExclude({{$docente->id}}, '{{$docente->Nome}}', '{{$docente->Sobrenome}}', 'docente');">
+                                    <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
                                 </a>
                             </div>
                         </div>
@@ -51,7 +51,6 @@
                         Adicionar ambiente
                     </a>
                     @foreach ($ambientes as $ambiente)
-                        
                     <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                         <div class="p-2 d-flex flex-column justify-content-around flex-fill">
                             <h4 class="m-0">Ambiente Nº {{$ambiente->numAmbiente}}</h4>
@@ -61,8 +60,8 @@
                             <a href="{{route('admin.editar', ['tipo' => "ambiente",'id' => $ambiente->id])}}">
                                 <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                             </a>
-                            <a href="{{route('admin.deletar', ['tipo' => "ambiente",'id' => $ambiente->id])}}" >
-                                <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exclude"  onclick="modalExclude({{$ambiente->id}}, '{{$ambiente->Tipo}}', '{{$ambiente->numAmbiente}}', 'ambiente')";>
+                                <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
                             </a>
                         </div>
                     </div>
@@ -83,8 +82,8 @@
                                 <a href="{{route('admin.editar', ['tipo' => "equipamento",'id' => $item->id])}}">
                                     <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
-                                <a href="{{route('admin.deletar', ['tipo' => "equipamento",'id' => $item->id])}}">
-                                    <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exclude"  onclick="modalExclude({{$item->id}}, '{{$item->Nome}}', '{{$item->numPatrimonio}}', 'equipamento');"> 
+                                    <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
                                 </a>
                             </div>
                         </div>
@@ -161,13 +160,23 @@
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="exclude" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content w-50">
-                <div class="modal-body">
-                    <P>Realmente deseja excluir o recurso  xxxxx</P>
-                    <a href = "" type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" >Com certeza</a>
-                    <a type="submit" class="btn btn-secondary">Obviamente não</a>
+            <div class="modal-content w-75">
+                <div class="modal-header text-uppercase">
+                    Excluir
+                </div>
+                <div class="modal-body text-center" id="msgExclude">
+                </div>
+                <form action="{{route('admin.deletar')}}" id="formExclude">
+                    @csrf
+                    <input type="text" name="tipo" id="tipoRecurso" hidden>
+                    <input type="text" name="id" id="idRecurso" hidden>
+                </form>
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-secondary mx-auto mb-2 col-4" data-bs-dismiss="modal">Não</button>
+                    <button type="submit" form="formExclude" id="btnExclude" class="btn btn-primary mx-auto mb-2 col-4">Sim</button>
                 </div>
             </div>
         </div>
