@@ -20,7 +20,7 @@ Route::middleware([/*'auth'*/])->group(function() {
 
         Route::get('/recursos', [RecursoController::class, 'index'])->name('recursos');
         
-        Route::get('/editar/deletar/', [RecursoController::class, 'destroy'])->name('deletar');
+        Route::delete('/editar/deletar/', [RecursoController::class, 'destroy'])->name('deletar');
 
         Route::get('/editar/{tipo?}/{id?}', [RecursoController::class, 'edit'])->name('editar');
 

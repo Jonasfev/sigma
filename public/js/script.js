@@ -127,15 +127,27 @@ $(function () {
 
 function modalExclude(recursoId, recursoNome, recursoSobrenome, recursoTipo){
 
-    if(recursoTipo == "docente"){
-        document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir o docente <strong>" + recursoNome+ " " + recursoSobrenome +"</strong>?";
-
-    } else if(recursoTipo == "ambiente"){
-        document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir o ambiente <strong>" + recursoNome + " - " + recursoSobrenome + "</strong>?";
-        
-    } else if(recursoTipo == "equipamento"){
-        document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir o equipamento <strong>" + recursoNome + " - " + recursoSobrenome +"</strong>?";
+    switch(recursoTipo) {
+        case 'docente':
+            document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir o docente <strong>" + recursoNome+ " " + recursoSobrenome +"</strong>?";
+            break;
+        case 'ambiente':
+            document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir o ambiente <strong>" + recursoNome + " - " + recursoSobrenome + "</strong>?";
+            break;
+        case 'equipamento':
+            document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir o equipamento <strong>" + recursoNome + " - " + recursoSobrenome +"</strong>?";
+            break;
+        case 'uc':
+            document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir a UC <strong>" + recursoNome + " - " + recursoSobrenome +"</strong>?";
+            break;
+        case 'curso':
+            document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir o curso <strong>" + recursoNome + " - " + recursoSobrenome +"</strong>?";
+            break;
+        case 'turma':
+            document.getElementById("msgExclude").innerHTML = "Tem certeza que deseja excluir a turma <strong>" + recursoNome + " - " + recursoSobrenome +"</strong>?";
+            break;
     }
+
     
     $("input#tipoRecurso").attr("value", recursoTipo);
     $("input#idRecurso").attr("value", recursoId);

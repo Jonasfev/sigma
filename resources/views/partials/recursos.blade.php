@@ -104,8 +104,8 @@
                                 <a href="{{route('admin.editar', ['tipo' => "uc",'id' => $uc->id])}}">
                                     <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
-                                <a href="{{route('admin.deletar', ['tipo' => "uc",'id' => $uc->id])}}">
-                                    <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exclude"  onclick="modalExclude({{$uc->id}}, '{{$uc->siglaUC}}', '{{$uc->nomeUC}}', 'uc')";>
+                                    <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
                                 </a>
                             </div>
                         </div>
@@ -126,8 +126,8 @@
                                 <a href="{{route('admin.editar', ['tipo' => "curso",'id' => $curso->id])}}">
                                     <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
-                                <a href="{{route('admin.deletar', ['tipo' => "curso",'id' => $curso->id])}}">
-                                    <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exclude" onclick="modalExclude({{$curso->id}}, '{{$curso->siglaCurso}}', '{{$curso->nomeCurso}}', 'curso')">
+                                    <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
                                 </a>
                             </div>
                         </div>
@@ -147,8 +147,8 @@
                                 <a href="{{route('admin.editar', ['tipo' => "turma",'id' => $turma->id])}}">
                                     <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
-                                <a href="{{route('admin.deletar', ['tipo' => "turma",'id' => $turma->id])}}">
-                                    <img src="img/excluir.png" alt="editar" width="32px" class="mx-2">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exclude" onclick="modalExclude({{$turma->id}}, '{{$turma->siglaTurma}}', '{{$turma->periodo}}', 'turma')">
+                                    <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
                                 </a>
                             </div>
                         </div>
@@ -169,7 +169,8 @@
                 </div>
                 <div class="modal-body text-center" id="msgExclude">
                 </div>
-                <form action="{{route('admin.deletar')}}" id="formExclude">
+                <form action="{{route('admin.deletar')}}" id="formExclude" method="POST">
+                    @method('DELETE')
                     @csrf
                     <input type="text" name="tipo" id="tipoRecurso" hidden>
                     <input type="text" name="id" id="idRecurso" hidden>

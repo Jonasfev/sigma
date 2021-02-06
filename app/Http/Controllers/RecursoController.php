@@ -274,27 +274,25 @@ class RecursoController extends Controller
         $tipo = $request->tipo;
         $id = $request->id;
 
-        if($tipo == "docente"){
-
-            if(!$recurso = Docente::find($id)){
-                return redirect()->back();
-            }
-            
-
-        } else if ($tipo == "equipamento"){
-
-            
-            if(!$recurso = Equipamento::find($id)){          
-                return redirect()->back();
-            }
-                
-
-        } else if ($tipo == "ambiente"){
-
-            if(!$recurso = Ambiente::find($id)){
-                return redirect()->back();
-            }
-           
+        switch($tipo) {
+            case 'docente':
+                $recurso = Docente::find($id);
+                break;
+            case 'ambiente':
+                $recurso = Ambiente::find($id);
+                break;
+            case 'equipamento':
+                $recurso = Equipamento::find($id);
+                break;
+            case 'uc':
+                $recurso = Uc::find($id);
+                break;
+            case 'curso':
+                $recurso = Curso::find($id);
+                break;
+            case 'turma':
+                $recurso = Turma::find($id);
+                break;
         }
 
         $recurso->delete();
