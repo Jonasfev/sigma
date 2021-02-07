@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Cursos extends Migration
+class Ambienteucs extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class Cursos extends Migration
      */
     public function up()
     {
-        Schema::create('cursos', function (Blueprint $table) {
+        Schema::create('ambienteucs', function (Blueprint $table) {
             $table->id();
-            $table->string('tipoCurso', 3);
-            $table->string('siglaCurso');
-            $table->string('nomeCurso');
-            $table->date('dataInicioCurso');
-            $table->date('dataFimCurso');
-            $table->float('cargaTotalHoras', 7,2);
+            $table->unsignedBigInteger('idAmbiente');
+            $table->foreign('idAmbiente')->references('id')->on('ambientes');
+
+            $table->unsignedBigInteger('ucComportada');
+            $table->foreign('ucComportada')->references('id')->on('ucs');
+            
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class Cursos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cursos');
+        Schema::dropIfExists('ambienteucs');
     }
 }

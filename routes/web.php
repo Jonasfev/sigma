@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CsvController;
 use App\Http\Controllers\RecursoController;
+use App\Http\Controllers\HorarioController;
 use App\Http\Controllers\CadastroController;
 use App\Models\csv;
 use Illuminate\Support\Facades\Route;
@@ -20,17 +21,17 @@ Route::middleware([/*'auth'*/])->group(function() {
 
         Route::get('/recursos', [RecursoController::class, 'index'])->name('recursos');
         
-        Route::get('/editar/deletar/{tipo?}/{id?}', [RecursoController::class, 'destroy'])->name('deletar');
+        Route::delete('/editar/deletar/', [RecursoController::class, 'destroy'])->name('deletar');
 
         Route::get('/editar/{tipo?}/{id?}', [RecursoController::class, 'edit'])->name('editar');
 
         Route::put('/editar/{id?}', [RecursoController::class, 'update'])->name('update');
 
-        Route::get('/cadastro', [CadastroController::class, 'index'])->name('cadastrar');
+        Route::get('/cadastrar/{tipo}', [RecursoController::class, 'create'])->name('cadastrar');
         
-        Route::get('/turmaTec', [RecursoController::class, 'tecindex'])->name('turmaTec');
-
-        Route::get('/turmaCai', [RecursoController::class, 'caiindex'])->name('turmaCai');
+        Route::post('/cadastrar/{tipo}', [RecursoController::class, 'store'])->name('store');
+        
+        Route::get('/horario/{id}', [HorarioController::class, 'index'])->name('horario');
     
         Route::get('/opcaoHorario', function() {
             return view('partials.opcaoHorario');

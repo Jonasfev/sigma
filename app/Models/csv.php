@@ -23,19 +23,21 @@ class csv extends Model
             
             $data = array_map('str_getcsv', file($file));
             self::truncate()->delete();
-            
-            foreach ($data as $str) {
+
+
+           foreach ($data as $str) {
                 $row = explode(";", $str[0]);
                 
                 self::updateOrCreate([
-                    'curso'=>$row[0],
-                    'periodo'=>$row[1],
-                    'diaSemana'=>$row[2],
-                    'aula'=>$row[3],
-                    'turma'=>$row[4],
-                    'uc'=>$row[5],
-                    'docente'=>$row[6],
-                    'ambiente'=>$row[7],
+                    'versao'=>$row[0],
+                    'curso'=>$row[1],
+                    'periodo'=>$row[2],
+                    'diaSemana'=>$row[3],
+                    'aula'=>$row[4],
+                    'turma'=>$row[5],
+                    'uc'=>$row[6],
+                    'docente'=>$row[7],
+                    'ambiente'=>$row[8],
                 ]);
             }
 

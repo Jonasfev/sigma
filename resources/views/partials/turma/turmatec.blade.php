@@ -8,7 +8,7 @@
 @section('content')
     <div class="pg-ctn h-75 bg-light flex-column">       
         <div class="config-ctn w-100 h-60 d-flex flex-lg-column align-items-center justify-content-around">
-            @include('partials.weektec')
+            @include('partials.turma.weektec')
         </div>
         <div class="side-ctn w-100 d-flex align-items-center justify-content-lg-around my-1">
             <div class="side h-80 w-18 d-flex flex-column align-items-center justify-content-center">
@@ -45,9 +45,9 @@
             </div>
         </div>
         <div class="w-50 d-flex align-items-center justify-content-around mx-auto mt-3 mb-4">
-            <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.opcaoHorario')}}">VOLTAR</a>
+            <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos')}}">VOLTAR</a>
             <button class="btn btn-primary col-5">SALVAR</button>
         </div>
     </div>
-    <script>horario('manha', 'tec');</script>
+    <script>horario('{{$turma->periodo}}', 'tec');</script>
 @endsection
