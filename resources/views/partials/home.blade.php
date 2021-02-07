@@ -15,7 +15,7 @@
             </a>
             <a href="{{Route('admin.csv')}}" class="act d-flex m-4 p-3 flex-column align-items-center">
                 <img src="../img/transferencia-de-arquivo.png" alt="Importar e Exportar" width="100vw" class="mt-3">
-                <p class="my-3">IMPORTAR / EXPORTAR</p>
+                <p class="my-3">VERSIONAMENTO</p>
             </a>
         </div>
     </div>

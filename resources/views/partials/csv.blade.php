@@ -49,7 +49,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+        @endif
         <div id="fileName" class="text-uppercase font-weight-bold"></div>
         
         <div class="w-50 d-flex align-items-center justify-content-around mx-auto m-5">

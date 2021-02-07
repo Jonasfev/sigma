@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CriarRecursoRequest;
 use App\Http\Requests\StoreCsvRequest;
 use App\Models\Ambiente;
 use App\Models\Ambienteuc;
@@ -77,7 +78,7 @@ class RecursoController extends Controller
 
     }
 
-    public function store(Request $request, $tipo) {    
+    public function store(CriarRecursoRequest $request, $tipo) {    
 
         switch($tipo) {
             case 'docente':
@@ -98,6 +99,7 @@ class RecursoController extends Controller
                     ]);
                 }
                 break;
+
             case 'ambiente':
                 $req = $request->except('_token', 'tipo', 'numAmbiente', 'alunosComportados');
                 Ambiente::create([
@@ -131,6 +133,7 @@ class RecursoController extends Controller
                     'aulasSemanais' => $request->aulasSemanais
                 ]);
                 break;
+
             case 'curso':
                 $req = $request->except('_token', 'tipoCurso', 'siglaCurso', 'nomeCurso', 'dataInicioCurso', 'dataFimCurso', 'cargaTotalHoras');
 

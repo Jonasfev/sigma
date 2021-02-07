@@ -36,7 +36,16 @@
                         </div>
                     @endforeach
                 </div>
-            </form>          
+            </form>
+            @if ($errors->any())
+            <div class="alert alert-danger my-2">
+                <ul class="m-auto">
+                    @foreach ($errors->all() as $error)
+                        <li class="mx-0">{{$error}}</li>  
+                    @endforeach
+                </ul>
+            </div>
+            @endif          
             <div class="col-12 d-flex align-items-center justify-content-around mt-3">
                 <a type="button" class="btn btn-secondary col-5" href="{{ Route('admin.recursos') }}">VOLTAR</a>
                 <button type="submit" form="cadastrar-curso" class="btn btn-primary col-5">SALVAR</button>
