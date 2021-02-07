@@ -43,7 +43,7 @@ class CsvController extends Controller
 
         $validated = $request->validated();
 
-        $file = file($request->file('csv')->getRealPath());
+        $file = file($request->file('csv')->getPathname());
 
         if(strcmp($file[0], "sep=;".PHP_EOL)){
             $data = array_slice($file, 1);
