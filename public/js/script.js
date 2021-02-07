@@ -100,14 +100,14 @@ function drop(ev, el){
 function exclude(el){
     if($(el).hasClass('icon')) {
         if($(el).hasClass('doc')) {
-            $(el).html("<img class='p-1 opacity-20' src='img/docente.png' alt=''>");
+            $(el).html("<img class='p-1 opacity-20' src='/img/docente.png' alt=''>");
         } else if($(el).hasClass('amb')) {
-            $(el).html("<img class='m-0 opacity-20' src='img/ambiente.png'>");
+            $(el).html("<img class='m-0 opacity-20' src='/img/ambiente.png'>");
         } else if($(el).hasClass('eqp')) {
             $(el).children('img').addClass('opacity-20');
             $(el).parent().parent().children('.dropdown-menu').children('.linha').children('.recurso').children('p').text("");
         } else if($(el).hasClass('uc')) {
-            $(el).html("<img src='img/uc.png' class='p-1 opacity-20'></img>");
+            $(el).html("<img src='/img/uc.png' class='p-1 opacity-20'></img>");
         }
     }
 }

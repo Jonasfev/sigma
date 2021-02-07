@@ -44,9 +44,10 @@
                 </div>
             </div>
         </div>
-        <div class="w-50 d-flex align-items-center justify-content-around mx-auto mt-3 mb-4" onload="horario({{$turma->periodo}}, 'tec');">
+        <div class="w-50 d-flex align-items-center justify-content-around mx-auto mt-3 mb-4">
             <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos')}}">VOLTAR</a>
             <button class="btn btn-primary col-5">SALVAR</button>
         </div>
     </div>
+    <script>horario('{{$turma->periodo}}', 'tec');</script>
 @endsection
