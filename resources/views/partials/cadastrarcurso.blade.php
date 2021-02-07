@@ -28,10 +28,18 @@
                 <input class="form-control" type="date" name="dataFimCurso">
                 <label class="mt-1 form-label" for="cargaTotalHoras">Carga horária total</label>
                 <input class="form-control" type="number" name="cargaTotalHoras">
+                <label class="mt-1 form-label">Uc's do curso</label>
+                <div class="d-flex flex-column opcao-uc overflow-auto">
+                    @foreach ($ucs as $uc)
+                        <div>
+                            <input type="checkbox" name="uc-{{$uc->id}}" value="{{$uc->id}}"> {{$uc->nomeUC}}
+                        </div>
+                    @endforeach
+                </div>
             </form>          
             <div class="col-12 d-flex align-items-center justify-content-around mt-3">
                 <a type="button" class="btn btn-secondary col-5" href="{{ Route('admin.recursos') }}">VOLTAR</a>
-                <button form="cadastrar-curso" class="btn btn-primary col-5">SALVAR</button>
+                <button type="submit" form="cadastrar-curso" class="btn btn-primary col-5">SALVAR</button>
             </div>
         </div>
     </div>

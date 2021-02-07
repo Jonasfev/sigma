@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ambienteuc extends Model
+class Ambienteuc extends Model
 {
     use HasFactory;
     protected $guarded = [];

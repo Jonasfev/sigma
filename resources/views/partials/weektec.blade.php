@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         <div class="icon amb" ondblclick="exclude(this);">
-                            <img class="m-0 opacity-20" src="img/ambiente.png">
+                            <img class="m-0 opacity-20" src="img/amb.png">
                         </div>
                         <div class="dropdown-menu border border-secondary p-2 m-0">
                             <div class="linha eqp d-flex w-100">

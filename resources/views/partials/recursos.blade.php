@@ -144,6 +144,9 @@
                             <h4 class="m-0">{{$turma->siglaTurma}}</h4>
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
+                                <a href="{{route('admin.horario', ['id' => $turma->id])}}">
+                                    <img src="img/horario.png" alt="editar" width="32px" class="mx-2">
+                                </a>
                                 <a href="{{route('admin.editar', ['tipo' => "turma",'id' => $turma->id])}}">
                                     <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>

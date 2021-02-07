@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCsvRequest;
 use App\Models\Ambiente;
-use App\Models\ambienteuc;
+use App\Models\Ambienteuc;
 use App\Models\Curso;
+use App\Models\Cursouc;
 use App\Models\Docente;
 use App\Models\Docuc;
 use App\Models\Equipamento;
@@ -32,32 +33,6 @@ class RecursoController extends Controller
         $turmas = Turma::get();
 
         return view('partials.recursos', compact(['docentes', 'equip', 'ambientes', 'ucs', 'cursos', 'turmas']));
-    }
-
-    public function tecindex(){
-
-        $docentes = Docente::get();
-
-        $equips = Equipamento::get();
-
-        $ambientes = Ambiente::get();
-
-        $ucs = Uc::get();
-
-        return view('partials.turmatec', compact(['docentes', 'equips', 'ambientes', 'ucs']));
-    }
-
-    public function caiindex(){
-
-        $docentes = Docente::get();
-
-        $equips = Equipamento::get();
-
-        $ambientes = Ambiente::get();
-
-        $ucs = Uc::get();
-
-        return view('partials.turmacai', compact(['docentes', 'equips', 'ambientes', 'ucs']));
     }
 
     public function create($tipo) {
@@ -124,18 +99,17 @@ class RecursoController extends Controller
                 }
                 break;
             case 'ambiente':
-
                 $req = $request->except('_token', 'tipo', 'numAmbiente', 'alunosComportados');
                 Ambiente::create([
                     'Tipo' => $request->tipo,
                     'numAmbiente' => $request->numAmbiente,
-                    'alunosComportados' => $request->alunosComportados,
+                    'alunosComportados' => $request->alunosComportados
                 ]);
 
                 $amb_id = Ambiente::where('Tipo', $request->tipo)->where('numAmbiente', $request->numAmbiente)->first()->id;
 
                 foreach($req as $uc){
-                    ambienteuc::create([
+                    Ambienteuc::create([
                         'idAmbiente' => $amb_id,
                         'ucComportada' => $uc
                     ]);
@@ -154,19 +128,30 @@ class RecursoController extends Controller
                     'siglaUc' => $request->siglaUC,
                     'nomeUc' => $request->nomeUC,
                     'cargaSemanal' => 5,
-                    'aulasSemanais' => $request->aulasSemanais,
+                    'aulasSemanais' => $request->aulasSemanais
                 ]);
                 break;
             case 'curso':
+                $req = $request->except('_token', 'tipoCurso', 'siglaCurso', 'nomeCurso', 'dataInicioCurso', 'dataFimCurso', 'cargaTotalHoras');
+
                 Curso::create([
                     'tipoCurso' => $request->tipoCurso,
                     'siglaCurso' => $request->siglaCurso,
                     'nomeCurso' => $request->nomeCurso,
                     'dataInicioCurso' => $request->dataInicioCurso,
                     'dataFimCurso' => $request->dataFimCurso,
-                    'cargaTotalHoras' => $request->cargaTotalHoras,
-
+                    'cargaTotalHoras' => $request->cargaTotalHoras
                 ]);
+
+                $curso_id = Curso::where('siglaCurso', $request->siglaCurso)->where('nomeCurso', $request->nomeCurso)->first()->id;
+
+                foreach($req as $uc){
+                    Cursouc::create([
+                        'curso' => $curso_id,
+                        'ucComportada' => $uc
+                    ]);
+                }
+                
                 break;
             case 'turma':
                 Turma::create([
