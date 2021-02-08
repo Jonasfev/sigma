@@ -43,27 +43,27 @@ class RecursoController extends Controller
 
         switch($tipo) {
             case 'docente':
-                $v = 'partials.cadastrar.cadastrardocente';
+                $v = 'partials.cadastrar.docente';
                 $params = 'ucs';
                 break;
             case 'ambiente':
-                $v = 'partials.cadastrar.cadastrarambiente';
+                $v = 'partials.cadastrar.ambiente';
                 $params = 'ucs';
                 break;
             case 'equipamento':
-                $v = 'partials.cadastrar.cadastrarequipamento';
+                $v = 'partials.cadastrar.equipamento';
                 $params = '';
                 break;
             case 'uc':
-                $v = 'partials.cadastrar.cadastraruc';
+                $v = 'partials.cadastrar.uc';
                 $params = '';
                 break;
             case 'curso':
-                $v = 'partials.cadastrar.cadastrarcurso';
+                $v = 'partials.cadastrar.curso';
                 $params = 'ucs';
                 break;
             case 'turma':
-                $v = 'partials.cadastrar.cadastrarturma';
+                $v = 'partials.cadastrar.turma';
                 $params = 'cursos';
                 break;
         }
@@ -180,32 +180,32 @@ class RecursoController extends Controller
         switch($tipo) {
             case 'docente':
                 $recurso = Docente::find($id);
-                $v = 'partials.editar.editardocente';
+                $v = 'partials.editar.docente';
                 $params = ['recurso', 'tipo', 'ucs'];
                 break;
             case 'ambiente':
                 $recurso = Ambiente::find($id);
-                $v = 'partials.editar.editarambiente';
+                $v = 'partials.editar.ambiente';
                 $params = ['recurso', 'tipo', 'ucs'];
                 break;
             case 'equipamento':
                 $recurso = Equipamento::find($id);
-                $v = 'partials.editar.editarequipamento';
+                $v = 'partials.editar.equipamento';
                 $params = ['recurso', 'tipo'];
                 break;
             case 'uc':
                 $recurso = Uc::find($id);
-                $v = 'partials.editar.editaruc';
+                $v = 'partials.editar.uc';
                 $params = ['recurso', 'tipo'];
                 break;
             case 'curso':
                 $recurso = Curso::find($id);
-                $v = 'partials.editar.editarcurso';
+                $v = 'partials.editar.curso';
                 $params = ['recurso', 'tipo', 'ucs'];
                 break;
             case 'turma':
                 $recurso = Turma::find($id);
-                $v = 'partials.editar.editarturma';
+                $v = 'partials.editar.turma';
                 $params = ['recurso', 'tipo', 'cursos'];
                 break;
         }

@@ -1,4 +1,4 @@
-@extends('partials.turma')
+@extends('partials.turma.cai')
 
 @section('cai/tec')
     <h1 class="text-center m-2">Turma CAI</h1>

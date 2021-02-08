@@ -24,10 +24,10 @@ class HorarioController extends Controller
         
         switch ($tipo) {
             case 'CAI': 
-                $v = 'partials.turma.turmacai';
+                $v = 'partials.turma.cai';
                 break;
             case 'TEC': 
-                $v = 'partials.turma.turmatec';
+                $v = 'partials.turma.tec';
                 break;
             case 'FIC':
                 // implementar página fic
