@@ -15,7 +15,10 @@
                 <h4 class="text-center">Docentes</h4>
                     <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                         @foreach ($docentes as $docente)
-                            <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-{{$docente->id}}' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="{{$docente->Nome}} {{$docente->Sobrenome}}">{{$docente->Nome}}</div>
+                            <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-{{$docente->id}}' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="{{$docente->Nome}} {{$docente->Sobrenome}}">
+                                <input type="number" value="{{$docente->id}}" hidden>
+                                {{$docente->Nome}}
+                            </div>
                         @endforeach
                     </div>
                 </div>
@@ -23,7 +26,9 @@
                 <h4 class="text-center">Ambientes</h4>
                 <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                     @foreach ($ambientes as $ambiente)
-                        <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-{{$ambiente->id}}' ondragstart="drag(event);">{{$ambiente->Tipo}} - {{$ambiente->numAmbiente}}</div>
+                        <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-{{$ambiente->id}}' ondragstart="drag(event);">
+                            <input type="number" value="{{$ambiente->id}}" hidden>
+                            {{$ambiente->Tipo}} - {{$ambiente->numAmbiente}}</div>
                     @endforeach
                 </div>
             </div>
@@ -31,7 +36,9 @@
                 <h4 class="text-center">Equipamentos</h4>
                 <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                     @foreach ($equips as $equip)
-                        <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-{{$equip->id}}' ondragstart="drag(event);">{{$equip->Nome}}</div>
+                        <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-{{$equip->id}}' ondragstart="drag(event);">
+                            <input type="number" value="{{$equip->id}}" hidden>
+                            {{$equip->Nome}}</div>
                     @endforeach
                 </div>
             </div>
@@ -39,7 +46,10 @@
                 <h4 class="text-center">UC's</h4>
                 <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                     @foreach ($ucs as $uc)
-                        <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-{{$uc->id}}'ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="{{$uc->nomeUC}}">{{$uc->siglaUC}}</div>
+                        <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-{{$uc->id}}'ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="{{$uc->nomeUC}}">
+                            <input type="number" value="{{$uc->id}}" hidden>
+                            {{$uc->siglaUC}}
+                        </div>
                     @endforeach
                 </div>
             </div>

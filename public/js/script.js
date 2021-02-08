@@ -84,12 +84,16 @@ function drop(ev, el){
     nodeCopy.removeAttribute('draggable');
     if($(nodeCopy).hasClass('uc')) {
         $(el).children('.uc').html(nodeCopy.innerHTML);
+        $(el).children('form').children('input#'+el.id+'-10').attr('value', $(nodeCopy).children('input').val());
     } else if($(nodeCopy).hasClass('docente')) {
         $(el).children('.doc').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");    
+        $(el).children('form').children('input#'+el.id+'-8').attr('value', $(nodeCopy).children('input').val());
     } else if($(nodeCopy).hasClass('ambiente')) {
         $(el).children('.dropup').children('.icon.amb').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");
+        $(el).children('form').children('input#'+el.id+'-9').attr('value', $(nodeCopy).children('input').val());
     } else if($(nodeCopy).hasClass('equipamento')) {
         $(el).children('.dropup').children('.drop-ctn').children('.icon.eqp').children('img').removeClass('opacity-20');
+        $(el).children('form').children('input#'+el.id+'-11').attr('value', $(nodeCopy).children('input').val());
         $(el).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text(nodeCopy.innerHTML);
     } else if($(nodeCopy).hasClass('aula')) {
         $(el).html($(nodeCopy).html());
@@ -100,13 +104,17 @@ function drop(ev, el){
 function exclude(el){
     if($(el).hasClass('icon')) {
         if($(el).hasClass('doc')) {
+            $(el).parent().children('form').children('input#'+$(el).parent().attr('id')+'-8').attr('value', '');
             $(el).html("<img class='p-1 opacity-20' src='/img/docente.png' alt=''>");
         } else if($(el).hasClass('amb')) {
+            $(el).parent().parent().children('form').children('input#'+$(el).parent().parent().attr('id')+'-9').attr('value', '');
             $(el).html("<img class='m-0 opacity-20' src='/img/ambiente.png'>");
         } else if($(el).hasClass('eqp')) {
+            $(el).parent().parent().parent().children('form').children('input#'+$(el).parent().parent().parent().attr('id')+'-11').attr('value', '');
             $(el).children('img').addClass('opacity-20');
             $(el).parent().parent().children('.dropdown-menu').children('.linha').children('.recurso').children('p').text("");
         } else if($(el).hasClass('uc')) {
+            $(el).parent().children('form').children('input#'+$(el).parent().attr('id')+'-10').attr('value', '');
             $(el).html("<img src='/img/uc.png' class='p-1 opacity-20'></img>");
         }
     }

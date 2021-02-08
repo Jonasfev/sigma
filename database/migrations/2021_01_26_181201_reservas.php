@@ -21,8 +21,8 @@ class Reservas extends Migration
 
             $table->string('periodo');
 
-            $table->dateTime('horaInicio');
-            $table->dateTime('horaFim');
+            $table->time('horaInicio');
+            $table->time('horaFim');
 
             $table->integer('aula');
 
@@ -36,6 +36,9 @@ class Reservas extends Migration
 
             $table->unsignedBigInteger('idUc');
             $table->foreign('idUc')->references('id')->on('ucs');
+
+            $table->unsignedBigInteger('idEquipamento');
+            $table->foreign('idEquipamento')->references('id')->on('equipamentos');
 
             $table->timestamps();
         });
