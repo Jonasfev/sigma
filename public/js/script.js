@@ -199,9 +199,3 @@ function modalExclude(recursoId, recursoNome, recursoSobrenome, recursoTipo){
     $("input#tipoRecurso").attr("value", recursoTipo);
     $("input#idRecurso").attr("value", recursoId);
 }
-
-function enviarForms(n) {
-    for(i=1;i<=n;i++) {
-        document.getElementById('form-'+i).submit();
-    }
-}

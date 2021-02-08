@@ -40,16 +40,10 @@ class HorarioController extends Controller
 
     public function store(Request $request) {
 
-        $turmas = Turma::get();
-        $docentes = Docente::get();
-        $equip = Equipamento::get();
-        $ambientes = Ambiente::get();
-        $cursos = Curso::get();
-        $ucs = Uc::get();
-
         Reserva::create($request->except('_token'));
 
-        return redirect()->route('admin.recursos');
+        $teste['success'] = true;
+        echo json_encode($request->all());
 
     }
 

@@ -133,3 +133,24 @@
     </div>
     @endfor
 </div>
+
+<script>
+    function enviarForms(n) {
+    $('#btnenviarform').prop("disabled",true);;
+    for(i=1;i<=n;i++) {
+        var data = $('form#form-'+i);
+        console.log(data.serialize());
+            $.ajax({
+                url: "{{Route('admin.horario.store')}}",
+                type: "post",
+                data: data.serialize(),
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
+                    $('#btnenviarform').prop("disabled",false);;   
+                },
+            })
+    
+    }
+}
+</script>
