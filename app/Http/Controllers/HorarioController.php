@@ -34,7 +34,7 @@ class HorarioController extends Controller
                 break;
         }
         
-        return view($v, compact('turma', 'docentes', 'equips', 'ambientes', 'ucs'));
+        return view($v, compact('turma', 'docentes', 'equips', 'ambientes', 'ucs', 'tipo'));
 
     }
 

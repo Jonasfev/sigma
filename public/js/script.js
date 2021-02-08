@@ -202,6 +202,6 @@ function modalExclude(recursoId, recursoNome, recursoSobrenome, recursoTipo){
 
 function enviarForms(n) {
     for(i=1;i<=n;i++) {
-        $('form#form-'+i).submit();
+        document.getElementById('form-'+i).submit();
     }
 }
