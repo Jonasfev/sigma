@@ -2,10 +2,10 @@
     <div class="h-ctn w-6 h-100 d-flex flex-column ml-1">
         <h2 class="w-100 text-center">&nbsp</h2>
         <form class="aulas d-flex flex-column w-100 flex-fill">
-            @for ($i = 0; $i < 5; $i++)
-            <div id="ha-{{$i+1}}" class="h-20 w-100 d-flex flex-column align-items-center justify-content-center">
-                <input type="time" class="border border-secondary rounded-lg inicio text-center w-100">
-                <input type="time" class="border border-secondary rounded-lg fim text-center w-100 mt-1">
+            @for ($i = 0; $i < 4; $i++)
+            <div id="ha-{{$i+1}}" class="h-25 w-100 d-flex flex-column align-items-center justify-content-center">
+                <input type="time" class="border border-secondary rounded-lg inicio text-center w-100" onchange="atualizaHorario({{$i+1}}, this)" value="00:00">
+                <input type="time" class="border border-secondary rounded-lg fim text-center w-100 mt-1" onchange="atualizaHorario({{$i+1}}, this)" value="00:00">
             </div>
             @endfor
         </form>
@@ -42,8 +42,22 @@
         <h2 class="w-100 text-center">{{$day}}</h2>
         <div class="container w-100 d-flex flex-fill p-0 border border-secondary rounded-lg">
             <div class="turma-a border-right border-secondary w-50 h-100">
-                @for ($i = 0; $i < 5; $i++)
-                <div id="aula-{{$j*10+$i+1}}" class="aula w-100 h-20 @if($i < 4) border-bottom @endif border-secondary d-flex flex-column justify-content-center" draggable="true" ondragstart="drag(event);" ondrop="drop(event, this);" ondragover="letsDrop(event);">
+                @for ($i = 0; $i < 4; $i++)
+                <div id="aula-{{$j*8+$i+1}}" class="aula w-100 h-25 @if($i < 3) border-bottom @endif border-secondary d-flex flex-column justify-content-center" draggable="true" ondragstart="drag(event);" ondrop="drop(event, this);" ondragover="letsDrop(event);">
+                    <form id="form-{{$j*8+$i+1}}" action="{{Route('admin.horario.store')}}" method="POST">
+                        @csrf
+                        <input type="text" id="aula-{{$j*8+$i+1}}-1" name="idTurma" value="{{$turma->id}}" hidden>
+                        <input type="text" id="aula-{{$j*8+$i+1}}-2" name="diaSemana" value="{{$day}}" hidden>
+                        <input type="text" id="aula-{{$j*8+$i+1}}-3" name="periodo" value="{{$turma->periodo}}" hidden>
+                        <input type="time" id="aula-{{$j*8+$i+1}}-4" name="horaInicio" value="" hidden>
+                        <input type="time" id="aula-{{$j*8+$i+1}}-5" name="horaFim" value="" hidden>
+                        <input type="number" id="aula-{{$j*8+$i+1}}-6" name="aula" value="{{$i+1}}" hidden>
+                        <input type="text" id="aula-{{$j*8+$i+1}}-7" name="turma" value="a" hidden>
+                        <input type="number" id="aula-{{$j*8+$i+1}}-8" name="idDocente" value="" hidden>
+                        <input type="number" id="aula-{{$j*8+$i+1}}-9" name="idAmbiente" value="" hidden>
+                        <input type="number" id="aula-{{$j*8+$i+1}}-10" name="idUc" value="" hidden>
+                        <input type="number" id="aula-{{$j*8+$i+1}}-11" name="idEquipamento" value="" hidden>
+                    </form>
                     <div class="dropup w-100 px-1 d-flex justify-content-between align-items-center">
                         <div class="drop-ctn d-flex align-items-center justify-content-between" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="icon eqp" ondblclick="exclude(this);">
@@ -72,8 +86,22 @@
                 @endfor
             </div>
             <div class="turma-b border-secondary w-50 h-100">
-                @for ($i = 0; $i < 5; $i++)
-                <div id="aula-{{$j*10+$i+6}}" class="aula w-100 h-20 @if($i < 4) border-bottom @endif border-secondary d-flex flex-column justify-content-center" draggable="true" ondragstart="drag(event);" ondrop="drop(event, this);" ondragover="letsDrop(event);">
+                @for ($i = 0; $i < 4; $i++)
+                <div id="aula-{{$j*8+$i+5}}" class="aula w-100 h-25 @if($i < 3) border-bottom @endif border-secondary d-flex flex-column justify-content-center" draggable="true" ondragstart="drag(event);" ondrop="drop(event, this);" ondragover="letsDrop(event);">
+                    <form id="form-{{$j*8+$i+5}}" action="{{Route('admin.horario.store')}}" method="POST">
+                        @csrf
+                        <input type="text" id="aula-{{$j*8+$i+5}}-1" name="idTurma" value="{{$turma->id}}" hidden>
+                        <input type="text" id="aula-{{$j*8+$i+5}}-2" name="diaSemana" value="{{$day}}" hidden>
+                        <input type="text" id="aula-{{$j*8+$i+5}}-3" name="periodo" value="{{$turma->periodo}}" hidden>
+                        <input type="time" id="aula-{{$j*8+$i+5}}-4" name="horaInicio" value="" hidden>
+                        <input type="time" id="aula-{{$j*8+$i+5}}-5" name="horaFim" value="" hidden>
+                        <input type="number" id="aula-{{$j*8+$i+5}}-6" name="aula" value="{{$i+1}}" hidden>
+                        <input type="text" id="aula-{{$j*8+$i+5}}-7" name="turma" value="b" hidden>
+                        <input type="number" id="aula-{{$j*8+$i+5}}-8" name="idDocente" value="" hidden>
+                        <input type="number" id="aula-{{$j*8+$i+5}}-9" name="idAmbiente" value="" hidden>
+                        <input type="number" id="aula-{{$j*8+$i+5}}-10" name="idUc" value="" hidden>
+                        <input type="number" id="aula-{{$j*8+$i+5}}-11" name="idEquipamento" value="" hidden>
+                    </form>
                     <div class="dropup w-100 px-1 d-flex justify-content-between align-items-center">
                         <div class="drop-ctn d-flex align-items-center justify-content-between" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="icon eqp" ondblclick="exclude(this);">

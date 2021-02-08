@@ -36,12 +36,22 @@
                     <label for="Hmin" class="form-label">Horas Minimas</label>
                     <input type="number" class="form-control mt-0 w-15" id="Hmin" name="Hmin"value="{{$recurso->hMin}}">
                   </div>
+                  <div class="mb-3 mt-0">
+                    <label class="mt-1 form-label" for="hmax">Incluir UC</label>
+                    <div class="opcao-uc d-flex flex-column overflow-auto">
+                        @foreach ($ucs as $uc)
+                            <div>
+                                <input type="checkbox" name="uc-{{$uc->id}}" value="{{$uc->id}}"> {{$uc->nomeUC}}
+                            </div>
+                        @endforeach
+                    </div>
+                  </div>
                   
                 </form>
               </div>
               <div class="col-12 d-flex align-items-center justify-content-around">
                 <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos')}}">VOLTAR</a>
-                <button type="submit" form="formu" class="btn btn-primary col-5 text-uppercase">ENVIAR</button>
+                <button type="submit" form="formu" class="btn btn-primary col-5 text-uppercase">SALVAR</button>
               </div>
             </div>
         </div>

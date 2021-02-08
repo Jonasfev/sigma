@@ -138,19 +138,19 @@
                         <img src="img/add.png" class="mr-2">
                         Adicionar turma
                     </a>
-                    @foreach ($turmas as $turma)          
+                    @foreach ($turmas as $t)          
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                            <h4 class="m-0">{{$turma->siglaTurma}}</h4>
+                            <h4 class="m-0">{{$t->siglaTurma}}</h4>
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
-                                <a href="{{route('admin.horario', ['id' => $turma->id])}}">
+                                <a href="{{route('admin.horario', ['id' => $t->id])}}">
                                     <img src="img/horario.png" alt="editar" width="32px" class="mx-2">
                                 </a>
-                                <a href="{{route('admin.editar', ['tipo' => "turma",'id' => $turma->id])}}">
+                                <a href="{{route('admin.editar', ['tipo' => "turma",'id' => $t->id])}}">
                                     <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#exclude" onclick="modalExclude({{$turma->id}}, '{{$turma->siglaTurma}}', '{{$turma->periodo}}', 'turma')">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exclude" onclick="modalExclude({{$t->id}}, '{{$t->siglaTurma}}', '{{$t->periodo}}', 'turma')">
                                     <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
                                 </a>
                             </div>

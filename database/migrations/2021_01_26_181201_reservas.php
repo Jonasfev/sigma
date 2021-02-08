@@ -16,13 +16,15 @@ class Reservas extends Migration
         Schema::create('reservas', function (Blueprint $table) {
             $table->id();
 
-            $table->string('turmaSigla');
+            $table->unsignedBigInteger('idTurma');
+            $table->foreign('idTurma')->references('id')->on('turmas');
+
             $table->string('diaSemana', 10);
 
             $table->string('periodo');
 
-            $table->dateTime('horaInicio');
-            $table->dateTime('horaFim');
+            $table->time('horaInicio');
+            $table->time('horaFim');
 
             $table->integer('aula');
 
@@ -36,6 +38,9 @@ class Reservas extends Migration
 
             $table->unsignedBigInteger('idUc');
             $table->foreign('idUc')->references('id')->on('ucs');
+
+            $table->unsignedBigInteger('idEquipamento');
+            $table->foreign('idEquipamento')->references('id')->on('equipamentos');
 
             $table->timestamps();
         });

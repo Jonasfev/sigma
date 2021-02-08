@@ -1,5 +1,7 @@
 function horario(el, tipo) {
+
     horarios = $('div.h-ctn').children('form');
+
     if(tipo == 'tec') {
         switch (el) {
             case "manha":
@@ -39,6 +41,12 @@ function horario(el, tipo) {
                 $(horarios).children('#ha-5').children('.fim').attr('value', '22:45');
                 break;
         }
+
+        for(i=1;i<=5;i++) {
+            atualizaHorario(i, $('#ha-'+i).children('input.inicio'));
+            atualizaHorario(i, $('#ha-'+i).children('input.fim'));
+        }
+
     } else if (tipo = 'cai') {
         switch (el) {
             case "manha":
@@ -62,7 +70,30 @@ function horario(el, tipo) {
                 $(horarios).children('#ha-4').children('.fim').attr('value', '17:30');
                 break;
         }
+
+        for(i=1;i<=4;i++) {
+            atualizaHorario(i, $('#ha-'+i).children('input.inicio'));
+            atualizaHorario(i, $('#ha-'+i).children('input.fim'));
+        }
+
     }
+
+}
+
+function atualizaHorario(nAula, el) {
+
+    if($(el).hasClass('inicio')){
+        for (j=0; j<5; j++) {
+            $('input#aula-'+(j*10+nAula)+'-4').attr('value', $(el).val());    
+            $('input#aula-'+(j*10+nAula+5)+'-4').attr('value', $(el).val());
+        }
+    } else {
+        for (j=0; j<5; j++) {
+            $('input#aula-'+(j*10+nAula)+'-5').attr('value', $(el).val());    
+            $('input#aula-'+(j*10+nAula+5)+'-5').attr('value', $(el).val());
+        }
+    }
+    
 }
 
 function drag(ev){
@@ -80,19 +111,31 @@ function drop(ev, el){
     ev.preventDefault();
     var data = ev.dataTransfer.getData('srcID');
     var nodeCopy = document.getElementById(data).cloneNode(true);
-    nodeCopy.id = "newId";
     nodeCopy.removeAttribute('draggable');
     if($(nodeCopy).hasClass('uc')) {
         $(el).children('.uc').html(nodeCopy.innerHTML);
+        $(el).children('form').children('input#'+el.id+'-10').attr('value', $(nodeCopy).children('input').val());
     } else if($(nodeCopy).hasClass('docente')) {
         $(el).children('.doc').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");    
+        $(el).children('form').children('input#'+el.id+'-8').attr('value', $(nodeCopy).children('input').val());
     } else if($(nodeCopy).hasClass('ambiente')) {
         $(el).children('.dropup').children('.icon.amb').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");
+        $(el).children('form').children('input#'+el.id+'-9').attr('value', $(nodeCopy).children('input').val());
     } else if($(nodeCopy).hasClass('equipamento')) {
         $(el).children('.dropup').children('.drop-ctn').children('.icon.eqp').children('img').removeClass('opacity-20');
-        $(el).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text(nodeCopy.innerHTML);
+        $(el).children('form').children('input#'+el.id+'-11').attr('value', $(nodeCopy).children('input').val());
+        $(el).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text($(nodeCopy).children('p').text());
     } else if($(nodeCopy).hasClass('aula')) {
-        $(el).html($(nodeCopy).html());
+        $(el).children('.uc').html($(nodeCopy).children('.uc').html());
+        $(el).children('.doc').html($(nodeCopy).children('.doc').html()); 
+        $(el).children('.dropup').children('.icon.amb').html($(nodeCopy).children('.dropup').children('.icon.amb').html());
+        $(el).children('.dropup').children('.drop-ctn').children('.icon.eqp').html($(nodeCopy).children('.dropup').children('.drop-ctn').children('.icon.eqp').html());
+        $(el).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text($(nodeCopy).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text());
+        
+        $(el).children('form').children('input#'+el.id+'-8').attr('value', $(nodeCopy).children('form').children('input#'+nodeCopy.id+'-8').val());
+        $(el).children('form').children('input#'+el.id+'-9').attr('value', $(nodeCopy).children('form').children('input#'+nodeCopy.id+'-9').val());
+        $(el).children('form').children('input#'+el.id+'-10').attr('value', $(nodeCopy).children('form').children('input#'+nodeCopy.id+'-10').val());
+        $(el).children('form').children('input#'+el.id+'-11').attr('value', $(nodeCopy).children('form').children('input#'+nodeCopy.id+'-11').val());
     }
     
 }
@@ -100,13 +143,17 @@ function drop(ev, el){
 function exclude(el){
     if($(el).hasClass('icon')) {
         if($(el).hasClass('doc')) {
+            $(el).parent().children('form').children('input#'+$(el).parent().attr('id')+'-8').attr('value', '');
             $(el).html("<img class='p-1 opacity-20' src='/img/docente.png' alt=''>");
         } else if($(el).hasClass('amb')) {
+            $(el).parent().parent().children('form').children('input#'+$(el).parent().parent().attr('id')+'-9').attr('value', '');
             $(el).html("<img class='m-0 opacity-20' src='/img/ambiente.png'>");
         } else if($(el).hasClass('eqp')) {
+            $(el).parent().parent().parent().children('form').children('input#'+$(el).parent().parent().parent().attr('id')+'-11').attr('value', '');
             $(el).children('img').addClass('opacity-20');
             $(el).parent().parent().children('.dropdown-menu').children('.linha').children('.recurso').children('p').text("");
         } else if($(el).hasClass('uc')) {
+            $(el).parent().children('form').children('input#'+$(el).parent().attr('id')+'-10').attr('value', '');
             $(el).html("<img src='/img/uc.png' class='p-1 opacity-20'></img>");
         }
     }
@@ -151,4 +198,10 @@ function modalExclude(recursoId, recursoNome, recursoSobrenome, recursoTipo){
     
     $("input#tipoRecurso").attr("value", recursoTipo);
     $("input#idRecurso").attr("value", recursoId);
+}
+
+function enviarForms(n) {
+    for(i=1;i<=n;i++) {
+        $('form#form-'+i).submit();
+    }
 }

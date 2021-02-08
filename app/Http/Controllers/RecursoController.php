@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CriarRecursoRequest;
 use App\Http\Requests\StoreCsvRequest;
 use App\Models\Ambiente;
 use App\Models\Ambienteuc;
@@ -42,27 +43,27 @@ class RecursoController extends Controller
 
         switch($tipo) {
             case 'docente':
-                $v = 'partials.cadastrardocente';
+                $v = 'partials.cadastrar.docente';
                 $params = 'ucs';
                 break;
             case 'ambiente':
-                $v = 'partials.cadastrarambiente';
+                $v = 'partials.cadastrar.ambiente';
                 $params = 'ucs';
                 break;
             case 'equipamento':
-                $v = 'partials.cadastrarequipamento';
+                $v = 'partials.cadastrar.equipamento';
                 $params = '';
                 break;
             case 'uc':
-                $v = 'partials.cadastraruc';
+                $v = 'partials.cadastrar.uc';
                 $params = '';
                 break;
             case 'curso':
-                $v = 'partials.cadastrarcurso';
+                $v = 'partials.cadastrar.curso';
                 $params = 'ucs';
                 break;
             case 'turma':
-                $v = 'partials.cadastrarturma';
+                $v = 'partials.cadastrar.turma';
                 $params = 'cursos';
                 break;
         }
@@ -77,7 +78,7 @@ class RecursoController extends Controller
 
     }
 
-    public function store(Request $request, $tipo) {    
+    public function store(CriarRecursoRequest $request, $tipo) {    
 
         switch($tipo) {
             case 'docente':
@@ -98,6 +99,7 @@ class RecursoController extends Controller
                     ]);
                 }
                 break;
+
             case 'ambiente':
                 $req = $request->except('_token', 'tipo', 'numAmbiente', 'alunosComportados');
                 Ambiente::create([
@@ -131,6 +133,7 @@ class RecursoController extends Controller
                     'aulasSemanais' => $request->aulasSemanais
                 ]);
                 break;
+
             case 'curso':
                 $req = $request->except('_token', 'tipoCurso', 'siglaCurso', 'nomeCurso', 'dataInicioCurso', 'dataFimCurso', 'cargaTotalHoras');
 
@@ -177,32 +180,32 @@ class RecursoController extends Controller
         switch($tipo) {
             case 'docente':
                 $recurso = Docente::find($id);
-                $v = 'partials.editardocente';
+                $v = 'partials.editar.docente';
                 $params = ['recurso', 'tipo', 'ucs'];
                 break;
             case 'ambiente':
                 $recurso = Ambiente::find($id);
-                $v = 'partials.editarambiente';
+                $v = 'partials.editar.ambiente';
                 $params = ['recurso', 'tipo', 'ucs'];
                 break;
             case 'equipamento':
                 $recurso = Equipamento::find($id);
-                $v = 'partials.editarequipamento';
+                $v = 'partials.editar.equipamento';
                 $params = ['recurso', 'tipo'];
                 break;
             case 'uc':
                 $recurso = Uc::find($id);
-                $v = 'partials.editaruc';
+                $v = 'partials.editar.uc';
                 $params = ['recurso', 'tipo'];
                 break;
             case 'curso':
                 $recurso = Curso::find($id);
-                $v = 'partials.editarcurso';
+                $v = 'partials.editar.curso';
                 $params = ['recurso', 'tipo', 'ucs'];
                 break;
             case 'turma':
                 $recurso = Turma::find($id);
-                $v = 'partials.editarturma';
+                $v = 'partials.editar.turma';
                 $params = ['recurso', 'tipo', 'cursos'];
                 break;
         }
