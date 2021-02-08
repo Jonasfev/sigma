@@ -4,8 +4,8 @@
         <form class="aulas d-flex flex-column w-100 flex-fill">
             @for ($i = 0; $i < 4; $i++)
             <div id="ha-{{$i+1}}" class="h-25 w-100 d-flex flex-column align-items-center justify-content-center">
-                <input type="time" class="border border-secondary rounded-lg inicio text-center w-100" onchange="atualizaHorario({{$i+1}}, this)" value="00:00">
-                <input type="time" class="border border-secondary rounded-lg fim text-center w-100 mt-1" onchange="atualizaHorario({{$i+1}}, this)" value="00:00">
+                <input type="time" class="border border-secondary rounded-lg inicio text-center w-100" onchange="atualizaHorario({{$i+1}}, this, 'CAI')" value="00:00">
+                <input type="time" class="border border-secondary rounded-lg fim text-center w-100 mt-1" onchange="atualizaHorario({{$i+1}}, this, 'CAI')" value="00:00">
             </div>
             @endfor
         </form>
