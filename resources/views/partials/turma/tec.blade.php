@@ -38,7 +38,8 @@
                     @foreach ($equips as $equip)
                         <div class="equipamento w-65 side-item bg-white text-center" draggable="true" id='eqp-{{$equip->id}}' ondragstart="drag(event);">
                             <input type="number" value="{{$equip->id}}" hidden>
-                            {{$equip->Nome}}</div>
+                            <p class="m-0 p-0">{{$equip->Nome}}</p>
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -56,8 +57,10 @@
         </div>
         <div class="w-50 d-flex align-items-center justify-content-around mx-auto mt-3 mb-4">
             <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos')}}">VOLTAR</a>
-            <button class="btn btn-primary col-5">SALVAR</button>
+            <button onclick="enviarForms(50);" class="btn btn-primary col-5">SALVAR</button>
         </div>
     </div>
-    <script>horario('{{$turma->periodo}}', 'tec');</script>
+    <script>
+        horario('{{$turma->periodo}}', 'tec');
+    </script>
 @endsection

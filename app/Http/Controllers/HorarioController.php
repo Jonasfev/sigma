@@ -7,6 +7,7 @@ use App\Models\Curso;
 use App\Models\Docente;
 use App\Models\Equipamento;
 use App\Models\Ambiente;
+use App\Models\Reserva;
 use App\Models\Uc;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,6 @@ class HorarioController extends Controller
 
         $turma = Turma::find($id);
         $tipo = Curso::find($turma->idCurso)->tipoCurso;
-        
         $docentes = Docente::get();
         $equips = Equipamento::get();
         $ambientes = Ambiente::get();
@@ -37,4 +37,20 @@ class HorarioController extends Controller
         return view($v, compact('turma', 'docentes', 'equips', 'ambientes', 'ucs'));
 
     }
+
+    public function store(Request $request) {
+
+        $turmas = Turma::get();
+        $docentes = Docente::get();
+        $equip = Equipamento::get();
+        $ambientes = Ambiente::get();
+        $cursos = Curso::get();
+        $ucs = Uc::get();
+
+        Reserva::create($request->except('_token'));
+
+        return redirect()->route('admin.recursos');
+
+    }
+
 }

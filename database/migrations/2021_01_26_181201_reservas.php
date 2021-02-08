@@ -16,7 +16,9 @@ class Reservas extends Migration
         Schema::create('reservas', function (Blueprint $table) {
             $table->id();
 
-            $table->string('turmaSigla');
+            $table->unsignedBigInteger('idTurma');
+            $table->foreign('idTurma')->references('id')->on('turmas');
+
             $table->string('diaSemana', 10);
 
             $table->string('periodo');

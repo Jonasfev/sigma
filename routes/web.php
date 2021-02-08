@@ -32,6 +32,8 @@ Route::middleware([/*'auth'*/])->group(function() {
         Route::post('/cadastrar/{tipo}', [RecursoController::class, 'store'])->name('store');
         
         Route::get('/horario/{id}', [HorarioController::class, 'index'])->name('horario');
+        
+        Route::post('/horario/store', [HorarioController::class, 'store'])->name('horario.store');
     
         Route::get('/opcaoHorario', function() {
             return view('partials.opcaoHorario');

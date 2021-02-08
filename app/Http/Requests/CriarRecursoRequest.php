@@ -34,15 +34,15 @@ class CriarRecursoRequest extends FormRequest
                     'nomeCurso' => 'max:100|required',
                     'dataInicioCurso' => 'required',
                     'dataFimCurso' => 'required',
-                    'cargaTotalHoras' => 'numeric|size:10000|required',
+                    'cargaTotalHoras' => 'numeric|required',
                 ];
                 break;
 
             case "/cadastrar/ambiente":
                 $rules = [
                     'tipo' => 'required',
-                    'numAmbiente' => 'numeric|size:10000|required',
-                    'alunosComportados' => 'numeric|size:100|required',
+                    'numAmbiente' => 'numeric|required',
+                    'alunosComportados' => 'numeric|required',
                 ];
                 break;
 
@@ -60,7 +60,7 @@ class CriarRecursoRequest extends FormRequest
                     'idCurso' => 'required',
                     'siglaTurma' => 'max:10|required',
                     'periodo' => 'required',
-                    'numAlunos' => 'numeric|size:100|required',
+                    'numAlunos' => 'numeric|required',
                     'horaEntrada' => 'required',
                     'horaSaida' => 'required',
                 ];
@@ -70,14 +70,14 @@ class CriarRecursoRequest extends FormRequest
                 $rules = [
                     'siglaUC' => 'max:10|required',
                     'nomeUC' => 'max:100|required',
-                    'aulasSemanais' => 'numeric|size:100|required',
+                    'aulasSemanais' => 'numeric|required',
                 ];
                 break;
 
             case "/cadastrar/equipamento":
                 $rules = [
                     'Nome' => 'max:50|required',
-                    'numPatrimonio' => 'numeric|size:1000000000|required',
+                    'numPatrimonio' => 'numeric|required',
                 ];
                 break;
         }
