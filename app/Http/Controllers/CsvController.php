@@ -42,7 +42,7 @@ class CsvController extends Controller
     public function store(StoreCsvRequest $request){
 
         $validated = $request->validated();
-        $file = file($request->file('csv')->getRealPath());
+        $file = file($request->file('csv')->getPathname());
 
         if(strcmp($file[0], "sep=;".PHP_EOL)){
             $data = array_slice($file, 1);
