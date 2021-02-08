@@ -4,8 +4,8 @@
         <form class="aulas d-flex flex-column w-100 flex-fill">
             @for ($i = 0; $i < 5; $i++)
             <div id="ha-{{$i+1}}" class="h-20 w-100 d-flex flex-column align-items-center justify-content-center">
-                <input type="time" class="border border-secondary rounded-lg inicio text-center w-100" onchange="atualizaHorario({{$i+1}}, this)" value="00:00">
-                <input type="time" class="border border-secondary rounded-lg fim text-center w-100 mt-1" onchange="atualizaHorario({{$i+1}}, this)" value="00:00">
+                <input type="time" class="border border-secondary rounded-lg inicio text-center w-100" onchange="atualizaHorario({{$i+1}}, this, 'TEC')" value="00:00">
+                <input type="time" class="border border-secondary rounded-lg fim text-center w-100 mt-1" onchange="atualizaHorario({{$i+1}}, this, 'TEC')" value="00:00">
             </div>
             @endfor
         </form>
@@ -133,3 +133,23 @@
     </div>
     @endfor
 </div>
+
+<script>
+    function enviarForms(n) {
+        $('#btnenviarform').prop("disabled",true);;
+        for(i=1;i<=n;i++) {
+            var data = $('form#form-'+i);
+            console.log(data.serialize());
+            $.ajax({
+                url: "{{Route('admin.horario.store')}}",
+                type: "post",
+                data: data.serialize(),
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
+                    $('#btnenviarform').prop("disabled",false);;   
+                },
+            })
+        }
+    }
+</script>

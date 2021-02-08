@@ -2,7 +2,7 @@ function horario(el, tipo) {
 
     horarios = $('div.h-ctn').children('form');
 
-    if(tipo == 'tec') {
+    if(tipo == 'TEC') {
         switch (el) {
             case "manha":
                 $(horarios).children('#ha-1').children('.inicio').attr('value', '07:30');
@@ -47,7 +47,7 @@ function horario(el, tipo) {
             atualizaHorario(i, $('#ha-'+i).children('input.fim'), 'TEC');
         }
 
-    } else if (tipo = 'cai') {
+    } else if (tipo = 'CAI') {
         switch (el) {
             case "manha":
                 $(horarios).children('#ha-1').children('.inicio').attr('value', '07:30');
