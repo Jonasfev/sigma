@@ -140,7 +140,7 @@
         $('#btnenviarform').prop("disabled",true).text("SALVANDO...");;
         for(i=1;i<=n;i++) {
             var data = $('form#form-'+i);
-            btnable = 0;
+            btnable = 1;
             console.log(data.serialize());
             $.ajax({
                 url: "{{Route('admin.horario.store')}}",
