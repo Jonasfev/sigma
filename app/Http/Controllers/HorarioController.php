@@ -43,6 +43,7 @@ class HorarioController extends Controller
         Reserva::create($request->except('_token'));
 
         $teste['success'] = true;
+        $teste['fail'] = false;
         echo json_encode($request->all());
 
     }

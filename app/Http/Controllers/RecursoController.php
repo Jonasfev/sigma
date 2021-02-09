@@ -176,17 +176,19 @@ class RecursoController extends Controller
 
         $ucs = Uc::get();
         $cursos = Curso::get();
-
+        $recucs = [];
         switch($tipo) {
             case 'docente':
                 $recurso = Docente::find($id);
+                $recucs = Docuc::get()->where('docente', $id);
                 $v = 'partials.editar.docente';
-                $params = ['recurso', 'tipo', 'ucs'];
+                $params = ['recurso', 'tipo', 'ucs', 'recucs'];
                 break;
             case 'ambiente':
                 $recurso = Ambiente::find($id);
+                $recucs = Ambienteuc::get()->where('idAmbiente', $id);
                 $v = 'partials.editar.ambiente';
-                $params = ['recurso', 'tipo', 'ucs'];
+                $params = ['recurso', 'tipo', 'ucs', 'recucs'];
                 break;
             case 'equipamento':
                 $recurso = Equipamento::find($id);
@@ -200,8 +202,9 @@ class RecursoController extends Controller
                 break;
             case 'curso':
                 $recurso = Curso::find($id);
+                $recucs = Cursouc::get()->where('curso', $id);
                 $v = 'partials.editar.curso';
-                $params = ['recurso', 'tipo', 'ucs'];
+                $params = ['recurso', 'tipo', 'ucs', 'recucs'];
                 break;
             case 'turma':
                 $recurso = Turma::find($id);
@@ -224,10 +227,58 @@ class RecursoController extends Controller
         $tipo = $request->tipo;
         switch($tipo) {
             case 'docente':
+                $req = $request->except('_token', '_method', 'nome', 'sobrenome', 'Hmin', 'Hmax', 'tipo');
+                
+                foreach(Docuc::get()->where('docente', $id) as $row){
+                    $row->delete();
+                }
+                
+                foreach($req as $uc){
+                    Docuc::create([
+                        'docente' => $id,
+                        'ucComportada' => $uc
+                    ]);
+                }
+
                 $recurso = Docente::find($id);
+
+                if(!$recurso) {
+                    $r = redirect()->back();
+                } else {
+                    $recurso->update([
+                        'Nome' => $request->nome,
+                        'Sobrenome' => $request->sobrenome,
+                        'hMin' => $request->Hmin,
+                        'hMax' => $request->Hmax
+                    ]);
+                    $r = redirect()->Route('admin.recursos');
+                }
                 break;
             case 'ambiente':
+                $req = $request->except('_token', '_method', 'tipo', 'Tipo', 'numAmbiente', 'alunosComportados');
+                
+                foreach(Ambienteuc::get()->where('idAmbiente', $id) as $row){
+                    $row->delete();
+                }
+                
+                foreach($req as $uc){
+                    Ambienteuc::create([
+                        'idAmbiente' => $id,
+                        'ucComportada' => $uc
+                    ]);
+                }
+
                 $recurso = Ambiente::find($id);
+
+                if(!$recurso) {
+                    $r = redirect()->back();
+                } else {
+                    $recurso->update([
+                        'Tipo' => $request->Tipo, 
+                        'numAmbiente' => $request->numAmbiente, 'alunosComportados' => $request->alunosComportados
+                    ]);
+                    $r = redirect()->Route('admin.recursos');
+                }
                 break;
             case 'equipamento':
                 $recurso = Equipamento::find($id);
@@ -236,18 +287,38 @@ class RecursoController extends Controller
                 $recurso = Uc::find($id);
                 break;
             case 'curso':
+                $req = $request->except('_token', '_method', 'tipo', 'tipoCurso', 'siglaCurso', 'nomeCurso', 'dataFimCurso', 'dataInicioCurso', 'cargaTotalHoras');
+                
+                foreach(Cursouc::get()->where('curso', $id) as $row){
+                    $row->delete();
+                }
+
+                foreach($req as $uc){
+                    Cursouc::create([
+                        'curso' => $id,
+                        'ucComportada' => $uc
+                    ]);
+                }
+
                 $recurso = Curso::find($id);
+
+                if(!$recurso) {
+                    $r = redirect()->back();
+                } else {
+                    $recurso->update([
+                        'tipoCurso' => $request->tipoCurso, 
+                        'siglaCurso'=> $request->siglaCurso, 
+                        'nomeCurso'=> $request->nomeCurso, 
+                        'dataFimCurso'=> $request->dataFimCurso,
+                        'dataInicioCurso'=> $request->dataInicioCurso,
+                        'cargaTotalHoras' => $request->cargaTotalHoras
+                    ]);
+                    $r = redirect()->Route('admin.recursos');
+                }
                 break;
             case 'turma':
                 $recurso = Turma::find($id);
                 break;
-        }
-
-        if(!$recurso) {
-            $r = redirect()->back();
-        } else {
-            $recurso->update($request->except('tipo'));
-            $r = redirect()->Route('admin.recursos');
         }
 
         return $r;

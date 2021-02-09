@@ -12,16 +12,16 @@
         <div class="bd-example bd-example-tabs w-50 h-50 mt-5">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active show" id="nav-doc-tab" data-toggle="tab" href="#nav-doc" role="tab" aria-controls="nav-doc" aria-selected="true">Docentes</a>
-                <a class="nav-item nav-link" id="nav-amb-tab" data-toggle="tab" href="#nav-amb" role="tab" aria-controls="nav-amb" aria-selected="false">Ambientes</a>
-                <a class="nav-item nav-link" id="nav-eqp-tab" data-toggle="tab" href="#nav-eqp" role="tab" aria-controls="nav-eqp" aria-selected="false">Equipamentos</a>
-                <a class="nav-item nav-link" id="nav-uc-tab" data-toggle="tab" href="#nav-uc" role="tab" aria-controls="nav-uc" aria-selected="false">UC</a>
-                <a class="nav-item nav-link" id="nav-curso-tab" data-toggle="tab" href="#nav-curso" role="tab" aria-controls="nav-curso" aria-selected="false">Curso</a>
-                <a class="nav-item nav-link" id="nav-turma-tab" data-toggle="tab" href="#nav-turma" role="tab" aria-controls="nav-turma" aria-selected="false">Turma</a>
+                    <a class="nav-item nav-link active show" id="nav-uc-tab" data-toggle="tab" href="#nav-uc" role="tab" aria-controls="nav-uc" aria-selected="false">UC</a>
+                    <a class="nav-item nav-link" id="nav-doc-tab" data-toggle="tab" href="#nav-doc" role="tab" aria-controls="nav-doc" aria-selected="true">Docentes</a>
+                    <a class="nav-item nav-link" id="nav-amb-tab" data-toggle="tab" href="#nav-amb" role="tab" aria-controls="nav-amb" aria-selected="false">Ambientes</a>
+                    <a class="nav-item nav-link" id="nav-eqp-tab" data-toggle="tab" href="#nav-eqp" role="tab" aria-controls="nav-eqp" aria-selected="false">Equipamentos</a>
+                    <a class="nav-item nav-link" id="nav-curso-tab" data-toggle="tab" href="#nav-curso" role="tab" aria-controls="nav-curso" aria-selected="false">Curso</a>
+                    <a class="nav-item nav-link" id="nav-turma-tab" data-toggle="tab" href="#nav-turma" role="tab" aria-controls="nav-turma" aria-selected="false">Turma</a>
                 </div>
             </nav>
             <div class="tab-content overflow-auto h-100" id="nav-tabContent">
-                <div class="tab-pane fade active show" id="nav-doc" role="tabpanel" aria-labelledby="nav-doc-tab">
+                <div class="tab-pane fade" id="nav-doc" role="tabpanel" aria-labelledby="nav-doc-tab">
                     <a href="{{route('admin.cadastrar', ['tipo'=>"docente"])}}" class="d-flex align-items-center justify-content-center mt-3">
                         <img src="img/add.png" class="mr-2">
                         Adicionar docente
@@ -89,7 +89,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="tab-pane fade" id="nav-uc" role="tabpanel" aria-labelledby="nav-uc-tab">
+                <div class="tab-pane fade active show" id="nav-uc" role="tabpanel" aria-labelledby="nav-uc-tab">
                     <a href="{{route('admin.cadastrar', ['tipo'=>"uc"])}}" class="d-flex align-items-center justify-content-center mt-3">
                         <img src="img/add.png" class="mr-2">
                         Adicionar uc

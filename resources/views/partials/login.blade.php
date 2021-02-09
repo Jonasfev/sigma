@@ -18,23 +18,16 @@
             </form>
         </div>
         <div class="class-ctn w-50 h-50 overflow-auto d-flex flex-column align-items-center">
-            @php
-                $salas = ['1DTA#Desenvolvimento de sistemas', '2DTA#Desenvolvimento de sistemas', '3DTA#Desenvolvimento de sistemas', '4DTA#Desenvolvimento de sistemas', '5DTA#Desenvolvimento de sistemas'];
-            @endphp
-            @foreach ($salas as $sala)
+            @for ($cont = 0; $cont < sizeOf($turmas); $cont++)
                 <div class="class row col-auto w-75 h-25 bg-light d-flex"  data-bs-toggle="modal" data-bs-target="#horario">
                     <div class="class-code w-25 h-100 bg-secondary text-center fw-bold d-flex align-items-center justify-content-center">
-                        @php
-                            $sala = explode('#', $sala);
-                        @endphp
-                        {{$sala[0]}}
+                        {{$turmas[$cont]->siglaTurma}}
                     </div>
                     <div class="class-info h-100 d-flex align-items-center justify-content-center fw-bold">
-                        {{$sala[1]}}
+                        {{$cursos[$cont]->nomeCurso}}
                     </div>
                 </div>
-            @endforeach
-
+            @endfor
         </div>
     </div>
     <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -14,7 +14,7 @@ class Cursoucs extends Migration
     public function up()
     {
         Schema::create('cursoucs', function (Blueprint $table) {
-            $table->id('idRecurso');
+            $table->id();
 
             $table->unsignedBigInteger('curso');
             $table->foreign('curso')->references('id')->on('cursos');

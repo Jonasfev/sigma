@@ -37,11 +37,27 @@
                   <label class="mt-1 form-label" for="nomeCurso">Nome do Curso</label>
                   <input class="form-control" type="text" name="nomeCurso" value="{{$recurso->nomeCurso}}">
                   <label class="mt-1 form-label" for="dataInicioCurso">Início</label>
-                  <input class="form-control" type="date" name="dataFimCurso" value="{{$recurso->dataInicioCurso}}">
+                  <input class="form-control" type="date" name="dataInicioCurso" value="{{$recurso->dataInicioCurso}}">
                   <label class="mt-1 form-label" for="dataFimCurso">Fim</label>
                   <input class="form-control" type="date" name="dataFimCurso" value="{{$recurso->dataFimCurso}}">
                   <label class="mt-1 form-label" for="cargaTotalHoras">Carga horária total</label>
-                  <input class="form-control" type="number" name="cargaTotalHoras" value="{{$recurso->cargaTotalHoras}}">                  
+                  <input class="form-control" type="number" name="cargaTotalHoras" value="{{$recurso->cargaTotalHoras}}">
+                  <div class="mb-3 mt-0">
+                    <label class="mt-1 form-label" for="hmax">Incluir UC</label>
+                    <div class="opcao-uc d-flex flex-column overflow-auto">
+                        @for ($cont = 0; $cont < sizeOf($ucs); $cont++)
+                            <div>
+                                <input type="checkbox" name="uc-{{$ucs[$cont]->id}}" value="{{$ucs[$cont]->id}}"
+                                @foreach ($recucs as $recuc)
+                                    @if ($recuc->ucComportada == $ucs[$cont]->id)
+                                        checked
+                                    @endif
+                                @endforeach
+                                > {{$ucs[$cont]->nomeUC}}
+                            </div>
+                        @endfor
+                    </div>
+                  </div>                  
                 </form>
               </div>
               <div class="col-12 d-flex align-items-center justify-content-around">

@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+    
     <div class="pg-ctn h-75 bg-light flex-column">       
         <div class="config-ctn w-100 h-60 d-flex flex-lg-column align-items-center justify-content-around">
             @include('partials.turma.weekcai')
@@ -57,10 +58,11 @@
         </div>
         <div class="w-50 d-flex align-items-center justify-content-around mx-auto mt-3 mb-4">
             <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos')}}">VOLTAR</a>
-            <button onclick="enviarForms(40);" class="btn btn-primary col-5" id="btnenviarform">SALVAR</button>
+            <button onclick="enviarForms(40);" class="btn btn-primary col-5" id="btnenviarform" data-bs-toggle="modal" data-bs-target="#loading">SALVAR</button>
         </div>
     </div>
     <script>
         horario('{{$turma->periodo}}', 'cai');
+        
     </script>
 @endsection

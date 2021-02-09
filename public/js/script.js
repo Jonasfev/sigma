@@ -3,7 +3,7 @@ function horario(el, tipo) {
 
     horarios = $('div.h-ctn').children('form');
 
-    if(tipo == 'tec') {
+    if(tipo == 'TEC') {
         switch (el) {
             case "manha":
                 $(horarios).children('#ha-1').children('.inicio').attr('value', '07:30');
@@ -44,14 +44,15 @@ function horario(el, tipo) {
         }
 
         for(i=1;i<=5;i++) {
-            atualizaHorario(i, $('#ha-'+i).children('input.inicio'));
-            atualizaHorario(i, $('#ha-'+i).children('input.fim'));
+            atualizaHorario(i, $('#ha-'+i).children('input.inicio'), 'TEC');
+            atualizaHorario(i, $('#ha-'+i).children('input.fim'), 'TEC');
         }
 
-    } else if (tipo == 'cai') {
+    } else if (tipo = 'CAI') {
         switch (el) {
             
             case "manha":
+                console.log(horarios);
                 $(horarios).children('#ha-1').children('.inicio').attr('value', '07:30');
                 $(horarios).children('#ha-1').children('.fim').attr('value', '08:25');
                 $(horarios).children('#ha-2').children('.inicio').attr('value', '08:25');
@@ -60,7 +61,7 @@ function horario(el, tipo) {
                 $(horarios).children('#ha-3').children('.fim').attr('value', '10:35');
                 $(horarios).children('#ha-4').children('.inicio').attr('value', '10:35');
                 $(horarios).children('#ha-4').children('.fim').attr('value', '11:30');
-                console.log(horarios);
+                
                 break;
             case "tarde":
                 $(horarios).children('#ha-1').children('.inicio').attr('value', '13:30');
@@ -75,25 +76,39 @@ function horario(el, tipo) {
         }
 
         for(i=1;i<=4;i++) {
-            atualizaHorario(i, $('#ha-'+i).children('input.inicio'));
-            atualizaHorario(i, $('#ha-'+i).children('input.fim'));
+            atualizaHorario(i, $('#ha-'+i).children('input.inicio'), 'CAI');
+            atualizaHorario(i, $('#ha-'+i).children('input.fim'), 'CAI');
         }
 
     }
 
 }
 
-function atualizaHorario(nAula, el) {
+function atualizaHorario(nAula, el, tipo) {
 
-    if($(el).hasClass('inicio')){
-        for (j=0; j<5; j++) {
-            $('input#aula-'+(j*10+nAula)+'-4').attr('value', $(el).val());    
-            $('input#aula-'+(j*10+nAula+5)+'-4').attr('value', $(el).val());
+    if(tipo == 'TEC') {
+        if($(el).hasClass('inicio')){
+            for (j=0; j<5; j++) {
+                $('input#aula-'+(j*10+nAula)+'-4').attr('value', $(el).val());    
+                $('input#aula-'+(j*10+nAula+5)+'-4').attr('value', $(el).val());
+            }
+        } else {
+            for (j=0; j<5; j++) {
+                $('input#aula-'+(j*10+nAula)+'-5').attr('value', $(el).val());    
+                $('input#aula-'+(j*10+nAula+5)+'-5').attr('value', $(el).val());
+            }
         }
-    } else {
-        for (j=0; j<5; j++) {
-            $('input#aula-'+(j*10+nAula)+'-5').attr('value', $(el).val());    
-            $('input#aula-'+(j*10+nAula+5)+'-5').attr('value', $(el).val());
+    } else if(tipo == 'CAI') {
+        if($(el).hasClass('inicio')){
+            for (j=0; j<5; j++) {
+                $('input#aula-'+(j*8+nAula)+'-4').attr('value', $(el).val());    
+                $('input#aula-'+(j*8+nAula+4)+'-4').attr('value', $(el).val());
+            }
+        } else {
+            for (j=0; j<5; j++) {
+                $('input#aula-'+(j*8+nAula)+'-5').attr('value', $(el).val());    
+                $('input#aula-'+(j*8+nAula+4)+'-5').attr('value', $(el).val());
+            }
         }
     }
     
