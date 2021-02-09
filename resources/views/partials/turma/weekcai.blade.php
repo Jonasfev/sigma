@@ -147,8 +147,8 @@
                 dataType: 'json',
                 success: function (response) {
                     console.log(response);
-                    $('#btnenviarform').prop("disabled",false);;   
-                },
+                    $('#btnenviarform').prop("disabled",false);
+                }
             })
     
     }
