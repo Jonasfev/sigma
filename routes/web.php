@@ -4,12 +4,12 @@ use App\Http\Controllers\CsvController;
 use App\Http\Controllers\RecursoController;
 use App\Http\Controllers\HorarioController;
 use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\LoginController;
 use App\Models\csv;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function() {
-    return view('partials.login');
-})->name('index');
+Route::get('/', [LoginController::class, 'index'])->name('index');
 
 Route::middleware([/*'auth'*/])->group(function() {
     

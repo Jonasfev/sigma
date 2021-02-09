@@ -32,7 +32,22 @@
                     <label for="Hmax" class="form-label">Alunos Comportados</label>
                     <input type="number" class="form-control mt-0 w-15" id="Hmax" name="alunosComportados" value="{{$recurso->alunosComportados}}">
                   </div>
-
+                  <div class="mb-3 mt-0">
+                    <label class="mt-1 form-label" for="hmax">Incluir UC</label>
+                    <div class="opcao-uc d-flex flex-column overflow-auto">
+                        @for ($cont = 0; $cont < sizeOf($ucs); $cont++)
+                            <div>
+                                <input type="checkbox" name="uc-{{$ucs[$cont]->id}}" value="{{$ucs[$cont]->id}}"
+                                @foreach ($recucs as $recuc)
+                                    @if ($recuc->ucComportada == $ucs[$cont]->id)
+                                        checked
+                                    @endif
+                                @endforeach
+                                > {{$ucs[$cont]->nomeUC}}
+                            </div>
+                        @endfor
+                    </div>
+                  </div>
                 
                 </form>
               </div>
