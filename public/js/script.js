@@ -1,5 +1,6 @@
 function horario(el, tipo) {
 
+
     horarios = $('div.h-ctn').children('form');
 
     if(tipo == 'tec') {
@@ -47,8 +48,9 @@ function horario(el, tipo) {
             atualizaHorario(i, $('#ha-'+i).children('input.fim'));
         }
 
-    } else if (tipo = 'cai') {
+    } else if (tipo == 'cai') {
         switch (el) {
+            
             case "manha":
                 $(horarios).children('#ha-1').children('.inicio').attr('value', '07:30');
                 $(horarios).children('#ha-1').children('.fim').attr('value', '08:25');
@@ -58,6 +60,7 @@ function horario(el, tipo) {
                 $(horarios).children('#ha-3').children('.fim').attr('value', '10:35');
                 $(horarios).children('#ha-4').children('.inicio').attr('value', '10:35');
                 $(horarios).children('#ha-4').children('.fim').attr('value', '11:30');
+                console.log(horarios);
                 break;
             case "tarde":
                 $(horarios).children('#ha-1').children('.inicio').attr('value', '13:30');
