@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Models\csv;
+use App\Models\Reserva;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -16,29 +17,30 @@ class CSVExport implements FromCollection, WithHeadings, WithMapping, ShouldAuto
     
     */
     public function headings(): array{
-        return ['versao', 'curso','periodo','diaSemana', 'aula', 'turma', 'uc', 'docente', 'ambiente'];
+        return ['idTurma', 'diaSemana','periodo','horaIncio','horaFim', 'aula', 'turma', 'idUc', 'idDocente', 'idAmbiente', 'idEquipamento'];
     }
 
 
     public function collection()
     {
-        return csv::all();
+        return Reserva::all();
 
     }
 
-    public function map($csv): array
+    public function map($reserva): array
     {
         return [
-            $csv->versao,
-            $csv->curso,
-            $csv->periodo,
-            $csv->diaSemana,
-            $csv->aula,
-            $csv->turma,
-            $csv->uc,
-            $csv->docente,
-            $csv->ambiente,
-            
+            $reserva->idTurma,
+            $reserva->diaSemana,
+            $reserva->periodo,
+            $reserva->horaInicio,
+            $reserva->horaFim,
+            $reserva->aula,
+            $reserva->turma,
+            $reserva->idDocente,
+            $reserva->idAmbiente,
+            $reserva->idUc,
+            $reserva->idEquipamento,
         ];
     }
 }

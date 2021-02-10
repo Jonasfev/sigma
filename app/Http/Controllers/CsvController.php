@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\CSVExport;
 use App\Http\Requests\StoreCsvRequest;
 use App\Models\csv;
+use App\Models\Reserva;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -45,12 +46,13 @@ class CsvController extends Controller
         $file = file($request->file('csv')->getPathname());
 
         if(strcmp($file[0], "sep=;".PHP_EOL)){
-            $data = array_slice($file, 1);
+            $data = array_slice($file, 2);
 
         }
         else{
-            $data = array_slice($file, 0);
+            $data = array_slice($file, 1);
         }
+
 
         if ($data == []){
             return redirect()->route('admin.csv')->withErrors(["Arquivo CSV vazio! :´("]);  
@@ -59,7 +61,7 @@ class CsvController extends Controller
         foreach ($data as $linhas){
             $teste = explode(';', $linhas);
 
-            if(sizeof($teste) != 9 ){
+            if(sizeof($teste) != 11){
                 return redirect()->route('admin.csv')->withErrors('Error de arquivo!');
             }
         }
@@ -74,7 +76,7 @@ class CsvController extends Controller
 
         session()->flash('status', 'queued for importing');
 
-        (new csv())->importToDb();
+        (new Reserva())->importToDb();
         
         Storage::delete($filename);
 

@@ -29,10 +29,12 @@ class HorarioController extends Controller
             array_push($ucs,  Uc::find($uccurso->ucComportada));
             $docscurso =  Docuc::get()->where('ucComportada', $uccurso->ucComportada);
             foreach($docscurso as $doccurso) {
+                
                 if(!in_array(Docente::find($doccurso->docente), $docentes)) {
                     array_push($docentes,  Docente::find($doccurso->docente));
                 }
             }
+            
             $ambscurso =  Ambienteuc::get()->where('ucComportada', $uccurso->ucComportada);
             foreach($ambscurso as $ambcurso) {
                 if(!in_array(Ambiente::find($ambcurso->idAmbiente), $ambientes)) {
@@ -40,6 +42,7 @@ class HorarioController extends Controller
                 }
             }
         }
+
         $equips = Equipamento::get();
         
         switch ($tipo) {

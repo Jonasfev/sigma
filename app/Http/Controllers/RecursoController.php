@@ -254,6 +254,8 @@ class RecursoController extends Controller
                     $r = redirect()->Route('admin.recursos');
                 }
                 break;
+
+
             case 'ambiente':
                 $req = $request->except('_token', '_method', 'tipo', 'Tipo', 'numAmbiente', 'alunosComportados');
                 
@@ -282,9 +284,22 @@ class RecursoController extends Controller
                 break;
             case 'equipamento':
                 $recurso = Equipamento::find($id);
+                $recurso->update([
+                    'Nome' => $request->Nome,
+                    'numPatrimonio' => $request->numPatrimonio,
+                ]);
+                $r = redirect()->Route('admin.recursos');
                 break;
             case 'uc':
                 $recurso = Uc::find($id);
+                $recurso->update([
+                    'siglaUc' => $request->siglaUC,
+                    'nomeUc' => $request->nomeUC,
+                    'cargaSemanal' => 5,
+                    'aulasSemanais' => $request->aulasSemanais
+                ]);
+                $r = redirect()->Route('admin.recursos');
+                
                 break;
             case 'curso':
                 $req = $request->except('_token', '_method', 'tipo', 'tipoCurso', 'siglaCurso', 'nomeCurso', 'dataFimCurso', 'dataInicioCurso', 'cargaTotalHoras');
@@ -316,11 +331,19 @@ class RecursoController extends Controller
                     $r = redirect()->Route('admin.recursos');
                 }
                 break;
-            case 'turma':
-                $recurso = Turma::find($id);
-                break;
+                case 'turma':
+                    $recurso = Turma::find($id);
+                    $recurso->update([
+                        'idCurso' => $request->idCurso,
+                        'siglaTurma' => $request->SiglaTurma,
+                        'periodo' => $request->periodo,
+                        'numAlunos' => $request->numAlunos,
+                        'horaEntrada' => $request->horaEntrada,
+                        'horaSaida' => $request->horaSaida
+                    ]);
+                    $r = redirect()->Route('admin.recursos');
+                    break;
         }
-
         return $r;
         
     }
@@ -336,18 +359,36 @@ class RecursoController extends Controller
         switch($tipo) {
             case 'docente':
                 $recurso = Docente::find($id);
+                foreach(Docuc::get()->where('docente', $id) as $row){
+                    $row->delete();
+                }
                 break;
             case 'ambiente':
                 $recurso = Ambiente::find($id);
+                foreach(Ambienteuc::get()->where('idAmbiente', $id) as $row){
+                    $row->delete();
+                }
                 break;
             case 'equipamento':
                 $recurso = Equipamento::find($id);
                 break;
             case 'uc':
                 $recurso = Uc::find($id);
+                foreach(Ambienteuc::get()->where('ucComportada', $id) as $row){
+                    $row->delete();
+                }
+                foreach(Cursouc::get()->where('ucComportada', $id) as $row){
+                    $row->delete();
+                }
+                foreach(Ambienteuc::get()->where('ucComportada', $id) as $row){
+                    $row->delete();
+                }
                 break;
             case 'curso':
                 $recurso = Curso::find($id);
+                foreach(Cursouc::get()->where('curso', $id) as $row){
+                    $row->delete();
+                }
                 break;
             case 'turma':
                 $recurso = Turma::find($id);
