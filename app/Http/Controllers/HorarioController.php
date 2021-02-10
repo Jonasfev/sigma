@@ -71,7 +71,7 @@ class HorarioController extends Controller
     public function carregaReservas($id) {
         $reservas = Reserva::get()->where('idTurma', $id);
         $reservas = json_encode($reservas);
-        return $reservas;
+        echo $reservas;
     }
 
 }

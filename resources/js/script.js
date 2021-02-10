@@ -126,8 +126,8 @@ function constroiReservas(reservas, tipo) {
     }
 
     console.log(reservas);
-    reservas.forEach(reserva => {
-        switch(reserva.diaSemana) {
+    for(var reserva in reservas) {
+        switch(reservas[reserva].diaSemana) {
             case 'Seg':
                 j = 0;
                 break;
@@ -145,38 +145,38 @@ function constroiReservas(reservas, tipo) {
                 break;
         }
 
-        i = reserva.aula;
+        i = reservas[reserva].aula;
         
         aula = j*s1+i; 
     
-        if(reserva.turma == 'b') {
+        if(reservas[reserva].turma == 'b') {
             aula = j*s1+i+s2;
         }
 
         aula = '#aula-' + aula;
 
-        $(aula+'-1').attr('value', reserva.idTurma);
-        $(aula+'-2').attr('value', reserva.diaSemana);
-        $(aula+'-3').attr('value', reserva.periodo);
-        $(aula+'-4').attr('value', reserva.horaInicio);
-        $(aula+'-5').attr('value', reserva.horaFim);
-        $(aula+'-6').attr('value', reserva.aula);
-        $(aula+'-7').attr('value', reserva.turma);
+        $(aula+'-1').attr('value', reservas[reserva].idTurma);
+        $(aula+'-2').attr('value', reservas[reserva].diaSemana);
+        $(aula+'-3').attr('value', reservas[reserva].periodo);
+        $(aula+'-4').attr('value', reservas[reserva].horaInicio);
+        $(aula+'-5').attr('value', reservas[reserva].horaFim);
+        $(aula+'-6').attr('value', reservas[reserva].aula);
+        $(aula+'-7').attr('value', reservas[reserva].turma);
 
-        $(aula+'-8').attr('value', reserva.idDocente);
-        $(aula).children('.doc').text($('#doc-' + reserva.idDocente).children('p').text());
+        $(aula+'-8').attr('value', reservas[reserva].idDocente);
+        $(aula).children('.doc').text($('#doc-' + reservas[reserva].idDocente).children('p').text());
         
-        $(aula+'-9').attr('value', reserva.idAmbiente);
-        $(aula).children('.dropup').children('.amb').text($('#amb-' + reserva.idAmbiente).children('p').text());
+        $(aula+'-9').attr('value', reservas[reserva].idAmbiente);
+        $(aula).children('.dropup').children('.amb').text($('#amb-' + reservas[reserva].idAmbiente).children('p').text());
 
-        $(aula+'-10').attr('value', reserva.idUc);
-        $(aula).children('.uc').text($('#uc-' + reserva.idUc).children('p').text());
+        $(aula+'-10').attr('value', reservas[reserva].idUc);
+        $(aula).children('.uc').text($('#uc-' + reservas[reserva].idUc).children('p').text());
         
-        $(aula+'-11').attr('value', reserva.idEquipamento);
+        $(aula+'-11').attr('value', reservas[reserva].idEquipamento);
         $(aula).children('.dropup').children('.drop-ctn').children('.eqp').children('img').removeClass('opacity-20');
         $(aula).children('.dropup').children('.dropdown-menu').children('.linha').children('.eqp').children('p').text($('#eqp-' + reserva.idEquipamento).children('p').text());
 
-    });
+    }
     
 }
 
