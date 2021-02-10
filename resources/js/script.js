@@ -174,7 +174,7 @@ function constroiReservas(reservas, tipo) {
         
         $(aula+'-11').attr('value', reservas[reserva].idEquipamento);
         $(aula).children('.dropup').children('.drop-ctn').children('.eqp').children('img').removeClass('opacity-20');
-        $(aula).children('.dropup').children('.dropdown-menu').children('.linha').children('.eqp').children('p').text($('#eqp-' + reserva.idEquipamento).children('p').text());
+        $(aula).children('.dropup').children('.dropdown-menu').children('.linha').children('.eqp').children('p').text($('#eqp-' + reservas[reserva].idEquipamento).children('p').text());
 
     }
     
