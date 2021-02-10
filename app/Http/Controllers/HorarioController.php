@@ -66,6 +66,12 @@ class HorarioController extends Controller
         $teste['fail'] = false;
         echo json_encode($request->all());
 
+    }    
+
+    public function carregaReservas($id) {
+        $reservas = Reserva::get()->where('idTurma', $id);
+        $reservas = json_encode($reservas);
+        return $reservas;
     }
 
 }

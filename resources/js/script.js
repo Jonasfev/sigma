@@ -1,3 +1,5 @@
+const { getJSON } = require("jquery");
+
 function horario(el, tipo) {
 
 
@@ -52,7 +54,6 @@ function horario(el, tipo) {
         switch (el) {
             
             case "manha":
-                console.log(horarios);
                 $(horarios).children('#ha-1').children('.inicio').attr('value', '07:30');
                 $(horarios).children('#ha-1').children('.fim').attr('value', '08:25');
                 $(horarios).children('#ha-2').children('.inicio').attr('value', '08:25');
@@ -114,6 +115,71 @@ function atualizaHorario(nAula, el, tipo) {
     
 }
 
+function constroiReservas(reservas, tipo) {
+
+    if(tipo == 'CAI') {
+        s1 = 8;
+        s2 = 4;
+    } else if(tipo == 'TEC') {
+        s1 = 10;
+        s2 = 5;
+    }
+
+    console.log(reservas);
+    reservas.forEach(reserva => {
+        switch(reserva.diaSemana) {
+            case 'Seg':
+                j = 0;
+                break;
+            case 'Ter':
+                j = 1;
+                break;
+            case 'Qua':
+                j = 2;
+                break;
+            case 'Qui':
+                j = 3;
+                break;
+            case 'Sex':
+                j = 4;
+                break;
+        }
+
+        i = reserva.aula;
+        
+        aula = j*s1+i; 
+    
+        if(reserva.turma == 'b') {
+            aula = j*s1+i+s2;
+        }
+
+        aula = '#aula-' + aula;
+
+        $(aula+'-1').attr('value', reserva.idTurma);
+        $(aula+'-2').attr('value', reserva.diaSemana);
+        $(aula+'-3').attr('value', reserva.periodo);
+        $(aula+'-4').attr('value', reserva.horaInicio);
+        $(aula+'-5').attr('value', reserva.horaFim);
+        $(aula+'-6').attr('value', reserva.aula);
+        $(aula+'-7').attr('value', reserva.turma);
+
+        $(aula+'-8').attr('value', reserva.idDocente);
+        $(aula).children('.doc').text($('#doc-' + reserva.idDocente).children('p').text());
+        
+        $(aula+'-9').attr('value', reserva.idAmbiente);
+        $(aula).children('.dropup').children('.amb').text($('#amb-' + reserva.idAmbiente).children('p').text());
+
+        $(aula+'-10').attr('value', reserva.idUc);
+        $(aula).children('.uc').text($('#uc-' + reserva.idUc).children('p').text());
+        
+        $(aula+'-11').attr('value', reserva.idEquipamento);
+        $(aula).children('.dropup').children('.drop-ctn').children('.eqp').children('img').removeClass('opacity-20');
+        $(aula).children('.dropup').children('.dropdown-menu').children('.linha').children('.eqp').children('p').text($('#eqp-' + reserva.idEquipamento).children('p').text());
+
+    });
+    
+}
+
 function drag(ev){
     ev.dataTransfer.setData('srcID', ev.target.id);
 }
@@ -137,7 +203,7 @@ function drop(ev, el){
         $(el).children('.doc').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");    
         $(el).children('form').children('input#'+el.id+'-8').attr('value', $(nodeCopy).children('input').val());
     } else if($(nodeCopy).hasClass('ambiente')) {
-        $(el).children('.dropup').children('.icon.amb').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");
+        $(el).children('.dropup').children('.icon.amb').html("<p class='m-0'><small>"+$(nodeCopy).children('p').text()+"</p></small>");
         $(el).children('form').children('input#'+el.id+'-9').attr('value', $(nodeCopy).children('input').val());
     } else if($(nodeCopy).hasClass('equipamento')) {
         $(el).children('.dropup').children('.drop-ctn').children('.icon.eqp').children('img').removeClass('opacity-20');
