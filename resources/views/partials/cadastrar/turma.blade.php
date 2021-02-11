@@ -13,7 +13,7 @@
             <form id="cadastrar-turma" action="{{route('admin.store', ['tipo' => 'turma'])}}" method="POST">
                 @csrf
                 <label class="mt-1 form-label" for="idCurso">Curso</label>
-                <select class="form-control" name="idCurso">
+                <select id="opcaoCurso" class="form-control" name="idCurso">
                     @foreach ($cursos as $curso)
                         <option value="{{$curso->id}}">{{$curso->nomeCurso}}</option>
                     @endforeach
@@ -21,7 +21,7 @@
                 <label class="mt-1 form-label" for="siglaTurma">Sigla</label>
                 <input class="form-control" type="text" name="siglaTurma">
                 <label class="mt-1 form-label" for="periodo">Período</label>
-                <select class="form-control" name="periodo">
+                <select class="form-control" name="periodo" onchange="horarioTurma($(this).val())">
                     <option value="manha">Manhã</option>
                     <option value="tarde">Tarde</option>
                     <option value="noite">Noite</option>
@@ -29,9 +29,9 @@
                 <label class="mt-1 form-label" for="numAlunos">Nº de alunos</label>
                 <input class="form-control" type="number" name="numAlunos">
                 <label class="mt-1 form-label" for="horaEntrada">Hora de entrada</label>
-                <input class="form-control" type="time" name="horaEntrada">
+                <input id="entrada" class="form-control" type="time" name="horaEntrada">
                 <label class="mt-1 form-label" for="horaSaida">Hora de Saída</label>
-                <input class="form-control" type="time" name="horaSaida">
+                <input id='saida' class="form-control" type="time" name="horaSaida">
             </form>
             @if ($errors->any())
             <div class="alert alert-danger my-2">

@@ -173,10 +173,15 @@ class RecursoController extends Controller
 
     }
 
+    public function tipoCurso($id){
+        dd($id);
+        $curso = Curso::find($id);
+        echo $curso->tipoCurso;
+    }
+
     public function edit($tipo, $id){
 
         $ucs = Uc::get();
-        $cursos = Curso::get();
         $recucs = [];
         switch($tipo) {
             case 'docente':
@@ -209,8 +214,9 @@ class RecursoController extends Controller
                 break;
             case 'turma':
                 $recurso = Turma::find($id);
+                $curso = Curso::find($recurso->idCurso);
                 $v = 'partials.editar.turma';
-                $params = ['recurso', 'tipo', 'cursos'];
+                $params = ['recurso', 'tipo', 'curso'];
                 break;
         }
 

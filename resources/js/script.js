@@ -1,5 +1,62 @@
 const { getJSON } = require("jquery");
 
+function horarioTurma(val, tipo) {
+    if(tipo == 'TEC') {
+        switch (val) {
+            case "manha":
+                entrada = '07:30';
+                saida = '08:15';                 
+                break;
+            case "tarde":
+                entrada = '13:30';
+                saida = '14:15';                
+                break;
+            case "noite":
+                entrada = '18:45';
+                saida = '19:30';                
+                break;
+        }
+
+    } else if (tipo = 'CAI') {
+        switch (val) {
+            case "manha":
+                entrada = '07:30';
+                saida = '08:15';                
+                break;
+            case "tarde":
+                entrada = '13:30';
+                saida = '14:15';                
+                break;
+        }
+    }
+
+    $('#entrada').attr('value', entrada);
+    $('#saida').attr('value', saida);
+
+}
+
+function horarioTurma(val) {
+
+    switch (val) {
+        case "manha":
+            entrada = '07:30';
+            saida = '08:15';                 
+            break;
+        case "tarde":
+            entrada = '13:30';
+            saida = '14:15';                
+            break;
+        case "noite":
+            entrada = '18:45';
+            saida = '19:30';                
+            break;
+    }    
+
+    $('#entrada').attr('value', entrada);
+    $('#saida').attr('value', saida);
+
+}
+
 function horario(el, tipo) {
 
 
