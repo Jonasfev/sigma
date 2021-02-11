@@ -16,13 +16,12 @@
                 <h4 class="text-center">Docentes</h4>
                     <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                         @foreach ($docentes as $docente)
-                        @if ($docente != null)
-                            <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="{{$docente->Nome}} {{$docente->Sobrenome}}">
-                                <input type="number" value="{{$docente->id}}" hidden>
-                                {{$docente->Nome}}
-                            </div>
-                        @endif
-                            
+                            @if ($docente != null)
+                                <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-{{$docente->id}}' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="{{$docente->Nome}} {{$docente->Sobrenome}}">
+                                    <input type="number" value="{{$docente->id}}" hidden>
+                                    <p class="m-0 p-0">{{$docente->Nome}}</p>
+                                </div>
+                            @endif
                         @endforeach
                     </div>
                 </div>
@@ -30,11 +29,13 @@
                 <h4 class="text-center">Ambientes</h4>
                 <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                     @foreach ($ambientes as $ambiente)
-                        @if ($ambiente != null)
-                            <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-{{$ambiente->id}}' ondragstart="drag(event);">
-                                <input type="number" value="{{$ambiente->id}}" hidden>
-                                {{$ambiente->Tipo}} - {{$ambiente->numAmbiente}}</div>
-                        @endif
+                    @if ($ambiente != null)
+                    <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-{{$ambiente->id}}' ondragstart="drag(event);">
+                        <input type="number" value="{{$ambiente->id}}" hidden>
+                        <p class="m-0 p-0">{{$ambiente->Tipo}} - {{$ambiente->numAmbiente}}</p>
+                    </div>
+                    @endif
+                        
                     @endforeach
                 </div>
             </div>
@@ -55,7 +56,7 @@
                     @foreach ($ucs as $uc)
                         <div class="uc w-65 side-item bg-white text-center" draggable="true" id='uc-{{$uc->id}}'ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="{{$uc->nomeUC}}">
                             <input type="number" value="{{$uc->id}}" hidden>
-                            {{$uc->siglaUC}}
+                            <p class="m-0 p-0">{{$uc->siglaUC}}</p>
                         </div>
                     @endforeach
                 </div>
@@ -67,7 +68,20 @@
         </div>
     </div>
     <script>
-        horario('{{$turma->periodo}}', 'cai');
+        horario('{{$turma->periodo}}', 'CAI');
+
+        function carregaReservas() {
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '{{Route('admin.reservas', ['id' => $turma->id])}}',
+                success: function(reservas) {
+                    constroiReservas(reservas, '{{$tipo}}');
+                }
+            });
+        }
+
+        carregaReservas();
         
     </script>
 @endsection
