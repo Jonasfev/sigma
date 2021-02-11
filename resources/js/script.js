@@ -155,6 +155,8 @@ function constroiReservas(reservas, tipo) {
 
         aula = '#aula-' + aula;
 
+        console.log(i);
+
         $(aula+'-1').attr('value', reservas[reserva].idTurma);
         $(aula+'-2').attr('value', reservas[reserva].diaSemana);
         $(aula+'-3').attr('value', reservas[reserva].periodo);
@@ -163,18 +165,24 @@ function constroiReservas(reservas, tipo) {
         $(aula+'-6').attr('value', reservas[reserva].aula);
         $(aula+'-7').attr('value', reservas[reserva].turma);
 
-        $(aula+'-8').attr('value', reservas[reserva].idDocente);
-        $(aula).children('.doc').text($('#doc-' + reservas[reserva].idDocente).children('p').text());
-        
-        $(aula+'-9').attr('value', reservas[reserva].idAmbiente);
-        $(aula).children('.dropup').children('.amb').text($('#amb-' + reservas[reserva].idAmbiente).children('p').text());
+        if( reservas[reserva].idDocente != null){
+            $(aula+'-8').attr('value', reservas[reserva].idDocente);
+            $(aula).children('.doc').text($('#doc-' + reservas[reserva].idDocente).children('p').text());
+        }
+        if( reservas[reserva].idAmbiente != null){
+            $(aula+'-9').attr('value', reservas[reserva].idAmbiente);
+            $(aula).children('.dropup').children('.amb').text($('#amb-' + reservas[reserva].idAmbiente).children('p').text());}
 
-        $(aula+'-10').attr('value', reservas[reserva].idUc);
-        $(aula).children('.uc').text($('#uc-' + reservas[reserva].idUc).children('p').text());
+        if( reservas[reserva].idUc != null){
+            $(aula+'-10').attr('value', reservas[reserva].idUc);
+            $(aula).children('.uc').text($('#uc-' + reservas[reserva].idUc).children('p').text());
+        }
         
-        $(aula+'-11').attr('value', reservas[reserva].idEquipamento);
-        $(aula).children('.dropup').children('.drop-ctn').children('.eqp').children('img').removeClass('opacity-20');
-        $(aula).children('.dropup').children('.dropdown-menu').children('.linha').children('.eqp').children('p').text($('#eqp-' + reservas[reserva].idEquipamento).children('p').text());
+        if( reservas[reserva].idEquipamento != null){
+            $(aula+'-11').attr('value', reservas[reserva].idEquipamento);
+            $(aula).children('.dropup').children('.drop-ctn').children('.eqp').children('img').removeClass('opacity-20');
+            $(aula).children('.dropup').children('.dropdown-menu').children('.linha').children('.eqp').children('p').text($('#eqp-' + reservas[reserva].idEquipamento).children('p').text());
+        }
 
     }
     
@@ -200,9 +208,10 @@ function drop(ev, el){
         $(el).children('.uc').html(nodeCopy.innerHTML);
         $(el).children('form').children('input#'+el.id+'-10').attr('value', $(nodeCopy).children('input').val());
     } else if($(nodeCopy).hasClass('docente')) {
-        $(el).children('.doc').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");    
+        $(el).children('.doc').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");
+        console.log($(nodeCopy));    
         $(el).children('form').children('input#'+el.id+'-8').attr('value', $(nodeCopy).children('input').val());
-    } else if($(nodeCopy).hasClass('ambiente')) {
+    } else if($(nodeCopy).hasClass('ambiente' )) {
         $(el).children('.dropup').children('.icon.amb').html("<p class='m-0'><small>"+$(nodeCopy).children('p').text()+"</p></small>");
         $(el).children('form').children('input#'+el.id+'-9').attr('value', $(nodeCopy).children('input').val());
     } else if($(nodeCopy).hasClass('equipamento')) {

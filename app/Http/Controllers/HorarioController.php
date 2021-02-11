@@ -63,7 +63,23 @@ class HorarioController extends Controller
 
     public function store(Request $request) {
 
-        Reserva::create($request->except('_token'));
+
+            Reserva::updateOrCreate([
+                'idTurma' => $request->idTurma,
+                'diaSemana' => $request->diaSemana,
+                'periodo' => $request->periodo,
+                'aula' => $request->aula,
+                'turma' => $request->turma,
+                
+            ],[
+                'horaInicio' => $request->horaInicio,
+                'horaFim' => $request->horaFim,
+                'idDocente' => $request->idDocente,
+                'idAmbiente' => $request->idAmbiente,
+                'idUc' => $request->idUc,
+                'idEquipamento' => $request->idEquipamento,
+            ]);
+    
 
         $teste['success'] = true;
         $teste['fail'] = false;
