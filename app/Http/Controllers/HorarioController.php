@@ -62,15 +62,12 @@ class HorarioController extends Controller
     }
 
     public function store(Request $request) {
-
-
             Reserva::updateOrCreate([
                 'idTurma' => $request->idTurma,
                 'diaSemana' => $request->diaSemana,
                 'periodo' => $request->periodo,
                 'aula' => $request->aula,
-                'turma' => $request->turma,
-                
+                'turma' => $request->turma,   
             ],[
                 'horaInicio' => $request->horaInicio,
                 'horaFim' => $request->horaFim,

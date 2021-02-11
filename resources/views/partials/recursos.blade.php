@@ -142,6 +142,11 @@
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill">
                             <h4 class="m-0">{{$t->siglaTurma}}</h4>
+                            <p class="m-0 text-capitalize">@if ($t->periodo == "manha")
+                                Manhã
+                            @else
+                                {{$t->periodo}}
+                            @endif</p>
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
                                 <a href="{{route('admin.horario', ['id' => $t->id])}}">

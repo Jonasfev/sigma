@@ -11,6 +11,7 @@ use App\Models\Cursouc;
 use App\Models\Docente;
 use App\Models\Docuc;
 use App\Models\Equipamento;
+use App\Models\Reserva;
 use App\Models\Turma;
 use App\Models\Uc;
 use Illuminate\Http\Request;
@@ -362,15 +363,24 @@ class RecursoController extends Controller
                 foreach(Docuc::get()->where('docente', $id) as $row){
                     $row->delete();
                 }
+                foreach(Reserva::get()->where('idDocente', $id) as $row){
+                    $row->update(['idDocente'=> null]);
+                }
                 break;
             case 'ambiente':
                 $recurso = Ambiente::find($id);
                 foreach(Ambienteuc::get()->where('idAmbiente', $id) as $row){
                     $row->delete();
                 }
+                foreach(Reserva::get()->where('idAmbiente', $id) as $row){
+                    $row->update(['idAmbiente'=> null]);
+                }
                 break;
             case 'equipamento':
                 $recurso = Equipamento::find($id);
+                foreach(Reserva::get()->where('idEquipamento', $id) as $row){
+                    $row->update(['idEquipamento'=> null]);
+                }
                 break;
             case 'uc':
                 $recurso = Uc::find($id);
@@ -380,8 +390,11 @@ class RecursoController extends Controller
                 foreach(Cursouc::get()->where('ucComportada', $id) as $row){
                     $row->delete();
                 }
-                foreach(Ambienteuc::get()->where('ucComportada', $id) as $row){
+                foreach(Docuc::get()->where('ucComportada', $id) as $row){
                     $row->delete();
+                }
+                foreach(Reserva::get()->where('idUc', $id) as $row){
+                    $row->update(['idUc'=> null]);
                 }
                 break;
             case 'curso':
@@ -392,6 +405,9 @@ class RecursoController extends Controller
                 break;
             case 'turma':
                 $recurso = Turma::find($id);
+                foreach(Reserva::get()->where('idTurma', $id) as $row){
+                    $row->delete();
+                }
                 break;
         }
 
