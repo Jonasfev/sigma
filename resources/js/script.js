@@ -155,7 +155,6 @@ function constroiReservas(reservas, tipo) {
 
         aula = '#aula-' + aula;
 
-        console.log(i);
 
         $(aula+'-1').attr('value', reservas[reserva].idTurma);
         $(aula+'-2').attr('value', reservas[reserva].diaSemana);
@@ -208,8 +207,7 @@ function drop(ev, el){
         $(el).children('.uc').html(nodeCopy.innerHTML);
         $(el).children('form').children('input#'+el.id+'-10').attr('value', $(nodeCopy).children('input').val());
     } else if($(nodeCopy).hasClass('docente')) {
-        $(el).children('.doc').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");
-        console.log($(nodeCopy));    
+        $(el).children('.doc').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");  
         $(el).children('form').children('input#'+el.id+'-8').attr('value', $(nodeCopy).children('input').val());
     } else if($(nodeCopy).hasClass('ambiente' )) {
         $(el).children('.dropup').children('.icon.amb').html("<p class='m-0'><small>"+$(nodeCopy).children('p').text()+"</p></small>");
