@@ -182,7 +182,6 @@ function constroiReservas(reservas, tipo) {
         s2 = 5;
     }
 
-    console.log(reservas);
     for(var reserva in reservas) {
         switch(reservas[reserva].diaSemana) {
             case 'Seg':
@@ -212,7 +211,6 @@ function constroiReservas(reservas, tipo) {
 
         aula = '#aula-' + aula;
 
-        console.log(i);
 
         $(aula+'-1').attr('value', reservas[reserva].idTurma);
         $(aula+'-2').attr('value', reservas[reserva].diaSemana);
@@ -253,42 +251,74 @@ function letsDrop(ev){
     ev.preventDefault();
 }
 
-var node;
+var isValid;
 
 function drop(ev, el){
+    
    
     ev.preventDefault();
     var data = ev.dataTransfer.getData('srcID');
     var nodeCopy = document.getElementById(data).cloneNode(true);
+    
     nodeCopy.removeAttribute('draggable');
     if($(nodeCopy).hasClass('uc')) {
         $(el).children('.uc').html(nodeCopy.innerHTML);
         $(el).children('form').children('input#'+el.id+'-10').attr('value', $(nodeCopy).children('input').val());
+        getErrors($(nodeCopy).children('input').val(), el.id, 'uc');
+
     } else if($(nodeCopy).hasClass('docente')) {
-        $(el).children('.doc').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");
-        console.log($(nodeCopy));    
-        $(el).children('form').children('input#'+el.id+'-8').attr('value', $(nodeCopy).children('input').val());
-    } else if($(nodeCopy).hasClass('ambiente' )) {
-        $(el).children('.dropup').children('.icon.amb').html("<p class='m-0'><small>"+$(nodeCopy).children('p').text()+"</p></small>");
-        $(el).children('form').children('input#'+el.id+'-9').attr('value', $(nodeCopy).children('input').val());
+        getErrors($(nodeCopy).children('input').val(), el.id, 'docente');
+        $(document).one("ajaxStop", function() {
+            if(!isValid){ 
+                $(el).children('.doc').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");  
+                $(el).children('form').children('input#'+el.id+'-8').attr('value', $(nodeCopy).children('input').val());
+            } else{
+                alert('Docente já Alocado');
+            }
+        });
+
+    } else if($(nodeCopy).hasClass('ambiente' ))  {
+        getErrors($(nodeCopy).children('input').val(), el.id, 'ambiente');
+        $(document).one("ajaxStop", function() {
+            if(!isValid){ 
+                $(el).children('.dropup').children('.icon.amb').html("<p class='m-0'><small>"+$(nodeCopy).children('p').text()+"</p></small>");
+                $(el).children('form').children('input#'+el.id+'-9').attr('value', $(nodeCopy).children('input').val());
+            } else{
+                alert('Ambiente já Alocado');
+            }
+        });
+
     } else if($(nodeCopy).hasClass('equipamento')) {
-        $(el).children('.dropup').children('.drop-ctn').children('.icon.eqp').children('img').removeClass('opacity-20');
-        $(el).children('form').children('input#'+el.id+'-11').attr('value', $(nodeCopy).children('input').val());
-        $(el).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text($(nodeCopy).children('p').text());
+        getErrors($(nodeCopy).children('input').val(), el.id, 'equipamento');
+        $(document).one("ajaxStop", function() {
+            if(!isValid){ 
+                $(el).children('.dropup').children('.drop-ctn').children('.icon.eqp').children('img').removeClass('opacity-20');
+                $(el).children('form').children('input#'+el.id+'-11').attr('value', $(nodeCopy).children('input').val());
+                $(el).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text($(nodeCopy).children('p').text());
+            } else{
+                alert('Equipamento já Alocado');
+            }
+            
+        });
+
     } else if($(nodeCopy).hasClass('aula')) {
-        $(el).children('.uc').html($(nodeCopy).children('.uc').html());
-        $(el).children('.doc').html($(nodeCopy).children('.doc').html()); 
-        $(el).children('.dropup').children('.icon.amb').html($(nodeCopy).children('.dropup').children('.icon.amb').html());
-        $(el).children('.dropup').children('.drop-ctn').children('.icon.eqp').html($(nodeCopy).children('.dropup').children('.drop-ctn').children('.icon.eqp').html());
-        $(el).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text($(nodeCopy).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text());
-        
-        $(el).children('form').children('input#'+el.id+'-8').attr('value', $(nodeCopy).children('form').children('input#'+nodeCopy.id+'-8').val());
-        $(el).children('form').children('input#'+el.id+'-9').attr('value', $(nodeCopy).children('form').children('input#'+nodeCopy.id+'-9').val());
-        $(el).children('form').children('input#'+el.id+'-10').attr('value', $(nodeCopy).children('form').children('input#'+nodeCopy.id+'-10').val());
-        $(el).children('form').children('input#'+el.id+'-11').attr('value', $(nodeCopy).children('form').children('input#'+nodeCopy.id+'-11').val());
+        if(!isValid){
+            $(el).children('.uc').html($(nodeCopy).children('.uc').html());
+            $(el).children('.doc').html($(nodeCopy).children('.doc').html()); 
+            $(el).children('.dropup').children('.icon.amb').html($(nodeCopy).children('.dropup').children('.icon.amb').html());
+            $(el).children('.dropup').children('.drop-ctn').children('.icon.eqp').html($(nodeCopy).children('.dropup').children('.drop-ctn').children('.icon.eqp').html());
+            $(el).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text($(nodeCopy).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text());
+            
+            $(el).children('form').children('input#'+el.id+'-8').attr('value', $(nodeCopy).children('form').children('input#'+nodeCopy.id+'-8').val());
+            $(el).children('form').children('input#'+el.id+'-9').attr('value', $(nodeCopy).children('form').children('input#'+nodeCopy.id+'-9').val());
+            $(el).children('form').children('input#'+el.id+'-10').attr('value', $(nodeCopy).children('form').children('input#'+nodeCopy.id+'-10').val());
+            $(el).children('form').children('input#'+el.id+'-11').attr('value', $(nodeCopy).children('form').children('input#'+nodeCopy.id+'-11').val());
+        }
     }
     
 }
+
+
 
 function exclude(el){
     if($(el).hasClass('icon')) {
