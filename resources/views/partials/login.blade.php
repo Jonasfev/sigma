@@ -10,7 +10,7 @@
     <div class="pg-ctn bg-light d-flex flex-column align-items-center justify-content-around">
         <h1>Horário</h1>
         <div class="w-50">
-            <form action="#" class="d-flex align-items-center justify-content-center">
+        <form action="{{Route('index.search')}}" class="d-flex align-items-center justify-content-center">
                 <input type="text" class="form-control">
                 <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
                     <img src="img/search.png" alt="pesquisar">

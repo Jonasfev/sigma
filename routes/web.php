@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LoginController::class, 'index'])->name('index');
 
+Route::get('/search', [LoginController::class, 'search'])->name('index.search');
+
 Route::middleware([/*'auth'*/])->group(function() {
     
     Route::name('admin.')->group(function() {

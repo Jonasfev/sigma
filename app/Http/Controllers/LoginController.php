@@ -20,4 +20,10 @@ class LoginController extends Controller
         return view('partials.login', compact('turmas', 'cursos'));
 
     }
+
+    public function search(Request $request){
+        
+
+        
+    }
 }
