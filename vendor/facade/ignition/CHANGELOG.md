@@ -2,6 +2,14 @@
 
 All notable changes to `ignition` will be documented in this file
 
+## 2.5.11 - 2021-02-05
+
+- fix memory leaks caused by log and query recorder (#344)
+
+## 2.5.10 - 2021-02-02
+
+- fix tinker logs not being sent to Flare
+
 ## 2.5.9 - 2021-01-26
 
 - fix logged context not being sent to Flare
