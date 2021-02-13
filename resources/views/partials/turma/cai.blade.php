@@ -16,10 +16,12 @@
                 <h4 class="text-center">Docentes</h4>
                     <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                         @foreach ($docentes as $docente)
-                            <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-{{$docente->id}}' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="{{$docente->Nome}} {{$docente->Sobrenome}}">
-                                <input type="number" value="{{$docente->id}}" hidden>
-                                <p class="m-0 p-0">{{$docente->Nome}}</p>
-                            </div>
+                            @if ($docente != null)
+                                <div class="docente w-65 side-item bg-white text-center" draggable="true" id='doc-{{$docente->id}}' ondragstart="drag(event);" data-toggle="tooltip" data-placement="bottom" title="{{$docente->Nome}} {{$docente->Sobrenome}}">
+                                    <input type="number" value="{{$docente->id}}" hidden>
+                                    <p class="m-0 p-0">{{$docente->Nome}}</p>
+                                </div>
+                            @endif
                         @endforeach
                     </div>
                 </div>
@@ -27,9 +29,13 @@
                 <h4 class="text-center">Ambientes</h4>
                 <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                     @foreach ($ambientes as $ambiente)
-                        <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-{{$ambiente->id}}' ondragstart="drag(event);">
-                            <input type="number" value="{{$ambiente->id}}" hidden>
-                            <p class="m-0 p-0">{{$ambiente->Tipo}} - {{$ambiente->numAmbiente}}</p></div>
+                    @if ($ambiente != null)
+                    <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-{{$ambiente->id}}' ondragstart="drag(event);">
+                        <input type="number" value="{{$ambiente->id}}" hidden>
+                        <p class="m-0 p-0">{{$ambiente->Tipo}} - {{$ambiente->numAmbiente}}</p>
+                    </div>
+                    @endif
+                        
                     @endforeach
                 </div>
             </div>

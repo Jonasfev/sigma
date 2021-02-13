@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LoginController::class, 'index'])->name('index');
 Route::post('/show', [LoginController::class, 'show'])->name('index.show');
 
+Route::get('/search', [LoginController::class, 'search'])->name('index.search');
+
 Route::middleware([/*'auth'*/])->group(function() {
     
     Route::name('admin.')->group(function() {
@@ -37,10 +39,8 @@ Route::middleware([/*'auth'*/])->group(function() {
         Route::get('/horario/{id}', [HorarioController::class, 'index'])->name('horario');
         
         Route::post('/horario/store', [HorarioController::class, 'store'])->name('horario.store');
-        
-       
-        
-        
+
+        Route::get('/horario/check/{recId}/{aula}/{recTipo}', [HorarioController::class, 'check'])->name('horario.check');
     
         Route::get('/opcaoHorario', function() {
             return view('partials.opcaoHorario');

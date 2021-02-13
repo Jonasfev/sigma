@@ -166,4 +166,9 @@
         });
     }
 }
+
+function getErrors(recId, aula, recTipo){
+    console.log(recId, aula, recTipo);
+
+}
 </script>
