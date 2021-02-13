@@ -10,11 +10,21 @@
     <div class="pg-ctn bg-light d-flex flex-column align-items-center justify-content-around">
         <h1>Horário</h1>
         <div class="w-50">
-            <form action="#" class="d-flex align-items-center justify-content-center">
-                <input type="text" class="form-control">
-                <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
-                    <img src="img/search.png" alt="pesquisar">
-                </button>
+            <form action="{{Route('index.show')}}" method="POST" class="w-100 d-flex flex-column align-items-center justify-content-center">
+                <div class="w-100 d-flex align-items-center justify-content-center">
+                    @csrf
+                    <input name="nomeCurso" type="text" class="form-control"
+                    @if ($pesq)
+                    value="{{$param}}"
+                    @endif
+                    >
+                    <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+                        <img src="img/search.png" alt="pesquisar">
+                    </button>
+                </div>
+                @if ($pesq)
+                    <a class="my-1 mx-auto" href="{{Route('index')}}">Limpar filtro</a>
+                @endif
             </form>
         </div>
         <div class="class-ctn w-50 h-50 overflow-auto d-flex flex-column align-items-center">

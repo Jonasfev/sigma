@@ -331,10 +331,6 @@ class RecursoController extends Controller
         
     }
 
-    public function show($tipo, $id){
-        return "Tipo: {$tipo}, id: {$id}";
-    }
-
     public function destroy(Request $request){
         $tipo = $request->tipo;
         $id = $request->id;

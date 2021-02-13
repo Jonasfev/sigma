@@ -10,6 +10,7 @@ use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LoginController::class, 'index'])->name('index');
+Route::post('/show', [LoginController::class, 'show'])->name('index.show');
 
 Route::middleware([/*'auth'*/])->group(function() {
     
