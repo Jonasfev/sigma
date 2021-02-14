@@ -91,10 +91,6 @@ class HorarioController extends Controller
     }
 
     public function check($recId, $aula, $recTipo){
-        $ok['okay'] = 'okay';
-        $ok['recid'] = $recId;
-        $ok['aula'] = $aula;
-        $ok['recti'] = $recTipo;
         $aulaN = intval(str_replace("aula-", "", $aula));
 
         if($aulaN <= 5){
@@ -159,21 +155,40 @@ class HorarioController extends Controller
             case "equipamento":
                 forEach(Reserva::get()->where('idEquipamento', $recId)->where('turma', $turma)->where('aula', $aulaN)->where('diaSemana', $diaSemana) as $row){
                     $ok['reserva'] = true;
+                    $dateReserva = $row;
+                    $sigla =  Turma::where('id', $dateReserva['idTurma'])->get('siglaTurma');
+                    $ok['aulaReserva'] = $dateReserva['aula'];
+                    $ok['diaReserva'] = $dateReserva['diaSemana'];
+                    $ok['turmaReserva'] = $sigla[0]['siglaTurma'];
                 };
             break;
 
             case "docente":
                 forEach(Reserva::get()->where('idDocente', $recId)->where('turma', $turma)->where('aula', $aulaN)->where('diaSemana', $diaSemana) as $row){
                     $ok['reserva'] = true;
+                    $dateReserva = $row;
+                    $sigla =  Turma::where('id', $dateReserva['idTurma'])->get('siglaTurma');
+                    $ok['aulaReserva'] = $dateReserva['aula'];
+                    $ok['diaReserva'] = $dateReserva['diaSemana'];
+                    $ok['turmaReserva'] = $sigla[0]['siglaTurma'];
                 };
             break;
 
             case "ambiente":
                 forEach(Reserva::get()->where('idAmbiente', $recId)->where('turma', $turma)->where('aula', $aulaN)->where('diaSemana', $diaSemana) as $row){
                     $ok['reserva'] = true;
+                    $dateReserva = $row;
+                    $sigla =  Turma::where('id', $dateReserva['idTurma'])->get('siglaTurma');
+                    $ok['aulaReserva'] = $dateReserva['aula'];
+                    $ok['diaReserva'] = $dateReserva['diaSemana'];
+                    $ok['turmaReserva'] = $sigla[0]['siglaTurma'];
                 };  
             break;
         }
+
+       
+
+
 
         $ok['rectip'] = $aulaN;
         $ok['turma'] = $turma;

@@ -168,7 +168,25 @@
 }
 
 function getErrors(recId, aula, recTipo){
-    console.log(recId, aula, recTipo);
-
+    isValid = true;
+    const request = $.ajax({
+        url: "/horario/check/"+recId+'/'+aula+'/'+recTipo,
+        dataType: 'json',
+        type: "get",
+        
+        error: function(response) {
+           console.log('error', response);
+        },
+        success: function (response) {
+            isValid = response['reserva'];
+            isReserved = [];
+            isReserved.push(response['aulaReserva']);
+            isReserved.push(response['diaReserva']);
+            isReserved.push(response['turmaReserva']);  
+            
+            
+        }
+     
+    }); 
 }
 </script>

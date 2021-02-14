@@ -1,4 +1,6 @@
 const { getJSON } = require("jquery");
+var isValid;
+var isReserved = [];
 
 function horarioTurma(val, tipo) {
     if(tipo == 'TEC') {
@@ -251,7 +253,7 @@ function letsDrop(ev){
     ev.preventDefault();
 }
 
-var isValid;
+
 
 function drop(ev, el){
     
@@ -273,7 +275,7 @@ function drop(ev, el){
                 $(el).children('.doc').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");  
                 $(el).children('form').children('input#'+el.id+'-8').attr('value', $(nodeCopy).children('input').val());
             } else{
-                alert('Docente já Alocado');
+                alert('Docente já Alocado na Aula: ' + isReserved[0] + ' Dia Semana: ' + isReserved[1] + ' na Turma: ' +isReserved[2]);
             }
         });
 
@@ -284,7 +286,7 @@ function drop(ev, el){
                 $(el).children('.dropup').children('.icon.amb').html("<p class='m-0'><small>"+$(nodeCopy).children('p').text()+"</p></small>");
                 $(el).children('form').children('input#'+el.id+'-9').attr('value', $(nodeCopy).children('input').val());
             } else{
-                alert('Ambiente já Alocado');
+                alert('Ambiente já Alocado na Aula: ' + isReserved[0] + ' Dia Semana: ' + isReserved[1] + ' na Turma: ' +isReserved[2]);
             }
         });
 
@@ -296,7 +298,7 @@ function drop(ev, el){
                 $(el).children('form').children('input#'+el.id+'-11').attr('value', $(nodeCopy).children('input').val());
                 $(el).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text($(nodeCopy).children('p').text());
             } else{
-                alert('Equipamento já Alocado');
+                alert('Equipamento já Alocado na Aula: ' + isReserved[0] + ' Dia Semana: ' + isReserved[1] + ' na Turma: ' +isReserved[2]);
             }
             
         });

@@ -24,29 +24,27 @@ class LoginController extends Controller
     }
 
     public function show(Request $request){
-        
+        $turmas = [];
         $param = $request->nomeCurso;
-        if(strlen($param) > 5){
-            $cursos = Curso::where('nomeCurso', 'LIKE', "%{$request->nomeCurso}%")->get();
-            $turmas = [];
-            
-            foreach($cursos as $curso) {
-                if(!in_array(Turma::get()->where('idCurso', $curso->id), $turmas)){
-                    foreach(Turma::get()->where('idCurso', $curso->id) as $turma) {
-                        array_push($turmas, $turma);
-                    }
-                }
-            }
-            
-        } else {
-            
-            $turmas = [];
+
+        if($request->nomeCurso == null){
+            return redirect()->route('index');
+        }
+        if(strlen($param) < 5){ 
             foreach(Turma::where('siglaTurma', 'LIKE', "%{$param}%")->get() as $turma) {
                 array_push($turmas, $turma);
+            } 
+        } 
+ 
+        $cursos = Curso::where('nomeCurso', 'LIKE', "%{$request->nomeCurso}%")->get();
+        foreach($cursos as $curso) {
+            if(!in_array(Turma::get()->where('idCurso', $curso->id), $turmas)){
+                foreach(Turma::get()->where('idCurso', $curso->id) as $turma) {
+                    array_push($turmas, $turma);
+                }
             }
-            
         }
-
+            
         $cursos = []; 
         foreach($turmas as $turma) {
             array_push($cursos, Curso::find($turma->idCurso));
