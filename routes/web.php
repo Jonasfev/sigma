@@ -40,7 +40,7 @@ Route::middleware([/*'auth'*/])->group(function() {
         
         Route::post('/horario/store', [HorarioController::class, 'store'])->name('horario.store');
 
-        Route::get('/horario/check/{recId}/{aula}/{recTipo}', [HorarioController::class, 'check'])->name('horario.check');
+        Route::get('/horario/check/{recId}/{aula}/{recTipo}/{periodo}', [HorarioController::class, 'check'])->name('horario.check');
     
         Route::get('/opcaoHorario', function() {
             return view('partials.opcaoHorario');

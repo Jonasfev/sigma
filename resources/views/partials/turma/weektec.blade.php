@@ -133,7 +133,6 @@
     </div>
     @endfor
 </div>
-
 <script>
     function enviarForms(n) {
         
@@ -171,7 +170,7 @@ function getErrors(recId, aula, recTipo){
     isValid = true;
     
     const request = $.ajax({
-        url: "/horario/check/"+recId+'/'+aula+'/'+recTipo,
+        url: "/horario/check/"+recId+'/'+aula+'/'+recTipo+'/'+'{{$turma->periodo}}',
         dataType: 'json',
         type: "get",
         

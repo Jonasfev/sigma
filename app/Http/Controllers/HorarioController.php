@@ -90,7 +90,7 @@ class HorarioController extends Controller
         echo $reservas;
     }
 
-    public function check($recId, $aula, $recTipo){
+    public function check($recId, $aula, $recTipo, $periodo){
         $aulaN = intval(str_replace("aula-", "", $aula));
 
         if($aulaN <= 5){
@@ -148,48 +148,49 @@ class HorarioController extends Controller
             $aulaN = null;
         }
         
-
         $ok['reserva'] = false;
         switch($recTipo){
-            
             case "equipamento":
                 forEach(Reserva::get()->where('idEquipamento', $recId)->where('turma', $turma)->where('aula', $aulaN)->where('diaSemana', $diaSemana) as $row){
-                    $ok['reserva'] = true;
-                    $dateReserva = $row;
-                    $sigla =  Turma::where('id', $dateReserva['idTurma'])->get('siglaTurma');
-                    $ok['aulaReserva'] = $dateReserva['aula'];
-                    $ok['diaReserva'] = $dateReserva['diaSemana'];
-                    $ok['turmaReserva'] = $sigla[0]['siglaTurma'];
+
+                    if($row->periodo == $periodo){
+                        $ok['periodo'] = $row->periodo;
+                        $ok['reserva'] = true;
+                        $dateReserva = $row;
+                        $sigla =  Turma::where('id', $dateReserva['idTurma'])->get('siglaTurma');
+                        $ok['aulaReserva'] = $dateReserva['aula'];
+                        $ok['diaReserva'] = $dateReserva['diaSemana'];
+                        $ok['turmaReserva'] = $sigla[0]['siglaTurma'];
+                    }
                 };
             break;
 
             case "docente":
                 forEach(Reserva::get()->where('idDocente', $recId)->where('turma', $turma)->where('aula', $aulaN)->where('diaSemana', $diaSemana) as $row){
-                    $ok['reserva'] = true;
-                    $dateReserva = $row;
-                    $sigla =  Turma::where('id', $dateReserva['idTurma'])->get('siglaTurma');
-                    $ok['aulaReserva'] = $dateReserva['aula'];
-                    $ok['diaReserva'] = $dateReserva['diaSemana'];
-                    $ok['turmaReserva'] = $sigla[0]['siglaTurma'];
+                    if($row->periodo == $periodo){
+                        $ok['reserva'] = true;
+                        $dateReserva = $row;
+                        $sigla =  Turma::where('id', $dateReserva['idTurma'])->get('siglaTurma');
+                        $ok['aulaReserva'] = $dateReserva['aula'];
+                        $ok['diaReserva'] = $dateReserva['diaSemana'];
+                        $ok['turmaReserva'] = $sigla[0]['siglaTurma'];
+                    }
                 };
             break;
 
             case "ambiente":
                 forEach(Reserva::get()->where('idAmbiente', $recId)->where('turma', $turma)->where('aula', $aulaN)->where('diaSemana', $diaSemana) as $row){
-                    $ok['reserva'] = true;
-                    $dateReserva = $row;
-                    $sigla =  Turma::where('id', $dateReserva['idTurma'])->get('siglaTurma');
-                    $ok['aulaReserva'] = $dateReserva['aula'];
-                    $ok['diaReserva'] = $dateReserva['diaSemana'];
-                    $ok['turmaReserva'] = $sigla[0]['siglaTurma'];
+                    if($row->periodo == $periodo){
+                        $ok['reserva'] = true;
+                        $dateReserva = $row;
+                        $sigla =  Turma::where('id', $dateReserva['idTurma'])->get('siglaTurma');
+                        $ok['aulaReserva'] = $dateReserva['aula'];
+                        $ok['diaReserva'] = $dateReserva['diaSemana'];
+                        $ok['turmaReserva'] = $sigla[0]['siglaTurma'];
+                    }
                 };  
             break;
         }
-
-       
-
-
-
         $ok['rectip'] = $aulaN;
         $ok['turma'] = $turma;
         $ok['diaSemana'] = $diaSemana;
