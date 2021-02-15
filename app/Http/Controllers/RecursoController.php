@@ -341,7 +341,6 @@ class RecursoController extends Controller
                 case 'turma':
                     $recurso = Turma::find($id);
                     $recurso->update([
-                        'idCurso' => $request->idCurso,
                         'siglaTurma' => $request->SiglaTurma,
                         'periodo' => $request->periodo,
                         'numAlunos' => $request->numAlunos,

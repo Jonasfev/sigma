@@ -92,4 +92,12 @@ $theme-colors: (
     height: 100px;
 }
 
+.error{
+    width: 98vw;
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+}
+
 @import '~bootstrap/scss/bootstrap';

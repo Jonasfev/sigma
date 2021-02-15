@@ -148,19 +148,22 @@
             data: data.serialize(),
             dataType: 'json',
             error: function(response) {
+                $('#staticBackdrop').children('.modal-dialog').children('.modal-content').children('.save').text("SALVANDO: "+ btnable*2.5 + "%");
                 btnable++;
-                $('#btnenviarform').prop("disabled",true).text("SALVANDO: "+ btnable*2.5 + "%" );
+                $('#btnenviarform').prop("disabled",true).text("AGUARDE..." );
                 if(btnable == n+1){
                     $('#btnenviarform').prop("disabled",false).text("SALVAR");
-                    alert("Deu merda bro :(");
+                    $('#staticBackdrop').modal('hide');
+                    alert("Deu erro :(");
                 }  
             },
             success: function (response) {
+                $('#staticBackdrop').children('.modal-dialog').children('.modal-content').children('.save').text("SALVANDO: "+ btnable*2.5 + "%");
                 btnable++;
-                $('#btnenviarform').prop("disabled",true).text("SALVANDO: "+ btnable*2.5 + "%" );
+                $('#btnenviarform').prop("disabled",true).text("AGUARDE..." );
                 if(btnable == n+1){
                     $('#btnenviarform').prop("disabled",false).text("SALVAR");
-                    alert("Horário criado com maestria :)");
+                    $('#staticBackdrop').modal('hide');
                 }  
             }
         });

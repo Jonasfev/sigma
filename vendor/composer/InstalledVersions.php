@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '6cc7fd6b62c541c2a9ab2823feedff2f5b5c3394',
+    'reference' => '52131231ecb764773ddb94b37d4233a3085b577d',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -141,12 +141,12 @@ private static $installed = array (
     ),
     'facade/ignition' => 
     array (
-      'pretty_version' => '2.5.11',
-      'version' => '2.5.11.0',
+      'pretty_version' => '2.5.12',
+      'version' => '2.5.12.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'e91d67353054bf827c64687fcac5ea44e4dcec54',
+      'reference' => 'be73521836f978106b3c3cf57de7eaeb261af520',
     ),
     'facade/ignition-contracts' => 
     array (
@@ -478,7 +478,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '6cc7fd6b62c541c2a9ab2823feedff2f5b5c3394',
+      'reference' => '52131231ecb764773ddb94b37d4233a3085b577d',
     ),
     'laravel/sail' => 
     array (
@@ -601,12 +601,12 @@ private static $installed = array (
     ),
     'myclabs/php-enum' => 
     array (
-      'pretty_version' => '1.7.7',
-      'version' => '1.7.7.0',
+      'pretty_version' => '1.8.0',
+      'version' => '1.8.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'd178027d1e679832db9f38248fcc7200647dc2b7',
+      'reference' => '46cf3d8498b095bd33727b13fd5707263af99421',
     ),
     'nesbot/carbon' => 
     array (
