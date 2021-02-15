@@ -275,6 +275,7 @@ function drop(ev, el){
             } else{
                 $("div.error").css("display", "flex");
                 $("div.error").children("div.row").children("div.col-auto").html('Docente já Alocado na Aula: ' + isReserved[0] + ' Dia Semana: ' + isReserved[1] + ' na Turma: ' +isReserved[2]);
+                errorShow();
             }
         });
 
@@ -287,6 +288,7 @@ function drop(ev, el){
             } else{
                 $("div.error").css("display", "flex");
                 $("div.error").children("div.row").children("div.col-auto").html('Ambiente já Alocado na Aula: ' + isReserved[0] + ' Dia Semana: ' + isReserved[1] + ' na Turma: ' +isReserved[2]);
+                errorShow();
             }
         });
 
@@ -300,6 +302,7 @@ function drop(ev, el){
             } else{
                 $("div.error").css("display", "flex");
                 $("div.error").children("div.row").children("div.col-auto").html('Equipamento já Alocado na Aula: ' + isReserved[0] + ' Dia Semana: ' + isReserved[1] + ' na Turma: ' +isReserved[2]);
+                errorShow();
             }
             
         });
@@ -344,6 +347,21 @@ function exclude(el){
 
 function error(){
     $("div.error").css("display", "none");
+}
+
+function errorShow(){
+    $("div.error").animate({
+        opacity: '1',
+        bottom: '10px'
+    });
+}
+
+function errorHide(){
+    $("div.error").animate({
+        opacity: '0.2',
+        bottom: '0'
+    });
+    $('div.error').hide(300);
 }
 
 let input = document.querySelector('input');
