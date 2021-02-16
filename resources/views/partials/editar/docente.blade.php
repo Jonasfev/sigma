@@ -22,19 +22,19 @@
                   </div>
                   <div class="mb-3 mt-0">
                   <label for="nome" class="form-label">Nome</label>
-                  <input type="text" class="form-control mt-0" name="nome" id="nome" value="{{$recurso->Nome}}">
+                  <input type="text" class="form-control mt-0" name="Nome" id="nome" value="{{$recurso->Nome}}">
                   </div>
                   <div class="mb-3 mt-0">
                     <label for="Sobrenome" class="form-label">Sobrenome</label>
-                    <input type="text" class="form-control mt-0" name = "sobrenome" id="sobrenome" value="{{$recurso->Sobrenome}}">
+                    <input type="text" class="form-control mt-0" name = "Sobrenome" id="sobrenome" value="{{$recurso->Sobrenome}}">
                   </div>
                   <div class="mb-3 mt-0">
-                    <label for="Hmax" class="form-label">Horas Maximas</label>
-                    <input type="number" class="form-control mt-0 w-15" name="Hmax" id="Hmax" value="{{$recurso->hMax}}">
+                    <label for="Hmin" class="form-label">Horas Mínimas</label>
+                    <input type="number" class="form-control mt-0" name="hmin" id="Hmin" value="{{$recurso->hMin}}">
                   </div>
                   <div class="mb-3 mt-0">
-                    <label for="Hmin" class="form-label">Horas Minimas</label>
-                    <input type="number" class="form-control mt-0 w-15" id="Hmin" name="Hmin"value="{{$recurso->hMin}}">
+                    <label for="Hmax" class="form-label">Horas Máximas</label>
+                    <input type="number" class="form-control mt-0" name="hmax" id="Hmax" value="{{$recurso->hMax}}">
                   </div>
                   <div class="mb-3 mt-0">
                     <label class="mt-1 form-label" for="hmax">Incluir UC</label>
@@ -52,8 +52,16 @@
                         @endfor
                     </div>
                   </div>
-                  
                 </form>
+                @if ($errors->any())
+                  <div class="alert alert-danger my-2">
+                      <ul class="m-auto">
+                          @foreach ($errors->all() as $error)
+                              <li class="mx-0">{{$error}}</li>  
+                          @endforeach
+                      </ul>
+                  </div>
+                @endif 
               </div>
               <div class="col-12 d-flex align-items-center justify-content-around">
                 <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos')}}">VOLTAR</a>

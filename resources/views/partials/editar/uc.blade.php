@@ -13,7 +13,7 @@
         <div class="w-50 h-75 m-auto">
             <div class="tab-content overflow-auto" id="nav-tabContent">
               <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                <form action="{{Route('admin.update', ['id' => $recurso->id])}}" id="formu" class="w-100 h-100 d-flex flex-column  justify-content-around" method="POST">
+                <form action="{{Route('admin.update', ['id' => $recurso->id])}}" id="formu" method="POST">
                     @csrf
                     @method("PUT")
                   <div class="mb-3 mt-0">
@@ -33,6 +33,15 @@
                     <input type="number" class="form-control mt-0" name="aulasSemanais" value="{{$recurso->aulasSemanais}}">
                   </div>
                 </form>
+                @if ($errors->any())
+                  <div class="alert alert-danger my-2">
+                      <ul class="m-auto">
+                          @foreach ($errors->all() as $error)
+                              <li class="mx-0">{{$error}}</li>  
+                          @endforeach
+                      </ul>
+                  </div>
+                @endif 
               </div>
               <div class="col-12 d-flex align-items-center justify-content-around">
                 <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos')}}">VOLTAR</a>

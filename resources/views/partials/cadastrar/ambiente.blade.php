@@ -18,9 +18,9 @@
                     <option value="Ofc">Oficina</option>
                     <option value="Sala">Sala</option>
                 </select>
-                <label class="mt-1 form-label" for="numAmbiente">Número</label>
+                <label class="mt-1 form-label" for="numAmbiente">Número do Ambiente</label>
                 <input class="form-control" type="number" name="numAmbiente">
-                <label class="mt-1 form-label" for="alunosComportados">Alunos comportados</label>
+                <label class="mt-1 form-label" for="alunosComportados">Alunos Comportados</label>
                 <input class="form-control" type="number" name="alunosComportados">
                 <label class="mt-1 form-label" for="ucsComportadas">Incluir UC</label>
                 <div class="opcao-uc d-flex flex-column overflow-auto">

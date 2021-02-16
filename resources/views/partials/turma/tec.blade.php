@@ -74,7 +74,7 @@
         <div class="error alert mx-auto p-2 alert-danger border-danger flex-column">
             <div class="row justify-content-between">
                 <div class="col-auto my-auto"></div>
-                <button type="button" class="btn-close col-auto mr-3" onclick="errorHide();">X</button>
+                <a type="button" class="btn-close col-auto mr-2 text-decoration-none" onclick="errorHide();">X</a>
             </div>
         </div>
     </div>

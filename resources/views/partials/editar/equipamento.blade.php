@@ -28,8 +28,16 @@
                     <label for="numPatrimonio" class="form-label">Numero do patrimonio</label>
                     <input type="number" class="form-control mt-0" id="numPatrimonio" name="numPatrimonio" value="{{$recurso->numPatrimonio}}">
                   </div>
-                  
                 </form>
+                @if ($errors->any())
+                  <div class="alert alert-danger my-2">
+                      <ul class="m-auto">
+                          @foreach ($errors->all() as $error)
+                              <li class="mx-0">{{$error}}</li>  
+                          @endforeach
+                      </ul>
+                  </div>
+                @endif 
               </div>
               <div class="col-12 d-flex align-items-center justify-content-around">
                 <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos')}}">VOLTAR</a>
