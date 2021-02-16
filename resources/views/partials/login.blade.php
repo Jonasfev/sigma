@@ -44,14 +44,15 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content w-50">
                 <div class="modal-body">
-                    <form action= {{ Route('admin.home') }} class="d-flex flex-column justify-content-center">
+                    <form action="{{route('index.login')}}" method="POST" class="d-flex flex-column justify-content-center">
+                        @csrf
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Usuário</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="12345-6">
+                            <input type="email" class="form-control" name="email" placeholder="email@senaisp.edu.br">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="******">
+                            <input type="password" class="form-control" name="password" placeholder="******">
                         </div>
                         <button type="submit" class="btn btn-primary">LOGIN</button>
                     </form>

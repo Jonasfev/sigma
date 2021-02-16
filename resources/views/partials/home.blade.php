@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('button')
-    <a type="button" class="btn btn-primary" href="{{Route('index')}}">
+    <a type="button" class="btn btn-primary" href="{{Route('logout')}}">
         LOGOUT
     </a>
 @endsection
