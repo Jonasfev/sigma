@@ -1,9 +1,10 @@
 @extends('template')
 
 @section('button')
-    <a type="button" class="btn btn-primary" href="{{Route('logout')}}">
-        LOGOUT
-    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+    <button form="logout-form" type="submit" class="btn btn-primary">LOGOUT</button>
 @endsection
 
 @section('content')
@@ -53,7 +54,7 @@
         <div id="fileName" class="text-uppercase font-weight-bold"></div>
         
         <div class="w-50 d-flex align-items-center justify-content-around mx-auto m-5">
-            <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.home')}}">VOLTAR</a>
+            <a type="button" class="btn btn-secondary col-5" href="{{Route('home')}}">VOLTAR</a>
             <input type="submit" form="csvCreate" class="btn btn-primary col-5 text-uppercase">
         </div>
     </div>

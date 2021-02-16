@@ -1,10 +1,17 @@
-@extends('layouts.app')
+@extends('template')
+
+@section('button')
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+    <button form="logout-form" type="submit" class="btn btn-primary">LOGOUT</button>
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+<div class="container flex-fill">
+    <div class="my-auto h-100 d-flex flex-column row justify-content-center align-items-center">
+        <div class="w-50">
+            <div class="card my-auto">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">

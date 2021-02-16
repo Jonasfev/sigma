@@ -1,4 +1,11 @@
-@extends('layouts.app')
+@extends('template')
+
+@section('button')
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+    <button form="logout-form" type="submit" class="btn btn-primary">LOGOUT</button>
+@endsection
 
 @section('content')
 <div class="container">
