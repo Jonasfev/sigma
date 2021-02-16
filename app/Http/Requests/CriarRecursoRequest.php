@@ -35,7 +35,7 @@ class CriarRecursoRequest extends FormRequest
                     'nomeCurso' => 'required',
                     'dataInicioCurso' => 'required',
                     'dataFimCurso' => 'required',
-                    'cargaTotalHoras' => 'numeric|required',
+                    'cargaTotalHoras' => 'max:99999|numeric|required',
                 ];
                 break;
 
@@ -49,8 +49,8 @@ class CriarRecursoRequest extends FormRequest
 
             case "/cadastrar/docente":
                 $rules = [
-                    'Nome' => 'required',
-                    'Sobrenome' => 'required',
+                    'Nome' => 'max:99999|numeric|required',
+                    'Sobrenome' => 'max:99999|numeric|required',
                     'hmin' => 'required',
                     'hmax' => 'required',
                 ];
@@ -90,7 +90,7 @@ class CriarRecursoRequest extends FormRequest
                         'nomeCurso' => 'required',
                         'dataInicioCurso' => 'required',
                         'dataFimCurso' => 'required',
-                        'cargaTotalHoras' => 'numeric|required',
+                        'cargaTotalHoras' => 'max:99999|numeric|required',
                     ];
 
                 } else if($tipo == "ambiente"){
@@ -104,8 +104,8 @@ class CriarRecursoRequest extends FormRequest
                     $rules = [
                         'Nome' => 'required',
                         'Sobrenome' => 'required',
-                        'hmin' => 'required',
-                        'hmax' => 'required',
+                        'hmin' => 'max:99999|numeric|required',
+                        'hmax' => 'max:99999|numeric|required',
                     ];
     
                 } else if($tipo == "turma"){

@@ -29,7 +29,7 @@
         </div>
         <div class="class-ctn w-50 h-50 overflow-auto d-flex flex-column align-items-center">
             @for ($cont = 0; $cont < sizeOf($turmas); $cont++)
-                <div class="class row col-auto w-75 h-25 bg-light d-flex"  data-bs-toggle="modal" data-bs-target="#horario">
+                <div class="class row col-auto w-75 h-25 bg-light d-flex" data-bs-toggle="modal" data-bs-target="#horario">
                     <div class="class-code w-25 h-100 bg-secondary text-center fw-bold d-flex align-items-center justify-content-center">
                         {{$turmas[$cont]->siglaTurma}}
                     </div>

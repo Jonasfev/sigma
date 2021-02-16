@@ -27,7 +27,7 @@
                   </div>
                   <div class="mb-3 mt-0">
                     <label for="numPatrimonio" class="form-label">Numero do patrimonio</label>
-                    <input type="number" class="form-control mt-0" id="numPatrimonio" name="numPatrimonio" value="{{$recurso->numPatrimonio}}">
+                    <input type="number" class="form-control mt-0" id="numPatrimonio" name="numPatrimonio" value="{{$recurso->numPatrimonio}}" placeholder="Max: 10 caracteres">
                   </div>
                 </form>
                 @if ($errors->any())

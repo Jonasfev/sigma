@@ -235,7 +235,7 @@ class RecursoController extends Controller
         
         switch($tipo) {
             case 'docente':
-                $req = $request->except('_token', '_method', 'nome', 'sobrenome', 'Hmin', 'Hmax', 'tipo');
+                $req = $request->except('_token', '_method', 'Nome', 'Sobrenome', 'hmin', 'hmax', 'tipo');
                 
                 foreach(Docuc::get()->where('docente', $id) as $row){
                     $row->delete();
@@ -254,10 +254,10 @@ class RecursoController extends Controller
                     $r = redirect()->back();
                 } else {
                     $recurso->update([
-                        'Nome' => $request->nome,
-                        'Sobrenome' => $request->sobrenome,
-                        'hMin' => $request->Hmin,
-                        'hMax' => $request->Hmax
+                        'Nome' => $request->Nome,
+                        'Sobrenome' => $request->Sobrenome,
+                        'hMin' => $request->hmin,
+                        'hMax' => $request->hmax
                     ]);
                     $r = redirect()->Route('admin.recursos');
                 }
