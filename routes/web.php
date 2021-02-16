@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthenticationController;
 use App\Models\csv;
 use Illuminate\Auth\Events\Login;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LoginController::class, 'index'])->name('index');
@@ -57,3 +58,7 @@ Route::middleware(['auth'])->group(function() {
 });
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
