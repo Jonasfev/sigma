@@ -478,7 +478,9 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
+
       'reference' => '92b3f97778b35abc830264ab719509895f08d8ee',
+
     ),
     'laravel/sail' => 
     array (

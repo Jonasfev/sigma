@@ -7,15 +7,15 @@ function horarioTurma(val, tipo) {
         switch (val) {
             case "manha":
                 entrada = '07:30';
-                saida = '08:15';                 
+                saida = '11:30';                 
                 break;
             case "tarde":
                 entrada = '13:30';
-                saida = '14:15';                
+                saida = '17:30';                
                 break;
             case "noite":
                 entrada = '18:45';
-                saida = '19:30';                
+                saida = '22:45';                
                 break;
         }
 
@@ -23,11 +23,11 @@ function horarioTurma(val, tipo) {
         switch (val) {
             case "manha":
                 entrada = '07:30';
-                saida = '08:15';                
+                saida = '11:30';                
                 break;
             case "tarde":
                 entrada = '13:30';
-                saida = '14:15';                
+                saida = '17:30';                
                 break;
         }
     }
@@ -42,15 +42,15 @@ function horarioTurma(val) {
     switch (val) {
         case "manha":
             entrada = '07:30';
-            saida = '08:15';                 
+            saida = '11:30';                 
             break;
         case "tarde":
             entrada = '13:30';
-            saida = '14:15';                
+            saida = '17:30';                
             break;
         case "noite":
             entrada = '18:45';
-            saida = '19:30';                
+            saida = '22:45';                
             break;
     }    
 
@@ -253,8 +253,6 @@ function letsDrop(ev){
     ev.preventDefault();
 }
 
-
-
 function drop(ev, el){
     
    
@@ -275,7 +273,10 @@ function drop(ev, el){
                 $(el).children('.doc').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");  
                 $(el).children('form').children('input#'+el.id+'-8').attr('value', $(nodeCopy).children('input').val());
             } else{
-                alert('Docente já Alocado na Aula: ' + isReserved[0] + ' Dia Semana: ' + isReserved[1] + ' na Turma: ' +isReserved[2]);
+                $("div.error").css("display", "flex");
+                isReservedIs();
+                $("div.error").children("div.row").children("div.col-auto").html('Docente já alocado na ' + s1 + ' aula da ' + s2 + '-feira na turma ' +isReserved[2]);
+                errorShow();
             }
         });
 
@@ -286,7 +287,10 @@ function drop(ev, el){
                 $(el).children('.dropup').children('.icon.amb').html("<p class='m-0'><small>"+$(nodeCopy).children('p').text()+"</p></small>");
                 $(el).children('form').children('input#'+el.id+'-9').attr('value', $(nodeCopy).children('input').val());
             } else{
-                alert('Ambiente já Alocado na Aula: ' + isReserved[0] + ' Dia Semana: ' + isReserved[1] + ' na Turma: ' +isReserved[2]);
+                $("div.error").css("display", "flex");
+                isReservedIs();
+                $("div.error").children("div.row").children("div.col-auto").html('Ambiente já alocado na ' + s1 + ' aula da ' + s2 + '-feira na turma ' +isReserved[2]);
+                errorShow();
             }
         });
 
@@ -298,7 +302,10 @@ function drop(ev, el){
                 $(el).children('form').children('input#'+el.id+'-11').attr('value', $(nodeCopy).children('input').val());
                 $(el).children('.dropup').children('.dropdown-menu').children('.linha').children('.recurso.eqp').children('p').text($(nodeCopy).children('p').text());
             } else{
-                alert('Equipamento já Alocado na Aula: ' + isReserved[0] + ' Dia Semana: ' + isReserved[1] + ' na Turma: ' +isReserved[2]);
+                $("div.error").css("display", "flex");
+                isReservedIs();
+                $("div.error").children("div.row").children("div.col-auto").html('Equipamento já alocado na ' + s1 + ' aula da ' + s2 + '-feira na turma ' +isReserved[2]);
+                errorShow();
             }
             
         });
@@ -320,6 +327,46 @@ function drop(ev, el){
     
 }
 
+function isReservedIs(){
+    switch(isReserved[0]){
+        case 1:
+            s1 = "primeira";
+            break;
+        case 2:
+            s1 = "segunda";
+            break;
+        case 3:
+            s1 = "terceira";
+            break;
+        case 4:
+            s1 = "quarta";
+            break;
+        case 5:
+            s1 = "quinta";
+            break;
+    }
+
+    switch(isReserved[1]){
+        case "Seg":
+            s2 = "segunda";
+            break;
+        case "Ter":
+            s2 = "terça";
+            break;
+        case "Qua":
+            s2 = "quarta";
+            break;
+        case "Qui":
+            s2 = "quinta";
+            break;
+        case "Sex":
+            s2 = "sexta";
+            break;
+    }
+
+    return s1, s2;
+}
+
 
 
 function exclude(el){
@@ -339,6 +386,25 @@ function exclude(el){
             $(el).html("<img src='/img/uc.png' class='p-1 opacity-20'></img>");
         }
     }
+}
+
+function error(){
+    $("div.error").css("display", "none");
+}
+
+function errorShow(){
+    $("div.error").animate({
+        opacity: '1',
+        bottom: '10px'
+    });
+}
+
+function errorHide(){
+    $("div.error").animate({
+        opacity: '0.2',
+        bottom: '0'
+    });
+    $('div.error').hide(300);
 }
 
 let input = document.querySelector('input');

@@ -230,8 +230,9 @@ class RecursoController extends Controller
 
     } 
 
-    public function update (Request $request, $id){
+    public function update (CriarRecursoRequest $request, $id){
         $tipo = $request->tipo;
+        
         switch($tipo) {
             case 'docente':
                 $req = $request->except('_token', '_method', 'nome', 'sobrenome', 'Hmin', 'Hmax', 'tipo');
@@ -262,7 +263,6 @@ class RecursoController extends Controller
                 }
                 break;
 
-
             case 'ambiente':
                 $req = $request->except('_token', '_method', 'tipo', 'Tipo', 'numAmbiente', 'alunosComportados');
                 
@@ -289,6 +289,7 @@ class RecursoController extends Controller
                     $r = redirect()->Route('admin.recursos');
                 }
                 break;
+
             case 'equipamento':
                 $recurso = Equipamento::find($id);
                 $recurso->update([
@@ -308,6 +309,7 @@ class RecursoController extends Controller
                 $r = redirect()->Route('admin.recursos');
                 
                 break;
+
             case 'curso':
                 $req = $request->except('_token', '_method', 'tipo', 'tipoCurso', 'siglaCurso', 'nomeCurso', 'dataFimCurso', 'dataInicioCurso', 'cargaTotalHoras');
                 
@@ -338,17 +340,17 @@ class RecursoController extends Controller
                     $r = redirect()->Route('admin.recursos');
                 }
                 break;
-                case 'turma':
-                    $recurso = Turma::find($id);
-                    $recurso->update([
-                        'siglaTurma' => $request->SiglaTurma,
-                        'periodo' => $request->periodo,
-                        'numAlunos' => $request->numAlunos,
-                        'horaEntrada' => $request->horaEntrada,
-                        'horaSaida' => $request->horaSaida
-                    ]);
-                    $r = redirect()->Route('admin.recursos');
-                    break;
+            case 'turma':
+                $recurso = Turma::find($id);
+                $recurso->update([
+                    'siglaTurma' => $request->siglaTurma,
+                    'periodo' => $request->periodo,
+                    'numAlunos' => $request->numAlunos,
+                    'horaEntrada' => $request->horaEntrada,
+                    'horaSaida' => $request->horaSaida
+                ]);
+                $r = redirect()->Route('admin.recursos');
+                break;
         }
         return $r;
         

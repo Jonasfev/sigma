@@ -24,14 +24,15 @@ class CriarRecursoRequest extends FormRequest
     public function rules()
     {
         $uri = $this->getPathInfo();
-        
+        $id = $this->id;
+        $tipo = $this->tipo;
 
         switch($uri){
             case "/cadastrar/curso":
                 $rules = [
                     'tipoCurso' => 'required',
-                    'siglaCurso' => 'max:10|required',
-                    'nomeCurso' => 'max:100|required',
+                    'siglaCurso' => 'required',
+                    'nomeCurso' => 'required',
                     'dataInicioCurso' => 'required',
                     'dataFimCurso' => 'required',
                     'cargaTotalHoras' => 'numeric|required',
@@ -48,8 +49,8 @@ class CriarRecursoRequest extends FormRequest
 
             case "/cadastrar/docente":
                 $rules = [
-                    'Nome' => 'max:30|required',
-                    'Sobrenome' => 'max:100|required',
+                    'Nome' => 'required',
+                    'Sobrenome' => 'required',
                     'hmin' => 'required',
                     'hmax' => 'required',
                 ];
@@ -58,7 +59,7 @@ class CriarRecursoRequest extends FormRequest
             case "/cadastrar/turma":
                 $rules = [
                     'idCurso' => 'required',
-                    'siglaTurma' => 'max:10|required',
+                    'siglaTurma' => 'required',
                     'periodo' => 'required',
                     'numAlunos' => 'numeric|required',
                     'horaEntrada' => 'required',
@@ -68,18 +69,67 @@ class CriarRecursoRequest extends FormRequest
 
             case "/cadastrar/uc":
                 $rules = [
-                    'siglaUC' => 'max:10|required',
-                    'nomeUC' => 'max:100|required',
+                    'siglaUC' => 'required',
+                    'nomeUC' => 'required',
                     'aulasSemanais' => 'numeric|required',
                 ];
                 break;
 
             case "/cadastrar/equipamento":
                 $rules = [
-                    'Nome' => 'max:50|required',
-                    'numPatrimonio' => 'numeric|required',
+                    'Nome' => 'required',
+                    'numPatrimonio' => 'max:9999999999|numeric|required',
                 ];
                 break;
+
+            case "/editar/$id":
+                if($tipo == "curso"){
+                    $rules = [
+                        'tipoCurso' => 'required',
+                        'siglaCurso' => 'required',
+                        'nomeCurso' => 'required',
+                        'dataInicioCurso' => 'required',
+                        'dataFimCurso' => 'required',
+                        'cargaTotalHoras' => 'numeric|required',
+                    ];
+
+                } else if($tipo == "ambiente"){
+                    $rules = [
+                        'tipo' => 'required',
+                        'numAmbiente' => 'numeric|required',
+                        'alunosComportados' => 'numeric|required',
+                    ];
+    
+                } else if($tipo == "docente"){
+                    $rules = [
+                        'Nome' => 'required',
+                        'Sobrenome' => 'required',
+                        'hmin' => 'required',
+                        'hmax' => 'required',
+                    ];
+    
+                } else if($tipo == "turma"){
+                    $rules = [
+                        'siglaTurma' => 'required',
+                        'periodo' => 'required',
+                        'numAlunos' => 'numeric|required',
+                        'horaEntrada' => 'required',
+                        'horaSaida' => 'required',
+                    ];
+    
+                } else if($tipo == "uc"){
+                    $rules = [
+                        'siglaUC' => 'required',
+                        'nomeUC' => 'required',
+                        'aulasSemanais' => 'numeric|required',
+                    ];
+
+                } else if($tipo == "equipamento"){
+                    $rules = [
+                        'Nome' => 'required',
+                        'numPatrimonio' => 'max:9999999999|numeric|required',
+                    ];
+                }
         }
 
         return $rules;
@@ -88,9 +138,8 @@ class CriarRecursoRequest extends FormRequest
 
     public function messages(){
         return [ 
-            'required' => '/!\\ Campo requerido /!\\',            
+            'required' => '/!\\ Campo requerido :attribute /!\\',            
             'numeric' => '/!\\ Valor numérico requerido /!\\',
-            'size' => '/!\\ Tamanho inválido /!\\',
             'max' => '/!\\ Quantidade máxima de caracteres excedida /!\\',
         ];
     }
