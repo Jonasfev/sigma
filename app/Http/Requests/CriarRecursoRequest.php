@@ -31,37 +31,37 @@ class CriarRecursoRequest extends FormRequest
             case "/cadastrar/curso":
                 $rules = [
                     'tipoCurso' => 'required',
-                    'siglaCurso' => 'required',
+                    'siglaCurso' => 'max:5|required',
                     'nomeCurso' => 'required',
                     'dataInicioCurso' => 'required',
                     'dataFimCurso' => 'required',
-                    'cargaTotalHoras' => 'max:99999|numeric|required',
+                    'cargaTotalHoras' => 'max:9999999999|numeric|required',
                 ];
                 break;
 
             case "/cadastrar/ambiente":
                 $rules = [
                     'tipo' => 'required',
-                    'numAmbiente' => 'numeric|required',
-                    'alunosComportados' => 'numeric|required',
+                    'numAmbiente' => 'max:9999999999|numeric|required',
+                    'alunosComportados' => 'max:9999999999|numeric|required',
                 ];
                 break;
 
             case "/cadastrar/docente":
                 $rules = [
-                    'Nome' => 'max:99999|numeric|required',
-                    'Sobrenome' => 'max:99999|numeric|required',
-                    'hmin' => 'required',
-                    'hmax' => 'required',
+                    'Nome' => 'required',
+                    'Sobrenome' => 'required',
+                    'hmin' => 'max:9999999999|numeric|required',
+                    'hmax' => 'max:9999999999|numeric|required',
                 ];
                 break;
 
             case "/cadastrar/turma":
                 $rules = [
                     'idCurso' => 'required',
-                    'siglaTurma' => 'required',
+                    'siglaTurma' => 'max:5|required',
                     'periodo' => 'required',
-                    'numAlunos' => 'numeric|required',
+                    'numAlunos' => 'max:9999999999|numeric|required',
                     'horaEntrada' => 'required',
                     'horaSaida' => 'required',
                 ];
@@ -69,9 +69,9 @@ class CriarRecursoRequest extends FormRequest
 
             case "/cadastrar/uc":
                 $rules = [
-                    'siglaUC' => 'required',
+                    'siglaUC' => 'max:5|required',
                     'nomeUC' => 'required',
-                    'aulasSemanais' => 'numeric|required',
+                    'aulasSemanais' => 'max:9999999999|numeric|required',
                 ];
                 break;
 
@@ -86,7 +86,7 @@ class CriarRecursoRequest extends FormRequest
                 if($tipo == "curso"){
                     $rules = [
                         'tipoCurso' => 'required',
-                        'siglaCurso' => 'required',
+                        'siglaCurso' => 'max:5|required',
                         'nomeCurso' => 'required',
                         'dataInicioCurso' => 'required',
                         'dataFimCurso' => 'required',
@@ -96,32 +96,32 @@ class CriarRecursoRequest extends FormRequest
                 } else if($tipo == "ambiente"){
                     $rules = [
                         'tipo' => 'required',
-                        'numAmbiente' => 'numeric|required',
-                        'alunosComportados' => 'numeric|required',
+                        'numAmbiente' => 'max:9999999999|numeric|required',
+                        'alunosComportados' => 'max:9999999999|numeric|required',
                     ];
     
                 } else if($tipo == "docente"){
                     $rules = [
                         'Nome' => 'required',
                         'Sobrenome' => 'required',
-                        'hmin' => 'max:99999|numeric|required',
-                        'hmax' => 'max:99999|numeric|required',
+                        'hmin' => 'max:9999999999|numeric|required',
+                        'hmax' => 'max:9999999999|numeric|required',
                     ];
     
                 } else if($tipo == "turma"){
                     $rules = [
-                        'siglaTurma' => 'required',
+                        'siglaTurma' => 'max:5|required',
                         'periodo' => 'required',
-                        'numAlunos' => 'numeric|required',
+                        'numAlunos' => 'max:9999999999|numeric|required',
                         'horaEntrada' => 'required',
                         'horaSaida' => 'required',
                     ];
     
                 } else if($tipo == "uc"){
                     $rules = [
-                        'siglaUC' => 'required',
+                        'siglaUC' => 'max:5|required',
                         'nomeUC' => 'required',
-                        'aulasSemanais' => 'numeric|required',
+                        'aulasSemanais' => 'max:9999999999|numeric|required',
                     ];
 
                 } else if($tipo == "equipamento"){
@@ -138,9 +138,12 @@ class CriarRecursoRequest extends FormRequest
 
     public function messages(){
         return [ 
-            'required' => '/!\\ Campo requerido :attribute /!\\',            
+            'required' => '/!\\ Campo requerido /!\\',
             'numeric' => '/!\\ Valor numérico requerido /!\\',
             'max' => '/!\\ Quantidade máxima de caracteres excedida /!\\',
+
+            // 'tipoCurso.required' => '/!\\ Tipo do Curso não foi preenchido /!\\',
+            // 'tipoCurso.required' => '/!\\ Tipo do Curso não foi preenchido /!\\',
         ];
     }
 }

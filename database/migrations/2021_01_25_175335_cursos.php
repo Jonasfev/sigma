@@ -20,7 +20,7 @@ class Cursos extends Migration
             $table->string('nomeCurso');
             $table->date('dataInicioCurso');
             $table->date('dataFimCurso');
-            $table->float('cargaTotalHoras', 7,2);
+            $table->integer('cargaTotalHoras');
             $table->timestamps();
         });
     }
