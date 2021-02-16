@@ -40,6 +40,7 @@ class Reservas extends Migration
             $table->foreign('idUc')->references('id')->on('ucs');
 
             $table->unsignedBigInteger('idEquipamento')->nullable();
+
             $table->foreign('idEquipamento')->references('id')->on('equipamentos');
 
             $table->timestamps();

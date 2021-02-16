@@ -1,9 +1,10 @@
 @extends('template')
 
 @section('button')
-    <a type="button" class="btn btn-primary" href="{{Route('index')}}">
-        LOGOUT
-    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+    <button form="logout-form" type="submit" class="btn btn-primary">LOGOUT</button>
 @endsection
 
 @section('content')
@@ -164,7 +165,7 @@
                 </div>
             </div>
             <div class="w-50 d-flex align-items-center justify-content-around mx-auto mt-5">
-                <a type="button" class="btn btn-secondary col-6" href="{{Route('admin.home')}}">VOLTAR</a>
+                <a type="button" class="btn btn-secondary col-6" href="{{Route('home')}}">VOLTAR</a>
             </div>
         </div>
     </div>

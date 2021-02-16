@@ -340,7 +340,6 @@ class RecursoController extends Controller
                     $r = redirect()->Route('admin.recursos');
                 }
                 break;
-
             case 'turma':
                 $recurso = Turma::find($id);
                 $recurso->update([

@@ -1,9 +1,9 @@
 @extends('template')
 
 @section('button')
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login">
+    <a class="btn btn-primary" href="{{Route('login')}}">
         LOGIN
-    </button>
+    </a>
 @endsection
 
 @section('content')
@@ -38,25 +38,6 @@
                     </div>
                 </div>
             @endfor
-        </div>
-    </div>
-    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content w-50">
-                <div class="modal-body">
-                    <form action= {{ Route('admin.home') }} class="d-flex flex-column justify-content-center">
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Usuário</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="12345-6">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="******">
-                        </div>
-                        <button type="submit" class="btn btn-primary">LOGIN</button>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
     <div class="modal fade" id="horario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

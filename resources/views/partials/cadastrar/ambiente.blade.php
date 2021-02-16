@@ -1,9 +1,10 @@
 @extends('template')
 
 @section('button')
-    <a type="button" class="btn btn-primary" href="{{Route('index')}}">
-        LOGOUT
-    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+    <button form="logout-form" type="submit" class="btn btn-primary">LOGOUT</button>
 @endsection
 
 @section('content')

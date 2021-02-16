@@ -30,7 +30,7 @@ class LoginController extends Controller
         if($request->nomeCurso == null){
             return redirect()->route('index');
         }
-        if(strlen($param) < 5){ 
+        if(strlen($param) <= 5){ 
             foreach(Turma::where('siglaTurma', 'LIKE', "%{$param}%")->get() as $turma) {
                 array_push($turmas, $turma);
             } 
@@ -40,7 +40,9 @@ class LoginController extends Controller
         foreach($cursos as $curso) {
             if(!in_array(Turma::get()->where('idCurso', $curso->id), $turmas)){
                 foreach(Turma::get()->where('idCurso', $curso->id) as $turma) {
-                    array_push($turmas, $turma);
+                    if(!in_array($turma, $turmas)){
+                        array_push($turmas, $turma);
+                    }
                 }
             }
         }
