@@ -28,7 +28,7 @@
             </div>
             @endif
             <div class="col-12 d-flex align-items-center justify-content-around mt-3">
-                <a type="button" class="btn btn-secondary col-5" href="{{ Route('admin.recursos') }}">VOLTAR</a>
+                <a type="button" class="btn btn-secondary col-5" href="{{ Route('admin.recursos', ['tipo' => 'equipamento']) }}">VOLTAR</a>
                 <button form="cadastrar-eqp" class="btn btn-primary col-5">SALVAR</button>
             </div>
         </div>
