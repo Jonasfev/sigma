@@ -115,9 +115,9 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'D:\\laragon\\www\\sigma\\resources\\js\\app.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-__webpack_require__(/*! D:\laragon\www\sigma\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! D:\laragon\www\sigma\resources\sass\style.scss */"./resources/sass/style.scss");
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'D:\\install\\laragon\\www\\sigma\\resources\\js\\app.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+__webpack_require__(/*! D:\install\laragon\www\sigma\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\install\laragon\www\sigma\resources\sass\style.scss */"./resources/sass/style.scss");
 
 
 /***/ })

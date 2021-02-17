@@ -11,18 +11,19 @@
     <div class="pg-ctn bg-light d-flex flex-column align-items-center justify-content-around">
         <h1>Novo docente</h1>
         <div class="bd-example bd-example-tabs w-50 h-75">
-            <form id="cadastrar-doc" action="{{route('admin.store', ['tipo' => 'docente'])}}" method="POST">
-                @csrf
-                <label class="mt-1 form-label" for="Nome">Nome</label>
-                <input class="form-control" type="text" name="Nome" id="Nome">
-                <label class="mt-1 form-label" for="Sobrenome">Sobrenome</label>
-                <input class="form-control" type="text" name="Sobrenome" id="Sobrenome">
-                <label class="mt-1 form-label" for="hmin">Horas Mínimas</label>
-                <input class="form-control" type="number" name="hmin" id="hmin">
-                <label class="mt-1 form-label" for="hmax">Horas Máximas</label>
-                <input class="form-control" type="number" name="hmax" id="hmax">
-                <label class="mt-1 form-label">Incluir UC</label>
-                <div class="opcao-uc d-flex flex-column overflow-auto">
+            <form class="w-100 d-flex justify-content-around" id="cadastrar-doc" action="{{route('admin.store', ['tipo' => 'docente'])}}" method="POST">
+                <div class="w-45">
+                    @csrf
+                    <label class="mt-1 form-label" for="Nome">Nome</label>
+                    <input class="form-control" type="text" name="Nome" id="Nome">
+                    <label class="mt-1 form-label" for="Sobrenome">Sobrenome</label>
+                    <input class="form-control" type="text" name="Sobrenome" id="Sobrenome">
+                    <label class="mt-1 form-label" for="hmin">Horas Mínimas</label>
+                    <input class="form-control" type="number" name="hmin" id="hmin">
+                    <label class="mt-1 form-label" for="hmax">Horas Máximas</label>
+                    <input class="form-control" type="number" name="hmax" id="hmax">
+                </div>
+                <div class="w-45 opcao-uc d-flex flex-column overflow-auto">
                     @foreach ($ucs as $uc)
                         <div>
                             <input type="checkbox" name="uc-{{$uc->id}}" value="{{$uc->id}}"> {{$uc->nomeUC}}

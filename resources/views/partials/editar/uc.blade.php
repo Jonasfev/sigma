@@ -18,7 +18,6 @@
                     @csrf
                     @method("PUT")
                   <div class="mb-3 mt-0">
-                    <label for="" class="form-label text-uppercase">{{$tipo}}</label>
                     <input type="text" value="{{$tipo}}" id="tipo" name="tipo" hidden>
                   </div>
                   <div class="mb-3 mt-0">

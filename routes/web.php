@@ -12,7 +12,7 @@ Route::post('/show', [LoginController::class, 'show'])->name('index.show');
 
 Route::get('/search', [LoginController::class, 'search'])->name('index.search');
 
-//Route::middleware(['auth'])->group(function() {
+Route::middleware(['auth'])->group(function() {
     
     Route::get('/home', function(){return view('partials.home');})->name('home');
     
@@ -52,6 +52,6 @@ Route::get('/search', [LoginController::class, 'search'])->name('index.search');
         
     });
 
-//});
+});
 
 Auth::routes();

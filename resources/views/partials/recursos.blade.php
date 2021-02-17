@@ -63,10 +63,10 @@
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
                                 <a href="{{route('admin.editar', ['tipo' => "docente",'id' => $docente->id])}}">
-                                    <img src="../img/editar.png" alt="editar" width="32px" class="mx-2">
+                                    <img src="/img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exclude" onclick="modalExclude({{$docente->id}}, '{{$docente->Nome}}', '{{$docente->Sobrenome}}', 'docente');">
-                                    <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
+                                    <img src="/img/excluir.png" alt="excluir" width="32px" class="mx-2">
                                 </a>
                             </div>
                         </div>
@@ -91,10 +91,10 @@
                         </div>
                         <div class="d-flex fit align-items-center justify-content-around">
                             <a href="{{route('admin.editar', ['tipo' => "ambiente",'id' => $ambiente->id])}}">
-                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
+                                <img src="/img/editar.png" alt="editar" width="32px" class="mx-2">
                             </a>
                             <a href="#" data-bs-toggle="modal" data-bs-target="#exclude"  onclick="modalExclude({{$ambiente->id}}, '{{$ambiente->Tipo}}', '{{$ambiente->numAmbiente}}', 'ambiente')";>
-                                <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
+                                <img src="/img/excluir.png" alt="excluir" width="32px" class="mx-2">
                             </a>
                         </div>
                     </div>
@@ -120,7 +120,7 @@
                                     <img src="/img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exclude"  onclick="modalExclude({{$item->id}}, '{{$item->Nome}}', '{{$item->numPatrimonio}}', 'equipamento');"> 
-                                    <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
+                                    <img src="/img/excluir.png" alt="excluir" width="32px" class="mx-2">
                                 </a>
                             </div>
                         </div>
@@ -143,10 +143,10 @@
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
                                 <a href="{{route('admin.editar', ['tipo' => "uc",'id' => $uc->id])}}">
-                                    <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
+                                    <img src="/img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exclude"  onclick="modalExclude({{$uc->id}}, '{{$uc->siglaUC}}', '{{$uc->nomeUC}}', 'uc')";>
-                                    <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
+                                    <img src="/img/excluir.png" alt="excluir" width="32px" class="mx-2">
                                 </a>
                             </div>
                         </div>
@@ -169,10 +169,10 @@
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
                                 <a href="{{route('admin.editar', ['tipo' => "curso",'id' => $curso->id])}}">
-                                    <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
+                                    <img src="/img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exclude" onclick="modalExclude({{$curso->id}}, '{{$curso->siglaCurso}}', '{{$curso->nomeCurso}}', 'curso')">
-                                    <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
+                                    <img src="/img/excluir.png" alt="excluir" width="32px" class="mx-2">
                                 </a>
                             </div>
                         </div>
@@ -202,10 +202,10 @@
                                     <img src="img/horario.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                                 <a href="{{route('admin.editar', ['tipo' => "turma",'id' => $t->id])}}">
-                                    <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
+                                    <img src="/img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exclude" onclick="modalExclude({{$t->id}}, '{{$t->siglaTurma}}', '{{$t->periodo}}', 'turma')">
-                                    <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
+                                    <img src="/img/excluir.png" alt="excluir" width="32px" class="mx-2">
                                 </a>
                             </div>
                         </div>

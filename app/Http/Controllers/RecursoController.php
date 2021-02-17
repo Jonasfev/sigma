@@ -190,12 +190,11 @@ class RecursoController extends Controller
                 break;
         }
 
-        return redirect()->route('admin.recursos');
+        return redirect()->route('admin.recursos', ['tipo' => $tipo]);
 
     }
 
     public function tipoCurso($id){
-        dd($id);
         $curso = Curso::find($id);
         echo $curso->tipoCurso;
     }
@@ -280,7 +279,7 @@ class RecursoController extends Controller
                         'hMin' => $request->hmin,
                         'hMax' => $request->hmax
                     ]);
-                    $r = redirect()->Route('admin.recursos');
+                    $r = redirect()->Route('admin.recursos', ['tipo' => $tipo]);
                 }
                 break;
 
@@ -307,7 +306,7 @@ class RecursoController extends Controller
                         'Tipo' => $request->Tipo, 
                         'numAmbiente' => $request->numAmbiente, 'alunosComportados' => $request->alunosComportados
                     ]);
-                    $r = redirect()->Route('admin.recursos');
+                    $r = redirect()->Route('admin.recursos', ['tipo' => $tipo]);
                 }
                 break;
 
@@ -317,7 +316,7 @@ class RecursoController extends Controller
                     'Nome' => $request->Nome,
                     'numPatrimonio' => $request->numPatrimonio,
                 ]);
-                $r = redirect()->Route('admin.recursos');
+                $r = redirect()->Route('admin.recursos', ['tipo' => $tipo]);
                 break;
             case 'uc':
                 $recurso = Uc::find($id);
@@ -327,7 +326,7 @@ class RecursoController extends Controller
                     'cargaSemanal' => 5,
                     'aulasSemanais' => $request->aulasSemanais
                 ]);
-                $r = redirect()->Route('admin.recursos');
+                $r = redirect()->Route('admin.recursos', ['tipo' => $tipo]);
                 
                 break;
 
@@ -358,7 +357,7 @@ class RecursoController extends Controller
                         'dataInicioCurso'=> $request->dataInicioCurso,
                         'cargaTotalHoras' => $request->cargaTotalHoras
                     ]);
-                    $r = redirect()->Route('admin.recursos');
+                    $r = redirect()->Route('admin.recursos', ['tipo' => $tipo]);
                 }
                 break;
             case 'turma':
@@ -370,7 +369,7 @@ class RecursoController extends Controller
                     'horaEntrada' => $request->horaEntrada,
                     'horaSaida' => $request->horaSaida
                 ]);
-                $r = redirect()->Route('admin.recursos');
+                $r = redirect()->Route('admin.recursos', ['tipo' => $tipo]);
                 break;
         }
         return $r;
@@ -437,6 +436,6 @@ class RecursoController extends Controller
 
         $recurso->delete();
 
-        return redirect()->Route('admin.recursos');
+        return redirect()->Route('admin.recursos', ['tipo' => $tipo]);
     }
 }

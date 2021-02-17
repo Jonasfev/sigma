@@ -11,20 +11,21 @@
     <div class="pg-ctn bg-light d-flex flex-column align-items-center justify-content-around">
         <h1>Novo ambiente</h1>
         <div class="bd-example bd-example-tabs w-50 h-75">
-            <form id="cadastrar-amb" action="{{route('admin.store', ['tipo' => 'ambiente'])}}" method="POST">
-                @csrf
-                <label class="mt-1 form-label" for="tipo">Tipo</label>
-                <select class="form-control" name="tipo">
-                    <option value="Lab">Laboratório</option>
-                    <option value="Ofc">Oficina</option>
-                    <option value="Sala">Sala</option>
-                </select>
-                <label class="mt-1 form-label" for="numAmbiente">Número do Ambiente</label>
-                <input class="form-control" type="number" name="numAmbiente">
-                <label class="mt-1 form-label" for="alunosComportados">Alunos Comportados</label>
-                <input class="form-control" type="number" name="alunosComportados">
-                <label class="mt-1 form-label" for="ucsComportadas">Incluir UC</label>
-                <div class="opcao-uc d-flex flex-column overflow-auto">
+            <form class="w-100 d-flex justify-content-around" id="cadastrar-amb" action="{{route('admin.store', ['tipo' => 'ambiente'])}}" method="POST">
+                <div class="w-45">
+                    @csrf
+                    <label class="mt-1 form-label" for="tipo">Tipo</label>
+                    <select class="form-control" name="tipo">
+                        <option value="Lab">Laboratório</option>
+                        <option value="Ofc">Oficina</option>
+                        <option value="Sala">Sala</option>
+                    </select>
+                    <label class="mt-1 form-label" for="numAmbiente">Número do Ambiente</label>
+                    <input class="form-control" type="number" name="numAmbiente">
+                    <label class="mt-1 form-label" for="alunosComportados">Alunos Comportados</label>
+                    <input class="form-control" type="number" name="alunosComportados">
+                </div>                
+                <div class="w-45 opcao-uc d-flex flex-column overflow-auto">
                     @foreach ($ucs as $uc)
                         <div>
                             <input type="checkbox" name="uc-{{$uc->id}}" value="{{$uc->id}}"> {{$uc->nomeUC}}
