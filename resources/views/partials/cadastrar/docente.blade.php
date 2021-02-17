@@ -17,9 +17,9 @@
                 <input class="form-control" type="text" name="Nome" id="Nome">
                 <label class="mt-1 form-label" for="Sobrenome">Sobrenome</label>
                 <input class="form-control" type="text" name="Sobrenome" id="Sobrenome">
-                <label class="mt-1 form-label" for="hmin">Horário mínimo</label>
+                <label class="mt-1 form-label" for="hmin">Horas Mínimas</label>
                 <input class="form-control" type="number" name="hmin" id="hmin">
-                <label class="mt-1 form-label" for="hmax">Horário máximo</label>
+                <label class="mt-1 form-label" for="hmax">Horas Máximas</label>
                 <input class="form-control" type="number" name="hmax" id="hmax">
                 <label class="mt-1 form-label">Incluir UC</label>
                 <div class="opcao-uc d-flex flex-column overflow-auto">

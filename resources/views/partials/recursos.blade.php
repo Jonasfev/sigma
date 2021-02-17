@@ -53,7 +53,7 @@
                     </a>
                     @foreach ($docentes as $docente)
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                            <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                            <div class="p-2 d-flex flex-column justify-content-around flex-fill" data-bs-toggle="modal" onclick="showSchedule({{$docente->id}}, 'docente')" data-bs-target="#recurso">
                                 <h4 class="m-0">{{$docente->Nome}}</h4>
                             <p class="m-0">{{$docente->Nome}} {{$docente->Sobrenome}}</p>
                             </div>
@@ -77,7 +77,7 @@
                     </a>
                     @foreach ($ambientes as $ambiente)
                     <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                        <div class="p-2 d-flex flex-column justify-content-around flex-fill" onclick="showSchedule({{$ambiente->id}}, 'ambiente')" data-bs-toggle="modal" data-bs-target="#recurso">
                             <h4 class="m-0">Ambiente Nº {{$ambiente->numAmbiente}}</h4>
                             <p class="m-0">{{$ambiente->Tipo}} - {{$ambiente->numAmbiente}}</p>
                         </div>
@@ -99,7 +99,7 @@
                     </a>
                     @foreach ($equip as $item)          
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                            <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                            <div class="p-2 d-flex flex-column justify-content-around flex-fill" onclick="showSchedule({{$item->id}}, 'equipamento')" data-bs-toggle="modal" data-bs-target="#recurso">
                             <h4 class="m-0">{{$item->Nome}}</h4>
                                 <p class="m-0">{{$item->numPatrimonio}}</p>
                             </div>
@@ -215,4 +215,706 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="recurso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content h-50 w-100">
+                <div class="modal-body">
+                    <div class="bd-example bd-example-tabs">
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active show" id="nav-seg-tab" data-toggle="tab" href="#nav-seg" role="tab" aria-controls="nav-seg" aria-selected="false">Seg</a>
+                                <a class="nav-item nav-link" id="nav-ter-tab" data-toggle="tab" href="#nav-ter" role="tab" aria-controls="nav-ter" aria-selected="false">Ter</a>
+                                <a class="nav-item nav-link" id="nav-qua-tab" data-toggle="tab" href="#nav-qua" role="tab" aria-controls="nav-qua" aria-selected="false">Qua</a>
+                                <a class="nav-item nav-link" id="nav-qui-tab" data-toggle="tab" href="#nav-qui" role="tab" aria-controls="nav-qui" aria-selected="false">Qui</a>
+                                <a class="nav-item nav-link" id="nav-sex-tab" data-toggle="tab" href="#nav-sex" role="tab" aria-controls="nav-sex" aria-selected="false">Sex</a>
+                            </div>
+                        </nav>
+                        <div class="tab-content h-100" id="nav-tabContent">
+                            <div class="tab-pane fade active show" id="nav-seg" role="tabpanel" aria-labelledby="nav-seg-tab">
+                                @for($i=0; $i<15; $i++)
+                                    <div class="border border-success shadow rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
+                                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                                            <h4 class="m-0" id="seg-aula-{{$i}}">Aula @if($i < 5) {{$i+1}} - Manhã @elseif($i < 10) {{$i-4}} - Tarde @elseif($i < 15) {{$i-9}} - Noite @endif - Disponivel</h4>
+                                        <p class="m-0">Não alocado</p>
+                                        </div>
+                                    </div>
+                                @endfor
+                            </div>
+                            
+                            <div class="tab-pane fade" id="nav-ter" role="tabpanel" aria-labelledby="nav-ter-tab">
+                                @for($i=0; $i<15; $i++)
+                                    <div class="border border-success shadow rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
+                                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                                            <h4 class="m-0" id="ter-aula-{{$i}}">Aula @if($i < 5) {{$i+1}} - Manhã @elseif($i < 10) {{$i-4}} - Tarde @elseif($i < 15) {{$i-9}} - Noite @endif - Disponivel</h4>
+                                        <p class="m-0">Não alocado</p>
+                                        </div>
+                                    </div>
+                                @endfor
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-qua" role="tabpanel" aria-labelledby="nav-qua-tab">
+                                @for($i=0; $i<15; $i++)
+                                    <div class="border border-success shadow rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
+                                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                                            <h4 class="m-0" id="qua-aula-{{$i}}">Aula @if($i < 5) {{$i+1}} - Manhã @elseif($i < 10) {{$i-4}} - Tarde @elseif($i < 15) {{$i-9}} - Noite @endif - Disponivel</h4>
+                                        <p class="m-0">Não alocado</p>
+                                        </div>
+                                    </div>
+                                @endfor
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-qui" role="tabpanel" aria-labelledby="nav-qui-tab">
+                                @for($i=0; $i<15; $i++)
+                                    <div class="border border-success shadow rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
+                                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                                            <h4 class="m-0" id="qui-aula-{{$i}}">Aula @if($i < 5) {{$i+1}} - Manhã @elseif($i < 10) {{$i-4}} - Tarde @elseif($i < 15) {{$i-9}} - Noite @endif - Disponivel</h4>
+                                        <p class="m-0">Não alocado</p>
+                                        </div>
+                                    </div>
+                                @endfor
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-sex" role="tabpanel" aria-labelledby="nav-sex-tab">
+                                @for($i=0; $i<15; $i++)
+                                    <div class="border border-success shadow rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
+                                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                                            <h4 class="m-0" id="sex-aula-{{$i}}">Aula @if($i < 5) {{$i+1}} - Manhã @elseif($i < 10) {{$i-4}} - Tarde @elseif($i < 15) {{$i-9}} - Noite @endif - Disponivel</h4>
+                                        <p class="m-0">Não alocado</p>
+                                        </div>
+                                    </div>
+                                @endfor
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSchedule(id, tipoRecurso){
+            erase();
+
+            const request = $.ajax({
+                url: "/recursos/show/"+id+'/'+tipoRecurso,
+                dataType: 'json',
+                type: "get",
+                
+                error: function(response) {
+                    console.log('error', response);
+                },
+                success: function(response) {
+                    for(var reservas in response['agenda']){
+                        switch(response['agenda'][reservas].diaSemana){
+                            case 'Seg':
+                                if(response['agenda'][reservas].periodo == 'manha'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#seg-aula-0').text("Aula 1 - Manhã - Indisponível");
+                                            $('h4#seg-aula-0').next().text("Já alocado");
+                                            $('h4#seg-aula-0').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-0').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#seg-aula-1').text("Aula 2 - Manhã - Indisponível");
+                                            $('h4#seg-aula-1').next().text("Já alocado");
+                                            $('h4#seg-aula-1').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-1').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#seg-aula-2').text("Aula 3 - Manhã - Indisponível");
+                                            $('h4#seg-aula-2').next().text("Já alocado");
+                                            $('h4#seg-aula-2').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-2').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#seg-aula-3').text("Aula 4 - Manhã - Indisponível");
+                                            $('h4#seg-aula-3').next().text("Já alocado");
+                                            $('h4#seg-aula-3').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-3').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 5:
+                                            $('h4#seg-aula-4').text("Aula 5 - Manhã - Indisponível");
+                                            $('h4#seg-aula-4').next().text("Já alocado");
+                                            $('h4#seg-aula-4').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-4').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                } else if(response['agenda'][reservas].periodo == 'tarde'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#seg-aula-5').text("Aula 1 - Tarde - Indisponível");
+                                            $('h4#seg-aula-5').next().text("Já alocado");
+                                            $('h4#seg-aula-5').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-5').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#seg-aula-6').text("Aula 2 - Tarde - Indisponível");
+                                            $('h4#seg-aula-6').next().text("Já alocado");
+                                            $('h4#seg-aula-6').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-6').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#seg-aula-7').text("Aula 3 - Tarde - Indisponível");
+                                            $('h4#seg-aula-7').next().text("Já alocado");
+                                            $('h4#seg-aula-7').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-7').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#seg-aula-8').text("Aula 4 - Tarde - Indisponível");
+                                            $('h4#seg-aula-8').next().text("Já alocado");
+                                            $('h4#seg-aula-8').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-8').parent().parent().addClass("border-danger");
+                                            
+                                            break;
+                                        case 5:
+                                            $('h4#seg-aula-9').text("Aula 5 - Tarde - Indisponível");
+                                            $('h4#seg-aula-9').next().text("Já alocado");
+                                            $('h4#seg-aula-9').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-9').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                } else if(response['agenda'][reservas].periodo == 'noite'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#seg-aula-10').text("Aula 1 - Noite - Indisponível");
+                                            $('h4#seg-aula-10').next().text("Já alocado");
+                                            $('h4#seg-aula-10').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-10').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#seg-aula-11').text("Aula 2 - Noite - Indisponível");
+                                            $('h4#seg-aula-11').next().text("Já alocado");
+                                            $('h4#seg-aula-11').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-11').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#seg-aula-12').text("Aula 3 - Noite - Indisponível");
+                                            $('h4#seg-aula-12').next().text("Já alocado");
+                                            $('h4#seg-aula-12').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-12').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#seg-aula-13').text("Aula 4 - Noite - Indisponível");
+                                            $('h4#seg-aula-13').next().text("Já alocado");
+                                            $('h4#seg-aula-13').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-13').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 5:
+                                            $('h4#seg-aula-14').text("Aula 5 - Noite - Indisponível");
+                                            $('h4#seg-aula-14').next().text("Já alocado");
+                                            $('h4#seg-aula-14').parent().parent().removeClass("border-success");
+                                            $('h4#seg-aula-14').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                }
+                                break;
+
+                            case 'Ter':
+                            if(response['agenda'][reservas].periodo == 'manha'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#ter-aula-0').text("Aula 1 - Manhã - Indisponível");
+                                            $('h4#ter-aula-0').next().text("Já alocado");
+                                            $('h4#ter-aula-0').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-0').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#ter-aula-1').text("Aula 2 - Manhã - Indisponível");
+                                            $('h4#ter-aula-1').next().text("Já alocado");
+                                            $('h4#ter-aula-1').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-1').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#ter-aula-2').text("Aula 3 - Manhã - Indisponível");
+                                            $('h4#ter-aula-2').next().text("Já alocado");
+                                            $('h4#ter-aula-2').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-2').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#ter-aula-3').text("Aula 4 - Manhã - Indisponível");
+                                            $('h4#ter-aula-3').next().text("Já alocado");
+                                            $('h4#ter-aula-3').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-3').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 5:
+                                            $('h4#ter-aula-4').text("Aula 5 - Manhã - Indisponível");
+                                            $('h4#ter-aula-4').next().text("Já alocado");
+                                            $('h4#ter-aula-4').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-4').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                } else if(response['agenda'][reservas].periodo == 'tarde'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#ter-aula-5').text("Aula 1 - Tarde - Indisponível");
+                                            $('h4#ter-aula-5').next().text("Já alocado");
+                                            $('h4#ter-aula-5').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-5').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#ter-aula-6').text("Aula 2 - Tarde - Indisponível");
+                                            $('h4#ter-aula-6').next().text("Já alocado");
+                                            $('h4#ter-aula-6').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-6').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#ter-aula-7').text("Aula 3 - Tarde - Indisponível");
+                                            $('h4#ter-aula-7').next().text("Já alocado");
+                                            $('h4#ter-aula-7').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-7').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#ter-aula-8').text("Aula 4 - Tarde - Indisponível");
+                                            $('h4#ter-aula-8').next().text("Já alocado");
+                                            $('h4#ter-aula-8').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-8').parent().parent().addClass("border-danger");
+                                            
+                                            break;
+                                        case 5:
+                                            $('h4#ter-aula-9').text("Aula 5 - Tarde - Indisponível");
+                                            $('h4#ter-aula-9').next().text("Já alocado");
+                                            $('h4#ter-aula-9').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-9').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                } else if(response['agenda'][reservas].periodo == 'noite'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#ter-aula-10').text("Aula 1 - Noite - Indisponível");
+                                            $('h4#ter-aula-10').next().text("Já alocado");
+                                            $('h4#ter-aula-10').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-10').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#ter-aula-11').text("Aula 2 - Noite - Indisponível");
+                                            $('h4#ter-aula-11').next().text("Já alocado");
+                                            $('h4#ter-aula-11').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-11').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#ter-aula-12').text("Aula 3 - Noite - Indisponível");
+                                            $('h4#ter-aula-12').next().text("Já alocado");
+                                            $('h4#ter-aula-12').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-12').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#ter-aula-13').text("Aula 4 - Noite - Indisponível");
+                                            $('h4#ter-aula-13').next().text("Já alocado");
+                                            $('h4#ter-aula-13').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-13').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 5:
+                                            $('h4#ter-aula-14').text("Aula 5 - Noite - Indisponível");
+                                            $('h4#ter-aula-14').next().text("Já alocado");
+                                            $('h4#ter-aula-14').parent().parent().removeClass("border-success");
+                                            $('h4#ter-aula-14').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                }
+                                break;
+                            case 'Qua':
+                            if(response['agenda'][reservas].periodo == 'manha'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#qua-aula-0').text("Aula 1 - Manhã - Indisponível");
+                                            $('h4#qua-aula-0').next().text("Já alocado");
+                                            $('h4#qua-aula-0').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-0').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#qua-aula-1').text("Aula 2 - Manhã - Indisponível");
+                                            $('h4#qua-aula-1').next().text("Já alocado");
+                                            $('h4#qua-aula-1').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-1').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#qua-aula-2').text("Aula 3 - Manhã - Indisponível");
+                                            $('h4#qua-aula-2').next().text("Já alocado");
+                                            $('h4#qua-aula-2').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-2').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#qua-aula-3').text("Aula 4 - Manhã - Indisponível");
+                                            $('h4#qua-aula-3').next().text("Já alocado");
+                                            $('h4#qua-aula-3').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-3').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 5:
+                                            $('h4#qua-aula-4').text("Aula 5 - Manhã - Indisponível");
+                                            $('h4#qua-aula-4').next().text("Já alocado");
+                                            $('h4#qua-aula-4').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-4').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                } else if(response['agenda'][reservas].periodo == 'tarde'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#qua-aula-5').text("Aula 1 - Tarde - Indisponível");
+                                            $('h4#qua-aula-5').next().text("Já alocado");
+                                            $('h4#qua-aula-5').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-5').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#qua-aula-6').text("Aula 2 - Tarde - Indisponível");
+                                            $('h4#qua-aula-6').next().text("Já alocado");
+                                            $('h4#qua-aula-6').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-6').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#qua-aula-7').text("Aula 3 - Tarde - Indisponível");
+                                            $('h4#qua-aula-7').next().text("Já alocado");
+                                            $('h4#qua-aula-7').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-7').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#qua-aula-8').text("Aula 4 - Tarde - Indisponível");
+                                            $('h4#qua-aula-8').next().text("Já alocado");
+                                            $('h4#qua-aula-8').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-8').parent().parent().addClass("border-danger");
+                                            
+                                            break;
+                                        case 5:
+                                            $('h4#qua-aula-9').text("Aula 5 - Tarde - Indisponível");
+                                            $('h4#qua-aula-9').next().text("Já alocado");
+                                            $('h4#qua-aula-9').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-9').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                } else if(response['agenda'][reservas].periodo == 'noite'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#qua-aula-10').text("Aula 1 - Noite - Indisponível");
+                                            $('h4#qua-aula-10').next().text("Já alocado");
+                                            $('h4#qua-aula-10').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-10').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#qua-aula-11').text("Aula 2 - Noite - Indisponível");
+                                            $('h4#qua-aula-11').next().text("Já alocado");
+                                            $('h4#qua-aula-11').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-11').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#qua-aula-12').text("Aula 3 - Noite - Indisponível");
+                                            $('h4#qua-aula-12').next().text("Já alocado");
+                                            $('h4#qua-aula-12').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-12').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#qua-aula-13').text("Aula 4 - Noite - Indisponível");
+                                            $('h4#qua-aula-13').next().text("Já alocado");
+                                            $('h4#qua-aula-13').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-13').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 5:
+                                            $('h4#qua-aula-14').text("Aula 5 - Noite - Indisponível");
+                                            $('h4#qua-aula-14').next().text("Já alocado");
+                                            $('h4#qua-aula-14').parent().parent().removeClass("border-success");
+                                            $('h4#qua-aula-14').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                }
+                                break;  
+                            case 'Qui':
+                            if(response['agenda'][reservas].periodo == 'manha'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#qui-aula-0').text("Aula 1 - Manhã - Indisponível");
+                                            $('h4#qui-aula-0').next().text("Já alocado");
+                                            $('h4#qui-aula-0').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-0').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#qui-aula-1').text("Aula 2 - Manhã - Indisponível");
+                                            $('h4#qui-aula-1').next().text("Já alocado");
+                                            $('h4#qui-aula-1').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-1').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#qui-aula-2').text("Aula 3 - Manhã - Indisponível");
+                                            $('h4#qui-aula-2').next().text("Já alocado");
+                                            $('h4#qui-aula-2').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-2').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#qui-aula-3').text("Aula 4 - Manhã - Indisponível");
+                                            $('h4#qui-aula-3').next().text("Já alocado");
+                                            $('h4#qui-aula-3').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-3').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 5:
+                                            $('h4#qui-aula-4').text("Aula 5 - Manhã - Indisponível");
+                                            $('h4#qui-aula-4').next().text("Já alocado");
+                                            $('h4#qui-aula-4').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-4').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                } else if(response['agenda'][reservas].periodo == 'tarde'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#qui-aula-5').text("Aula 1 - Tarde - Indisponível");
+                                            $('h4#qui-aula-5').next().text("Já alocado");
+                                            $('h4#qui-aula-5').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-5').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#qui-aula-6').text("Aula 2 - Tarde - Indisponível");
+                                            $('h4#qui-aula-6').next().text("Já alocado");
+                                            $('h4#qui-aula-6').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-6').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#qui-aula-7').text("Aula 3 - Tarde - Indisponível");
+                                            $('h4#qui-aula-7').next().text("Já alocado");
+                                            $('h4#qui-aula-7').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-7').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#qui-aula-8').text("Aula 4 - Tarde - Indisponível");
+                                            $('h4#qui-aula-8').next().text("Já alocado");
+                                            $('h4#qui-aula-8').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-8').parent().parent().addClass("border-danger");
+                                            
+                                            break;
+                                        case 5:
+                                            $('h4#qui-aula-9').text("Aula 5 - Tarde - Indisponível");
+                                            $('h4#qui-aula-9').next().text("Já alocado");
+                                            $('h4#qui-aula-9').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-9').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                } else if(response['agenda'][reservas].periodo == 'noite'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#qui-aula-10').text("Aula 1 - Noite - Indisponível");
+                                            $('h4#qui-aula-10').next().text("Já alocado");
+                                            $('h4#qui-aula-10').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-10').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#qui-aula-11').text("Aula 2 - Noite - Indisponível");
+                                            $('h4#qui-aula-11').next().text("Já alocado");
+                                            $('h4#qui-aula-11').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-11').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#qui-aula-12').text("Aula 3 - Noite - Indisponível");
+                                            $('h4#qui-aula-12').next().text("Já alocado");
+                                            $('h4#qui-aula-12').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-12').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#qui-aula-13').text("Aula 4 - Noite - Indisponível");
+                                            $('h4#qui-aula-13').next().text("Já alocado");
+                                            $('h4#qui-aula-13').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-13').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 5:
+                                            $('h4#qui-aula-14').text("Aula 5 - Noite - Indisponível");
+                                            $('h4#qui-aula-14').next().text("Já alocado");
+                                            $('h4#qui-aula-14').parent().parent().removeClass("border-success");
+                                            $('h4#qui-aula-14').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                }
+                                break;
+                            case 'Sex':
+                            if(response['agenda'][reservas].periodo == 'manha'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#sex-aula-0').text("Aula 1 - Manhã - Indisponível");
+                                            $('h4#sex-aula-0').next().text("Já alocado");
+                                            $('h4#sex-aula-0').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-0').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#sex-aula-1').text("Aula 2 - Manhã - Indisponível");
+                                            $('h4#sex-aula-1').next().text("Já alocado");
+                                            $('h4#sex-aula-1').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-1').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#sex-aula-2').text("Aula 3 - Manhã - Indisponível");
+                                            $('h4#sex-aula-2').next().text("Já alocado");
+                                            $('h4#sex-aula-2').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-2').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#sex-aula-3').text("Aula 4 - Manhã - Indisponível");
+                                            $('h4#sex-aula-3').next().text("Já alocado");
+                                            $('h4#sex-aula-3').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-3').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 5:
+                                            $('h4#sex-aula-4').text("Aula 5 - Manhã - Indisponível");
+                                            $('h4#sex-aula-4').next().text("Já alocado");
+                                            $('h4#sex-aula-4').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-4').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                } else if(response['agenda'][reservas].periodo == 'tarde'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#sex-aula-5').text("Aula 1 - Tarde - Indisponível");
+                                            $('h4#sex-aula-5').next().text("Já alocado");
+                                            $('h4#sex-aula-5').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-5').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#sex-aula-6').text("Aula 2 - Tarde - Indisponível");
+                                            $('h4#sex-aula-6').next().text("Já alocado");
+                                            $('h4#sex-aula-6').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-6').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#sex-aula-7').text("Aula 3 - Tarde - Indisponível");
+                                            $('h4#sex-aula-7').next().text("Já alocado");
+                                            $('h4#sex-aula-7').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-7').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#sex-aula-8').text("Aula 4 - Tarde - Indisponível");
+                                            $('h4#sex-aula-8').next().text("Já alocado");
+                                            $('h4#sex-aula-8').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-8').parent().parent().addClass("border-danger");
+                                            
+                                            break;
+                                        case 5:
+                                            $('h4#sex-aula-9').text("Aula 5 - Tarde - Indisponível");
+                                            $('h4#sex-aula-9').next().text("Já alocado");
+                                            $('h4#sex-aula-9').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-9').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                } else if(response['agenda'][reservas].periodo == 'noite'){
+                                    switch(response['agenda'][reservas].aula){
+                                        case 1:
+                                            $('h4#sex-aula-10').text("Aula 1 - Noite - Indisponível");
+                                            $('h4#sex-aula-10').next().text("Já alocado");
+                                            $('h4#sex-aula-10').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-10').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 2:
+                                            $('h4#sex-aula-11').text("Aula 2 - Noite - Indisponível");
+                                            $('h4#sex-aula-11').next().text("Já alocado");
+                                            $('h4#sex-aula-11').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-11').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 3:
+                                            $('h4#sex-aula-12').text("Aula 3 - Noite - Indisponível");
+                                            $('h4#sex-aula-12').next().text("Já alocado");
+                                            $('h4#sex-aula-12').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-12').parent().parent().addClass("border-danger");
+                                            break;    
+                                        case 4:
+                                            $('h4#sex-aula-13').text("Aula 4 - Noite - Indisponível");
+                                            $('h4#sex-aula-13').next().text("Já alocado");
+                                            $('h4#sex-aula-13').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-13').parent().parent().addClass("border-danger");
+                                            break;
+                                        case 5:
+                                            $('h4#sex-aula-14').text("Aula 5 - Noite - Indisponível");
+                                            $('h4#sex-aula-14').next().text("Já alocado");
+                                            $('h4#sex-aula-14').parent().parent().removeClass("border-success");
+                                            $('h4#sex-aula-14').parent().parent().addClass("border-danger");
+                                            break;
+                                    }
+
+                                }
+                                break;
+                                    
+                            }
+  
+                        }
+                }
+            
+            }); 
+        }
+        function erase(){
+            for(i=0; i<15; i++){
+                if(i<5){
+                    $('h4#seg-aula-'+i).text("Aula " + (i+1) + " - Manhã - Disponível");
+                    $('h4#seg-aula-'+i).next().text("Não alocado");
+                    $('h4#seg-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#seg-aula-'+i).parent().parent().addClass("border-success");
+                    $('h4#ter-aula-'+i).text("Aula " + (i+1) + " - Manhã - Disponível");
+                    $('h4#ter-aula-'+i).next().text("Não alocado");
+                    $('h4#ter-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#ter-aula-'+i).parent().parent().addClass("border-success");
+                    $('h4#qua-aula-'+i).text("Aula " + (i+1) + " - Manhã - Disponível");
+                    $('h4#qua-aula-'+i).next().text("Não alocado");
+                    $('h4#qua-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#qua-aula-'+i).parent().parent().addClass("border-success");
+                    $('h4#qui-aula-'+i).text("Aula " + (i+1) + " - Manhã - Disponível");
+                    $('h4#qui-aula-'+i).next().text("Não alocado");
+                    $('h4#qui-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#qui-aula-'+i).parent().parent().addClass("border-success");
+                    $('h4#sex-aula-'+i).text("Aula " + (i+1) + " - Manhã - Disponível");
+                    $('h4#sex-aula-'+i).next().text("Não alocado");
+                    $('h4#sex-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#sex-aula-'+i).parent().parent().addClass("border-success");
+                } else if(i<10){
+                    $('h4#seg-aula-'+i).text("Aula " + (i-4) + " - Tarde - Disponível");
+                    $('h4#seg-aula-'+i).next().text("Não alocado");
+                    $('h4#seg-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#seg-aula-'+i).parent().parent().addClass("border-success");
+                    $('h4#ter-aula-'+i).text("Aula " + (i-4) + " - Tarde - Disponível");
+                    $('h4#ter-aula-'+i).next().text("Não alocado");
+                    $('h4#ter-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#ter-aula-'+i).parent().parent().addClass("border-success");
+                    $('h4#qua-aula-'+i).text("Aula " + (i-4) + " - Tarde - Disponível");
+                    $('h4#qua-aula-'+i).next().text("Não alocado");
+                    $('h4#qua-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#qua-aula-'+i).parent().parent().addClass("border-success");
+                    $('h4#qui-aula-'+i).text("Aula " + (i-4) + " - Tarde - Disponível");
+                    $('h4#qui-aula-'+i).next().text("Não alocado");
+                    $('h4#qui-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#qui-aula-'+i).parent().parent().addClass("border-success");
+                    $('h4#sex-aula-'+i).text("Aula " + (i-4) + " - Tarde - Disponível");
+                    $('h4#sex-aula-'+i).next().text("Não alocado");
+                    $('h4#sex-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#sex-aula-'+i).parent().parent().addClass("border-success");
+
+                }else if(i<15){
+                    $('h4#seg-aula-'+i).text("Aula " + (i-9) + " - Noite - Disponível");
+                    $('h4#seg-aula-'+i).next().text("Não alocado");
+                    $('h4#seg-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#seg-aula-'+i).parent().parent().addClass("border-success");
+                    $('h4#ter-aula-'+i).text("Aula " + (i-9) + " - Noite - Disponível");
+                    $('h4#ter-aula-'+i).next().text("Não alocado");
+                    $('h4#ter-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#ter-aula-'+i).parent().parent().addClass("border-success");
+                    $('h4#qua-aula-'+i).text("Aula " + (i-9) + " - Noite - Disponível");
+                    $('h4#qua-aula-'+i).next().text("Não alocado");
+                    $('h4#qua-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#qua-aula-'+i).parent().parent().addClass("border-success");
+                    $('h4#qui-aula-'+i).text("Aula " + (i-9) + " - Noite - Disponível");
+                    $('h4#qui-aula-'+i).next().text("Não alocado");
+                    $('h4#qui-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#qui-aula-'+i).parent().parent().addClass("border-success");
+                    $('h4#sex-aula-'+i).text("Aula " + (i-9) + " - Noite - Disponível");
+                    $('h4#sex-aula-'+i).next().text("Não alocado");
+                    $('h4#sex-aula-'+i).parent().parent().removeClass("border-danger");
+                    $('h4#sex-aula-'+i).parent().parent().addClass("border-success");
+                }
+            }
+        }
+        
+</script>
 @endsection

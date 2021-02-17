@@ -12,13 +12,16 @@ Route::post('/show', [LoginController::class, 'show'])->name('index.show');
 
 Route::get('/search', [LoginController::class, 'search'])->name('index.search');
 
-Route::middleware(['auth'])->group(function() {
+//Route::middleware(['auth'])->group(function() {
     
     Route::get('/home', function(){return view('partials.home');})->name('home');
     
     Route::name('admin.')->group(function() {
     
+        
         Route::get('/recursos/{tipo?}', [RecursoController::class, 'index'])->name('recursos');
+
+        Route::get('/recursos/show/{id}/{tipo}', [RecursoController::class, 'showSchedule'])->name('recursoSchedule');
         
         Route::delete('/editar/deletar/', [RecursoController::class, 'destroy'])->name('deletar');
 
@@ -49,6 +52,6 @@ Route::middleware(['auth'])->group(function() {
         
     });
 
-});
+//});
 
 Auth::routes();

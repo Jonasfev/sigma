@@ -22,16 +22,29 @@
                     <input type="text" value="{{$tipo}}" id="tipo" name="tipo" hidden>
                   </div>
                   <div class="mb-3 mt-0">
-                  <label for="Tipo" class="form-label">Tipo</label>
-                  <input type="text" class="form-control mt-0" id="Tipo" name="Tipo" value="{{$recurso->Tipo}}">
+                    <label for="tipo" class="form-label">Tipo</label>
+                    <select class="form-control" name="Tipo">
+                      <option value="Lab" 
+                      @if ($recurso->Tipo == 'Lab')
+                        selected                          
+                      @endif>Laboratório</option>
+                      <option value="Ofc"
+                      @if ($recurso->Tipo == 'Ofc')
+                        selected                          
+                      @endif>Oficina</option>
+                      <option value="Sala"
+                      @if ($recurso->Tipo == 'Sala')
+                        selected                          
+                      @endif>Sala</option>
+                    </select>
                   </div>
                   <div class="mb-3 mt-0">
-                    <label for="numAmbiente" class="form-label">Numero do Ambiente</label>
-                    <input type="number" class="form-control mt-0 w-15" id="numAmbiente" name="numAmbiente" value="{{$recurso->numAmbiente}}">
+                    <label for="numAmbiente" class="form-label">Número do Ambiente</label>
+                    <input type="number" class="form-control mt-0" id="numAmbiente" name="numAmbiente" value="{{$recurso->numAmbiente}}">
                   </div>
                   <div class="mb-3 mt-0">
                     <label for="Hmax" class="form-label">Alunos Comportados</label>
-                    <input type="number" class="form-control mt-0 w-15" id="Hmax" name="alunosComportados" value="{{$recurso->alunosComportados}}">
+                    <input type="number" class="form-control mt-0" id="Hmax" name="alunosComportados" value="{{$recurso->alunosComportados}}">
                   </div>
                   <div class="mb-3 mt-0">
                     <label class="mt-1 form-label" for="hmax">Incluir UC</label>
@@ -49,8 +62,16 @@
                         @endfor
                     </div>
                   </div>
-                
                 </form>
+                @if ($errors->any())
+                  <div class="alert alert-danger my-2">
+                      <ul class="m-auto">
+                          @foreach ($errors->all() as $error)
+                              <li class="mx-0">{{$error}}</li>  
+                          @endforeach
+                      </ul>
+                  </div>
+                @endif 
               </div>
               <div class="col-12 d-flex align-items-center justify-content-around">
                 <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos', ['tipo' => 'ambiente'])}}">VOLTAR</a>

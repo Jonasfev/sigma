@@ -6,6 +6,14 @@
 @endsection
 
 @section('content')
+    <div class="modal fade m-auto" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center save"></div>
+        </div>
+        </div>
+    </div>
+
     <div class="pg-ctn h-75 bg-light flex-column">       
         <div class="config-ctn w-100 h-60 d-flex flex-lg-column align-items-center justify-content-around">
             @include('partials.turma.weektec')
@@ -60,7 +68,14 @@
         </div>
         <div class="w-50 d-flex align-items-center justify-content-around mx-auto mt-3 mb-4">
             <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos')}}">VOLTAR</a>
-            <button onclick="enviarForms(50);" class="btn btn-primary col-5" id="btnenviarform">SALVAR</button>
+            <button onclick="enviarForms(50);" class="btn btn-primary col-5" id="btnenviarform" data-bs-toggle="modal" data-bs-target="#staticBackdrop">SALVAR</button>
+        </div>
+
+        <div class="error alert mx-auto p-2 alert-danger border-danger flex-column">
+            <div class="row justify-content-between">
+                <div class="col-auto my-auto"></div>
+                <a type="button" class="btn-close col-auto mr-2 text-decoration-none" onclick="errorHide();">X</a>
+            </div>
         </div>
     </div>
     <script>
@@ -78,6 +93,6 @@
         }
 
         carregaReservas();
-
+        error();
     </script>
 @endsection

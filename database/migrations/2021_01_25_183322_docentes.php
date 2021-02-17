@@ -15,10 +15,10 @@ class Docentes extends Migration
     {
         Schema::create('docentes', function (Blueprint $table) {
             $table->id();
-            $table->string('Nome', 100);
-            $table->string('Sobrenome', 50);
-            $table->double('hMax', 7, 2);
-            $table->double('hMin', 7, 2);
+            $table->string('Nome');
+            $table->string('Sobrenome');
+            $table->integer('hMax');
+            $table->integer('hMin');
  
             $table->timestamps();
         });

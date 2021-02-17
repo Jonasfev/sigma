@@ -22,8 +22,14 @@ class Reserva extends Model
 
             
            foreach ($data as $str) {
-                $str = str_replace("\""," ",$str);
+                $str = str_replace("\"","",$str);
                 $row = explode(";", $str[0]);
+
+                for ($i=0; $i < sizeof($row); $i++) { 
+                    if($row[$i] == ''){
+                        $row[$i] = null; 
+                    }
+                }
     
                 self::updateOrCreate([
                     'idTurma'=>$row[0],

@@ -16,7 +16,7 @@
                 <label class="mt-1 form-label" for="Nome">Nome</label>
                 <input class="form-control" type="text" name="Nome">
                 <label class="mt-1 form-label" for="numPatrimonio">Nº Patrimônio</label>
-                <input class="form-control" type="number" name="numPatrimonio">
+                <input class="form-control" type="number" name="numPatrimonio" placeholder="Max: 10 caracteres">
             </form>
             @if ($errors->any())
             <div class="alert alert-danger my-2">

@@ -29,7 +29,7 @@
                 </select>
                 <label class="mt-1 form-label" for="numAlunos">Nº de alunos</label>
                 <input class="form-control" type="number" name="numAlunos">
-                <label class="mt-1 form-label" for="horaEntrada">Hora de entrada</label>
+                <label class="mt-1 form-label" for="horaEntrada">Hora de Entrada</label>
                 <input id="entrada" class="form-control" type="time" name="horaEntrada">
                 <label class="mt-1 form-label" for="horaSaida">Hora de Saída</label>
                 <input id='saida' class="form-control" type="time" name="horaSaida">

@@ -33,13 +33,14 @@ class Reservas extends Migration
             $table->unsignedBigInteger('idDocente')->nullable();
             $table->foreign('idDocente')->references('id')->on('docentes');
 
-            $table->unsignedBigInteger('idAmbiente')->nullable();;
+            $table->unsignedBigInteger('idAmbiente')->nullable();
             $table->foreign('idAmbiente')->references('id')->on('ambientes');
 
-            $table->unsignedBigInteger('idUc')->nullable();;
+            $table->unsignedBigInteger('idUc')->nullable();
             $table->foreign('idUc')->references('id')->on('ucs');
 
-            $table->unsignedBigInteger('idEquipamento')->nullable();;
+            $table->unsignedBigInteger('idEquipamento')->nullable();
+
             $table->foreign('idEquipamento')->references('id')->on('equipamentos');
 
             $table->timestamps();

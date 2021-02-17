@@ -145,20 +145,23 @@
                 type: "post",
                 data: data.serialize(),
                 dataType: 'json',
-                error: function(response) {
+            error: function(response) {
+                $('#staticBackdrop').children('.modal-dialog').children('.modal-content').children('.save').text("SALVANDO: "+ btnable*2 + "%");
+                btnable++;
+                $('#btnenviarform').prop("disabled",true).text("AGUARDE..." );
+                if(btnable == n+1){
+                    $('#btnenviarform').prop("disabled",false).text("SALVAR");
+                    $('#staticBackdrop').modal('hide');
+                    alert("Deu erro :(");
+                }  
+            },
+                success: function (response) {
+                    $('#staticBackdrop').children('.modal-dialog').children('.modal-content').children('.save').text("SALVANDO: "+ btnable*2 + "%");
                     btnable++;
-                    $('#btnenviarform').prop("disabled",true).text("SALVANDO: "+ btnable*2 + "%" );
+                    $('#btnenviarform').prop("disabled",true).text("AGUARDE..." );
                     if(btnable == n+1){
                         $('#btnenviarform').prop("disabled",false).text("SALVAR");
-                        alert("Deu merda bro :(");
-                    }  
-                },
-                success: function (response) {
-                    btnable++;
-                    $('#btnenviarform').prop("disabled",true).text("SALVANDO: "+ btnable*2 + "%" );
-                    if(btnable==n+1){
-                        $('#btnenviarform').prop("disabled",false).text("SALVAR");
-                        alert("Horário criado com maestria :)");
+                        $('#staticBackdrop').modal('hide');
                     }  
                 }
             }); 

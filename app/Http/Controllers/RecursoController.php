@@ -37,6 +37,27 @@ class RecursoController extends Controller
         return view('partials.recursos', compact(['docentes', 'equip', 'ambientes', 'ucs', 'cursos', 'turmas', 'tipo']));
     }
 
+    public function showSchedule($id, $tipo){
+        $ok['s1'] = $id;
+        $ok['s2'] = $tipo;
+
+        switch($tipo){
+            case "docente":
+                $agenda = Reserva::get()->where('idDocente', $id);
+                break;
+            case "ambiente":
+                $agenda = Reserva::get()->where('idAmbiente', $id);
+                break;
+            case "equipamento":
+                $agenda = Reserva::get()->where('idEquipamento', $id);
+                break;
+        }
+
+        $ok['agenda'] = $agenda;
+
+        echo json_encode($ok);
+    }
+
     public function create($tipo) {
         
         $ucs = Uc::get();
@@ -230,11 +251,12 @@ class RecursoController extends Controller
 
     } 
 
-    public function update (Request $request, $id){
+    public function update (CriarRecursoRequest $request, $id){
         $tipo = $request->tipo;
+        
         switch($tipo) {
             case 'docente':
-                $req = $request->except('_token', '_method', 'nome', 'sobrenome', 'Hmin', 'Hmax', 'tipo');
+                $req = $request->except('_token', '_method', 'Nome', 'Sobrenome', 'hmin', 'hmax', 'tipo');
                 
                 foreach(Docuc::get()->where('docente', $id) as $row){
                     $row->delete();
@@ -253,15 +275,14 @@ class RecursoController extends Controller
                     $r = redirect()->back();
                 } else {
                     $recurso->update([
-                        'Nome' => $request->nome,
-                        'Sobrenome' => $request->sobrenome,
-                        'hMin' => $request->Hmin,
-                        'hMax' => $request->Hmax
+                        'Nome' => $request->Nome,
+                        'Sobrenome' => $request->Sobrenome,
+                        'hMin' => $request->hmin,
+                        'hMax' => $request->hmax
                     ]);
                     $r = redirect()->Route('admin.recursos');
                 }
                 break;
-
 
             case 'ambiente':
                 $req = $request->except('_token', '_method', 'tipo', 'Tipo', 'numAmbiente', 'alunosComportados');
@@ -289,6 +310,7 @@ class RecursoController extends Controller
                     $r = redirect()->Route('admin.recursos');
                 }
                 break;
+
             case 'equipamento':
                 $recurso = Equipamento::find($id);
                 $recurso->update([
@@ -308,6 +330,7 @@ class RecursoController extends Controller
                 $r = redirect()->Route('admin.recursos');
                 
                 break;
+
             case 'curso':
                 $req = $request->except('_token', '_method', 'tipo', 'tipoCurso', 'siglaCurso', 'nomeCurso', 'dataFimCurso', 'dataInicioCurso', 'cargaTotalHoras');
                 
@@ -338,17 +361,17 @@ class RecursoController extends Controller
                     $r = redirect()->Route('admin.recursos');
                 }
                 break;
-                case 'turma':
-                    $recurso = Turma::find($id);
-                    $recurso->update([
-                        'siglaTurma' => $request->SiglaTurma,
-                        'periodo' => $request->periodo,
-                        'numAlunos' => $request->numAlunos,
-                        'horaEntrada' => $request->horaEntrada,
-                        'horaSaida' => $request->horaSaida
-                    ]);
-                    $r = redirect()->Route('admin.recursos');
-                    break;
+            case 'turma':
+                $recurso = Turma::find($id);
+                $recurso->update([
+                    'siglaTurma' => $request->siglaTurma,
+                    'periodo' => $request->periodo,
+                    'numAlunos' => $request->numAlunos,
+                    'horaEntrada' => $request->horaEntrada,
+                    'horaSaida' => $request->horaSaida
+                ]);
+                $r = redirect()->Route('admin.recursos');
+                break;
         }
         return $r;
         

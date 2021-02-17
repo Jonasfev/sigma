@@ -21,7 +21,7 @@
                     <label class="mt-1 form-label" for="idCurso">Curso</label>
                     <input class="form-control" name="idCurso" value="{{$curso->nomeCurso}}" disabled>
                     <label class="mt-1 form-label" for="siglaTurma">Sigla</label>
-                    <input class="form-control" type="text" name="SiglaTurma" value="{{$recurso->siglaTurma}}">
+                    <input class="form-control" type="text" name="siglaTurma" value="{{$recurso->siglaTurma}}">
                     <label class="mt-1 form-label" for="periodo">Período</label>
                     <select class="form-control" name="periodo" onchange="horarioTurma($(this).val(), '{{$curso->tipo}}');">
                         <option value="manha" 
@@ -41,11 +41,20 @@
                     </select>
                     <label class="mt-1 form-label" for="numAlunos">Nº de alunos</label>
                     <input class="form-control" type="number" name="numAlunos" value="{{$recurso->numAlunos}}">
-                    <label class="mt-1 form-label" for="horaEntrada">Hora de entrada</label>
+                    <label class="mt-1 form-label" for="horaEntrada">Hora de Entrada</label>
                     <input id="entrada" class="form-control" type="time" name="horaEntrada" value="{{$recurso->horaEntrada}}">
                     <label class="mt-1 form-label" for="horaSaida">Hora de Saída</label>
                     <input id="saida" class="form-control" type="time" name="horaSaida" value="{{$recurso->horaSaida}}">                  
                 </form>
+                @if ($errors->any())
+                  <div class="alert alert-danger my-2">
+                      <ul class="m-auto">
+                          @foreach ($errors->all() as $error)
+                              <li class="mx-0">{{$error}}</li>  
+                          @endforeach
+                      </ul>
+                  </div>
+                @endif 
               </div>
               <div class="col-12 d-flex align-items-center justify-content-around">
                 <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos', ['tipo' => 'turma'])}}">VOLTAR</a>
