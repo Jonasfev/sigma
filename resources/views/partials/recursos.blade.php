@@ -14,7 +14,7 @@
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active show" id="nav-uc-tab" data-toggle="tab" href="#nav-uc" role="tab" aria-controls="nav-uc" aria-selected="false">UC</a>
-                    <a class="nav-item nav-link" id="nav-doc-tab" data-toggle="tab" href="#nav-doc" role="tab" aria-controls="nav-doc" aria-selected="true">Docentes</a>
+                    <a class="nav-item nav-link" id="nav-doc-tab" data-toggle="tab" href="#nav-doc" role="tab" aria-controls="nav-doc" aria-selected="false">Docentes</a>
                     <a class="nav-item nav-link" id="nav-amb-tab" data-toggle="tab" href="#nav-amb" role="tab" aria-controls="nav-amb" aria-selected="false">Ambientes</a>
                     <a class="nav-item nav-link" id="nav-eqp-tab" data-toggle="tab" href="#nav-eqp" role="tab" aria-controls="nav-eqp" aria-selected="false">Equipamentos</a>
                     <a class="nav-item nav-link" id="nav-curso-tab" data-toggle="tab" href="#nav-curso" role="tab" aria-controls="nav-curso" aria-selected="false">Curso</a>
@@ -29,7 +29,7 @@
                     </a>
                     @foreach ($docentes as $docente)
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                            <div class="p-2 d-flex flex-column justify-content-around flex-fill" data-bs-toggle="modal" data-bs-target="#recurso">
+                            <div class="p-2 d-flex flex-column justify-content-around flex-fill" data-bs-toggle="modal" onclick="showSchedule({{$docente->id}}, 'docente')" data-bs-target="#recurso">
                                 <h4 class="m-0">{{$docente->Nome}}</h4>
                             <p class="m-0">{{$docente->Nome}} {{$docente->Sobrenome}}</p>
                             </div>
@@ -53,7 +53,7 @@
                     </a>
                     @foreach ($ambientes as $ambiente)
                     <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                        <div class="p-2 d-flex flex-column justify-content-around flex-fill" data-bs-toggle="modal" data-bs-target="#recurso">
+                        <div class="p-2 d-flex flex-column justify-content-around flex-fill" onclick="showSchedule({{$ambiente->id}}, 'ambiente')" data-bs-toggle="modal" data-bs-target="#recurso">
                             <h4 class="m-0">Ambiente Nº {{$ambiente->numAmbiente}}</h4>
                             <p class="m-0">{{$ambiente->Tipo}} - {{$ambiente->numAmbiente}}</p>
                         </div>
@@ -75,7 +75,7 @@
                     </a>
                     @foreach ($equip as $item)          
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                            <div class="p-2 d-flex flex-column justify-content-around flex-fill" data-bs-toggle="modal" data-bs-target="#recurso">
+                            <div class="p-2 d-flex flex-column justify-content-around flex-fill" onclick="showSchedule({{$item->id}}, 'equipamento')" data-bs-toggle="modal" data-bs-target="#recurso">
                             <h4 class="m-0">{{$item->Nome}}</h4>
                                 <p class="m-0">{{$item->numPatrimonio}}</p>
                             </div>
@@ -199,7 +199,7 @@
                     <div class="bd-example bd-example-tabs">
                         <nav>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link" id="nav-seg-tab" data-toggle="tab" href="#nav-seg" role="tab" aria-controls="nav-seg" aria-selected="false">Seg</a>
+                                <a class="nav-item nav-link active show" id="nav-seg-tab" data-toggle="tab" href="#nav-seg" role="tab" aria-controls="nav-seg" aria-selected="false">Seg</a>
                                 <a class="nav-item nav-link" id="nav-ter-tab" data-toggle="tab" href="#nav-ter" role="tab" aria-controls="nav-ter" aria-selected="false">Ter</a>
                                 <a class="nav-item nav-link" id="nav-qua-tab" data-toggle="tab" href="#nav-qua" role="tab" aria-controls="nav-qua" aria-selected="false">Qua</a>
                                 <a class="nav-item nav-link" id="nav-qui-tab" data-toggle="tab" href="#nav-qui" role="tab" aria-controls="nav-qui" aria-selected="false">Qui</a>
@@ -207,102 +207,86 @@
                             </div>
                         </nav>
                         <div class="tab-content h-100" id="nav-tabContent">
-                            <div class="tab-pane fade" id="nav-seg" role="tabpanel" aria-labelledby="nav-seg-tab">
-                                @foreach ($docentes as $docente)
+                            <div class="tab-pane fade active show" id="nav-seg" role="tabpanel" aria-labelledby="nav-seg-tab">
+                                @for($i=0; $i<15; $i++)
                                     <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                                         <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                                            <h4 class="m-0">{{$docente->Nome}}</h4>
-                                        <p class="m-0">{{$docente->Nome}} {{$docente->Sobrenome}}</p>
-                                        </div>
-                                        <div class="d-flex fit align-items-center justify-content-around">
-                                            <a href="{{route('admin.editar', ['tipo' => "docente",'id' => $docente->id])}}">
-                                                <img src="../img/editar.png" alt="editar" width="32px" class="mx-2">
-                                            </a>
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exclude" onclick="modalExclude({{$docente->id}}, '{{$docente->Nome}}', '{{$docente->Sobrenome}}', 'docente');">
-                                                <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
-                                            </a>
+                                            <h4 class="m-0" id="seg-aula-{{$i}}">Aula @if($i < 5) {{$i+1}} - Manhã @elseif($i < 10) {{$i-4}} - Tarde @elseif($i < 15) {{$i-9}} - Noite @endif - Disponivel</h4>
+                                        <p class="m-0">Não alocado</p>
                                         </div>
                                     </div>
-                                @endforeach
+                                @endfor
                             </div>
                             
                             <div class="tab-pane fade" id="nav-ter" role="tabpanel" aria-labelledby="nav-ter-tab">
-                                @foreach ($ambientes as $ambiente)
-                                <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                                    <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                                        <h4 class="m-0">Ambiente Nº {{$ambiente->numAmbiente}}</h4>
-                                        <p class="m-0">{{$ambiente->Tipo}} - {{$ambiente->numAmbiente}}</p>
+                                @for($i=0; $i<15; $i++)
+                                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
+                                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                                            <h4 class="m-0" id="ter-aula-{{$i}}">Aula @if($i < 5) {{$i+1}} - Manhã @elseif($i < 10) {{$i-4}} - Tarde @elseif($i < 15) {{$i-9}} - Noite @endif - Disponivel</h4>
+                                        <p class="m-0">Não alocado</p>
+                                        </div>
                                     </div>
-                                    <div class="d-flex fit align-items-center justify-content-around">
-                                        <a href="{{route('admin.editar', ['tipo' => "ambiente",'id' => $ambiente->id])}}">
-                                            <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                                        </a>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#exclude"  onclick="modalExclude({{$ambiente->id}}, '{{$ambiente->Tipo}}', '{{$ambiente->numAmbiente}}', 'ambiente')";>
-                                            <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
-                                        </a>
-                                    </div>
-                                </div>
-                                @endforeach
+                                @endfor
                             </div>
+
                             <div class="tab-pane fade" id="nav-qua" role="tabpanel" aria-labelledby="nav-qua-tab">
-                                @foreach ($equip as $item)          
+                                @for($i=0; $i<15; $i++)
                                     <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                                         <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                                        <h4 class="m-0">{{$item->Nome}}</h4>
-                                            <p class="m-0">{{$item->numPatrimonio}}</p>
-                                        </div>
-                                        <div class="d-flex fit align-items-center justify-content-around">
-                                            <a href="{{route('admin.editar', ['tipo' => "equipamento",'id' => $item->id])}}">
-                                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                                            </a>
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exclude"  onclick="modalExclude({{$item->id}}, '{{$item->Nome}}', '{{$item->numPatrimonio}}', 'equipamento');"> 
-                                                <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
-                                            </a>
+                                            <h4 class="m-0" id="qua-aula-{{$i}}">Aula @if($i < 5) {{$i+1}} - Manhã @elseif($i < 10) {{$i-4}} - Tarde @elseif($i < 15) {{$i-9}} - Noite @endif - Disponivel</h4>
+                                        <p class="m-0">Não alocado</p>
                                         </div>
                                     </div>
-                                @endforeach
+                                @endfor
                             </div>
-                            <div class="tab-pane fade active show" id="nav-qui" role="tabpanel" aria-labelledby="nav-qui-tab">
-                                @foreach ($ucs as $uc)          
+
+                            <div class="tab-pane fade" id="nav-qui" role="tabpanel" aria-labelledby="nav-qui-tab">
+                                @for($i=0; $i<15; $i++)
                                     <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
-                                        <div class="p-2 d-flex flex-column justify-content-around flex-fill" data-bs-toggle="modal" data-bs-target="#horario">
-                                        <h4 class="m-0">{{$uc->siglaUC}}</h4>
-                                            <p class="m-0">{{$uc->nomeUC}}</p>
-                                        </div>
-                                        <div class="d-flex fit align-items-center justify-content-around">
-                                            <a href="{{route('admin.editar', ['tipo' => "uc",'id' => $uc->id])}}">
-                                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                                            </a>
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exclude"  onclick="modalExclude({{$uc->id}}, '{{$uc->siglaUC}}', '{{$uc->nomeUC}}', 'uc')";>
-                                                <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
-                                            </a>
+                                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                                            <h4 class="m-0" id="qui-aula-{{$i}}">Aula @if($i < 5) {{$i+1}} - Manhã @elseif($i < 10) {{$i-4}} - Tarde @elseif($i < 15) {{$i-9}} - Noite @endif - Disponivel</h4>
+                                        <p class="m-0">Não alocado</p>
                                         </div>
                                     </div>
-                                @endforeach
+                                @endfor
                             </div>
+
                             <div class="tab-pane fade" id="nav-sex" role="tabpanel" aria-labelledby="nav-sex-tab">
-                                @foreach ($cursos as $curso)          
+                                @for($i=0; $i<15; $i++)
                                     <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                                         <div class="p-2 d-flex flex-column justify-content-around flex-fill">
-                                        <h4 class="m-0">{{$curso->siglaCurso}}</h4>
-                                            <p class="m-0">{{$curso->nomeCurso}}</p>
-                                        </div>
-                                        <div class="d-flex fit align-items-center justify-content-around">
-                                            <a href="{{route('admin.editar', ['tipo' => "curso",'id' => $curso->id])}}">
-                                                <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
-                                            </a>
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exclude" onclick="modalExclude({{$curso->id}}, '{{$curso->siglaCurso}}', '{{$curso->nomeCurso}}', 'curso')">
-                                                <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
-                                            </a>
+                                            <h4 class="m-0" id="sex-aula-{{$i}}">Aula @if($i < 5) {{$i+1}} - Manhã @elseif($i < 10) {{$i-4}} - Tarde @elseif($i < 15) {{$i-9}} - Noite @endif - Disponivel</h4>
+                                        <p class="m-0">Não alocado</p>
                                         </div>
                                     </div>
-                                @endforeach
+                                @endfor
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function showSchedule(id, tipoRecurso){
+            console.log(id, tipoRecurso);
+
+            const request = $.ajax({
+                url: "/recursos/show/"+id+'/'+tipoRecurso,
+                dataType: 'json',
+                type: "get",
+                
+                error: function(response) {
+                    console.log('error', response);
+                },
+                success: function(response) {
+                    for(var reservas in response['agenda']){
+                        console.log(response['agenda'][reservas]);
+                    }
+                }
+            
+            }); 
+        }
+</script>
 @endsection

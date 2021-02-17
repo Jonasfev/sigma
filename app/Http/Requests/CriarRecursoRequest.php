@@ -142,8 +142,15 @@ class CriarRecursoRequest extends FormRequest
             'numeric' => '/!\\ Valor numérico requerido /!\\',
             'max' => '/!\\ Quantidade máxima de caracteres excedida /!\\',
 
-            // 'tipoCurso.required' => '/!\\ Tipo do Curso não foi preenchido /!\\',
-            // 'tipoCurso.required' => '/!\\ Tipo do Curso não foi preenchido /!\\',
+            'tipoCurso.required' => '/!\\ Tipo do Curso não foi preenchido /!\\',
+            'siglaCurso.required' => '/!\\ Sigla do Curso não foi preenchida /!\\',
+            'siglaCurso.max' => '/!\\ Máximo 5 caracteres na Sigla do Curso /!\\',
+            'nomeCurso.required' => '/!\\ Nome do Curso não foi preenchido /!\\',
+            'dataInicioCurso.required' => '/!\\ A data Início não foi preenchida /!\\',
+            'dataFimCurso.required' => '/!\\ A data Fim não foi preenchida /!\\',
+            'siglaCurso.required' => '/!\\ Sigla do Curso não foi preenchida /!\\',
+            'siglaCurso.max' => '/!\\ Máximo 5 caracteres na Sigla do Curso /!\\',
+            
         ];
     }
 }

@@ -19,6 +19,8 @@ Route::get('/search', [LoginController::class, 'search'])->name('index.search');
     Route::name('admin.')->group(function() {
     
         Route::get('/recursos', [RecursoController::class, 'index'])->name('recursos');
+
+        Route::get('/recursos/show/{id}/{tipo}', [RecursoController::class, 'showSchedule'])->name('recursoSchedule');
         
         Route::delete('/editar/deletar/', [RecursoController::class, 'destroy'])->name('deletar');
 

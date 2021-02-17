@@ -37,6 +37,27 @@ class RecursoController extends Controller
         return view('partials.recursos', compact(['docentes', 'equip', 'ambientes', 'ucs', 'cursos', 'turmas']));
     }
 
+    public function showSchedule($id, $tipo){
+        $ok['s1'] = $id;
+        $ok['s2'] = $tipo;
+
+        switch($tipo){
+            case "docente":
+                $agenda = Reserva::get()->where('idDocente', $id);
+                break;
+            case "ambiente":
+                $agenda = Reserva::get()->where('idAmbiente', $id);
+                break;
+            case "equipamento":
+                $agenda = Reserva::get()->where('idEquipamento', $id);
+                break;
+        }
+
+        $ok['agenda'] = $agenda;
+
+        echo json_encode($ok);
+    }
+
     public function create($tipo) {
         
         $ucs = Uc::get();
