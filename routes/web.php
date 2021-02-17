@@ -18,7 +18,7 @@ Route::middleware(['auth'])->group(function() {
     
     Route::name('admin.')->group(function() {
     
-        Route::get('/recursos', [RecursoController::class, 'index'])->name('recursos');
+        Route::get('/recursos/{tipo?}', [RecursoController::class, 'index'])->name('recursos');
         
         Route::delete('/editar/deletar/', [RecursoController::class, 'destroy'])->name('deletar');
 

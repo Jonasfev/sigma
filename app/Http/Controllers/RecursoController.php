@@ -20,7 +20,7 @@ use Illuminate\Routing\Route;
 class RecursoController extends Controller
 {
     
-    public function index(){
+    public function index($tipo){
 
         $docentes = Docente::get();
 
@@ -34,7 +34,7 @@ class RecursoController extends Controller
 
         $turmas = Turma::get();
 
-        return view('partials.recursos', compact(['docentes', 'equip', 'ambientes', 'ucs', 'cursos', 'turmas']));
+        return view('partials.recursos', compact(['docentes', 'equip', 'ambientes', 'ucs', 'cursos', 'turmas', 'tipo']));
     }
 
     public function create($tipo) {
