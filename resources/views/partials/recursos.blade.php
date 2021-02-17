@@ -46,7 +46,11 @@
                 </div>
             </nav>
             <div class="tab-content overflow-auto h-100" id="nav-tabContent">
-                <div class="tab-pane fade" id="nav-doc" role="tabpanel" aria-labelledby="nav-doc-tab">
+                <div @if ($tipo == 'docente')
+                class="tab-pane fade active show"
+                @else
+                class="tab-pane fade"
+            @endif id="nav-doc" role="tabpanel" aria-labelledby="nav-doc-tab">
                     <a href="{{route('admin.cadastrar', ['tipo'=>"docente"])}}" class="d-flex align-items-center justify-content-center mt-3">
                         <img src="/img/add.png" class="mr-2">
                         Adicionar docente
@@ -69,7 +73,11 @@
                     @endforeach
                 </div>
                 
-                <div class="tab-pane fade" id="nav-amb" role="tabpanel" aria-labelledby="nav-amb-tab">
+                <div @if ($tipo == 'ambiente')
+                class="tab-pane fade active show"
+                @else
+                class="tab-pane fade"
+            @endif id="nav-amb" role="tabpanel" aria-labelledby="nav-amb-tab">
                     
                     <a href="{{route('admin.cadastrar', ['tipo'=>"ambiente"])}}" class="d-flex align-items-center justify-content-center mt-3">
                         <img src="/img/add.png" class="mr-2">
@@ -92,7 +100,11 @@
                     </div>
                     @endforeach
                 </div>
-                <div class="tab-pane fade" id="nav-eqp" role="tabpanel" aria-labelledby="nav-eqp-tab">
+                <div @if ($tipo == 'equipamento')
+                class="tab-pane fade active show"
+                @else
+                class="tab-pane fade"
+            @endif id="nav-eqp" role="tabpanel" aria-labelledby="nav-eqp-tab">
                     <a href="{{route('admin.cadastrar', ['tipo'=>"equipamento"])}}" class="d-flex align-items-center justify-content-center mt-3">
                         <img src="/img/add.png" class="mr-2">
                         Adicionar equipamento
@@ -105,7 +117,7 @@
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
                                 <a href="{{route('admin.editar', ['tipo' => "equipamento",'id' => $item->id])}}">
-                                    <img src="img/editar.png" alt="editar" width="32px" class="mx-2">
+                                    <img src="/img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exclude"  onclick="modalExclude({{$item->id}}, '{{$item->Nome}}', '{{$item->numPatrimonio}}', 'equipamento');"> 
                                     <img src="../img/excluir.png" alt="excluir" width="32px" class="mx-2">
@@ -114,7 +126,11 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="tab-pane fade active show" id="nav-uc" role="tabpanel" aria-labelledby="nav-uc-tab">
+                <div @if ($tipo == 'uc')
+                class="tab-pane fade active show"
+                @else
+                class="tab-pane fade"
+            @endif id="nav-uc" role="tabpanel" aria-labelledby="nav-uc-tab">
                     <a href="{{route('admin.cadastrar', ['tipo'=>"uc"])}}" class="d-flex align-items-center justify-content-center mt-3">
                         <img src="/img/add.png" class="mr-2">
                         Adicionar uc
@@ -136,7 +152,11 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="tab-pane fade" id="nav-curso" role="tabpanel" aria-labelledby="nav-curso-tab">
+                <div @if ($tipo == 'curso')
+                class="tab-pane fade active show"
+                @else
+                class="tab-pane fade"
+            @endif id="nav-curso" role="tabpanel" aria-labelledby="nav-curso-tab">
                     <a href="{{route('admin.cadastrar', ['tipo'=>"curso"])}}" class="d-flex align-items-center justify-content-center mt-3">
                         <img src="/img/add.png" class="mr-2">
                         Adicionar curso
@@ -158,7 +178,11 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="tab-pane fade" id="nav-turma" role="tabpanel" aria-labelledby="nav-turma-tab">
+                <div @if ($tipo == 'turma')
+                class="tab-pane fade active show"
+                @else
+                class="tab-pane fade"
+            @endif id="nav-turma" role="tabpanel" aria-labelledby="nav-turma-tab">
                     <a href="{{route('admin.cadastrar', ['tipo'=>"turma"])}}" class="d-flex align-items-center justify-content-center mt-3">
                         <img src="/img/add.png" class="mr-2">
                         Adicionar turma
