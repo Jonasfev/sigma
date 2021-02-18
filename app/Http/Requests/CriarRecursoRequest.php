@@ -31,7 +31,7 @@ class CriarRecursoRequest extends FormRequest
             case "/cadastrar/curso":
                 $rules = [
                     'tipoCurso' => 'required',
-                    'siglaCurso' => 'max:5|required',
+                    'siglaCurso' => 'max:10|required',
                     'nomeCurso' => 'required',
                     'dataInicioCurso' => 'required',
                     'dataFimCurso' => 'required',
@@ -59,7 +59,7 @@ class CriarRecursoRequest extends FormRequest
             case "/cadastrar/turma":
                 $rules = [
                     'idCurso' => 'required',
-                    'siglaTurma' => 'max:5|required',
+                    'siglaTurma' => 'max:10|required',
                     'periodo' => 'required',
                     'numAlunos' => 'digits_between:1,10|required',
                     'horaEntrada' => 'required',
@@ -69,7 +69,7 @@ class CriarRecursoRequest extends FormRequest
 
             case "/cadastrar/uc":
                 $rules = [
-                    'siglaUC' => 'max:5|required',
+                    'siglaUC' => 'max:10|required',
                     'nomeUC' => 'required',
                     'aulasSemanais' => 'digits_between:1,10|required',
                 ];
@@ -86,7 +86,7 @@ class CriarRecursoRequest extends FormRequest
                 if($tipo == "curso"){
                     $rules = [
                         'tipoCurso' => 'required',
-                        'siglaCurso' => 'max:5|required',
+                        'siglaCurso' => 'max:10|required',
                         'nomeCurso' => 'required',
                         'dataInicioCurso' => 'required',
                         'dataFimCurso' => 'required',
@@ -110,7 +110,7 @@ class CriarRecursoRequest extends FormRequest
     
                 } else if($tipo == "turma"){
                     $rules = [
-                        'siglaTurma' => 'max:5|required',
+                        'siglaTurma' => 'max:10|required',
                         'periodo' => 'required',
                         'numAlunos' => 'digits_between:1,10|required',
                         'horaEntrada' => 'required',
@@ -119,7 +119,7 @@ class CriarRecursoRequest extends FormRequest
     
                 } else if($tipo == "uc"){
                     $rules = [
-                        'siglaUC' => 'max:5|required',
+                        'siglaUC' => 'max:10|required',
                         'nomeUC' => 'required',
                         'aulasSemanais' => 'digits_between:1,10|required',
                     ];
