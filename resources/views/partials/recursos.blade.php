@@ -199,7 +199,7 @@
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
                                 <a href="{{route('admin.horario', ['id' => $t->id])}}">
-                                    <img src="img/horario.png" alt="editar" width="32px" class="mx-2">
+                                    <img src="/img/horario.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                                 <a href="{{route('admin.editar', ['tipo' => "turma",'id' => $t->id])}}">
                                     <img src="/img/editar.png" alt="editar" width="32px" class="mx-2">
