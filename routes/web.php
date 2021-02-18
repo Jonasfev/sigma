@@ -41,10 +41,6 @@ Route::middleware(['auth'])->group(function() {
 
         Route::get('/horario/check/{recId}/{aula}/{recTipo}/{periodo}', [HorarioController::class, 'check'])->name('horario.check');
     
-        Route::get('/opcaoHorario', function() {
-            return view('partials.opcaoHorario');
-        })->name('opcaoHorario');
-        
         Route::get('/csv', [CsvController::class, 'create'])->name('csv');
         Route::post('/csv', [CsvController::class, 'store'])->name('csv.create');
 

@@ -22,17 +22,17 @@ class RecursoController extends Controller
     
     public function index($tipo){
 
-        $docentes = Docente::get();
+        $docentes = Docente::orderBy('Nome', 'asc')->get();
 
-        $equip = Equipamento::get();
+        $equip = Equipamento::orderBy('Nome', 'asc')->get();
 
-        $ambientes = Ambiente::get();
+        $ambientes = Ambiente::orderBy('numAmbiente', 'asc')->get();
 
-        $ucs = Uc::get();
+        $ucs = Uc::orderBy('siglaUC', 'asc')->get();
 
-        $cursos = Curso::get();
+        $cursos = Curso::orderBy('siglaCurso', 'asc')->get();
 
-        $turmas = Turma::get();
+        $turmas = Turma::orderBy('siglaTurma', 'asc')->get();
 
         return view('partials.recursos', compact(['docentes', 'equip', 'ambientes', 'ucs', 'cursos', 'turmas', 'tipo']));
     }
@@ -60,8 +60,8 @@ class RecursoController extends Controller
 
     public function create($tipo) {
         
-        $ucs = Uc::get();
-        $cursos = Curso::get();
+        $ucs = Uc::orderBy('nomeUC', 'asc')->get();
+        $cursos = Curso::orderBy('nomeCurso', 'asc')->get();
 
         switch($tipo) {
             case 'docente':
@@ -201,7 +201,7 @@ class RecursoController extends Controller
 
     public function edit($tipo, $id){
 
-        $ucs = Uc::get();
+        $ucs = Uc::orderBy('nomeUC', 'asc')->get();
         $recucs = [];
         switch($tipo) {
             case 'docente':
