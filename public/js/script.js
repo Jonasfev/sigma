@@ -174,6 +174,83 @@ function atualizaHorario(nAula, el, tipo) {
     
 }
 
+function constroiHorario(id, tipo) {
+    $.ajax({
+        url: "/carregaHorario/"+id,
+        dataType: 'json',
+        type: "get",
+        
+        success: function(response) {
+            
+            if(tipo == 'CAI') {
+                s1 = 8;
+                s2 = 4;
+            } else if(tipo == 'TEC') {
+                s1 = 10;
+                s2 = 5;
+            }
+        
+            reservas = response[0];
+            docentes = response[1];
+            ambientes = response[2];
+            ucs = response[3];
+
+            for(var reserva in reservas) {
+                switch(reservas[reserva].diaSemana) {
+                    case 'Seg':
+                        j = 0;
+                        break;
+                    case 'Ter':
+                        j = 1;
+                        break;
+                    case 'Qua':
+                        j = 2;
+                        break;
+                    case 'Qui':
+                        j = 3;
+                        break;
+                    case 'Sex':
+                        j = 4;
+                        break;
+                }
+        
+                i = reservas[reserva].aula;
+                
+                aula = j*s1+i; 
+            
+                if(reservas[reserva].turma == 'b') {
+                    aula = j*s1+i+s2;
+                }
+        
+                aula = '#aula-' + aula;
+
+                for(var docente in docentes) {
+                    if(docentes[docente].id == reservas[reserva].idDocente){
+                        d = docentes[docente].Nome;
+                    }
+                }
+
+                for(var ambiente in ambientes) {
+                    if(ambientes[ambiente].id == reservas[reserva].idAmbiente){
+                        a = ambientes[ambiente].Tipo+" - "+ambientes[ambiente].numAmbiente;
+                    }
+                }
+
+                for(var uc in ucs) {
+                    if(ucs[uc].id == reservas[reserva].idUc){
+                        u = ucs[uc].siglaUC;
+                    }
+                }
+
+                $(aula).children('div.amb').children('small').text(a);
+                $(aula).children('div.doc').children('small').text(d);
+                $(aula).children('div.uc').text(u);
+        
+            }
+        }
+    })
+}
+
 function constroiReservas(reservas, tipo) {
 
     if(tipo == 'CAI') {

@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function index() {
 
-        $turmas = Turma::get();
+        $turmas = Turma::orderBy('siglaTurma', 'asc')->get();
         $cursos = [];
 
         foreach($turmas as $turma) {

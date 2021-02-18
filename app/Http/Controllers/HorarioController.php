@@ -61,6 +61,61 @@ class HorarioController extends Controller
 
     }
 
+    public function visualizaHorario($id) {
+        
+        $turma = Turma::find($id);
+        $curso = Curso::find($turma->idCurso);
+        $tipo = $curso->tipoCurso;
+
+        if($tipo == 'TEC') {
+            $v = 'partials.weektec';
+        } else {
+            $v = 'partials.weekcai';
+        }
+
+        return view($v, compact('turma'));
+
+    }
+
+    public function carregaHorario($id) {
+
+        $reservas = Reserva::get()->where('idTurma', $id);
+        $turma = Turma::find($id);
+        $ucscurso = Cursouc::get()->where('curso', $turma->idCurso);
+        $docentes = [];
+        $ambientes = [];
+        $ucs = [];
+        foreach($ucscurso as $uccurso) {
+            array_push($ucs,  Uc::find($uccurso->ucComportada));
+            $docscurso =  Docuc::get()->where('ucComportada', $uccurso->ucComportada);
+            foreach($docscurso as $doccurso) {
+                
+                if(!in_array(Docente::find($doccurso->docente), $docentes)) {
+                    array_push($docentes,  Docente::find($doccurso->docente));
+                }
+            }
+            
+            $ambscurso =  Ambienteuc::get()->where('ucComportada', $uccurso->ucComportada);
+            foreach($ambscurso as $ambcurso) {
+                if(!in_array(Ambiente::find($ambcurso->idAmbiente), $ambientes)) {
+                    array_push($ambientes,  Ambiente::find($ambcurso->idAmbiente));
+                }
+            }
+        }
+
+        $params = [];
+
+        array_push($params, $reservas);
+        array_push($params, $docentes);
+        array_push($params, $ambientes);
+        array_push($params, $ucs);
+
+        $params = json_encode($params);
+
+        echo $params;
+
+    }
+
     public function store(Request $request) {
             Reserva::updateOrCreate([
                 'idTurma' => $request->idTurma,
