@@ -44,7 +44,6 @@ class RecursoController extends Controller
         $ucs = [];
         $param = $request->nomeUC;
         $tipo = 'uc';
-        $ucsNome = [];
 
         if($request->nomeUC == null){
             return redirect()->route('admin.recursos', ['tipo' => 'uc']);
@@ -52,17 +51,23 @@ class RecursoController extends Controller
         if(strlen($param) <= 10){
             foreach(Uc::where('siglaUC', 'LIKE', "%{$param}%")->get() as $uc) {
                 array_push($ucs, $uc);
-            } 
-            foreach(Uc::where('siglaUC', 'LIKE', "%{$param}%")->get('nomeUC') as $ucNome) {
-                array_push($ucsNome, $ucNome);
             }
-        } else {
-            foreach(Uc::where('nomeUC', 'LIKE', "%{$param}%")->get() as $uc) {
-                array_push($ucs, $uc);
-            } 
-            foreach(Uc::where('nomeUC', 'LIKE', "%{$param}%")->get('nomeUC') as $ucNome) {
-                array_push($ucsNome, $ucNome);
+        } 
+
+        $ucsNome = Uc::where('nomeUC', 'LIKE', "%{$param}%")->get();
+        foreach($ucsNome as $ucNome){
+            if(!in_array(Uc::get()->where('nomeUC', $ucNome->nomeUC), $ucs)){
+                foreach(Uc::get()->where('nomeUC', $ucNome->nomeUC) as $uc){
+                    if(!in_array($uc, $ucs)){
+                        array_push($ucs, $uc);
+                    }
+                }
             }
+        }
+        
+        $ucsNome = [];
+        foreach($ucs as $uc){
+            array_push($ucsNome, Uc::find($uc->id));
         }
 
         $pesq = true;
