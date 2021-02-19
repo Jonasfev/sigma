@@ -2,6 +2,22 @@ const { getJSON } = require("jquery");
 var isValid;
 var isReserved = [];
 
+function searchUC() {
+    console.log($('#nomeUC').val())
+    $.ajax({
+        url: '/recurso/searchuc/'+$('#nomeUC').val(),
+        dataType: 'json',
+        type: 'GET',
+        success: function(response) {
+            $('#ucsPesquisadas').text('');
+            response.forEach(uc => {
+                newUC = "<div><input type='checkbox' name='uc-"+uc.id+"' value='"+uc.id+"'>"+uc.nomeUC+"</div>"
+                $('#ucsPesquisadas').append(newUC)
+            });
+        }
+    });
+}
+
 function horarioTurma(val, tipo) {
     if(tipo == 'TEC') {
         switch (val) {

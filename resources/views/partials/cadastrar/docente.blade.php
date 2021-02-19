@@ -11,6 +11,14 @@
     <div class="pg-ctn bg-light d-flex flex-column align-items-center justify-content-around">
         <h1>Novo docente</h1>
         <div class="bd-example bd-example-tabs w-50 h-75">
+            <div class="w-100 d-flex align-items-center justify-content-end">
+                <div class="mb-2 w-50 d-flex align-items-center justify-content-center">
+                    <input id="nomeUC" name="nomeUC" type="text" class="form-control">
+                    <a class="p-2 btn btn-primary d-flex align-items-center justify-content-center" onclick="searchUC()">
+                        <img src="/img/search.png" width="20px" height="20px" alt="pesquisar">
+                    </a>
+                </div>
+            </div>
             <form class="w-100 d-flex justify-content-around" id="cadastrar-doc" action="{{route('admin.store', ['tipo' => 'docente'])}}" method="POST">
                 <div class="w-45">
                     @csrf
@@ -24,11 +32,13 @@
                     <input class="form-control" type="number" name="hmax" id="hmax">
                 </div>
                 <div class="w-45 opcao-uc d-flex flex-column overflow-auto">
-                    @foreach ($ucs as $uc)
-                        <div>
-                            <input type="checkbox" name="uc-{{$uc->id}}" value="{{$uc->id}}"> {{$uc->nomeUC}}
-                        </div>
-                    @endforeach
+                    <div id="ucsPesquisadas" class="opcao-uc overflow-auto">
+                        @foreach ($ucs as $uc)
+                            <div>
+                                <input type="checkbox" name="uc-{{$uc->id}}" value="{{$uc->id}}"> {{$uc->nomeUC}}
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </form>   
             @if ($errors->any())

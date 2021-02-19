@@ -85,6 +85,17 @@ class RecursoController extends Controller
         return view('partials.recursos', compact(['docentes', 'equip', 'ambientes', 'cursos', 'turmas', 'tipo', 'ucs', 'ucsNome', 'pesq', 'param']));
     }
 
+    public function searchUC($nomeUC){
+
+        $ucs = [];
+        $param = $nomeUC;
+
+        $ucs = Uc::orderBy('nomeUC', 'asc')->where('nomeUC', 'LIKE', "%{$param}%")->get();
+
+        echo json_encode($ucs);
+
+    }
+
     public function showSchedule($id, $tipo){
         $ok['s1'] = $id;
         $ok['s2'] = $tipo;

@@ -24,6 +24,8 @@ Route::middleware(['auth'])->group(function() {
         Route::get('/recursos/{tipo?}', [RecursoController::class, 'index'])->name('recursos');
 
         Route::post('/recurso/search', [RecursoController::class, 'search'])->name('search');
+
+        Route::get('/recurso/searchuc/{nomeUC}', [RecursoController::class, 'searchUC'])->name('searchuc');
         
         Route::get('/recursos/show/{id}/{tipo}', [RecursoController::class, 'showSchedule'])->name('recursoSchedule');
         

@@ -14,6 +14,14 @@
         <div class="w-50 h-75 m-auto">
             <div class="tab-content overflow-auto" id="nav-tabContent">
               <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="w-100 d-flex align-items-center justify-content-end">
+                  <div class="mb-2 w-50 d-flex align-items-center justify-content-center">
+                      <input id="nomeUC" name="nomeUC" type="text" class="form-control">
+                      <a class="p-2 btn btn-primary d-flex align-items-center justify-content-center" onclick="searchUC()">
+                          <img src="/img/search.png" width="20px" height="20px" alt="pesquisar">
+                      </a>
+                  </div>
+              </div>
                 <form class="w-100 d-flex justify-content-around" action="{{Route('admin.update', ['id' => $recurso->id])}}" class="w-100 h-100 d-flex flex-column  justify-content-around" id="formu" method="POST">
                   <div class="w-45">
                     @csrf
@@ -47,18 +55,20 @@
                       <input type="number" class="form-control mt-0" id="Hmax" name="alunosComportados" value="{{$recurso->alunosComportados}}">
                     </div>
                   </div>
-                  <div class="w-45 opcao-uc d-flex flex-column overflow-auto">
+                  <div class="w-45 d-flex flex-column">
+                    <div id="ucsPesquisadas" class="opcao-uc overflow-auto">
                       @for ($cont = 0; $cont < sizeOf($ucs); $cont++)
-                          <div>
-                              <input type="checkbox" name="uc-{{$ucs[$cont]->id}}" value="{{$ucs[$cont]->id}}"
-                              @foreach ($recucs as $recuc)
-                                  @if ($recuc->ucComportada == $ucs[$cont]->id)
-                                      checked
-                                  @endif
-                              @endforeach
-                              > {{$ucs[$cont]->nomeUC}}
-                          </div>
+                        <div>
+                            <input type="checkbox" name="uc-{{$ucs[$cont]->id}}" value="{{$ucs[$cont]->id}}"
+                            @foreach ($recucs as $recuc)
+                                @if ($recuc->ucComportada == $ucs[$cont]->id)
+                                    checked
+                                @endif
+                            @endforeach
+                            > {{$ucs[$cont]->nomeUC}}
+                        </div>
                       @endfor
+                    </div>
                   </div>
                 </form>
                 @if ($errors->any())
