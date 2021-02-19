@@ -112,7 +112,10 @@ class RecursoController extends Controller
                 break;
         }
 
+        $turma = Turma::select('id', 'siglaTurma')->distinct()->get();
+
         $ok['agenda'] = $agenda;
+        $ok['turma'] = $turma;
 
         echo json_encode($ok);
     }

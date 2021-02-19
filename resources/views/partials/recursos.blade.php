@@ -345,38 +345,44 @@
                     console.log('error', response);
                 },
                 success: function(response) {
+                    var sligaTurma;
                     for(var reservas in response['agenda']){
+                        for(var turmas in response['turma']){
+                            if(response['agenda'][reservas].idTurma == response['turma'][turmas].id){
+                                siglaTurma = 'Já alocado na ' + response['turma'][turmas].siglaTurma;
+                            }
+                        }
                         switch(response['agenda'][reservas].diaSemana){
                             case 'Seg':
                                 if(response['agenda'][reservas].periodo == 'manha'){
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#seg-aula-0').text("Aula 1 - Manhã - Indisponível");
-                                            $('h4#seg-aula-0').next().text("Já alocado");
+                                            $('h4#seg-aula-0').next().text(siglaTurma);
                                             $('h4#seg-aula-0').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-0').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#seg-aula-1').text("Aula 2 - Manhã - Indisponível");
-                                            $('h4#seg-aula-1').next().text("Já alocado");
+                                            $('h4#seg-aula-1').next().text(siglaTurma);
                                             $('h4#seg-aula-1').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-1').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#seg-aula-2').text("Aula 3 - Manhã - Indisponível");
-                                            $('h4#seg-aula-2').next().text("Já alocado");
+                                            $('h4#seg-aula-2').next().text(siglaTurma);
                                             $('h4#seg-aula-2').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-2').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#seg-aula-3').text("Aula 4 - Manhã - Indisponível");
-                                            $('h4#seg-aula-3').next().text("Já alocado");
+                                            $('h4#seg-aula-3').next().text(siglaTurma);
                                             $('h4#seg-aula-3').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-3').parent().parent().addClass("border-danger");
                                             break;
                                         case 5:
                                             $('h4#seg-aula-4').text("Aula 5 - Manhã - Indisponível");
-                                            $('h4#seg-aula-4').next().text("Já alocado");
+                                            $('h4#seg-aula-4').next().text(siglaTurma);
                                             $('h4#seg-aula-4').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-4').parent().parent().addClass("border-danger");
                                             break;
@@ -386,32 +392,32 @@
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#seg-aula-5').text("Aula 1 - Tarde - Indisponível");
-                                            $('h4#seg-aula-5').next().text("Já alocado");
+                                            $('h4#seg-aula-5').next().text(siglaTurma);
                                             $('h4#seg-aula-5').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-5').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#seg-aula-6').text("Aula 2 - Tarde - Indisponível");
-                                            $('h4#seg-aula-6').next().text("Já alocado");
+                                            $('h4#seg-aula-6').next().text(siglaTurma);
                                             $('h4#seg-aula-6').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-6').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#seg-aula-7').text("Aula 3 - Tarde - Indisponível");
-                                            $('h4#seg-aula-7').next().text("Já alocado");
+                                            $('h4#seg-aula-7').next().text(siglaTurma);
                                             $('h4#seg-aula-7').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-7').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#seg-aula-8').text("Aula 4 - Tarde - Indisponível");
-                                            $('h4#seg-aula-8').next().text("Já alocado");
+                                            $('h4#seg-aula-8').next().text(siglaTurma);
                                             $('h4#seg-aula-8').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-8').parent().parent().addClass("border-danger");
                                             
                                             break;
                                         case 5:
                                             $('h4#seg-aula-9').text("Aula 5 - Tarde - Indisponível");
-                                            $('h4#seg-aula-9').next().text("Já alocado");
+                                            $('h4#seg-aula-9').next().text(siglaTurma);
                                             $('h4#seg-aula-9').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-9').parent().parent().addClass("border-danger");
                                             break;
@@ -421,31 +427,31 @@
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#seg-aula-10').text("Aula 1 - Noite - Indisponível");
-                                            $('h4#seg-aula-10').next().text("Já alocado");
+                                            $('h4#seg-aula-10').next().text(siglaTurma);
                                             $('h4#seg-aula-10').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-10').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#seg-aula-11').text("Aula 2 - Noite - Indisponível");
-                                            $('h4#seg-aula-11').next().text("Já alocado");
+                                            $('h4#seg-aula-11').next().text(siglaTurma);
                                             $('h4#seg-aula-11').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-11').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#seg-aula-12').text("Aula 3 - Noite - Indisponível");
-                                            $('h4#seg-aula-12').next().text("Já alocado");
+                                            $('h4#seg-aula-12').next().text(siglaTurma);
                                             $('h4#seg-aula-12').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-12').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#seg-aula-13').text("Aula 4 - Noite - Indisponível");
-                                            $('h4#seg-aula-13').next().text("Já alocado");
+                                            $('h4#seg-aula-13').next().text(siglaTurma);
                                             $('h4#seg-aula-13').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-13').parent().parent().addClass("border-danger");
                                             break;
                                         case 5:
                                             $('h4#seg-aula-14').text("Aula 5 - Noite - Indisponível");
-                                            $('h4#seg-aula-14').next().text("Já alocado");
+                                            $('h4#seg-aula-14').next().text(siglaTurma);
                                             $('h4#seg-aula-14').parent().parent().removeClass("border-success");
                                             $('h4#seg-aula-14').parent().parent().addClass("border-danger");
                                             break;
@@ -459,31 +465,31 @@
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#ter-aula-0').text("Aula 1 - Manhã - Indisponível");
-                                            $('h4#ter-aula-0').next().text("Já alocado");
+                                            $('h4#ter-aula-0').next().text(siglaTurma);
                                             $('h4#ter-aula-0').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-0').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#ter-aula-1').text("Aula 2 - Manhã - Indisponível");
-                                            $('h4#ter-aula-1').next().text("Já alocado");
+                                            $('h4#ter-aula-1').next().text(siglaTurma);
                                             $('h4#ter-aula-1').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-1').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#ter-aula-2').text("Aula 3 - Manhã - Indisponível");
-                                            $('h4#ter-aula-2').next().text("Já alocado");
+                                            $('h4#ter-aula-2').next().text(siglaTurma);
                                             $('h4#ter-aula-2').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-2').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#ter-aula-3').text("Aula 4 - Manhã - Indisponível");
-                                            $('h4#ter-aula-3').next().text("Já alocado");
+                                            $('h4#ter-aula-3').next().text(siglaTurma);
                                             $('h4#ter-aula-3').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-3').parent().parent().addClass("border-danger");
                                             break;
                                         case 5:
                                             $('h4#ter-aula-4').text("Aula 5 - Manhã - Indisponível");
-                                            $('h4#ter-aula-4').next().text("Já alocado");
+                                            $('h4#ter-aula-4').next().text(siglaTurma);
                                             $('h4#ter-aula-4').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-4').parent().parent().addClass("border-danger");
                                             break;
@@ -493,32 +499,32 @@
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#ter-aula-5').text("Aula 1 - Tarde - Indisponível");
-                                            $('h4#ter-aula-5').next().text("Já alocado");
+                                            $('h4#ter-aula-5').next().text(siglaTurma);
                                             $('h4#ter-aula-5').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-5').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#ter-aula-6').text("Aula 2 - Tarde - Indisponível");
-                                            $('h4#ter-aula-6').next().text("Já alocado");
+                                            $('h4#ter-aula-6').next().text(siglaTurma);
                                             $('h4#ter-aula-6').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-6').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#ter-aula-7').text("Aula 3 - Tarde - Indisponível");
-                                            $('h4#ter-aula-7').next().text("Já alocado");
+                                            $('h4#ter-aula-7').next().text(siglaTurma);
                                             $('h4#ter-aula-7').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-7').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#ter-aula-8').text("Aula 4 - Tarde - Indisponível");
-                                            $('h4#ter-aula-8').next().text("Já alocado");
+                                            $('h4#ter-aula-8').next().text(siglaTurma);
                                             $('h4#ter-aula-8').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-8').parent().parent().addClass("border-danger");
                                             
                                             break;
                                         case 5:
                                             $('h4#ter-aula-9').text("Aula 5 - Tarde - Indisponível");
-                                            $('h4#ter-aula-9').next().text("Já alocado");
+                                            $('h4#ter-aula-9').next().text(siglaTurma);
                                             $('h4#ter-aula-9').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-9').parent().parent().addClass("border-danger");
                                             break;
@@ -528,31 +534,31 @@
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#ter-aula-10').text("Aula 1 - Noite - Indisponível");
-                                            $('h4#ter-aula-10').next().text("Já alocado");
+                                            $('h4#ter-aula-10').next().text(siglaTurma);
                                             $('h4#ter-aula-10').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-10').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#ter-aula-11').text("Aula 2 - Noite - Indisponível");
-                                            $('h4#ter-aula-11').next().text("Já alocado");
+                                            $('h4#ter-aula-11').next().text(siglaTurma);
                                             $('h4#ter-aula-11').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-11').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#ter-aula-12').text("Aula 3 - Noite - Indisponível");
-                                            $('h4#ter-aula-12').next().text("Já alocado");
+                                            $('h4#ter-aula-12').next().text(siglaTurma);
                                             $('h4#ter-aula-12').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-12').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#ter-aula-13').text("Aula 4 - Noite - Indisponível");
-                                            $('h4#ter-aula-13').next().text("Já alocado");
+                                            $('h4#ter-aula-13').next().text(siglaTurma);
                                             $('h4#ter-aula-13').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-13').parent().parent().addClass("border-danger");
                                             break;
                                         case 5:
                                             $('h4#ter-aula-14').text("Aula 5 - Noite - Indisponível");
-                                            $('h4#ter-aula-14').next().text("Já alocado");
+                                            $('h4#ter-aula-14').next().text(siglaTurma);
                                             $('h4#ter-aula-14').parent().parent().removeClass("border-success");
                                             $('h4#ter-aula-14').parent().parent().addClass("border-danger");
                                             break;
@@ -565,31 +571,31 @@
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#qua-aula-0').text("Aula 1 - Manhã - Indisponível");
-                                            $('h4#qua-aula-0').next().text("Já alocado");
+                                            $('h4#qua-aula-0').next().text(siglaTurma);
                                             $('h4#qua-aula-0').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-0').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#qua-aula-1').text("Aula 2 - Manhã - Indisponível");
-                                            $('h4#qua-aula-1').next().text("Já alocado");
+                                            $('h4#qua-aula-1').next().text(siglaTurma);
                                             $('h4#qua-aula-1').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-1').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#qua-aula-2').text("Aula 3 - Manhã - Indisponível");
-                                            $('h4#qua-aula-2').next().text("Já alocado");
+                                            $('h4#qua-aula-2').next().text(siglaTurma);
                                             $('h4#qua-aula-2').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-2').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#qua-aula-3').text("Aula 4 - Manhã - Indisponível");
-                                            $('h4#qua-aula-3').next().text("Já alocado");
+                                            $('h4#qua-aula-3').next().text(siglaTurma);
                                             $('h4#qua-aula-3').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-3').parent().parent().addClass("border-danger");
                                             break;
                                         case 5:
                                             $('h4#qua-aula-4').text("Aula 5 - Manhã - Indisponível");
-                                            $('h4#qua-aula-4').next().text("Já alocado");
+                                            $('h4#qua-aula-4').next().text(siglaTurma);
                                             $('h4#qua-aula-4').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-4').parent().parent().addClass("border-danger");
                                             break;
@@ -599,32 +605,32 @@
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#qua-aula-5').text("Aula 1 - Tarde - Indisponível");
-                                            $('h4#qua-aula-5').next().text("Já alocado");
+                                            $('h4#qua-aula-5').next().text(siglaTurma);
                                             $('h4#qua-aula-5').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-5').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#qua-aula-6').text("Aula 2 - Tarde - Indisponível");
-                                            $('h4#qua-aula-6').next().text("Já alocado");
+                                            $('h4#qua-aula-6').next().text(siglaTurma);
                                             $('h4#qua-aula-6').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-6').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#qua-aula-7').text("Aula 3 - Tarde - Indisponível");
-                                            $('h4#qua-aula-7').next().text("Já alocado");
+                                            $('h4#qua-aula-7').next().text(siglaTurma);
                                             $('h4#qua-aula-7').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-7').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#qua-aula-8').text("Aula 4 - Tarde - Indisponível");
-                                            $('h4#qua-aula-8').next().text("Já alocado");
+                                            $('h4#qua-aula-8').next().text(siglaTurma);
                                             $('h4#qua-aula-8').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-8').parent().parent().addClass("border-danger");
                                             
                                             break;
                                         case 5:
                                             $('h4#qua-aula-9').text("Aula 5 - Tarde - Indisponível");
-                                            $('h4#qua-aula-9').next().text("Já alocado");
+                                            $('h4#qua-aula-9').next().text(siglaTurma);
                                             $('h4#qua-aula-9').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-9').parent().parent().addClass("border-danger");
                                             break;
@@ -634,31 +640,31 @@
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#qua-aula-10').text("Aula 1 - Noite - Indisponível");
-                                            $('h4#qua-aula-10').next().text("Já alocado");
+                                            $('h4#qua-aula-10').next().text(siglaTurma);
                                             $('h4#qua-aula-10').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-10').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#qua-aula-11').text("Aula 2 - Noite - Indisponível");
-                                            $('h4#qua-aula-11').next().text("Já alocado");
+                                            $('h4#qua-aula-11').next().text(siglaTurma);
                                             $('h4#qua-aula-11').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-11').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#qua-aula-12').text("Aula 3 - Noite - Indisponível");
-                                            $('h4#qua-aula-12').next().text("Já alocado");
+                                            $('h4#qua-aula-12').next().text(siglaTurma);
                                             $('h4#qua-aula-12').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-12').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#qua-aula-13').text("Aula 4 - Noite - Indisponível");
-                                            $('h4#qua-aula-13').next().text("Já alocado");
+                                            $('h4#qua-aula-13').next().text(siglaTurma);
                                             $('h4#qua-aula-13').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-13').parent().parent().addClass("border-danger");
                                             break;
                                         case 5:
                                             $('h4#qua-aula-14').text("Aula 5 - Noite - Indisponível");
-                                            $('h4#qua-aula-14').next().text("Já alocado");
+                                            $('h4#qua-aula-14').next().text(siglaTurma);
                                             $('h4#qua-aula-14').parent().parent().removeClass("border-success");
                                             $('h4#qua-aula-14').parent().parent().addClass("border-danger");
                                             break;
@@ -671,31 +677,31 @@
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#qui-aula-0').text("Aula 1 - Manhã - Indisponível");
-                                            $('h4#qui-aula-0').next().text("Já alocado");
+                                            $('h4#qui-aula-0').next().text(siglaTurma);
                                             $('h4#qui-aula-0').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-0').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#qui-aula-1').text("Aula 2 - Manhã - Indisponível");
-                                            $('h4#qui-aula-1').next().text("Já alocado");
+                                            $('h4#qui-aula-1').next().text(siglaTurma);
                                             $('h4#qui-aula-1').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-1').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#qui-aula-2').text("Aula 3 - Manhã - Indisponível");
-                                            $('h4#qui-aula-2').next().text("Já alocado");
+                                            $('h4#qui-aula-2').next().text(siglaTurma);
                                             $('h4#qui-aula-2').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-2').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#qui-aula-3').text("Aula 4 - Manhã - Indisponível");
-                                            $('h4#qui-aula-3').next().text("Já alocado");
+                                            $('h4#qui-aula-3').next().text(siglaTurma);
                                             $('h4#qui-aula-3').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-3').parent().parent().addClass("border-danger");
                                             break;
                                         case 5:
                                             $('h4#qui-aula-4').text("Aula 5 - Manhã - Indisponível");
-                                            $('h4#qui-aula-4').next().text("Já alocado");
+                                            $('h4#qui-aula-4').next().text(siglaTurma);
                                             $('h4#qui-aula-4').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-4').parent().parent().addClass("border-danger");
                                             break;
@@ -705,32 +711,32 @@
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#qui-aula-5').text("Aula 1 - Tarde - Indisponível");
-                                            $('h4#qui-aula-5').next().text("Já alocado");
+                                            $('h4#qui-aula-5').next().text(siglaTurma);
                                             $('h4#qui-aula-5').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-5').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#qui-aula-6').text("Aula 2 - Tarde - Indisponível");
-                                            $('h4#qui-aula-6').next().text("Já alocado");
+                                            $('h4#qui-aula-6').next().text(siglaTurma);
                                             $('h4#qui-aula-6').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-6').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#qui-aula-7').text("Aula 3 - Tarde - Indisponível");
-                                            $('h4#qui-aula-7').next().text("Já alocado");
+                                            $('h4#qui-aula-7').next().text(siglaTurma);
                                             $('h4#qui-aula-7').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-7').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#qui-aula-8').text("Aula 4 - Tarde - Indisponível");
-                                            $('h4#qui-aula-8').next().text("Já alocado");
+                                            $('h4#qui-aula-8').next().text(siglaTurma);
                                             $('h4#qui-aula-8').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-8').parent().parent().addClass("border-danger");
                                             
                                             break;
                                         case 5:
                                             $('h4#qui-aula-9').text("Aula 5 - Tarde - Indisponível");
-                                            $('h4#qui-aula-9').next().text("Já alocado");
+                                            $('h4#qui-aula-9').next().text(siglaTurma);
                                             $('h4#qui-aula-9').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-9').parent().parent().addClass("border-danger");
                                             break;
@@ -740,31 +746,31 @@
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#qui-aula-10').text("Aula 1 - Noite - Indisponível");
-                                            $('h4#qui-aula-10').next().text("Já alocado");
+                                            $('h4#qui-aula-10').next().text(siglaTurma);
                                             $('h4#qui-aula-10').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-10').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#qui-aula-11').text("Aula 2 - Noite - Indisponível");
-                                            $('h4#qui-aula-11').next().text("Já alocado");
+                                            $('h4#qui-aula-11').next().text(siglaTurma);
                                             $('h4#qui-aula-11').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-11').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#qui-aula-12').text("Aula 3 - Noite - Indisponível");
-                                            $('h4#qui-aula-12').next().text("Já alocado");
+                                            $('h4#qui-aula-12').next().text(siglaTurma);
                                             $('h4#qui-aula-12').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-12').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#qui-aula-13').text("Aula 4 - Noite - Indisponível");
-                                            $('h4#qui-aula-13').next().text("Já alocado");
+                                            $('h4#qui-aula-13').next().text(siglaTurma);
                                             $('h4#qui-aula-13').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-13').parent().parent().addClass("border-danger");
                                             break;
                                         case 5:
                                             $('h4#qui-aula-14').text("Aula 5 - Noite - Indisponível");
-                                            $('h4#qui-aula-14').next().text("Já alocado");
+                                            $('h4#qui-aula-14').next().text(siglaTurma);
                                             $('h4#qui-aula-14').parent().parent().removeClass("border-success");
                                             $('h4#qui-aula-14').parent().parent().addClass("border-danger");
                                             break;
@@ -777,31 +783,31 @@
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#sex-aula-0').text("Aula 1 - Manhã - Indisponível");
-                                            $('h4#sex-aula-0').next().text("Já alocado");
+                                            $('h4#sex-aula-0').next().text(siglaTurma);
                                             $('h4#sex-aula-0').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-0').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#sex-aula-1').text("Aula 2 - Manhã - Indisponível");
-                                            $('h4#sex-aula-1').next().text("Já alocado");
+                                            $('h4#sex-aula-1').next().text(siglaTurma);
                                             $('h4#sex-aula-1').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-1').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#sex-aula-2').text("Aula 3 - Manhã - Indisponível");
-                                            $('h4#sex-aula-2').next().text("Já alocado");
+                                            $('h4#sex-aula-2').next().text(siglaTurma);
                                             $('h4#sex-aula-2').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-2').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#sex-aula-3').text("Aula 4 - Manhã - Indisponível");
-                                            $('h4#sex-aula-3').next().text("Já alocado");
+                                            $('h4#sex-aula-3').next().text(siglaTurma);
                                             $('h4#sex-aula-3').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-3').parent().parent().addClass("border-danger");
                                             break;
                                         case 5:
                                             $('h4#sex-aula-4').text("Aula 5 - Manhã - Indisponível");
-                                            $('h4#sex-aula-4').next().text("Já alocado");
+                                            $('h4#sex-aula-4').next().text(siglaTurma);
                                             $('h4#sex-aula-4').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-4').parent().parent().addClass("border-danger");
                                             break;
@@ -811,32 +817,32 @@
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#sex-aula-5').text("Aula 1 - Tarde - Indisponível");
-                                            $('h4#sex-aula-5').next().text("Já alocado");
+                                            $('h4#sex-aula-5').next().text(siglaTurma);
                                             $('h4#sex-aula-5').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-5').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#sex-aula-6').text("Aula 2 - Tarde - Indisponível");
-                                            $('h4#sex-aula-6').next().text("Já alocado");
+                                            $('h4#sex-aula-6').next().text(siglaTurma);
                                             $('h4#sex-aula-6').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-6').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#sex-aula-7').text("Aula 3 - Tarde - Indisponível");
-                                            $('h4#sex-aula-7').next().text("Já alocado");
+                                            $('h4#sex-aula-7').next().text(siglaTurma);
                                             $('h4#sex-aula-7').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-7').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#sex-aula-8').text("Aula 4 - Tarde - Indisponível");
-                                            $('h4#sex-aula-8').next().text("Já alocado");
+                                            $('h4#sex-aula-8').next().text(siglaTurma);
                                             $('h4#sex-aula-8').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-8').parent().parent().addClass("border-danger");
                                             
                                             break;
                                         case 5:
                                             $('h4#sex-aula-9').text("Aula 5 - Tarde - Indisponível");
-                                            $('h4#sex-aula-9').next().text("Já alocado");
+                                            $('h4#sex-aula-9').next().text(siglaTurma);
                                             $('h4#sex-aula-9').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-9').parent().parent().addClass("border-danger");
                                             break;
@@ -846,31 +852,31 @@
                                     switch(response['agenda'][reservas].aula){
                                         case 1:
                                             $('h4#sex-aula-10').text("Aula 1 - Noite - Indisponível");
-                                            $('h4#sex-aula-10').next().text("Já alocado");
+                                            $('h4#sex-aula-10').next().text(siglaTurma);
                                             $('h4#sex-aula-10').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-10').parent().parent().addClass("border-danger");
                                             break;
                                         case 2:
                                             $('h4#sex-aula-11').text("Aula 2 - Noite - Indisponível");
-                                            $('h4#sex-aula-11').next().text("Já alocado");
+                                            $('h4#sex-aula-11').next().text(siglaTurma);
                                             $('h4#sex-aula-11').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-11').parent().parent().addClass("border-danger");
                                             break;
                                         case 3:
                                             $('h4#sex-aula-12').text("Aula 3 - Noite - Indisponível");
-                                            $('h4#sex-aula-12').next().text("Já alocado");
+                                            $('h4#sex-aula-12').next().text(siglaTurma);
                                             $('h4#sex-aula-12').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-12').parent().parent().addClass("border-danger");
                                             break;    
                                         case 4:
                                             $('h4#sex-aula-13').text("Aula 4 - Noite - Indisponível");
-                                            $('h4#sex-aula-13').next().text("Já alocado");
+                                            $('h4#sex-aula-13').next().text(siglaTurma);
                                             $('h4#sex-aula-13').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-13').parent().parent().addClass("border-danger");
                                             break;
                                         case 5:
                                             $('h4#sex-aula-14').text("Aula 5 - Noite - Indisponível");
-                                            $('h4#sex-aula-14').next().text("Já alocado");
+                                            $('h4#sex-aula-14').next().text(siglaTurma);
                                             $('h4#sex-aula-14').parent().parent().removeClass("border-success");
                                             $('h4#sex-aula-14').parent().parent().addClass("border-danger");
                                             break;
