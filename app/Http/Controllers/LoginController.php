@@ -30,7 +30,7 @@ class LoginController extends Controller
         if($request->nomeCurso == null){
             return redirect()->route('index');
         }
-        if(strlen($param) <= 5){ 
+        if(strlen($param) <= 10){
             foreach(Turma::where('siglaTurma', 'LIKE', "%{$param}%")->get() as $turma) {
                 array_push($turmas, $turma);
             } 

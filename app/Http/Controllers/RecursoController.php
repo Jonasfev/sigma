@@ -29,12 +29,55 @@ class RecursoController extends Controller
         $ambientes = Ambiente::orderBy('numAmbiente', 'asc')->get();
 
         $ucs = Uc::orderBy('siglaUC', 'asc')->get();
+        $ucsNome = Uc::orderBy('siglaUC', 'asc')->get('nomeUC');
 
         $cursos = Curso::orderBy('siglaCurso', 'asc')->get();
 
         $turmas = Turma::orderBy('siglaTurma', 'asc')->get();
 
-        return view('partials.recursos', compact(['docentes', 'equip', 'ambientes', 'ucs', 'cursos', 'turmas', 'tipo']));
+        $pesq = false;
+
+        return view('partials.recursos', compact(['docentes', 'equip', 'ambientes', 'ucs', 'ucsNome', 'cursos', 'turmas', 'tipo', 'pesq']));
+    }
+
+    public function search(Request $request){
+        $ucs = [];
+        $param = $request->nomeUC;
+        $tipo = 'uc';
+        $ucsNome = [];
+
+        if($request->nomeUC == null){
+            return redirect()->route('admin.recursos', ['tipo' => 'uc']);
+        }
+        if(strlen($param) <= 10){
+            foreach(Uc::where('siglaUC', 'LIKE', "%{$param}%")->get() as $uc) {
+                array_push($ucs, $uc);
+            } 
+            foreach(Uc::where('siglaUC', 'LIKE', "%{$param}%")->get('nomeUC') as $ucNome) {
+                array_push($ucsNome, $ucNome);
+            }
+        } else {
+            foreach(Uc::where('nomeUC', 'LIKE', "%{$param}%")->get() as $uc) {
+                array_push($ucs, $uc);
+            } 
+            foreach(Uc::where('nomeUC', 'LIKE', "%{$param}%")->get('nomeUC') as $ucNome) {
+                array_push($ucsNome, $ucNome);
+            }
+        }
+
+        $pesq = true;
+        
+        $docentes = Docente::orderBy('Nome', 'asc')->get();
+
+        $equip = Equipamento::orderBy('Nome', 'asc')->get();
+
+        $ambientes = Ambiente::orderBy('numAmbiente', 'asc')->get();
+
+        $cursos = Curso::orderBy('siglaCurso', 'asc')->get();
+
+        $turmas = Turma::orderBy('siglaTurma', 'asc')->get();
+
+        return view('partials.recursos', compact(['docentes', 'equip', 'ambientes', 'cursos', 'turmas', 'tipo', 'ucs', 'ucsNome', 'pesq', 'param']));
     }
 
     public function showSchedule($id, $tipo){

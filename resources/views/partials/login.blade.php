@@ -13,7 +13,7 @@
             <form action="{{Route('index.show')}}" method="POST" class="w-100 d-flex flex-column align-items-center justify-content-center">
                 <div class="w-100 d-flex align-items-center justify-content-center">
                     @csrf
-                    <input name="nomeCurso" type="text" class="form-control"
+                    <input name="nomeCurso" type="search" class="form-control"
                     @if ($pesq)
                     value="{{$param}}"
                     @endif
@@ -23,7 +23,7 @@
                     </button>
                 </div>
                 @if ($pesq)
-                    <a class="my-1 mx-auto" href="{{Route('index')}}">Limpar filtro</a>
+                    <a class="mt-2 mx-auto text-decoration-none" href="{{Route('index')}}" type="button">Limpar Pesquisa</a>
                 @endif
             </form>
         </div>

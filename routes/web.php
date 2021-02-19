@@ -8,9 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LoginController::class, 'index'])->name('index');
-Route::post('/show', [LoginController::class, 'show'])->name('index.show');
 
-Route::get('/search', [LoginController::class, 'search'])->name('index.search');
+Route::post('/show', [LoginController::class, 'show'])->name('index.show');
 
 Route::get('/visualizaHorario/{id}', [HorarioController::class, 'visualizaHorario'])->name('visualizaHorario');
 
@@ -23,6 +22,8 @@ Route::middleware(['auth'])->group(function() {
     Route::name('admin.')->group(function() {
         
         Route::get('/recursos/{tipo?}', [RecursoController::class, 'index'])->name('recursos');
+
+        Route::post('/recurso/search', [RecursoController::class, 'search'])->name('search');
         
         Route::get('/recursos/show/{id}/{tipo}', [RecursoController::class, 'showSchedule'])->name('recursoSchedule');
         

@@ -131,11 +131,29 @@
                 @else
                 class="tab-pane fade"
             @endif id="nav-uc" role="tabpanel" aria-labelledby="nav-uc-tab">
-                    <a href="{{route('admin.cadastrar', ['tipo'=>"uc"])}}" class="d-flex align-items-center justify-content-center mt-3">
+                    <div class="d-flex row mx-auto align-items-center justify-content-center">
+                    <a href="{{route('admin.cadastrar', ['tipo'=>"uc"])}}" class="d-flex align-items-center justify-content-center my-auto mr-3">
                         <img src="/img/add.png" class="mr-2">
                         Adicionar uc
                     </a>
-                    @foreach ($ucs as $uc)          
+                    <form action="{{route('admin.search', ['tipo' => 'uc'])}}" method="POST" class="w-50 d-flex flex-column ml-3 align-items-center justify-content-center">
+                        <div class="w-100 d-flex align-items-center justify-content-center">
+                            @csrf
+                            <input name="nomeUC" type="search" class="form-control"
+                            @if ($pesq)
+                            value="{{$param}}"
+                            @endif
+                            >
+                            <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+                                <img src="../img/search.png" alt="pesquisar">
+                            </button>
+                        </div>
+                        @if ($pesq)
+                            <a class="mt-2 mx-auto text-decoration-none" href="{{Route('admin.recursos', ['tipo' => 'uc'])}}" type="button">Limpar Pesquisa</a>
+                        @endif
+                    </form>
+                    </div>
+                    {{-- @foreach ($ucs as $uc)          
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill">
                             <h4 class="m-0">{{$uc->siglaUC}}</h4>
@@ -150,7 +168,23 @@
                                 </a>
                             </div>
                         </div>
-                    @endforeach
+                    @endforeach --}}
+                    @for ($cont = 0; $cont < sizeOf($ucs); $cont++)          
+                    <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
+                        <div class="p-2 d-flex flex-column justify-content-around flex-fill">
+                        <h4 class="m-0">{{$ucs[$cont]->siglaUC}}</h4>
+                            <p class="m-0">{{$ucsNome[$cont]->nomeUC}}</p>
+                        </div>
+                        <div class="d-flex fit align-items-center justify-content-around">
+                            <a href="{{route('admin.editar', ['tipo' => "uc",'id' => $ucs[$cont]->id])}}">
+                                <img src="/img/editar.png" alt="editar" width="32px" class="mx-2">
+                            </a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exclude"  onclick="modalExclude({{$ucs[$cont]->id}}, '{{$ucs[$cont]->siglaUC}}', '{{$ucs[$cont]->nomeUC}}', 'uc')";>
+                                <img src="/img/excluir.png" alt="excluir" width="32px" class="mx-2">
+                            </a>
+                        </div>
+                    </div>
+                    @endfor
                 </div>
                 <div @if ($tipo == 'curso')
                 class="tab-pane fade active show"
