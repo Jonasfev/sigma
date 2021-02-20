@@ -14,6 +14,7 @@ use App\Models\Equipamento;
 use App\Models\Reserva;
 use App\Models\Turma;
 use App\Models\Uc;
+use COM;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 
@@ -24,7 +25,7 @@ class RecursoController extends Controller
 
         $docentes = Docente::orderBy('Nome', 'asc')->get();
 
-        $equip = Equipamento::orderBy('Nome', 'asc')->get();
+        $equips = Equipamento::orderBy('Nome', 'asc')->get();
 
         $ambientes = Ambiente::orderBy('numAmbiente', 'asc')->get();
 
@@ -37,63 +38,165 @@ class RecursoController extends Controller
 
         $pesq = false;
 
-        return view('partials.recursos', compact(['docentes', 'equip', 'ambientes', 'ucs', 'ucsNome', 'cursos', 'turmas', 'tipo', 'pesq']));
+        return view('partials.recursos', compact(['docentes', 'equips', 'ambientes', 'ucs', 'ucsNome', 'cursos', 'turmas', 'tipo', 'pesq']));
     }
 
     public function search(Request $request){
-        $ucs = [];
-        $param = $request->nomeUC;
-        $tipo = 'uc';
-
-        if($request->nomeUC == null){
-            return redirect()->route('admin.recursos', ['tipo' => 'uc']);
-        }
-        if(strlen($param) <= 10){
-            foreach(Uc::where('siglaUC', 'LIKE', "%{$param}%")->get() as $uc) {
-                array_push($ucs, $uc);
-            }
-        } 
-
-        $ucsNome = Uc::where('nomeUC', 'LIKE', "%{$param}%")->get();
-        foreach($ucsNome as $ucNome){
-            if(!in_array(Uc::get()->where('nomeUC', $ucNome->nomeUC), $ucs)){
-                foreach(Uc::get()->where('nomeUC', $ucNome->nomeUC) as $uc){
-                    if(!in_array($uc, $ucs)){
-                        array_push($ucs, $uc);
-                    }
-                }
-            }
-        }
-        
-        $ucsNome = [];
-        foreach($ucs as $uc){
-            array_push($ucsNome, Uc::find($uc->id));
-        }
+        $tipo = $request->tipo;
 
         $pesq = true;
         
         $docentes = Docente::orderBy('Nome', 'asc')->get();
 
-        $equip = Equipamento::orderBy('Nome', 'asc')->get();
+        $equips = Equipamento::orderBy('Nome', 'asc')->get();
 
         $ambientes = Ambiente::orderBy('numAmbiente', 'asc')->get();
+
+        $ucs = Uc::orderBy('siglaUC', 'asc')->get();
+        $ucsNome = Uc::orderBy('siglaUC', 'asc')->get('nomeUC');
 
         $cursos = Curso::orderBy('siglaCurso', 'asc')->get();
 
         $turmas = Turma::orderBy('siglaTurma', 'asc')->get();
+        
+        switch($tipo){
+            case 'uc':
+                $ucs = [];
+                $param = $request->nome;
+                if($request->nome == null){
+                    return redirect()->route('admin.recursos', ['tipo' => 'uc']);
+                }
+                if(strlen($param) <= 10){
+                    foreach(Uc::where('siglaUC', 'LIKE', "%{$param}%")->get() as $uc) {
+                        array_push($ucs, $uc);
+                    }
+                } 
+        
+                $ucsNome = Uc::where('nomeUC', 'LIKE', "%{$param}%")->get();
+                foreach($ucsNome as $ucNome){
+                    if(!in_array(Uc::get()->where('nomeUC', $ucNome->nomeUC), $ucs)){
+                        foreach(Uc::get()->where('nomeUC', $ucNome->nomeUC) as $uc){
+                            if(!in_array($uc, $ucs)){
+                                array_push($ucs, $uc);
+                            }
+                        }
+                    }
+                }
+                
+                $ucsNome = [];
+                foreach($ucs as $uc){
+                    array_push($ucsNome, Uc::find($uc->id));
+                }
+                break;
+            
+            case 'docente':
+                $docentes = [];
+                $param = $request->nome;
+                if($request->nome == null){
+                    return redirect()->route('admin.recursos', ['tipo' => 'docente']);
+                }
+                
+                foreach(Docente::where('Nome', 'LIKE', "%{$param}%")->get() as $docente) {
+                    array_push($docentes, $docente);
+                }
+        
+                $docentesSobrenome = Docente::where('Sobrenome', 'LIKE', "%{$param}%")->get();
+                foreach($docentesSobrenome as $docenteSobrenome){
+                    if(!in_array(Docente::get()->where('Sobrenome', $docenteSobrenome->Sobrenome), $docentes)){
+                        foreach(Docente::get()->where('Sobrenome', $docenteSobrenome->Sobrenome) as $docenteSobrenome){
+                            if(!in_array($docenteSobrenome, $docentes)){
+                                array_push($docentes, $docenteSobrenome);
+                            }
+                        }
+                    }
+                }
+                break;
 
-        return view('partials.recursos', compact(['docentes', 'equip', 'ambientes', 'cursos', 'turmas', 'tipo', 'ucs', 'ucsNome', 'pesq', 'param']));
-    }
+            case 'ambiente':
+                $ambientes = [];
+                $param = $request->nome;
+                if($request->nome == null){
+                    return redirect()->route('admin.recursos', ['tipo' => 'ambiente']);
+                }
+                
+                foreach(Ambiente::where('Tipo', 'LIKE', "%{$param}%")->get() as $ambiente) {
+                    array_push($ambientes, $ambiente);
+                }
 
-    public function searchUC($nomeUC){
+                $ambientesNum = Ambiente::where('numAmbiente', 'LIKE', "%{$param}%")->get();
+                foreach($ambientesNum as $ambienteNum){
+                    if(!in_array(Ambiente::get()->where('numAmbiente', $ambienteNum->numAmbiente), $ambientes)){
+                        foreach(Ambiente::get()->where('numAmbiente', $ambienteNum->numAmbiente) as $ambienteNum){
+                            if(!in_array($ambienteNum, $ambientes)){
+                                array_push($ambientes, $ambienteNum);
+                            }
+                        }
+                    }
+                }
+                break;
 
-        $ucs = [];
-        $param = $nomeUC;
+            case 'equips':
+                $equips = [];
+                $param = $request->nome;
+                if($request->nome == null){
+                    return redirect()->route('admin.recursos', ['tipo' => 'equips']);
+                }
+                
+                foreach(Equipamento::where('Nome', 'LIKE', "%{$param}%")->get() as $equip) {
+                    array_push($equips, $equip);
+                }
 
-        $ucs = Uc::orderBy('nomeUC', 'asc')->where('nomeUC', 'LIKE', "%{$param}%")->get();
+                $equipsNum = Equipamento::where('numPatrimonio', 'LIKE', "%{$param}%")->get();
+                foreach($equipsNum as $equipNum){
+                    if(!in_array(Equipamento::get()->where('numPatrimonio', $equipNum->numPatrimonio), $equips)){
+                        foreach(Equipamento::get()->where('numPatrimonio', $equipNum->numPatrimonio) as $equipNum){
+                            if(!in_array($equipNum, $equips)){
+                                array_push($equips, $equipNum);
+                            }
+                        }
+                    }
+                }
+                break;
 
-        echo json_encode($ucs);
+            case 'curso':
+                $cursos = [];
+                $param = $request->nome;
+                if($request->nome == null){
+                    return redirect()->route('admin.recursos', ['tipo' => 'curso']);
+                }
+                if(strlen($param) <= 10){
+                    foreach(Curso::where('siglaCurso', 'LIKE', "%{$param}%")->get() as $curso) {
+                        array_push($cursos, $curso);
+                    }
+                } 
+        
+                $cursosNome = Curso::where('nomeCurso', 'LIKE', "%{$param}%")->get();
+                foreach($cursosNome as $cursoNome){
+                    if(!in_array(Curso::get()->where('nomeCurso', $cursoNome->nomeCurso), $cursos)){
+                        foreach(Curso::get()->where('nomeCurso', $cursoNome->nomeCurso) as $curso){
+                            if(!in_array($curso, $cursos)){
+                                array_push($cursos, $curso);
+                            }
+                        }
+                    }
+                }
+                break;
 
+            case 'turma':
+                $turmas = [];
+                $param = $request->nome;
+                if($request->nome == null){
+                    return redirect()->route('admin.recursos', ['tipo' => 'turma']);
+                }
+                
+                foreach(Turma::where('siglaTurma', 'LIKE', "%{$param}%")->get() as $turma) {
+                    array_push($turmas, $turma);
+                }
+                break;
+
+        }
+        
+        return view('partials.recursos', compact(['docentes', 'equips', 'ambientes', 'cursos', 'turmas', 'tipo', 'ucs', 'ucsNome', 'pesq', 'param']));
     }
 
     public function showSchedule($id, $tipo){

@@ -55,6 +55,22 @@
                         <img src="/img/add.png" class="mr-2">
                         Adicionar docente
                     </a>
+                    <form action="{{route('admin.search', ['tipo' => 'docente'])}}" method="POST" class="w-50 d-flex flex-column mx-auto align-items-center justify-content-center">
+                        <div class="w-100 d-flex align-items-center justify-content-center">
+                            @csrf
+                            <input name="nome" type="search" class="form-control"
+                            @if ($pesq)
+                            value="{{$param}}"
+                            @endif
+                            >
+                            <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+                                <img src="../img/search.png" alt="pesquisar">
+                            </button>
+                        </div>
+                        @if ($pesq)
+                            <a class="mt-2 mx-auto text-decoration-none" href="{{Route('admin.recursos', ['tipo' => 'docente'])}}" type="button">Limpar Pesquisa</a>
+                        @endif
+                    </form>
                     @foreach ($docentes as $docente)
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill" data-bs-toggle="modal" onclick="showSchedule({{$docente->id}}, 'docente')" data-bs-target="#recurso">
@@ -78,11 +94,26 @@
                 @else
                 class="tab-pane fade"
             @endif id="nav-amb" role="tabpanel" aria-labelledby="nav-amb-tab">
-                    
                     <a href="{{route('admin.cadastrar', ['tipo'=>"ambiente"])}}" class="d-flex align-items-center justify-content-center mt-3">
                         <img src="/img/add.png" class="mr-2">
                         Adicionar ambiente
                     </a>
+                    <form action="{{route('admin.search', ['tipo' => 'ambiente'])}}" method="POST" class="w-50 d-flex flex-column mx-auto align-items-center justify-content-center">
+                        <div class="w-100 d-flex align-items-center justify-content-center">
+                            @csrf
+                            <input name="nome" type="search" class="form-control"
+                            @if ($pesq)
+                            value="{{$param}}"
+                            @endif
+                            >
+                            <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+                                <img src="../img/search.png" alt="pesquisar">
+                            </button>
+                        </div>
+                        @if ($pesq)
+                            <a class="mt-2 mx-auto text-decoration-none" href="{{Route('admin.recursos', ['tipo' => 'ambiente'])}}" type="button">Limpar Pesquisa</a>
+                        @endif
+                    </form>
                     @foreach ($ambientes as $ambiente)
                     <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                         <div class="p-2 d-flex flex-column justify-content-around flex-fill" onclick="showSchedule({{$ambiente->id}}, 'ambiente')" data-bs-toggle="modal" data-bs-target="#recurso">
@@ -100,7 +131,7 @@
                     </div>
                     @endforeach
                 </div>
-                <div @if ($tipo == 'equipamento')
+                <div @if ($tipo == 'equips')
                 class="tab-pane fade active show"
                 @else
                 class="tab-pane fade"
@@ -109,7 +140,23 @@
                         <img src="/img/add.png" class="mr-2">
                         Adicionar equipamento
                     </a>
-                    @foreach ($equip as $item)          
+                    <form action="{{route('admin.search', ['tipo' => 'equips'])}}" method="POST" class="w-50 d-flex flex-column mx-auto align-items-center justify-content-center">
+                        <div class="w-100 d-flex align-items-center justify-content-center">
+                            @csrf
+                            <input name="nome" type="search" class="form-control"
+                            @if ($pesq)
+                            value="{{$param}}"
+                            @endif
+                            >
+                            <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+                                <img src="../img/search.png" alt="pesquisar">
+                            </button>
+                        </div>
+                        @if ($pesq)
+                            <a class="mt-2 mx-auto text-decoration-none" href="{{Route('admin.recursos', ['tipo' => 'equips'])}}" type="button">Limpar Pesquisa</a>
+                        @endif
+                    </form>
+                    @foreach ($equips as $item)
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill" onclick="showSchedule({{$item->id}}, 'equipamento')" data-bs-toggle="modal" data-bs-target="#recurso">
                             <h4 class="m-0">{{$item->Nome}}</h4>
@@ -138,7 +185,7 @@
                     <form action="{{route('admin.search', ['tipo' => 'uc'])}}" method="POST" class="w-50 d-flex flex-column mx-auto align-items-center justify-content-center">
                         <div class="w-100 d-flex align-items-center justify-content-center">
                             @csrf
-                            <input name="nomeUC" type="search" class="form-control"
+                            <input name="nome" type="search" class="form-control"
                             @if ($pesq)
                             value="{{$param}}"
                             @endif
@@ -177,6 +224,22 @@
                         <img src="/img/add.png" class="mr-2">
                         Adicionar curso
                     </a>
+                    <form action="{{route('admin.search', ['tipo' => 'curso'])}}" method="POST" class="w-50 d-flex flex-column mx-auto align-items-center justify-content-center">
+                        <div class="w-100 d-flex align-items-center justify-content-center">
+                            @csrf
+                            <input name="nome" type="search" class="form-control"
+                            @if ($pesq)
+                            value="{{$param}}"
+                            @endif
+                            >
+                            <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+                                <img src="../img/search.png" alt="pesquisar">
+                            </button>
+                        </div>
+                        @if ($pesq)
+                            <a class="mt-2 mx-auto text-decoration-none" href="{{Route('admin.recursos', ['tipo' => 'curso'])}}" type="button">Limpar Pesquisa</a>
+                        @endif
+                    </form>
                     @foreach ($cursos as $curso)          
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill">
@@ -203,6 +266,22 @@
                         <img src="/img/add.png" class="mr-2">
                         Adicionar turma
                     </a>
+                    <form action="{{route('admin.search', ['tipo' => 'turma'])}}" method="POST" class="w-50 d-flex flex-column mx-auto align-items-center justify-content-center">
+                        <div class="w-100 d-flex align-items-center justify-content-center">
+                            @csrf
+                            <input name="nome" type="search" class="form-control"
+                            @if ($pesq)
+                            value="{{$param}}"
+                            @endif
+                            >
+                            <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+                                <img src="../img/search.png" alt="pesquisar">
+                            </button>
+                        </div>
+                        @if ($pesq)
+                            <a class="mt-2 mx-auto text-decoration-none" href="{{Route('admin.recursos', ['tipo' => 'turma'])}}" type="button">Limpar Pesquisa</a>
+                        @endif
+                    </form>
                     @foreach ($turmas as $t)          
                         <div class="border border-secondary rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                             <div class="p-2 d-flex flex-column justify-content-around flex-fill">

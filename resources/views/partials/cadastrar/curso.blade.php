@@ -11,12 +11,9 @@
     <div class="pg-ctn bg-light d-flex flex-column align-items-center justify-content-around">
         <h1>Novo curso</h1>
         <div class="bd-example bd-example-tabs w-50 h-75">
-            <div class="w-100 d-flex align-items-center justify-content-end">
+            <div class="w-100 d-flex flex-column align-items-end justify-content-end">
                 <div class="mb-2 w-50 d-flex align-items-center justify-content-center">
-                    <input id="nomeUC" name="nomeUC" type="text" class="form-control">
-                    <a class="p-2 btn btn-primary d-flex align-items-center justify-content-center" onclick="searchUC()">
-                        <img src="/img/search.png" width="20px" height="20px" alt="pesquisar">
-                    </a>
+                    <input id="nomeUC" name="nomeUC" type="text" class="form-control" placeholder="Filtro">
                 </div>
             </div>
             <form class="w-100 d-flex justify-content-around" id="cadastrar-curso" action="{{route('admin.store', ['tipo' => 'curso'])}}" method="POST">
@@ -64,4 +61,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#nomeUC").on("keyup", function() {
+              var value = $(this).val().toLowerCase();
+            $("#ucsPesquisadas *").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                $("#ucsPesquisadas").children("div").children("input").removeAttr("style");
+            });
+          });
+        });
+    </script>
 @endsection
