@@ -39,6 +39,10 @@
         @endswitch
         <div class="day w-18 h-100 mx-auto d-flex flex-column" id="{{$day}}">
             <h2 class="w-100 text-center">{{$day}}</h2>
+            <div class="row d-flex flex-row w-100 mx-auto">
+                <div class="h5 mx-auto">A</div>
+                <div class="h5 mx-auto">B</div>
+            </div>
             <div class="container w-100 d-flex flex-fill p-0 border border-secondary rounded-lg">
                 <div class="turma-a border-right border-secondary w-50 h-100">
                     @for ($i = 0; $i < 5; $i++)
