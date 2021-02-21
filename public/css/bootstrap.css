@@ -89,7 +89,7 @@
 }
 
 .opcao-uc {
-  height: 100px;
+  max-height: 300px;
 }
 
 .error {

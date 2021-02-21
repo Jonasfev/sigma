@@ -29,7 +29,7 @@
                 </select>
                 <label class="mt-1 form-label" for="numAlunos">Nº de alunos</label>
                 <input class="form-control" type="number" name="numAlunos">
-                <label class="mt-1 form-label" for="horaEntrada">Hora de entrada</label>
+                <label class="mt-1 form-label" for="horaEntrada">Hora de Entrada</label>
                 <input id="entrada" class="form-control" type="time" name="horaEntrada">
                 <label class="mt-1 form-label" for="horaSaida">Hora de Saída</label>
                 <input id='saida' class="form-control" type="time" name="horaSaida">
@@ -44,7 +44,7 @@
             </div>
             @endif  
             <div class="col-12 d-flex align-items-center justify-content-around mt-3">
-                <a type="button" class="btn btn-secondary col-5" href="{{ Route('admin.recursos') }}">VOLTAR</a>
+                <a type="button" class="btn btn-secondary col-5" href="{{ Route('admin.recursos', ['tipo' => 'turma']) }}">VOLTAR</a>
                 <button form="cadastrar-turma" class="btn btn-primary col-5">SALVAR</button>
             </div>
         </div>

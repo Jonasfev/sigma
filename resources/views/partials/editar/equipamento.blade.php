@@ -18,7 +18,6 @@
                     @csrf
                     @method("PUT")
                   <div class="mb-3 mt-0">
-                    <label for="" class="form-label text-uppercase">{{$tipo}}</label>
                     <input type="text" value="{{$tipo}}" id="tipo" name="tipo" hidden>
                   </div>
                   <div class="mb-3 mt-0">
@@ -41,7 +40,7 @@
                 @endif 
               </div>
               <div class="col-12 d-flex align-items-center justify-content-around">
-                <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos')}}">VOLTAR</a>
+                <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos', ['tipo' => 'equipamento'])}}">VOLTAR</a>
                 <button type="submit" form="formu" class="btn btn-primary col-5 text-uppercase">SALVAR</button>
               </div>
             </div>

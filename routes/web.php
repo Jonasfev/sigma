@@ -8,42 +8,43 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LoginController::class, 'index'])->name('index');
+
 Route::post('/show', [LoginController::class, 'show'])->name('index.show');
 
-Route::get('/search', [LoginController::class, 'search'])->name('index.search');
+Route::get('/visualizaHorario/{id}', [HorarioController::class, 'visualizaHorario'])->name('visualizaHorario');
 
-//Route::middleware(['auth'])->group(function() {
+Route::get('/carregaHorario/{id}', [HorarioController::class, 'carregaHorario'])->name('carregaHorario');
+
+Route::middleware(['auth'])->group(function() {
     
     Route::get('/home', function(){return view('partials.home');})->name('home');
     
     Route::name('admin.')->group(function() {
-    
-        Route::get('/recursos', [RecursoController::class, 'index'])->name('recursos');
+        
+        Route::get('/recursos/{tipo?}', [RecursoController::class, 'index'])->name('recursos');
 
+        Route::post('/recurso/search', [RecursoController::class, 'search'])->name('search');
+        
         Route::get('/recursos/show/{id}/{tipo}', [RecursoController::class, 'showSchedule'])->name('recursoSchedule');
         
         Route::delete('/editar/deletar/', [RecursoController::class, 'destroy'])->name('deletar');
-
+        
         Route::get('/editar/{tipo?}/{id?}', [RecursoController::class, 'edit'])->name('editar');
-
+        
         Route::put('/editar/{id?}', [RecursoController::class, 'update'])->name('update');
-
+        
         Route::get('/cadastrar/{tipo}', [RecursoController::class, 'create'])->name('cadastrar');
         
         Route::post('/cadastrar/{tipo}', [RecursoController::class, 'store'])->name('store');
-
-        Route::get('/reservas/{id}', [HorarioController::class, 'carregaReservas'])->name('reservas');
-
-        Route::get('/horario/{id}', [HorarioController::class, 'index'])->name('horario');
         
+        Route::get('/reservas/{id}', [HorarioController::class, 'carregaReservas'])->name('reservas');
+        
+        Route::get('/horario/{id}', [HorarioController::class, 'index'])->name('horario');
+
         Route::post('/horario/store', [HorarioController::class, 'store'])->name('horario.store');
 
         Route::get('/horario/check/{recId}/{aula}/{recTipo}/{periodo}', [HorarioController::class, 'check'])->name('horario.check');
     
-        Route::get('/opcaoHorario', function() {
-            return view('partials.opcaoHorario');
-        })->name('opcaoHorario');
-        
         Route::get('/csv', [CsvController::class, 'create'])->name('csv');
         Route::post('/csv', [CsvController::class, 'store'])->name('csv.create');
 
@@ -51,6 +52,6 @@ Route::get('/search', [LoginController::class, 'search'])->name('index.search');
         
     });
 
-//});
+});
 
 Auth::routes();
