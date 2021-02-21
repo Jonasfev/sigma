@@ -189,7 +189,8 @@ function getErrors(recId, aula, recTipo){
             isReserved = [];
             isReserved.push(response['aulaReserva']);
             isReserved.push(response['diaReserva']);
-            isReserved.push(response['turmaReserva']);             
+            isReserved.push(response['turmaReserva']); 
+                        
             
         }
      

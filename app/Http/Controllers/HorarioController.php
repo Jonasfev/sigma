@@ -253,4 +253,39 @@ class HorarioController extends Controller
         echo json_encode($ok);
 
     }
+
+    public function checkin($idUc, $idRec, $tipoRec){
+
+        if($idUc == 'null'){
+            $ok['return'] = true;
+            echo json_encode($ok);
+
+        } else{
+              
+        switch($tipoRec){
+            case 'docente':
+                if(Docuc::where('docente', $idRec)->where('ucComportada', $idUc)->exists()){
+                    $ok['return'] = true;
+                } else{
+                    $ok['return'] = false;
+                };
+                echo json_encode($ok);
+                
+            break;
+
+            case 'ambiente':
+                if(Ambienteuc::where('idAmbiente', $idRec)->where('ucComportada', $idUc)->exists()){
+                    $ok['return'] = true;
+                } else{
+                    $ok['return'] = false;
+                };
+            
+                echo json_encode($ok);
+            break;
+
+        }
+
+        }
+        
+    }
 }

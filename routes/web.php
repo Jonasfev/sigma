@@ -15,7 +15,7 @@ Route::get('/visualizaHorario/{id}', [HorarioController::class, 'visualizaHorari
 
 Route::get('/carregaHorario/{id}', [HorarioController::class, 'carregaHorario'])->name('carregaHorario');
 
-Route::middleware(['auth'])->group(function() {
+// Route::middleware(['auth'])->group(function() {
     
     Route::get('/home', function(){return view('partials.home');})->name('home');
     
@@ -31,6 +31,8 @@ Route::middleware(['auth'])->group(function() {
         
         Route::get('/editar/{tipo?}/{id?}', [RecursoController::class, 'edit'])->name('editar');
         
+        
+        
         Route::put('/editar/{id?}', [RecursoController::class, 'update'])->name('update');
         
         Route::get('/cadastrar/{tipo}', [RecursoController::class, 'create'])->name('cadastrar');
@@ -44,7 +46,7 @@ Route::middleware(['auth'])->group(function() {
         Route::post('/horario/store', [HorarioController::class, 'store'])->name('horario.store');
 
         Route::get('/horario/check/{recId}/{aula}/{recTipo}/{periodo}', [HorarioController::class, 'check'])->name('horario.check');
-    
+        Route::get('/horario/checkin/{idUC}/{idRec}/{recTipo}',[HorarioController::class, 'checkin'])->name('horario.checkin');
         Route::get('/csv', [CsvController::class, 'create'])->name('csv');
         Route::post('/csv', [CsvController::class, 'store'])->name('csv.create');
 
@@ -52,6 +54,6 @@ Route::middleware(['auth'])->group(function() {
         
     });
 
-});
+// });
 
 Auth::routes();
