@@ -28,7 +28,7 @@
                     @else
                     class="nav-item nav-link"
                 @endif id="nav-amb-tab" data-toggle="tab" href="#nav-amb" role="tab" aria-controls="nav-amb" aria-selected="false">Ambientes</a>
-                    <a @if ($tipo == 'equipamento')
+                    <a @if ($tipo == 'equips')
                     class="nav-item nav-link active show"
                     @else
                     class="nav-item nav-link"
