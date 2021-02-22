@@ -45,7 +45,7 @@ Route::get('/carregaHorario/{id}', [HorarioController::class, 'carregaHorario'])
 
         Route::post('/horario/store', [HorarioController::class, 'store'])->name('horario.store');
 
-        Route::get('/horario/check/{recId}/{aula}/{recTipo}/{periodo}', [HorarioController::class, 'check'])->name('horario.check');
+        Route::get('/horario/check/{recId}/{aula}/{recTipo}/{periodo}/{idUC}', [HorarioController::class, 'check'])->name('horario.check');
         Route::get('/horario/checkin/{idUC}/{idRec}/{recTipo}',[HorarioController::class, 'checkin'])->name('horario.checkin');
         Route::get('/csv', [CsvController::class, 'create'])->name('csv');
         Route::post('/csv', [CsvController::class, 'store'])->name('csv.create');

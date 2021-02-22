@@ -174,10 +174,12 @@
     }
 }
 
-function getErrors(recId, aula, recTipo){
+
+function getErrors(recId, aula, recTipo, idUc){
     isValid = true;
+    
     const request = $.ajax({
-        url: "/horario/check/"+recId+'/'+aula+'/'+recTipo+'/'+'{{$turma->periodo}}',
+        url: "/horario/check/"+recId+'/'+aula+'/'+recTipo+'/'+'{{$turma->periodo}}'+'/'+idUc,
         dataType: 'json',
         type: "get",
         
@@ -185,8 +187,10 @@ function getErrors(recId, aula, recTipo){
            console.log('error', response);
         },
         success: function (response) {
+            console.log(response);
             isValid = response['reserva'];
             isReserved = [];
+            ucNotComp = response['return']['return'];
             isReserved.push(response['aulaReserva']);
             isReserved.push(response['diaReserva']);
             isReserved.push(response['turmaReserva']); 

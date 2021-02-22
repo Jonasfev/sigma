@@ -336,58 +336,31 @@ function drop(ev, el){
  
     var nodeCopy = document.getElementById(data).cloneNode(true);
 
-     var idUC = $(ev.target).closest('.aula').children('form').children("input[name='idUc']").val();
+    var idUC = $(ev.target).closest('.aula').children('form').children("input[name='idUc']").val();
 
     var idRec = $(nodeCopy).children('input').val();
-
-    console.log(idUC);
 
     if(idUC == ""){
         idUC = null;
     }
 
-    if($(nodeCopy).hasClass('docente')){
-
-    } else if($(nodeCopy).hasClass('ambiente')){
-       
-        checkComp(idUC, idRec, 'ambiente');
-    }
-
-
-
-    function checkComp(idUC, idRec, tiporec){
-        $.ajax({
-            type: 'get',
-            dataType: 'json',
-            url: "/horario/checkin/"+idUC+'/'+ +idRec+'/'+tiporec,
-            success: function(response) {
-                isOkay = !response['return'];
-                ucNotComp = !response['return'];
-            },
-            error: function(response) {
-                console.log(response);
-            },
-        });
-    }
-
-    
     nodeCopy.removeAttribute('draggable');
     if($(nodeCopy).hasClass('uc')) {
-        $(el).children('.uc').html(nodeCopy.innerHTML);
-        $(el).children('form').children('input#'+el.id+'-10').attr('value', $(nodeCopy).children('input').val());
-        getErrors($(nodeCopy).children('input').val(), el.id, 'uc');
-
-    } else if($(nodeCopy).hasClass('docente')) {
-        getErrors($(nodeCopy).children('input').val(), el.id, 'docente');
-       
+        var idUC = [];
+        idUC.push($(ev.target).closest('.aula').children('form').children("input[name='idAmbiente']").val());
+        idUC.push($(ev.target).closest('.aula').children('form').children("input[name='idDocente']").val());
+        if(idUC == ","){
+            idUC = null;
+        }
+        getErrors(idRec, el.id, 'uc', idUC);
+        console.log(idRec, el.id, 'uc', idUC);
+        
         $(document).one("ajaxStop", function() {
-            checkComp(idUC, idRec, 'docente');
-            $(document).one("ajaxStop", function() {
-                if(!isValid && !isOkay){ 
-                    $(el).children('.doc').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");  
-                    $(el).children('form').children('input#'+el.id+'-8').attr('value', $(nodeCopy).children('input').val());
-                } else{
-                    $("div.error").css("display", "flex");
+            if(!isValid && !ucNotComp){ 
+                $(el).children('.uc').html(nodeCopy.innerHTML);
+                $(el).children('form').children('input#'+el.id+'-10').attr('value', $(nodeCopy).children('input').val());
+            } else {
+                $("div.error").css("display", "flex");
                     isReservedIs();
                     if(ucNotComp){
                         $("div.error").children("div.row").children("div.col-auto").html('Incompatibilidade de Recurso');
@@ -397,22 +370,35 @@ function drop(ev, el){
                     errorShow();
             }
 
-            });
 
-            
+        });
+
+    } else if($(nodeCopy).hasClass('docente')) {
+        getErrors(idRec, el.id, 'docente', idUC);
+        $(document).one("ajaxStop", function() {
+            console.log(isValid, ucNotComp);
+                if(!isValid && !ucNotComp){ 
+                    $(el).children('.doc').html("<p class='m-0'><small>"+nodeCopy.innerHTML+"</p></small>");  
+                    $(el).children('form').children('input#'+el.id+'-8').attr('value', $(nodeCopy).children('input').val());
+                } else{
+                    $("div.error").css("display", "flex"); 
+                    isReservedIs();
+                    if(ucNotComp){
+                        $("div.error").children("div.row").children("div.col-auto").html('Incompatibilidade de Recurso');
+                    } else{
+                        $("div.error").children("div.row").children("div.col-auto").html('Docente já alocado na ' + s1 + ' aula da ' + s2 + '-feira na turma ' +isReserved[2]);
+                    }
+                    errorShow();
+            }          
         });
 
     } else if($(nodeCopy).hasClass('ambiente' ))  {
-        getErrors($(nodeCopy).children('input').val(), el.id, 'ambiente');
+        getErrors(idRec, el.id, 'ambiente', idUC);
         $(document).one("ajaxStop", function() {
-            checkComp(idUC, idRec, 'ambiente');
-            $(document).one("ajaxStop", function() {
-                if(!isValid && !isOkay){ 
-                    console.log(isOkay);
+                if(!isValid &&  !ucNotComp ){ 
                     $(el).children('.dropup').children('.icon.amb').html("<p class='m-0'><small>"+$(nodeCopy).children('p').text()+"</p></small>");
                     $(el).children('form').children('input#'+el.id+'-9').attr('value', $(nodeCopy).children('input').val());
                 } else{
-                    console.log(isOkay);
                     $("div.error").css("display", "flex");
                     isReservedIs();
                     if(ucNotComp){
@@ -421,10 +407,8 @@ function drop(ev, el){
                         $("div.error").children("div.row").children("div.col-auto").html('Ambiente já alocado na ' + s1 + ' aula da ' + s2 + '-feira na turma ' +isReserved[2]);  
                     }
                     errorShow();
-            }
-            });   
+            }    
         });
-
     } else if($(nodeCopy).hasClass('equipamento')) {
         getErrors($(nodeCopy).children('input').val(), el.id, 'equipamento');
         $(document).one("ajaxStop", function() {

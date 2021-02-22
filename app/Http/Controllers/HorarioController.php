@@ -145,7 +145,7 @@ class HorarioController extends Controller
         echo $reservas;
     }
 
-    public function check($recId, $aula, $recTipo, $periodo){
+    public function check($recId, $aula, $recTipo, $periodo, $idUc){
         $aulaN = intval(str_replace("aula-", "", $aula));
 
         if($aulaN <= 5){
@@ -246,9 +246,12 @@ class HorarioController extends Controller
                 };  
             break;
         }
+
         $ok['rectip'] = $aulaN;
         $ok['turma'] = $turma;
         $ok['diaSemana'] = $diaSemana;
+
+        $ok['return'] = $this->checkin($idUc, $recId, $recTipo);
 
         echo json_encode($ok);
 
@@ -256,31 +259,44 @@ class HorarioController extends Controller
 
     public function checkin($idUc, $idRec, $tipoRec){
 
+        $idUcs[] = explode(',', $idUc); 
+
         if($idUc == 'null'){
-            $ok['return'] = true;
-            echo json_encode($ok);
+            return $ok['return'] = true;
 
         } else{
               
         switch($tipoRec){
             case 'docente':
                 if(Docuc::where('docente', $idRec)->where('ucComportada', $idUc)->exists()){
-                    $ok['return'] = true;
-                } else{
                     $ok['return'] = false;
+                } else{
+                    $ok['return'] = true;
                 };
-                echo json_encode($ok);
+                return $ok;
                 
             break;
 
             case 'ambiente':
                 if(Ambienteuc::where('idAmbiente', $idRec)->where('ucComportada', $idUc)->exists()){
-                    $ok['return'] = true;
-                } else{
                     $ok['return'] = false;
+                } else{
+                    $ok['return'] = true;
                 };
-            
-                echo json_encode($ok);
+                return $ok;
+            break;
+
+            case 'uc':
+                if(Docuc::where('docente', intval($idUcs[0][1]))->where('ucComportada', $idRec)->exists()){
+                    $ok['return'] = false;
+                } else if(Ambienteuc::where('idAmbiente', intval($idUcs[0][0]))->where('ucComportada', $idRec)->exists()){
+                    $ok['return'] = false;
+                } else{
+                    $ok['return'] = true;
+                };
+                return $ok;
+
+
             break;
 
         }
