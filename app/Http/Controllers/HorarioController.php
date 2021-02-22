@@ -287,15 +287,20 @@ class HorarioController extends Controller
             break;
 
             case 'uc':
-                if(Docuc::where('docente', intval($idUcs[0][1]))->where('ucComportada', $idRec)->exists()){
-                    $ok['return'] = false;
-                } else if(Ambienteuc::where('idAmbiente', intval($idUcs[0][0]))->where('ucComportada', $idRec)->exists()){
-                    $ok['return'] = false;
-                } else{
-                    $ok['return'] = true;
-                };
-                return $ok;
+                $ok['return'] = false;
+                if(Docuc::where('docente', intval($idUcs[0][1]))->where('ucComportada', $idRec)->exists() || Ambienteuc::where('idAmbiente', intval($idUcs[0][0]))->where('ucComportada', $idRec)->exists()){
+                    
+                 
+                    if(Ambienteuc::where('idAmbiente', intval($idUcs[0][0]))->where('ucComportada', $idRec)->exists()){
+                        $ok['return'] = true;
+                    } 
 
+                    if(Docuc::where('docente', intval($idUcs[0][1]))->where('ucComportada', $idRec)->exists()){
+                        $ok['return'] = true;
+                    } 
+
+                } 
+                return $ok;
 
             break;
 

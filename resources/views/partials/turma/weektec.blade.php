@@ -185,7 +185,6 @@ function getErrors(recId, aula, recTipo, idUc){
            console.log('error', response);
         },
         success: function (response) {
-            console.log(response);
             
             isValid = response['reserva'];
             isReserved = [];
