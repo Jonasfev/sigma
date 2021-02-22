@@ -163,7 +163,7 @@
                                 <p class="m-0">{{$item->numPatrimonio}}</p>
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
-                                <a href="{{route('admin.editar', ['tipo' => "equipamento",'id' => $item->id])}}">
+                                <a href="{{route('admin.editar', ['tipo' => "equips",'id' => $item->id])}}">
                                     <img src="/img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exclude"  onclick="modalExclude({{$item->id}}, '{{$item->Nome}}', '{{$item->numPatrimonio}}', 'equipamento');"> 
