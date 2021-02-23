@@ -15,7 +15,7 @@ Route::get('/visualizaHorario/{id}', [HorarioController::class, 'visualizaHorari
 
 Route::get('/carregaHorario/{id}', [HorarioController::class, 'carregaHorario'])->name('carregaHorario');
 
-// Route::middleware(['auth'])->group(function() {
+Route::middleware(['auth'])->group(function() {
     
     Route::get('/home', function(){return view('partials.home');})->name('home');
     
@@ -54,6 +54,6 @@ Route::get('/carregaHorario/{id}', [HorarioController::class, 'carregaHorario'])
         
     });
 
-// });
+});
 
 Auth::routes();
