@@ -27,12 +27,9 @@
                     <option value="tarde">Tarde</option>
                     <option value="noite">Noite</option>
                 </select>
-                <label class="mt-1 form-label" for="numAlunos">Nº de alunos</label>
-                <input class="form-control" type="number" name="numAlunos">
-                <label class="mt-1 form-label" for="horaEntrada">Hora de Entrada</label>
-                <input id="entrada" class="form-control" type="time" name="horaEntrada">
-                <label class="mt-1 form-label" for="horaSaida">Hora de Saída</label>
-                <input id='saida' class="form-control" type="time" name="horaSaida">
+                <input class="form-control" type="number" name="numAlunos" value='10' hidden>
+                <input id="entrada" class="form-control" type="time" name="horaEntrada" value='13:30:00' hidden>
+                <input id='saida' class="form-control" type="time" name="horaSaida" value='13:30:00' hidden>
             </form>
             @if ($errors->any())
             <div class="alert alert-danger my-2">

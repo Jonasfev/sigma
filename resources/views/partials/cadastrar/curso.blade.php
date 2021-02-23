@@ -29,12 +29,9 @@
                     <input class="form-control" type="text" name="siglaCurso">
                     <label class="mt-1 form-label" for="nomeCurso">Nome do Curso</label>
                     <input class="form-control" type="text" name="nomeCurso">
-                    <label class="mt-1 form-label" for="dataInicioCurso">Início</label>
-                    <input class="form-control" type="date" name="dataInicioCurso">
-                    <label class="mt-1 form-label" for="dataFimCurso">Fim</label>
-                    <input class="form-control" type="date" name="dataFimCurso">
-                    <label class="mt-1 form-label" for="cargaTotalHoras">Carga horária total</label>
-                    <input class="form-control" type="number" name="cargaTotalHoras">
+                    <input class="form-control" type="date" name="dataInicioCurso" value='2021-02-22' hidden>
+                    <input class="form-control" type="date" name="dataFimCurso" value='2021-02-22' hidden>
+                    <input class="form-control" type="number" name="cargaTotalHoras" value='10' hidden>
                 </div>
                 <div class="w-45 d-flex flex-column opcao-uc overflow-auto">
                     <div id="ucsPesquisadas" class="opcao-uc overflow-auto">

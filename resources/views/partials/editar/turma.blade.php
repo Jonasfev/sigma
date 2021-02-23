@@ -39,12 +39,9 @@
                           @endif>Noite</option>
                         @endif
                     </select>
-                    <label class="mt-1 form-label" for="numAlunos">Nº de alunos</label>
-                    <input class="form-control" type="number" name="numAlunos" value="{{$recurso->numAlunos}}">
-                    <label class="mt-1 form-label" for="horaEntrada">Hora de Entrada</label>
-                    <input id="entrada" class="form-control" type="time" name="horaEntrada" value="{{$recurso->horaEntrada}}">
-                    <label class="mt-1 form-label" for="horaSaida">Hora de Saída</label>
-                    <input id="saida" class="form-control" type="time" name="horaSaida" value="{{$recurso->horaSaida}}">                  
+                    <input class="form-control" type="number" name="numAlunos" value='10' hidden>
+                    <input id="entrada" class="form-control" type="time" name="horaEntrada" value='13:30:00' hidden>
+                    <input id='saida' class="form-control" type="time" name="horaSaida" value='13:30:00' hidden>    
                 </form>
                 @if ($errors->any())
                   <div class="alert alert-danger my-2">

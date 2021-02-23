@@ -41,12 +41,9 @@
                 <input class="form-control" type="text" name="siglaCurso" value="{{$recurso->siglaCurso}}">
                 <label class="mt-1 form-label" for="nomeCurso">Nome do Curso</label>
                 <input class="form-control" type="text" name="nomeCurso" value="{{$recurso->nomeCurso}}">
-                <label class="mt-1 form-label" for="dataInicioCurso">Início</label>
-                <input class="form-control" type="date" name="dataInicioCurso" value="{{$recurso->dataInicioCurso}}">
-                <label class="mt-1 form-label" for="dataFimCurso">Fim</label>
-                <input class="form-control" type="date" name="dataFimCurso" value="{{$recurso->dataFimCurso}}">
-                <label class="mt-1 form-label" for="cargaTotalHoras">Carga horária total</label>
-                <input class="form-control" type="number" name="cargaTotalHoras" value="{{$recurso->cargaTotalHoras}}">
+                <input class="form-control" type="date" name="dataInicioCurso" value='2021-02-22' hidden>
+                <input class="form-control" type="date" name="dataFimCurso" value='2021-02-22' hidden>
+                <input class="form-control" type="number" name="cargaTotalHoras" value='10' hidden>  
               </div>
               <div class="w-45 opcao-uc d-flex flex-column overflow-auto">
                 <div id="ucsPesquisadas" class="opcao-uc overflow-auto">

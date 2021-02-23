@@ -46,8 +46,7 @@
                   <input type="number" class="form-control mt-0" id="numAmbiente" name="numAmbiente" value="{{$recurso->numAmbiente}}">
                 </div>
                 <div class="mb-3 mt-0">
-                  <label for="Hmax" class="form-label">Alunos Comportados</label>
-                  <input type="number" class="form-control mt-0" id="Hmax" name="alunosComportados" value="{{$recurso->alunosComportados}}">
+                  <input class="form-control" type="number" name="alunosComportados" value='10' hidden>  
                 </div>
               </div>
               <div class="w-45 d-flex flex-column">

@@ -33,12 +33,8 @@
                     <input type="text" class="form-control mt-0" name = "Sobrenome" id="sobrenome" value="{{$recurso->Sobrenome}}">
                   </div>
                   <div class="mb-3 mt-0">
-                    <label for="Hmin" class="form-label">Horas Mínimas</label>
-                    <input type="number" class="form-control mt-0" name="hmin" id="Hmin" value="{{$recurso->hMin}}">
-                  </div>
-                  <div class="mb-3 mt-0">
-                    <label for="Hmax" class="form-label">Horas Máximas</label>
-                    <input type="number" class="form-control mt-0" name="hmax" id="Hmax" value="{{$recurso->hMax}}">
+                    <input class="form-control" type="number" name="hmin" id="hmin" value='10' hidden>
+                    <input class="form-control" type="number" name="hmax" id="hmax"  value='10' hidden>  
                   </div>
                 </div>
                 <div class="w-45 opcao-uc d-flex flex-column overflow-auto">

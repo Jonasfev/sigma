@@ -29,8 +29,7 @@
                     <input type="text" class="form-control mt-0" name= "nomeUC" value="{{$recurso->nomeUC}}">
                   </div>
                   <div class="mb-3 mt-0">
-                    <label for="aulasSemanais" class="form-label">Nº de aulas semanais</label>
-                    <input type="number" class="form-control mt-0" name="aulasSemanais" value="{{$recurso->aulasSemanais}}">
+                  <input class="form-control" type="number" name="aulasSemanais" value='3' hidden>
                   </div>
                 </form>
                 @if ($errors->any())

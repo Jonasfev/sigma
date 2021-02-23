@@ -27,8 +27,7 @@
                     </select>
                     <label class="mt-1 form-label" for="numAmbiente">Número do Ambiente</label>
                     <input class="form-control" type="number" name="numAmbiente">
-                    <label class="mt-1 form-label" for="alunosComportados">Alunos Comportados</label>
-                    <input class="form-control" type="number" name="alunosComportados">
+                    <input class="form-control" type="number" name="alunosComportados" value='10' hidden>
                 </div>                
                 <div class="w-45 d-flex flex-column">
                     <div id="ucsPesquisadas" class="opcao-uc overflow-auto">

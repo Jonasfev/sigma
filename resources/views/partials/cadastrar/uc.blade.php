@@ -17,8 +17,7 @@
                 <input class="form-control" type="text" name="siglaUC">
                 <label class="mt-1 form-label" for="nomeUC">Nome da UC</label>
                 <input class="form-control" type="text" name="nomeUC">
-                <label class="mt-1 form-label" for="aulasSemanais">Nº de aulas semanais</label>
-                <input class="form-control" type="number" name="aulasSemanais">
+                <input class="form-control" type="number" name="aulasSemanais" value='3' hidden>
             </form>
             @if ($errors->any())
             <div class="alert alert-danger my-2">
