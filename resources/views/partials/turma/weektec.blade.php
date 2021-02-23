@@ -1,5 +1,5 @@
 <div class="days h-100 w-100 d-flex justify-content-around">
-    <div class="h-ctn w-6 h-100 d-flex flex-column ml-1">
+    <div class="h-ctn w-6 h-95 pt-2 d-flex flex-column mt-4 ml-1">
         <h2 class="w-100 text-center">&nbsp</h2>
         <form class="aulas d-flex flex-column w-100 flex-fill">
             @for ($i = 0; $i < 5; $i++)
@@ -185,7 +185,6 @@ function getErrors(recId, aula, recTipo, idUc){
            console.log('error', response);
         },
         success: function (response) {
-            console.log(response);
             
             isValid = response['reserva'];
             isReserved = [];

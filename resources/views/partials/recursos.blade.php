@@ -28,7 +28,7 @@
                     @else
                     class="nav-item nav-link"
                 @endif id="nav-amb-tab" data-toggle="tab" href="#nav-amb" role="tab" aria-controls="nav-amb" aria-selected="false">Ambientes</a>
-                    <a @if ($tipo == 'equipamento')
+                    <a @if ($tipo == 'equips')
                     class="nav-item nav-link active show"
                     @else
                     class="nav-item nav-link"
@@ -163,7 +163,7 @@
                                 <p class="m-0">{{$item->numPatrimonio}}</p>
                             </div>
                             <div class="d-flex fit align-items-center justify-content-around">
-                                <a href="{{route('admin.editar', ['tipo' => "equipamento",'id' => $item->id])}}">
+                                <a href="{{route('admin.editar', ['tipo' => "equips",'id' => $item->id])}}">
                                     <img src="/img/editar.png" alt="editar" width="32px" class="mx-2">
                                 </a>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exclude"  onclick="modalExclude({{$item->id}}, '{{$item->Nome}}', '{{$item->numPatrimonio}}', 'equipamento');"> 
