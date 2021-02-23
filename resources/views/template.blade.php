@@ -14,16 +14,18 @@
     <title>SIGMA</title>
 </head>
 <body class="d-flex flex-column">
+    {{-- barra de navegação --}}
     <nav class="navbar navbar-dark bg-dark d-flex px-5">
-        <a href="{{Route('admin.home')}}">
+        <a href="{{Route('home')}}">
             <img src="/img/logo-senai.png" alt="Logo do senai" data-toggle="tooltip" data-placement="bottom" title="Home">
         </a>
         @if (isset($turma))
         <h3 class="text-white">{{$turma->siglaTurma}}</h3>
         @endif
+        {{-- botão feito e chamado em outro template(login.blade.php) --}}
         @yield('button')
     </nav>
-
+    {{-- conteudo feito e chamado em outro template(login.blade.php) --}}
         @yield('content')
 
 </body>

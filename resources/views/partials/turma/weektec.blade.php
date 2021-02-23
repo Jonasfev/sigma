@@ -1,5 +1,5 @@
 <div class="days h-100 w-100 d-flex justify-content-around">
-    <div class="h-ctn w-6 h-100 d-flex flex-column ml-1">
+    <div class="h-ctn w-6 h-95 pt-2 d-flex flex-column mt-4 ml-1">
         <h2 class="w-100 text-center">&nbsp</h2>
         <form class="aulas d-flex flex-column w-100 flex-fill">
             @for ($i = 0; $i < 5; $i++)
@@ -40,6 +40,10 @@
         @endswitch
     <div class="day w-18 h-100 mx-auto d-flex flex-column" id="{{$day}}">
         <h2 class="w-100 text-center">{{$day}}</h2>
+        <div class="row d-flex flex-row w-100 mx-auto">
+            <div class="h5 mx-auto">A</div>
+            <div class="h5 mx-auto">B</div>
+        </div>
         <div class="container w-100 d-flex flex-fill p-0 border border-secondary rounded-lg">
             <div class="turma-a border-right border-secondary w-50 h-100">
                 @for ($i = 0; $i < 5; $i++)
@@ -133,7 +137,6 @@
     </div>
     @endfor
 </div>
-
 <script>
     function enviarForms(n) {
         
@@ -146,23 +149,52 @@
                 type: "post",
                 data: data.serialize(),
                 dataType: 'json',
-                error: function(response) {
+            error: function(response) {
+                $('#staticBackdrop').children('.modal-dialog').children('.modal-content').children('.save').text("SALVANDO: "+ btnable*2 + "%");
+                btnable++;
+                $('#btnenviarform').prop("disabled",true).text("AGUARDE..." );
+                if(btnable == n+1){
+                    $('#btnenviarform').prop("disabled",false).text("SALVAR");
+                    $('#staticBackdrop').modal('hide');
+                    alert("Deu erro :(");
+                }  
+            },
+                success: function (response) {
+                    $('#staticBackdrop').children('.modal-dialog').children('.modal-content').children('.save').text("SALVANDO: "+ btnable*2 + "%");
                     btnable++;
-                    $('#btnenviarform').prop("disabled",true).text("SALVANDO: "+ btnable*2 + "%" );
+                    $('#btnenviarform').prop("disabled",true).text("AGUARDE..." );
                     if(btnable == n+1){
                         $('#btnenviarform').prop("disabled",false).text("SALVAR");
-                        alert("Deu merda bro :(");
-                    }  
-                },
-                success: function (response) {
-                    btnable++;
-                    $('#btnenviarform').prop("disabled",true).text("SALVANDO: "+ btnable*2 + "%" );
-                    if(btnable==n+1){
-                        $('#btnenviarform').prop("disabled",false).text("SALVAR");
-                        alert("Horário criado com maestria :)");
+                        $('#staticBackdrop').modal('hide');
                     }  
                 }
             }); 
         }
     }
+
+    
+function getErrors(recId, aula, recTipo, idUc){
+    isValid = true;
+    
+    const request = $.ajax({
+        url: "/horario/check/"+recId+'/'+aula+'/'+recTipo+'/'+'{{$turma->periodo}}'+'/'+idUc,
+        dataType: 'json',
+        type: "get",
+        
+        error: function(response) {
+           console.log('error', response);
+        },
+        success: function (response) {
+            
+            isValid = response['reserva'];
+            isReserved = [];
+            ucNotComp = response['return']['return'];
+            isReserved.push(response['aulaReserva']);
+            isReserved.push(response['diaReserva']);
+            isReserved.push(response['turmaReserva']);  
+            
+        }
+     
+    }); 
+}
 </script>

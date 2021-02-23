@@ -1,11 +1,20 @@
 @extends('template')
 @section('button')
-    <a type="button" class="btn btn-primary" href="{{Route('index')}}">
-        LOGOUT
-    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+    <button form="logout-form" type="submit" class="btn btn-primary">LOGOUT</button>
 @endsection
 
 @section('content')
+    <div class="modal fade m-auto" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center save"></div>
+        </div>
+        </div>
+    </div>
+
     <div class="pg-ctn h-75 bg-light flex-column">       
         <div class="config-ctn w-100 h-60 d-flex flex-lg-column align-items-center justify-content-around">
             @include('partials.turma.weektec')
@@ -26,9 +35,12 @@
                 <h4 class="text-center">Ambientes</h4>
                 <div class="w-75 px-2 h-75 d-flex flex-column align-items-center overflow-overlay">
                     @foreach ($ambientes as $ambiente)
-                        <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-{{$ambiente->id}}' ondragstart="drag(event);">
-                            <input type="number" value="{{$ambiente->id}}" hidden>
-                            <p class="m-0 p-0">{{$ambiente->Tipo}} - {{$ambiente->numAmbiente}}</p></div>
+                        @if ($ambiente != null)
+                            <div class="ambiente w-65 side-item bg-white text-center" draggable="true" id='amb-{{$ambiente->id}}' ondragstart="drag(event);">
+                                <input type="number" value="{{$ambiente->id}}" hidden>
+                                <p class="m-0 p-0">{{$ambiente->Tipo}} - {{$ambiente->numAmbiente}}</p>
+                            </div>
+                        @endif
                     @endforeach
                 </div>
             </div>
@@ -56,8 +68,15 @@
             </div>
         </div>
         <div class="w-50 d-flex align-items-center justify-content-around mx-auto mt-3 mb-4">
-            <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos')}}">VOLTAR</a>
-            <button onclick="enviarForms(50);" class="btn btn-primary col-5" id="btnenviarform">SALVAR</button>
+            <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos', ['tipo' => 'turma'])}}">VOLTAR</a>
+            <button onclick="enviarForms(50);" class="btn btn-primary col-5" id="btnenviarform" data-bs-toggle="modal" data-bs-target="#staticBackdrop">SALVAR</button>
+        </div>
+
+        <div class="error alert mx-auto p-2 alert-danger border-danger flex-column">
+            <div class="row justify-content-between">
+                <div class="col-auto my-auto"></div>
+                <a type="button" class="btn-close col-auto mr-2 text-decoration-none" onclick="errorHide();">X</a>
+            </div>
         </div>
     </div>
     <script>
@@ -75,6 +94,6 @@
         }
 
         carregaReservas();
-
+        error();
     </script>
 @endsection

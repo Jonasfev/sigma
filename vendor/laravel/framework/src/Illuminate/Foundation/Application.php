@@ -33,7 +33,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
      *
      * @var string
      */
-    const VERSION = '8.25.0';
+    const VERSION = '8.28.1';
 
     /**
      * The base path for the Laravel installation.
@@ -487,6 +487,21 @@ class Application extends Container implements ApplicationContract, CachesConfig
     }
 
     /**
+     * Get the path to the views directory.
+     *
+     * This method returns the first configured path in the array of view paths.
+     *
+     * @param  string  $path
+     * @return string
+     */
+    public function viewPath($path = '')
+    {
+        $basePath = $this['config']->get('view.paths')[0];
+
+        return rtrim($basePath, DIRECTORY_SEPARATOR).($path ? DIRECTORY_SEPARATOR.$path : $path);
+    }
+
+    /**
      * Get the path to the environment file directory.
      *
      * @return string
@@ -560,7 +575,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
     }
 
     /**
-     * Determine if application is in local environment.
+     * Determine if the application is in the local environment.
      *
      * @return bool
      */
@@ -570,7 +585,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
     }
 
     /**
-     * Determine if application is in production environment.
+     * Determine if the application is in the production environment.
      *
      * @return bool
      */
@@ -1260,7 +1275,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
     }
 
     /**
-     * Determine if application locale is the given locale.
+     * Determine if the application locale is the given locale.
      *
      * @param  string  $locale
      * @return bool

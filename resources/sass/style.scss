@@ -89,7 +89,16 @@ $theme-colors: (
 }
 
 .opcao-uc {
-    height: 100px;
+    max-height: 300px;
+}
+
+.error{
+    width: 98vw;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.2;
 }
 
 @import '~bootstrap/scss/bootstrap';

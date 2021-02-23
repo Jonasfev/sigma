@@ -16,8 +16,8 @@ class Ucs extends Migration
         Schema::create('ucs', function (Blueprint $table) {
             $table->id();
             $table->string('siglaUC', 5);
-            $table->string('nomeUC', 120);
-            $table->float('cargaSemanal', 5,2);
+            $table->string('nomeUC');
+            $table->integer('cargaSemanal');
             $table->integer('aulasSemanais');
             $table->timestamps();
         });

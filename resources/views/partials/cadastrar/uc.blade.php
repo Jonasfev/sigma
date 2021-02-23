@@ -1,9 +1,10 @@
 @extends('template')
 
 @section('button')
-    <a type="button" class="btn btn-primary" href="{{Route('index')}}">
-        LOGOUT
-    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+    <button form="logout-form" type="submit" class="btn btn-primary">LOGOUT</button>
 @endsection
 
 @section('content')
@@ -16,8 +17,7 @@
                 <input class="form-control" type="text" name="siglaUC">
                 <label class="mt-1 form-label" for="nomeUC">Nome da UC</label>
                 <input class="form-control" type="text" name="nomeUC">
-                <label class="mt-1 form-label" for="aulasSemanais">Nº de aulas semanais</label>
-                <input class="form-control" type="number" name="aulasSemanais">
+                <input class="form-control" type="number" name="aulasSemanais" value='3' hidden>
             </form>
             @if ($errors->any())
             <div class="alert alert-danger my-2">
@@ -29,7 +29,7 @@
             </div>
             @endif
             <div class="col-12 d-flex align-items-center justify-content-around mt-3">
-                <a type="button" class="btn btn-secondary col-5" href="{{ Route('admin.recursos') }}">VOLTAR</a>
+                <a type="button" class="btn btn-secondary col-5" href="{{ Route('admin.recursos', ['tipo' => 'uc']) }}">VOLTAR</a>
             <button form="cadastrar-uc" class="btn btn-primary col-5">SALVAR</button>
             </div>
             </div>

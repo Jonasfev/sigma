@@ -1,9 +1,10 @@
 @extends('template')
 
 @section('button')
-    <a type="button" class="btn btn-primary" href="{{Route('index')}}">
-        LOGOUT
-    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+    <button form="logout-form" type="submit" class="btn btn-primary">LOGOUT</button>
 @endsection
 
 @section('content')
@@ -17,7 +18,6 @@
                     @csrf
                     @method("PUT")
                   <div class="mb-3 mt-0">
-                    <label for="" class="form-label text-uppercase">{{$tipo}}</label>
                     <input type="text" value="{{$tipo}}" id="tipo" name="tipo" hidden>
                   </div>
                   <div class="mb-3 mt-0">
@@ -26,13 +26,21 @@
                   </div>
                   <div class="mb-3 mt-0">
                     <label for="numPatrimonio" class="form-label">Numero do patrimonio</label>
-                    <input type="number" class="form-control mt-0" id="numPatrimonio" name="numPatrimonio" value="{{$recurso->numPatrimonio}}">
+                    <input type="number" class="form-control mt-0" id="numPatrimonio" name="numPatrimonio" value="{{$recurso->numPatrimonio}}" placeholder="Max: 10 caracteres">
                   </div>
-                  
                 </form>
+                @if ($errors->any())
+                  <div class="alert alert-danger my-2">
+                      <ul class="m-auto">
+                          @foreach ($errors->all() as $error)
+                              <li class="mx-0">{{$error}}</li>  
+                          @endforeach
+                      </ul>
+                  </div>
+                @endif 
               </div>
               <div class="col-12 d-flex align-items-center justify-content-around">
-                <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos')}}">VOLTAR</a>
+                <a type="button" class="btn btn-secondary col-5" href="{{Route('admin.recursos', ['tipo' => 'equips'])}}">VOLTAR</a>
                 <button type="submit" form="formu" class="btn btn-primary col-5 text-uppercase">SALVAR</button>
               </div>
             </div>
