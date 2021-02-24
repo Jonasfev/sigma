@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-
+{{-- tela de login ou index, mostrando as siglas das turmas e seus cursos --}}
     <div class="pg-ctn bg-light d-flex flex-column align-items-center justify-content-around">
         <h1>Horário</h1>
         <div class="w-50">

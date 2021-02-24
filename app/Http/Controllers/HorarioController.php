@@ -44,7 +44,7 @@ class HorarioController extends Controller
             }
         }
 
-        $equips = Equipamento::get();
+        $equips = Equipamento::orderBy('Nome', 'asc')->get();
 
         switch ($tipo) {
             case 'CAI':

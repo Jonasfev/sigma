@@ -7,7 +7,8 @@
 @endsection
 
 @section('content')
-    
+
+{{-- mostra os horarios do tecnico para visualização --}}
 <div class="days my-auto h-60 w-100 px-3 d-flex justify-content-around">
     @for ($j = 0; $j < 5; $j++)
         @switch($j)
@@ -37,6 +38,7 @@
                 @endphp
             @break                            
         @endswitch
+        {{-- chama o horario registrado da turma --}}
         <div class="day w-18 h-100 mx-auto d-flex flex-column" id="{{$day}}">
             <h2 class="w-100 text-center">{{$day}}</h2>
             <div class="row d-flex flex-row w-100 mx-auto">

@@ -8,6 +8,7 @@
 @endsection
 
 @section('content')
+{{-- mostra os recursos geral(para cadastro, edição e deletar) --}}
     <div class="pg-ctn bg-light d-flex h-80 flex-column align-items-center justify-content-start">
         <h1 class="mt-3">Recursos</h1>
         <div class="bd-example bd-example-tabs w-50 h-50 mt-5">
@@ -313,6 +314,7 @@
         </div>
     </div>
 
+    {{-- modal para exclusão do recurso --}}
     <div class="modal fade" id="exclude" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content w-75">
@@ -335,6 +337,7 @@
         </div>
     </div>
 
+    {{-- modal para a visualização de recurso alocado ou não --}}
     <div class="modal fade" id="recurso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content h-50 w-100">
@@ -412,6 +415,7 @@
     </div>
 
     <script>
+        //função para verificar e chamar o recurso alocado ou não
         function showSchedule(id, tipoRecurso){
             erase();
 
@@ -971,6 +975,8 @@
             
             }); 
         }
+
+        // função para zerer e sobrescrever quando for selecionado outro recurso para visualização
         function erase(){
             for(i=0; i<15; i++){
                 if(i<5){

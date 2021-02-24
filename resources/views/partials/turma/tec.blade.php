@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+    {{-- modal apresentado enquando os daods estão sendo salvo --}}
     <div class="modal fade m-auto" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -15,6 +16,7 @@
         </div>
     </div>
 
+    {{-- criação de containers dos recursos --}}
     <div class="pg-ctn h-75 bg-light flex-column">       
         <div class="config-ctn w-100 h-60 d-flex flex-lg-column align-items-center justify-content-around">
             @include('partials.turma.weektec')
@@ -80,8 +82,10 @@
         </div>
     </div>
     <script>
+        //carrega o horário pelo periodo
         horario('{{$turma->periodo}}', 'TEC');
 
+        //carrega a turma caso já esteja cadastrada
         function carregaReservas() {
             $.ajax({
                 type: 'get',
@@ -94,6 +98,8 @@
         }
 
         carregaReservas();
+        
+        //mostra erros caso haja
         error();
     </script>
 @endsection

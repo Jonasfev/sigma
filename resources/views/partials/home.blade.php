@@ -8,6 +8,7 @@
 @endsection
 
 @section('content')
+{{-- menu com duas ações: Recursos e o Versionamento --}}
     <div class="pg-ctn d-flex align-items-center justify-content-around m-auto w-75">
         <div class="ctn-act align-items-center col-12">
             <a href="{{Route('admin.recursos', ['tipo' => 'uc'])}}" class="act d-flex m-4 p-3 flex-column align-items-center">

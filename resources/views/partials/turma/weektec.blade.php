@@ -1,3 +1,5 @@
+{{-- criação do layout das aulas do tecnico para a criacão do horario --}}
+{{-- mostra o horario do periodo da turma --}}
 <div class="days h-100 w-100 d-flex justify-content-around">
     <div class="h-ctn w-6 h-95 pt-2 d-flex flex-column mt-4 ml-1">
         <h2 class="w-100 text-center">&nbsp</h2>
@@ -38,6 +40,7 @@
                 @endphp
                 @break                            
         @endswitch
+    {{-- layout das aulas por dia da semana --}}
     <div class="day w-18 h-100 mx-auto d-flex flex-column" id="{{$day}}">
         <h2 class="w-100 text-center">{{$day}}</h2>
         <div class="row d-flex flex-row w-100 mx-auto">
@@ -137,7 +140,9 @@
     </div>
     @endfor
 </div>
+
 <script>
+    //função para enviar todos os formularios de cada aula (todo o  conteudo alocado)
     function enviarForms(n) {
         
         $('#btnenviarform').prop("disabled",true).text("SALVANDO...");
@@ -172,8 +177,8 @@
         }
     }
 
-    
-function getErrors(recId, aula, recTipo, idUc){
+    //função para ver se há imcompatibilade entre os recursos cadastrados (Uc/Docente, Uc/Ambiente)
+    function getErrors(recId, aula, recTipo, idUc){
     isValid = true;
     
     const request = $.ajax({
