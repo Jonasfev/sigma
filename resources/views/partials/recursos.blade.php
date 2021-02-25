@@ -350,6 +350,9 @@
                                 <a class="nav-item nav-link" id="nav-qua-tab" data-toggle="tab" href="#nav-qua" role="tab" aria-controls="nav-qua" aria-selected="false">Qua</a>
                                 <a class="nav-item nav-link" id="nav-qui-tab" data-toggle="tab" href="#nav-qui" role="tab" aria-controls="nav-qui" aria-selected="false">Qui</a>
                                 <a class="nav-item nav-link" id="nav-sex-tab" data-toggle="tab" href="#nav-sex" role="tab" aria-controls="nav-sex" aria-selected="false">Sex</a>
+                                <li class="nav-item nav-pills nav-fill ml-auto mb-1">
+                                    <a class="nav-item nav-link active" data-toggle="tab" role="tab" href="#">Download</a>
+                                </li>
                             </div>
                         </nav>
                         <div class="tab-content h-100" id="nav-tabContent">
