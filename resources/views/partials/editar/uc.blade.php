@@ -33,6 +33,7 @@
                 <input class="form-control" type="number" name="aulasSemanais" value='3' hidden>
                 </div>
               </form>
+              {{-- msgs de error caso falte algum campo ou esteja incopativel --}}
               @if ($errors->any())
                 <div class="alert alert-danger my-2">
                     <ul class="m-auto">

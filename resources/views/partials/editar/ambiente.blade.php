@@ -66,7 +66,7 @@
               </div>
             </div>
           </form>
-          {{-- msgs de error caso falta algum campo esteja incopativel --}}
+          {{-- msgs de error caso falte algum campo ou esteja incopativel --}}
           @if ($errors->any())
             <div class="alert alert-danger my-2">
                 <ul class="m-auto">

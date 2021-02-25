@@ -8,6 +8,8 @@
 @endsection
 
 @section('content')
+
+    {{-- formulario de cadastro do docente --}}
     <div class="pg-ctn bg-light d-flex flex-column align-items-center justify-content-around">
         <h1>Novo docente</h1>
         <div class="bd-example bd-example-tabs w-50 h-75">
@@ -36,6 +38,7 @@
                     </div>
                 </div>
             </form>   
+            {{-- msgs de error caso falte algum campo ou esteja incopativel --}}
             @if ($errors->any())
             <div class="alert alert-danger my-2">
                 <ul class="m-auto">
@@ -53,6 +56,7 @@
     </div>
     
     <script>
+        //pesquisa de UC a cada tecla pressionada
         $(document).ready(function(){
             $("#nomeUC").on("keyup", function() {
               var value = $(this).val().toLowerCase();

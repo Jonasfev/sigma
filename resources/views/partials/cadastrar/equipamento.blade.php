@@ -8,6 +8,8 @@
 @endsection
 
 @section('content')
+
+    {{-- formulario de cadastro do equipamento --}}
     <div class="pg-ctn bg-light d-flex flex-column align-items-center justify-content-around">
         <h1>Novo Equipamento</h1>
         <div class="bd-example bd-example-tabs w-50 h-75">
@@ -18,6 +20,7 @@
                 <label class="mt-1 form-label" for="numPatrimonio">Nº Patrimônio</label>
                 <input class="form-control" type="number" name="numPatrimonio" placeholder="Max: 10 caracteres">
             </form>
+            {{-- msgs de error caso falte algum campo ou esteja incopativel --}}
             @if ($errors->any())
             <div class="alert alert-danger my-2">
                 <ul class="m-auto">

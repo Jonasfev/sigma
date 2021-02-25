@@ -8,6 +8,8 @@
 @endsection
 
 @section('content')
+
+    {{-- formulario de cadastro da UC --}}
     <div class="pg-ctn bg-light d-flex flex-column align-items-center justify-content-around">
         <h1>Nova UC</h1>
         <div class="bd-example bd-example-tabs w-50 h-75">
@@ -19,6 +21,7 @@
                 <input class="form-control" type="text" name="nomeUC">
                 <input class="form-control" type="number" name="aulasSemanais" value='3' hidden>
             </form>
+            {{-- msgs de error caso falte algum campo ou esteja incopativel --}}
             @if ($errors->any())
             <div class="alert alert-danger my-2">
                 <ul class="m-auto">
