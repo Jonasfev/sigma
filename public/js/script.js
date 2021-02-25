@@ -196,6 +196,9 @@ function constroiHorario(id, tipo) {
             ucs = response[3];
 
             for (var reserva in reservas) {
+                d = null;
+                a = null;
+                u = null;
                 switch (reservas[reserva].diaSemana) {
                     case 'Seg':
                         j = 0;
