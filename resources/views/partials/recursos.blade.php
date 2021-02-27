@@ -339,8 +339,8 @@
 
     {{-- modal para a visualização de recurso alocado ou não --}}
     <div class="modal fade" id="recurso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content h-50 w-100">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content h-50">
                 <div class="modal-body">
                     <div class="bd-example bd-example-tabs">
                         <nav>
