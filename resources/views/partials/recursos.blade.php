@@ -11,6 +11,13 @@
 {{-- mostra os recursos geral(para cadastro, edição e deletar) --}}
     <div class="pg-ctn bg-light d-flex h-80 flex-column align-items-center justify-content-start">
         <h1 class="mt-3">Recursos</h1>
+        
+        <i class="bi bi-check-circle-fill text-success"></i>
+        <i class="bi bi-x-circle-fill text-primary"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle-fill text-success" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+        
         <div class="bd-example bd-example-tabs w-50 h-50 mt-5">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -339,8 +346,8 @@
 
     {{-- modal para a visualização de recurso alocado ou não --}}
     <div class="modal fade" id="recurso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-            <div class="modal-content h-50">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+            <div class="modal-content h-75">
                 <div class="modal-body">
                     <div class="bd-example bd-example-tabs">
                         <nav>
@@ -361,7 +368,8 @@
                                     <div class="border border-success shadow rounded col-10 h-15 mt-4 mx-auto d-flex bg-light">
                                         <div class="p-2 d-flex flex-column justify-content-around flex-fill">
                                             <h4 class="m-0" id="seg-aula-{{$i}}">Aula @if($i < 5) {{$i+1}} - Manhã @elseif($i < 10) {{$i-4}} - Tarde @elseif($i < 15) {{$i-9}} - Noite @endif - Disponivel</h4>
-                                        <p class="m-0">Não alocado</p>
+                                            <p class="m-0">Não alocado</p>
+                                            <i class="fas fa-check-square fa-lg text-sucess"></i>
                                         </div>
                                     </div>
                                 @endfor
@@ -432,6 +440,11 @@
                 },
                 success: function(response) {
                     var sligaTurma;
+                    if(tipoRecurso == "equipamento"){
+                        $('li.nav-pills').children().hide();
+                    } else {
+                        $('li.nav-pills').children().show();
+                    }
                     for(var reservas in response['agenda']){
                         for(var turmas in response['turma']){
                             if(response['agenda'][reservas].idTurma == response['turma'][turmas].id){
