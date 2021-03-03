@@ -4,6 +4,7 @@ use App\Http\Controllers\CsvController;
 use App\Http\Controllers\RecursoController;
 use App\Http\Controllers\HorarioController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -77,6 +78,8 @@ Route::middleware(['auth'])->group(function () {
 
         // rota de exportação do csv
         Route::post('csv/export', [CsvController::class, 'export'])->name('csv.export');
+
+        Route::get('/pdf', [PdfController::class, 'index'])->name('pdf');
     });
 });
 

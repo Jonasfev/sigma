@@ -351,7 +351,14 @@
                                 <a class="nav-item nav-link" id="nav-qui-tab" data-toggle="tab" href="#nav-qui" role="tab" aria-controls="nav-qui" aria-selected="false">Qui</a>
                                 <a class="nav-item nav-link" id="nav-sex-tab" data-toggle="tab" href="#nav-sex" role="tab" aria-controls="nav-sex" aria-selected="false">Sex</a>
                                 <li class="nav-item nav-pills nav-fill ml-auto mb-1">
-                                    <a class="nav-item nav-link active" data-toggle="tab" role="tab" href="#">Relatório &nbsp; <i class="bi bi-download"></i></a>
+                                    {{-- <a class="nav-item nav-link active" href="{{Route('admin.pdf')}}">Relatório &nbsp;<i class="bi bi-download"></i>
+                                    </a> --}}
+                                    <form action="{{Route('admin.pdf')}}" id="formSchedule">
+                                        @csrf
+                                        <input type="text" name="tipo" id="tipoRecursoSchedule" hidden>
+                                        <input type="text" name="id" id="idRecursoSchedule" hidden>
+                                    </form>
+                                    <button type="submit" form="formSchedule" class="nav-item nav-link active">Relatório &nbsp;<i class="bi bi-download"></i></button>
                                 </li>
                             </div>
                         </nav>
@@ -456,6 +463,9 @@
         //função para verificar e chamar o recurso alocado ou não
         function showSchedule(id, tipoRecurso){
             erase();
+            
+            $("input#tipoRecursoSchedule").attr("value", tipoRecurso);
+            $("input#idRecursoSchedule").attr("value", id);
 
             const request = $.ajax({
                 url: "/recursos/show/"+id+'/'+tipoRecurso,
