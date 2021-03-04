@@ -34,7 +34,7 @@ class PdfController extends Controller
             case "ambiente":
                 $agendas = Reserva::get()->where('idAmbiente', $id);
                 $amb = Ambiente::get()->where('id', $id);
-                $pdf = PDF::loadView('partials.pdf', compact(['turmas'], ['agendas'], ['amb'], ['tipo']));
+                $pdf = PDF::loadView('partials.pdf', compact(['turmas'], ['agendas'], ['amb'], ['tipo'], ['ucs']));
                 return $pdf->setPaper('a4')->stream($amb[0]->Tipo . '_' . $amb[0]->numAmbiente . '.pdf');
                 break;
         }
