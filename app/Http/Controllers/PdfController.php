@@ -7,6 +7,7 @@ use App\Models\Docente;
 use Illuminate\Http\Request;
 use App\Models\Reserva;
 use App\Models\Turma;
+use App\Models\Uc;
 use Barryvdh\DomPDF\Facade as PDF;
 
 class PdfController extends Controller
@@ -21,12 +22,13 @@ class PdfController extends Controller
         $amb = null;
 
         $turmas = Turma::select('id', 'siglaTurma')->distinct()->get();
+        $ucs = Uc::select('id', 'siglaUC')->distinct()->get();
 
         switch ($tipo) {
             case "docente":
-                $agendas = Reserva::get()->where('idDocente', $id);
+                $agendas = Reserva::orderBy('periodo')->get()->where('idDocente', $id);
                 $doc = Docente::get()->where('id', $id);
-                $pdf = PDF::loadView('partials.pdf', compact(['turmas'], ['agendas'], ['doc'], ['tipo']));
+                $pdf = PDF::loadView('partials.pdf', compact(['turmas'], ['agendas'], ['doc'], ['tipo'], ['ucs']));
                 return $pdf->setPaper('a4')->stream($doc[0]->Nome . '.pdf');
                 break;
             case "ambiente":
