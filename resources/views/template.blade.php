@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
     <title>SIGMA</title>
 </head>
-<body class="d-flex flex-column">
+<body class="d-flex flex-column bg-light">
     {{-- barra de navegação --}}
     <nav class="navbar navbar-dark bg-dark d-flex px-5">
         <a href="{{Route('home')}}">

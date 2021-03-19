@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-<div class="container flex-fill">
-    <div class="my-auto h-100 d-flex flex-column row justify-content-center align-items-center">
-        <div class="w-50">
+<div class="pg-ctn m-auto w-98">
+    <div class="h-100 bg-light d-flex flex-column row justify-content-center align-items-center">
+        <div class="w-25">
             <div class="card my-auto">
                 <div class="card-header">{{ __('Login') }}</div>
 

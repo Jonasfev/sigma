@@ -9,7 +9,7 @@
 
 @section('content')
 {{-- janela de importar e exportar csv --}}
-    <div class="pg-ctn w-100 d-flex flex-column align-items-center justify-content-center">
+    <div class="pg-ctn w-100 bg-light d-flex flex-column align-items-center justify-content-center">
         <div class="ctn-act w-75 h-50 d-flex align-items-center justify-content-around">
             {{-- formulario para importar csv e enviá-lo --}}
             <form class="act d-flex w-25 flex-column align-items-center" action="{{route('admin.csv.create')}}" method="post" id="csvCreate" enctype="multipart/form-data">
