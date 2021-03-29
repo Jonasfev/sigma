@@ -11,7 +11,7 @@ Use for instance <https://github.com/ekalinin/github-markdown-toc>:
 
 > * [SIGMA](#SIGMA)
 >   * [Sobre](#Sobre)
->   * [Tabela de conteúdos](#Tabela de conteúdos)
+>   * [Tabela de conteúdos](#Tabela-de-conteúdos)
 >   * [Instalação](#instalação)
 >   * [Uso](#uso)
 >     * [Screenshots](#screenshots)
@@ -19,7 +19,7 @@ Use for instance <https://github.com/ekalinin/github-markdown-toc>:
 >   * [Recursos](#recursos)
 >   * [Contribuição](#contribuição)
 >   * [Licensa](#Licensa)
->   * [Sobre SIGMA](#Sobre Sigma)
+>   * [Sobre SIGMA](#Sobre-Sigma)
 
 ## Installation
 
