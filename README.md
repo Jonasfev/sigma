@@ -13,21 +13,16 @@ Use for instance <https://github.com/ekalinin/github-markdown-toc>:
 >   * [Sobre](#Sobre)
 >   * [Tabela de conteúdos](#Tabela-de-conteúdos)
 >   * [Instalação](#instalação)
->   * [Uso](#uso)
->     * [Screenshots](#screenshots)
->     * [Features](#features)
->   * [Recursos](#recursos)
->   * [Contribuição](#contribuição)
+>   * [Conteúdo](#Conteúdo)
 >   * [Licensa](#Licensa)
 >   * [Sobre SIGMA](#Sobre-Sigma)
 
-## Installation
+## Instalação
 
 Após fazer o pull, execute os seguintes comando na pasta do projeto:
 > composer install
 > 
 > npm install 
-
 
 
 ### Conteúdo
