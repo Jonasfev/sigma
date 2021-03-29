@@ -9,7 +9,7 @@
 
 Use for instance <https://github.com/ekalinin/github-markdown-toc>:
 
-> * [SIGMA](#title--repository-name)
+> * [SIGMA](#SIGMA)
 >   * [Sobre](#about--synopsis)
 >   * [Tabela de conteúdos](#table-of-contents)
 >   * [Instalação](#installation)
