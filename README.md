@@ -10,16 +10,16 @@
 Use for instance <https://github.com/ekalinin/github-markdown-toc>:
 
 > * [SIGMA](#SIGMA)
->   * [Sobre](#about--synopsis)
->   * [Tabela de conteúdos](#table-of-contents)
->   * [Instalação](#installation)
->   * [Uso](#usage)
+>   * [Sobre](#Sobre)
+>   * [Tabela de conteúdos](#Tabela de conteúdos)
+>   * [Instalação](#instalação)
+>   * [Uso](#uso)
 >     * [Screenshots](#screenshots)
 >     * [Features](#features)
->   * [Recursos](#resources-documentation-and-other-links)
->   * [Contribuição](#contributing--reporting-issues)
->   * [Licensa](#license)
->   * [Sobre SIGMA](#about-nuxeo)
+>   * [Recursos](#recursos)
+>   * [Contribuição](#contribuição)
+>   * [Licensa](#Licensa)
+>   * [Sobre SIGMA](#Sobre Sigma)
 
 ## Installation
 
