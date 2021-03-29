@@ -1,4 +1,4 @@
-# Title / Repository Name
+# SIGMA
 
 ## About / Synopsis
 
