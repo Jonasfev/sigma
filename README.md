@@ -1,38 +1,25 @@
 # SIGMA
 
-## About / Synopsis
+## Sobre
+* SIGMA é uma aplicação web desenvolvida em HTML, Javascript e PHP, utilizando o framework Laravel, para gerenciamento de horários de recursos de uma instituição de ensino.
+* Foi densenvolvida com foco na flexibilidade do usúario, dando a ele total controle do sistema que se adapta ao seu desejo.
 
-* What is it, what does it do / Abstract
-* Project status: working/prototype
-* Nuxeo Support
 
-See real examples:
-
-* <https://github.com/nuxeo/nuxeo/blob/master/README.md>
-* <https://github.com/nuxeo/nuxeo-drive/blob/master/README.md>
-* <https://github.com/nuxeo/nuxeo-sdk-ios/blob/master/README.md>
-
-## Table of contents
+## Tabela de conteúdos
 
 Use for instance <https://github.com/ekalinin/github-markdown-toc>:
 
-> * [Title / Repository Name](#title--repository-name)
->   * [About / Synopsis](#about--synopsis)
->   * [Table of contents](#table-of-contents)
->   * [Installation](#installation)
->   * [Usage](#usage)
+> * [SIGMA](#title--repository-name)
+>   * [Sobre](#about--synopsis)
+>   * [Tabela de conteúdos](#table-of-contents)
+>   * [Instalação](#installation)
+>   * [Uso](#usage)
 >     * [Screenshots](#screenshots)
 >     * [Features](#features)
->   * [Code](#code)
->     * [Content](#content)
->     * [Requirements](#requirements)
->     * [Limitations](#limitations)
->     * [Build](#build)
->     * [Deploy (how to install build product)](#deploy-how-to-install-build-product)
->   * [Resources (Documentation and other links)](#resources-documentation-and-other-links)
->   * [Contributing / Reporting issues](#contributing--reporting-issues)
->   * [License](#license)
->   * [About Nuxeo](#about-nuxeo)
+>   * [Recursos](#resources-documentation-and-other-links)
+>   * [Contribuição](#contributing--reporting-issues)
+>   * [Licensa](#license)
+>   * [Sobre SIGMA](#about-nuxeo)
 
 ## Installation
 
