@@ -23,10 +23,9 @@ Use for instance <https://github.com/ekalinin/github-markdown-toc>:
 
 ## Installation
 
-Sample:
-
-* From the Nuxeo Marketplace: install [the Sample Nuxeo Package](https://connect.nuxeo.com/nuxeo/site/marketplace/package/nuxeo-sample).
-* From the command line: `nuxeoctl mp-install nuxeo-sample`
+Após fazer o pull, execute os seguintes comando na pasta do projeto:
+> composer install
+> npm install 
 
 ## Usage
 
